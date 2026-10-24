@@ -3,7 +3,10 @@ import os
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
+
 from island.runner import run, messages_for
+import island.runner as runner_mod
 
 
 class BaselineTests(unittest.TestCase):
@@ -78,3 +81,68 @@ class BaselineTests(unittest.TestCase):
         finally:
             if old is not None:
                 os.environ["OPENROUTER_API_KEY"] = old
+
+
+class RetryTests(unittest.TestCase):
+    def test_retry_survives_rate_limit(self):
+        calls = {"n": 0}
+
+        def stub(who, model, messages, provider):
+            calls["n"] += 1
+            if calls["n"] == 1:
+                raise RuntimeError("OpenRouter HTTP 429")
+            return {"text": "ok " + who, "model_returned": None, "response_id": None,
+                    "usage": {"cost_usd": 0.01, "total_tokens": 3}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", lambda s: None):
+                result = run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        retries = [x for x in events if x["type"] == "retry"]
+        self.assertEqual(result["turns"], 2)
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(len(retries), 1)
+        self.assertEqual(retries[0]["wait_s"], runner_mod.RETRY_WAIT_S)
+        self.assertIn("429", retries[0]["reason"])
+        self.assertEqual(retries[0]["attempt"], 1)
+
+    def test_retry_exhaustion_stops_with_error(self):
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 429")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", lambda s: None):
+                result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        retries = [x for x in events if x["type"] == "retry"]
+        errors = [x for x in events if x["type"] == "error"]
+        self.assertEqual(result["stop"], "error")
+        self.assertEqual(result["turns"], 0)
+        self.assertEqual(len(retries), runner_mod.RETRY_MAX)
+        self.assertEqual(len(errors), 1)
+        self.assertIn("429", errors[0]["error"])
+
+    def test_backoff_doubles_between_retries(self):
+        waits = []
+
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 429")
+
+        def fake_sleep(s):
+            waits.append(s)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", fake_sleep):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+        self.assertEqual(waits, [runner_mod.RETRY_WAIT_S * (2 ** i) for i in range(runner_mod.RETRY_MAX)])
+
+    def test_non_retryable_error_is_not_retried(self):
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 402")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            result = run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        retries = [x for x in events if x["type"] == "retry"]
+        self.assertEqual(result["stop"], "error")
+        self.assertEqual(len(retries), 0)

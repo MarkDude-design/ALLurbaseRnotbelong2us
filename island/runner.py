@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,6 +11,14 @@ from urllib.error import HTTPError, URLError
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 TOPIC = "Emergence versus calibration: where should our conversation begin?"
+RETRY_MAX = 4
+RETRY_WAIT_S = 5
+
+
+def retryable_failure(exc):
+    msg = str(exc)
+    return ("OpenRouter HTTP 429" in msg or "OpenRouter HTTP 5" in msg
+            or msg == "OpenRouter network error")
 
 
 def now():
@@ -114,17 +123,36 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                 stopped = "local_budget_reached"
                 break
             who = order[n % 2]
-            try:
-                response = answer(who, models[who], messages_for(who, history, topic, history_chars), providers[who])
-                text = response["text"].strip()
-                usage = response["usage"]
-                if not text or not isinstance(usage.get("cost_usd"), (int, float)):
-                    raise RuntimeError("Invalid completion")
-            except Exception as exc:
+            response = None
+            failure = None
+            for attempt in range(RETRY_MAX + 1):
+                try:
+                    response = answer(who, models[who], messages_for(who, history, topic, history_chars), providers[who])
+                    failure = None
+                    break
+                except Exception as exc:
+                    failure = exc
+                    if attempt < RETRY_MAX and retryable_failure(exc):
+                        wait = RETRY_WAIT_S * (2 ** attempt)
+                        emit({"type": "retry", "utc": now(), "seq": n + 1,
+                              "speaker": who, "attempt": attempt + 1,
+                              "wait_s": wait, "reason": str(exc)[:160]})
+                        time.sleep(wait)
+                    else:
+                        break
+            if failure is not None or response is None:
                 stopped = "error"
                 # Do not persist raw remote HTTP error bodies, credentials or request prompts.
                 emit({"type": "error", "utc": now(), "seq": n + 1,
-                      "speaker": who, "error": str(exc)[:160]})
+                      "speaker": who,
+                      "error": str(failure)[:160] if failure else "Invalid completion"})
+                break
+            text = response["text"].strip()
+            usage = response["usage"]
+            if not text or not isinstance(usage.get("cost_usd"), (int, float)):
+                stopped = "error"
+                emit({"type": "error", "utc": now(), "seq": n + 1,
+                      "speaker": who, "error": "Invalid completion"})
                 break
             history.append({"speaker": who, "text": text})
             for key in totals:
