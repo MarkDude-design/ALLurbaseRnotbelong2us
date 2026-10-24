@@ -1,0 +1,72 @@
+name: Island Pa More — Manual Baseline
+
+on:
+  workflow_dispatch:
+    inputs:
+      model_a:
+        description: 'OpenRouter model ID for A / Meraki proxy'
+        required: true
+        type: string
+      model_b:
+        description: 'OpenRouter model ID for B / Z proxy'
+        required: true
+        type: string
+      turns:
+        description: 'Number of alternating turns'
+        required: true
+        type: choice
+        default: '8'
+        options: ['4', '8', '12', '16', '20']
+      topic:
+        description: 'Starting topic'
+        required: true
+        type: string
+        default: 'Emergence versus calibration: where should we begin?'
+      provider_a:
+        description: 'Optional provider slug for A'
+        required: false
+        type: string
+      provider_b:
+        description: 'Optional provider slug for B'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  conversation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      MODEL_A: ${{ inputs.model_a }}
+      MODEL_B: ${{ inputs.model_b }}
+      PROVIDER_A: ${{ inputs.provider_a }}
+      PROVIDER_B: ${{ inputs.provider_b }}
+      TOPIC: ${{ inputs.topic }}
+      TURNS: ${{ inputs.turns }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python -m unittest discover -s tests -v
+      - name: Key exists
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Run one bounded conversation
+        run: |
+          python -m island.runner --mode live \
+            --model-a "$MODEL_A" --model-b "$MODEL_B" \
+            --provider-a "$PROVIDER_A" --provider-b "$PROVIDER_B" \
+            --topic "$TOPIC" --turns "$TURNS" --max-cost-usd 10 \
+            --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Archive reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: island-baseline-${{ github.run_id }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
