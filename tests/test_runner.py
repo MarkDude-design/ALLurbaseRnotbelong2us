@@ -16,6 +16,7 @@ class BaselineTests(unittest.TestCase):
             self.assertEqual([x["speaker"] for x in events if x["type"] == "turn"],
                              ["A", "B", "A", "B", "A"])
             self.assertEqual(events[0].get("first_speaker"), "A")
+            self.assertEqual(events[0].get("history_chars"), 28000)
             self.assertEqual(events[-1]["type"], "stop")
             self.assertIn("SYNTHETIC", (folder / "transcript.md").read_text())
 
@@ -33,6 +34,20 @@ class BaselineTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(ValueError):
                 run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", first="C")
+
+    def test_history_chars_truncates_oldest_keeps_newest(self):
+        history = [{"speaker": "A" if i % 2 == 0 else "B",
+                   "text": f"turn {i} " + "word " * 10} for i in range(40)]
+        messages = messages_for("B", history, "T", history_chars=2000)
+        content = messages[1]["content"]
+        self.assertLess(len(content), 2500)
+        self.assertNotIn("turn 0 ", content)
+        self.assertIn("turn 39 ", content)
+
+    def test_invalid_history_chars_fails(self):
+        with self.assertRaises(ValueError):
+            run("demo", "", "", "", "", "T", 2, 10.0, Path("/tmp/x-invalid"),
+                history_chars=10)
 
     def test_messages_include_previous_turns(self):
         messages = messages_for("B", [{"speaker": "A", "text": "What is calibration?"}], "T")

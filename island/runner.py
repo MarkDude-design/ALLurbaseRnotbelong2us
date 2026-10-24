@@ -16,7 +16,7 @@ def now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def messages_for(who, history, topic):
+def messages_for(who, history, topic, history_chars=28000):
     peer = "B" if who == "A" else "A"
     system = (
         f"You are participant {who}, talking with participant {peer}. "
@@ -26,7 +26,7 @@ def messages_for(who, history, topic):
         "Respond to the conversation itself, not to a facilitator."
     )
     if history:
-        transcript = "\n\n".join(f"{x['speaker']}: {x['text']}" for x in history)[-28000:]
+        transcript = "\n\n".join(f"{x['speaker']}: {x['text']}" for x in history)[-history_chars:]
         text = f"Opening topic: {topic}\n\nConversation so far:\n{transcript}\n\nContinue as {who}."
     else:
         text = f"Opening topic: {topic}\n\nYou speak first. Open naturally."
@@ -80,11 +80,13 @@ def openrouter_answer(who, model, messages, provider):
                       "total_tokens": usage.get("total_tokens"), "cost_usd": float(cost)}}
 
 
-def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", answer=None):
+def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None):
     if not 1 <= turns <= 100:
         raise ValueError("turns must be 1..100")
     if first not in ("A", "B"):
         raise ValueError("first must be A or B")
+    if not isinstance(history_chars, int) or history_chars < 1000:
+        raise ValueError("history_chars must be an integer >= 1000")
     if not 0 < max_cost_usd <= 10:
         raise ValueError("local budget must be <= $10")
     if mode == "live" and (not model_a or not model_b or not os.getenv("OPENROUTER_API_KEY")):
@@ -105,7 +107,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             bus.flush()
         emit({"type": "start", "utc": now(), "run_id": run_id, "mode": mode,
               "topic": topic, "models": models, "providers": providers,
-              "first_speaker": first,
+              "first_speaker": first, "history_chars": history_chars,
               "turns_requested": turns, "max_cost_usd": max_cost_usd})
         for n in range(turns):
             if totals["cost_usd"] >= max_cost_usd:
@@ -113,7 +115,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                 break
             who = order[n % 2]
             try:
-                response = answer(who, models[who], messages_for(who, history, topic), providers[who])
+                response = answer(who, models[who], messages_for(who, history, topic, history_chars), providers[who])
                 text = response["text"].strip()
                 usage = response["usage"]
                 if not text or not isinstance(usage.get("cost_usd"), (int, float)):
@@ -161,12 +163,14 @@ def main():
     p.add_argument("--provider-b", default="")
     p.add_argument("--first", choices=["A", "B"], default="A")
     p.add_argument("--turns", type=int, default=8)
+    p.add_argument("--history-chars", type=int, default=28000)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
     p.add_argument("--topic", default=TOPIC)
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
     result = run(a.mode, a.model_a, a.model_b, a.provider_a, a.provider_b,
-                 a.topic, a.turns, a.max_cost_usd, a.outdir, first=a.first)
+                 a.topic, a.turns, a.max_cost_usd, a.outdir,
+                 first=a.first, history_chars=a.history_chars)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
         raise SystemExit(1)
