@@ -80,15 +80,18 @@ def openrouter_answer(who, model, messages, provider):
                       "total_tokens": usage.get("total_tokens"), "cost_usd": float(cost)}}
 
 
-def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, answer=None):
+def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", answer=None):
     if not 1 <= turns <= 100:
         raise ValueError("turns must be 1..100")
+    if first not in ("A", "B"):
+        raise ValueError("first must be A or B")
     if not 0 < max_cost_usd <= 10:
         raise ValueError("local budget must be <= $10")
     if mode == "live" and (not model_a or not model_b or not os.getenv("OPENROUTER_API_KEY")):
         raise ValueError("live mode needs two model IDs and OPENROUTER_API_KEY")
     models = {"A": model_a, "B": model_b}
     providers = {"A": provider_a, "B": provider_b}
+    order = (first, "B") if first == "A" else ("B", "A")
     answer = answer or (demo_answer if mode == "demo" else openrouter_answer)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
@@ -102,12 +105,13 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             bus.flush()
         emit({"type": "start", "utc": now(), "run_id": run_id, "mode": mode,
               "topic": topic, "models": models, "providers": providers,
+              "first_speaker": first,
               "turns_requested": turns, "max_cost_usd": max_cost_usd})
         for n in range(turns):
             if totals["cost_usd"] >= max_cost_usd:
                 stopped = "local_budget_reached"
                 break
-            who = "A" if n % 2 == 0 else "B"
+            who = order[n % 2]
             try:
                 response = answer(who, models[who], messages_for(who, history, topic), providers[who])
                 text = response["text"].strip()
@@ -155,13 +159,14 @@ def main():
     p.add_argument("--model-b", default="")
     p.add_argument("--provider-a", default="")
     p.add_argument("--provider-b", default="")
+    p.add_argument("--first", choices=["A", "B"], default="A")
     p.add_argument("--turns", type=int, default=8)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
     p.add_argument("--topic", default=TOPIC)
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
     result = run(a.mode, a.model_a, a.model_b, a.provider_a, a.provider_b,
-                 a.topic, a.turns, a.max_cost_usd, a.outdir)
+                 a.topic, a.turns, a.max_cost_usd, a.outdir, first=a.first)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
         raise SystemExit(1)

@@ -22,6 +22,12 @@ on:
         required: true
         type: string
         default: 'Emergence versus calibration: where should we begin?'
+      first:
+        description: 'Opening speaker (A or B)'
+        required: true
+        type: choice
+        default: 'A'
+        options: ['A', 'B']
       provider_a:
         description: 'Optional provider slug for A'
         required: false
@@ -46,6 +52,7 @@ jobs:
       PROVIDER_B: ${{ inputs.provider_b }}
       TOPIC: ${{ inputs.topic }}
       TURNS: ${{ inputs.turns }}
+      FIRST: ${{ inputs.first }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -60,7 +67,7 @@ jobs:
           python -m island.runner --mode live \
             --model-a "$MODEL_A" --model-b "$MODEL_B" \
             --provider-a "$PROVIDER_A" --provider-b "$PROVIDER_B" \
-            --topic "$TOPIC" --turns "$TURNS" --max-cost-usd 10 \
+            --topic "$TOPIC" --turns "$TURNS" --first "$FIRST" --max-cost-usd 10 \
             --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
       - name: Archive reports
         if: always()

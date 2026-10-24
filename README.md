@@ -20,6 +20,8 @@ Or from your own computer, set OPENROUTER_API_KEY in your local environment and 
 
     python3 -m island.runner --mode live --model-a 'AUTHOR/ID_A' --model-b 'AUTHOR/ID_B' --turns 8 --max-cost-usd 10 --outdir runs/local-live
 
+Add `--first B` (A or B) to choose the opening speaker — the first-speaker steering test; the workflow exposes it as an input too.
+
 ### Scope and privacy
 - Alternating floor A / B; substantive turns; no forced debate, role-play persona, recursion, or extra layers.
 - One timestamped event per spoken turn with actual requested/returned model ID, usage, cost, and sequence. No notebook content in shared bus.
@@ -28,4 +30,4 @@ Or from your own computer, set OPENROUTER_API_KEY in your local environment and 
 - This repository is **PUBLIC**. Branches a/meraki and b/z are *also public*, not private notebooks. Keep personal notes in a separate private store, never in this repo.
 - Outputs are workflow artifacts rather than automatic pushes to main, pending deliberate release. A/B have no independent GitHub identities in this runner.
 
-See docs/TAKE37.md, docs/PHASE_ZERO.md and docs/TO_Z.md. The next step is a genuine API conversation, not proof of emergence. No live calls have been made yet.
+See docs/TAKE37.md, docs/PHASE_ZERO.md, docs/TO_Z.md and docs/TO_A.md. The next step is a genuine API conversation, not proof of emergence. No live calls have been made yet.

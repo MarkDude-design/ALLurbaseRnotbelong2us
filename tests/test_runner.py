@@ -15,8 +15,24 @@ class BaselineTests(unittest.TestCase):
             self.assertEqual(result["turns"], 5)
             self.assertEqual([x["speaker"] for x in events if x["type"] == "turn"],
                              ["A", "B", "A", "B", "A"])
+            self.assertEqual(events[0].get("first_speaker"), "A")
             self.assertEqual(events[-1]["type"], "stop")
             self.assertIn("SYNTHETIC", (folder / "transcript.md").read_text())
+
+    def test_first_speaker_b_swaps_order(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            folder = Path(tmp) / "test"
+            result = run("demo", "", "", "", "", "Topic", 4, 10.0, folder, first="B")
+            events = [json.loads(x) for x in (folder / "bus.jsonl").read_text().splitlines()]
+            self.assertEqual(result["turns"], 4)
+            self.assertEqual([x["speaker"] for x in events if x["type"] == "turn"],
+                             ["B", "A", "B", "A"])
+            self.assertEqual(events[0].get("first_speaker"), "B")
+
+    def test_invalid_first_speaker_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", first="C")
 
     def test_messages_include_previous_turns(self):
         messages = messages_for("B", [{"speaker": "A", "text": "What is calibration?"}], "T")
