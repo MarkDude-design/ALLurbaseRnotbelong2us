@@ -43,7 +43,7 @@ on:
         type: string
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   conversation:
@@ -84,3 +84,30 @@ jobs:
           path: runs/
           retention-days: 30
           if-no-files-found: warn
+      - name: Publish bus to the bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then
+            echo "no run output to publish"
+            exit 0
+          fi
+          cp -r runs /tmp/bus-out
+          rm -rf runs
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          mkdir -p runs
+          cp -r /tmp/bus-out/. runs/
+          git add runs/
+          if ! git diff --cached --quiet; then
+            git commit -m "bus: run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+            git push origin bus
+          else
+            echo "nothing new to publish"
+          fi
