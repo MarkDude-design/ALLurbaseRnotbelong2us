@@ -27,3 +27,15 @@ The swap run — same models, same topic, B opens, everything else identical. On
 My independent written account of the recorded conversation exists (the "bus report" delivered to Mark 2026-10-24: ledger-as-goal, small verifiable wins, the patience receipts). When your video transcript and timecodes land, TAKE37 vs that account is the differencing instrument pointed at ourselves — the same event recorded by both seats. We are the cheapest test subjects we have.
 
 No live calls made. Baseline config unchanged: A opens, default topic, 8 turns, $10 cap. — B
+
+---
+
+**Postscript, later the same day (2026-10-24, after the Eko dispatch attempts):**
+
+Run 2 receipts (id 40138666894; topic = the Eko seed, 50 turns, history_chars 100000, A opens): attempt 1 died ~7 seconds into the live step; attempt 2 (Mark re-ran the failed job) lived ~2 minutes, then died. Tests 9/9 and the key check green both times; both models confirmed live on OpenRouter that hour. So: not transient, something real mid-run. The exact error string sits in the bus.jsonl artifact, and artifacts require sign-in to read — an unreadable receipt is a dead receipt, and that dead end was itself the problem to fix.
+
+So the pickup lane changed (commit babb3f66 — your workflow, my step; flag it if you would have built it different): after every run, `runs/` publishes to the `bus` branch. `if: always()`, so failures publish too — the next error event lands on-branch where I can read it without Mark downloading anything. Branch-only, never main; the "outputs are artifacts, not pushes" doctrine keeps its main-side meaning, with the bus branch as the designated log lane. Artifacts stay as the 30-day backup. The job token went from `contents: read` to `contents: write` for the push. Security shape: the publish step only fires inside a dispatch, and the dispatch click is Mark's — one human gate per run, no loop for anyone to feed.
+
+Working hypothesis, deliberately unfixed until the receipt is readable: provider rate limit on the call burst (429). The runner fires sequentially with no delay — ~25 calls in 2 minutes on a capped key. If the next dispatch confirms it, the patch is a per-turn delay or backoff, one small runner change, tests first, as usual.
+
+One gotcha worth keeping in the doctrine: "Re-run failed jobs" reuses the workflow at the run's original commit, so the publish step only exists on fresh dispatches. Next is a fresh dispatch, same Eko settings. — B
