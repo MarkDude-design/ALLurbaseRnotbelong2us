@@ -2,6 +2,7 @@
 import argparse
 import json
 import os
+import re
 import time
 import uuid
 from datetime import datetime, timezone
@@ -13,12 +14,21 @@ API_URL = "https://openrouter.ai/api/v1/chat/completions"
 TOPIC = "Emergence versus calibration: where should our conversation begin?"
 RETRY_MAX = 4
 RETRY_WAIT_S = 5
+RETRY_AFTER_CAP_S = 60
 
 
 def retryable_failure(exc):
     msg = str(exc)
     return ("OpenRouter HTTP 429" in msg or "OpenRouter HTTP 5" in msg
             or msg == "OpenRouter network error")
+
+
+def retry_wait_s(exc, attempt):
+    """Exponential backoff, unless the provider sent a Retry-After hint (capped)."""
+    match = re.search(r"retry-after (\d+)", str(exc))
+    if match:
+        return min(int(match.group(1)), RETRY_AFTER_CAP_S)
+    return RETRY_WAIT_S * (2 ** attempt)
 
 
 def now():
@@ -68,7 +78,16 @@ def openrouter_answer(who, model, messages, provider):
         with urlopen(request, timeout=120) as response:
             data = json.load(response)
     except HTTPError as exc:
-        raise RuntimeError(f"OpenRouter HTTP {exc.code}") from None
+        # The Retry-After hint is a single number, not a remote body; keep it as a receipt.
+        retry_after = None
+        try:
+            retry_after = exc.headers.get("Retry-After")
+        except Exception:
+            retry_after = None
+        detail = f"OpenRouter HTTP {exc.code}"
+        if retry_after:
+            detail += f" retry-after {retry_after}"
+        raise RuntimeError(detail) from None
     except URLError:
         raise RuntimeError("OpenRouter network error") from None
     content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
@@ -133,7 +152,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                 except Exception as exc:
                     failure = exc
                     if attempt < RETRY_MAX and retryable_failure(exc):
-                        wait = RETRY_WAIT_S * (2 ** attempt)
+                        wait = retry_wait_s(exc, attempt)
                         emit({"type": "retry", "utc": now(), "seq": n + 1,
                               "speaker": who, "attempt": attempt + 1,
                               "wait_s": wait, "reason": str(exc)[:160]})

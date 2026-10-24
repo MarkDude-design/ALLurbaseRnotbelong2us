@@ -146,3 +146,34 @@ class RetryTests(unittest.TestCase):
         retries = [x for x in events if x["type"] == "retry"]
         self.assertEqual(result["stop"], "error")
         self.assertEqual(len(retries), 0)
+
+    def test_retry_after_hint_is_honored(self):
+        waits = []
+
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 429 retry-after 30")
+
+        def fake_sleep(s):
+            waits.append(s)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", fake_sleep):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        retries = [x for x in events if x["type"] == "retry"]
+        self.assertEqual(waits, [30] * runner_mod.RETRY_MAX)
+        self.assertTrue(all(x["reason"].endswith("retry-after 30") for x in retries))
+
+    def test_retry_after_hint_is_capped(self):
+        waits = []
+
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 429 retry-after 300")
+
+        def fake_sleep(s):
+            waits.append(s)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", fake_sleep):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+        self.assertEqual(waits, [runner_mod.RETRY_AFTER_CAP_S] * runner_mod.RETRY_MAX)
