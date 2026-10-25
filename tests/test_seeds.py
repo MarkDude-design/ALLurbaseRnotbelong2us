@@ -11,6 +11,14 @@ TIER_FILES = [f"eko-council-{tier}-{c}.md"
               for tier in ("expert", "sub") for c in ("C1", "C2", "C3")]
 HELDOUT_FILES = [f"eko-council-heldout-{c}.md" for c in ("C1", "C2", "C3")]
 CHAIR = "mistralai/mistral-medium-3-5"
+# Mark's approved slate (2026-10-25), filled in the one receipted seed edit
+# before FIRST dispatch. One lab per sub; alternates on record in z-room.md.
+EXPERT_SLATE = ["anthropic/claude-opus-5.5",
+                "openai/gpt-6.1-sol",
+                "google/gemini-3.1-pro-preview"]
+SUB_SLATE = ["openai/gpt-6-luna",
+             "deepseek/deepseek-v4.1-flash",
+             "z-ai/glm-5.3-flash"]
 
 
 class SeedFileTests(unittest.TestCase):
@@ -18,18 +26,20 @@ class SeedFileTests(unittest.TestCase):
         for name in TIER_FILES + HELDOUT_FILES + ["eko-council.md"]:
             self.assertTrue((SEEDS / name).is_file(), name)
 
-    def test_tier_seeds_parse_with_pending_slugs(self):
-        for tier in ("expert", "sub"):
+    def test_tier_seeds_carry_the_picked_slate(self):
+        for tier, slate in (("expert", EXPERT_SLATE), ("sub", SUB_SLATE)):
             for c in ("C1", "C2", "C3"):
                 path = SEEDS / f"eko-council-{tier}-{c}.md"
                 council = load_council(str(path))
                 self.assertEqual(len(council["subs"]), 3, path.name)
                 self.assertTrue(council["blind_round"], path.name)
                 self.assertEqual(council["chair_model"], CHAIR, path.name)
-                for i, sub in enumerate(council["subs"], start=1):
-                    self.assertTrue(sub["model"].startswith(f"PENDING-{tier.upper()}-PICK-"),
-                                    (path.name, sub["model"]))
+                self.assertEqual([s["model"] for s in council["subs"]],
+                                 slate, path.name)
+                for sub in council["subs"]:
                     self.assertTrue(sub["brief"], path.name)
+                    self.assertFalse(sub["model"].startswith("PENDING-"),
+                                     (path.name, sub["model"]))
                 self.assertNotIn("note:", council["question"], path.name)
 
     def test_tiers_differ_only_in_models(self):
@@ -44,7 +54,7 @@ class SeedFileTests(unittest.TestCase):
             self.assertNotEqual([s["model"] for s in expert["subs"]],
                                 [s["model"] for s in sub["subs"]])
 
-    def test_heldout_seeds_carry_five_claims(self):
+    def test_heldout_seeds_carry_five_claims_and_expert_slate(self):
         for c in ("C1", "C2", "C3"):
             path = SEEDS / f"eko-council-heldout-{c}.md"
             council = load_council(str(path))
@@ -52,9 +62,8 @@ class SeedFileTests(unittest.TestCase):
             self.assertEqual(council["chair_model"], CHAIR, path.name)
             for n in range(1, 6):
                 self.assertIn(f"(H{n})", council["question"], path.name)
-            for sub in council["subs"]:
-                self.assertTrue(sub["model"].startswith("PENDING-EXPERT-PICK-"),
-                                (path.name, sub["model"]))
+            self.assertEqual([s["model"] for s in council["subs"]],
+                             EXPERT_SLATE, path.name)
 
     def test_demo_run_receipt_per_seed_shape(self):
         cases = ["eko-council-expert-C1.md", "eko-council-sub-C2.md",
@@ -88,27 +97,35 @@ class SeedFileTests(unittest.TestCase):
         key = os.environ.pop("OPENROUTER_API_KEY", None)
         os.environ["OPENROUTER_API_KEY"] = "dummy-for-guard-test"
         try:
-            # Tier seeds on main carry PENDING-EXPERT/SUB-PICK-n slugs.
-            for name in ("eko-council-expert-C1.md", "eko-council-sub-C1.md"):
-                with tempfile.TemporaryDirectory() as tmp:
-                    council = load_council(str(SEEDS / name))
-                    with self.assertRaises(ValueError, msg=name) as ctx:
-                        run_council("live", council, 5.0,
-                                    Path(tmp) / "council", answer=spy_answer)
-                    self.assertIn("PENDING", str(ctx.exception), name)
-            # Even a single PENDING chair slug must be rejected pre-network.
+            # The guard is seed-independent: any PENDING slug in ANY council
+            # (all-subs pending, or one pending chair over real subs) is
+            # rejected before any network call. Fixtures are temp seeds.
             with tempfile.TemporaryDirectory() as tmp:
-                seed = Path(tmp) / "pending-chair.md"
-                seed.write_text(
+                all_pending = Path(tmp) / "all-pending.md"
+                all_pending.write_text(
+                    "# Council: guard probe\n"
+                    "question: guard probe question\n"
+                    "sub: PENDING-EXPERT-PICK-1 :: brief\n"
+                    "sub: PENDING-SUB-PICK-2 :: brief\n"
+                    "chair: real/chair-model\n"
+                    "blind_round: yes\n")
+                council = load_council(str(all_pending))
+                with self.assertRaises(ValueError) as ctx:
+                    run_council("live", council, 5.0,
+                                Path(tmp) / "council-a", answer=spy_answer)
+                self.assertIn("PENDING", str(ctx.exception))
+            with tempfile.TemporaryDirectory() as tmp:
+                pending_chair = Path(tmp) / "pending-chair.md"
+                pending_chair.write_text(
                     "# Council: guard probe\n"
                     "question: guard probe question\n"
                     "sub: real/model :: brief\n"
                     "chair: PENDING-EXPERT-PICK-9\n"
                     "blind_round: yes\n")
-                council = load_council(str(seed))
+                council = load_council(str(pending_chair))
                 with self.assertRaises(ValueError) as ctx:
                     run_council("live", council, 5.0,
-                                Path(tmp) / "council", answer=spy_answer)
+                                Path(tmp) / "council-b", answer=spy_answer)
                 self.assertIn("PENDING", str(ctx.exception))
             # Guard fires before any dispatch: the answer fn is never reached.
             self.assertEqual(called, [])
