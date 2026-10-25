@@ -10,6 +10,7 @@ import json
 import math
 import os
 import re
+import sys
 import time
 import uuid
 from datetime import datetime, timezone
@@ -122,27 +123,60 @@ def openrouter_answer(who, model, messages, provider):
         raise RuntimeError(detail) from None
     except URLError:
         raise RuntimeError("OpenRouter network error") from None
-    content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
+    # Preserve billing evidence even when no usable text was returned.
+    data = data if isinstance(data, dict) else {}
+    choices = data.get("choices")
+    choice = choices[0] if isinstance(choices, list) and choices else {}
+    choice = choice if isinstance(choice, dict) else {}
+    message = choice.get("message")
+    content = message.get("content", "") if isinstance(message, dict) else ""
     if isinstance(content, list):
-        content = "\n".join(x.get("text", "") for x in content if isinstance(x, dict))
-    if not isinstance(content, str) or not content.strip():
-        choice0 = (data.get("choices") or [{}])[0]
-        finish = choice0.get("finish_reason")
-        ct = (data.get("usage") or {}).get("completion_tokens")
-        raise RuntimeError(
-            f"No usable text response (finish_reason={finish!r}, "
-            f"completion_tokens={ct!r}); empty content, raw body not persisted")
-    usage = data.get("usage") or {}
-    cost = usage.get("cost")
-    if not isinstance(cost, (float, int)) or cost < 0:
-        raise RuntimeError("Missing or invalid usage.cost; stop rather than continue unmetered")
-    metadata = data.get("openrouter_metadata") or {}
-    return {"text": content.strip(), "response_id": data.get("id"),
-            "model_returned": data.get("model"),
+        content = "\n".join(x["text"] for x in content
+                            if isinstance(x, dict) and isinstance(x.get("text"), str))
+    usage = data.get("usage")
+    usage = usage if isinstance(usage, dict) else {}
+    cost = valid_cost(usage.get("cost"))
+    metadata = data.get("openrouter_metadata")
+    metadata = metadata if isinstance(metadata, dict) else {}
+    return {"text": content.strip() if isinstance(content, str) else "",
+            "response_id": data.get("id"), "model_returned": data.get("model"),
             "provider_returned": metadata.get("provider_name") or metadata.get("provider"),
             "usage": {"prompt_tokens": usage.get("prompt_tokens"),
                       "completion_tokens": usage.get("completion_tokens"),
-                      "total_tokens": usage.get("total_tokens"), "cost_usd": float(cost)}}
+                      "total_tokens": usage.get("total_tokens"), "cost_usd": cost}}
+
+
+def valid_cost(cost):
+    """Reject unusable raw charges before conversion; None means UNKNOWN, not zero."""
+    if isinstance(cost, bool) or not isinstance(cost, (int, float)):
+        return None
+    try:
+        return float(cost) if math.isfinite(cost) and cost >= 0 else None
+    except OverflowError:
+        return None
+
+
+def record_cost(response, totals, emit, **context):
+    """Record each attempt once. Known subtotal excludes explicitly unknown charges."""
+    usage = response.get("usage") if isinstance(response, dict) else None
+    usage = usage if isinstance(usage, dict) else {}
+    cost = valid_cost(usage.get("cost_usd"))
+    if cost is None:
+        totals["unknown_cost_calls"] += 1
+        print("WARNING: cost UNKNOWN; known subtotal is incomplete. "
+              "Continuing authorized work under the externally configured provider cap; "
+              "reconcile against the billing ledger.", file=sys.stderr)
+    else:
+        totals["cost_usd"] += cost
+    for key in ("prompt_tokens", "completion_tokens", "total_tokens"):
+        value = usage.get(key)
+        if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
+            totals[key] += value
+    emit({"type": "cost_receipt", "utc": now(), **context,
+          "response_id": response.get("response_id") if isinstance(response, dict) else None,
+          "cost_status": "KNOWN" if cost is not None else "UNKNOWN", "cost_usd": cost})
+    # Do not persist NaN, infinity, booleans or strings as spend in turn receipts.
+    return {**usage, "cost_usd": cost}
 
 
 def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None, pace=PACE_DEFAULT):
@@ -166,7 +200,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
     history = []
-    totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     stopped = "completed"
     last_call_s = 0.0
     with (outdir / "bus.jsonl").open("w", encoding="utf-8") as bus:
@@ -197,6 +231,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                     failure = None
                     break
                 except Exception as exc:
+                    record_cost(None, totals, emit, seq=n + 1, speaker=who, model_requested=models[who], attempt=attempt + 1)
                     failure = exc
                     if attempt < RETRY_MAX and retryable_failure(exc):
                         wait = retry_wait_s(exc, attempt)
@@ -207,6 +242,8 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                     else:
                         break
             if failure is not None or response is None:
+                if failure is None:
+                    record_cost(None, totals, emit, seq=n + 1, speaker=who, model_requested=models[who], attempt=attempt + 1)
                 stopped = "error"
                 # Do not persist raw remote HTTP error bodies, credentials or request prompts.
                 emit({"type": "error", "utc": now(), "seq": n + 1,
@@ -214,20 +251,15 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 break
             last_call_s = time.monotonic() - call_started
-            text = response["text"].strip()
-            usage = response["usage"]
-            cost = usage.get("cost_usd")
-            if (not text or isinstance(cost, bool) or not isinstance(cost, (int, float))
-                    or not math.isfinite(cost) or cost < 0):
+            usage = record_cost(response, totals, emit, seq=n + 1, speaker=who, model_requested=models[who], attempt=attempt + 1)
+            raw_text = response.get("text") if isinstance(response, dict) else None
+            text = raw_text.strip() if isinstance(raw_text, str) else ""
+            if not text:
                 stopped = "error"
-                emit({"type": "error", "utc": now(), "seq": n + 1,
-                      "speaker": who,
-                      "error": "Invalid completion or unusable cost receipt "
-                               "(negative/NaN/inf/bool are not valid spend)"})
+                emit({"type": "error", "utc": now(), "seq": n + 1, "speaker": who,
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
                 break
             history.append({"speaker": who, "text": text})
-            for key in totals:
-                totals[key] += usage.get(key, 0) or 0
             emit({"type": "turn", "utc": now(), "seq": n + 1, "speaker": who,
                   "text": text, "model_requested": models[who],
                   "model_returned": response.get("model_returned"),
@@ -237,6 +269,8 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             if totals["cost_usd"] >= max_cost_usd:
                 stopped = "local_budget_reached"
                 break
+        if totals["unknown_cost_calls"] and stopped != "error":
+            stopped = "error" if stopped == "completed" else stopped + "+error"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "turns": len(history), "totals": totals})
     transcript = ["# Conversation — " + run_id, "", "**Mode: " + mode.upper() + "**",
@@ -245,7 +279,8 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
         transcript.extend([f"## {n}. {event['speaker']}", "", event["text"], ""])
     (outdir / "transcript.md").write_text("\n".join(transcript) + "\n", encoding="utf-8")
     report = [f"# Report: {run_id}", "", f"Mode: {mode}", f"Turns: {len(history)}/{turns}",
-              f"Stop: {stopped}", f"Reported cost: USD {totals['cost_usd']:.6f}",
+              f"Stop: {stopped}", f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Reported tokens: {totals['total_tokens']}", "",
               "This is conversational evidence, not proof of consciousness or emergence.",
               "Personal/private notebooks were not collected."]
@@ -274,7 +309,7 @@ def main():
                  load_topic(a.topic, a.topic_file), a.turns, a.max_cost_usd, a.outdir,
                  first=a.first, history_chars=a.history_chars, pace=a.pace)
     print(json.dumps(result, indent=2))
-    if result["stop"] == "error":
+    if "error" in result["stop"]:
         raise SystemExit(1)
 
 

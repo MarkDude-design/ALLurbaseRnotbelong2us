@@ -7,7 +7,8 @@ counter-observation from the environment overrides unanimity. Standard
 library only.
 
 Budget is a SOFT, post-call stop: spend is checked between calls, so total
-spend may exceed --max-cost-usd by at most one call's cost. A hard ceiling
+with complete receipts spend may exceed --max-cost-usd by at most one call's cost.
+Unknown charges are excluded from the known subtotal and require reconciliation. A hard ceiling
 requires a provider-side bound or pre-call reservation (not implemented).
 
 Dialing doctrine (Mark, GAS order Oct 25 2026): pace "half" (default) waits
@@ -15,14 +16,13 @@ the previous call's duration before the next call — 50% syscall speed cut.
 """
 import argparse
 import json
-import math
 import os
 import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from island.runner import (now, openrouter_answer, retryable_failure,
+from island.runner import (record_cost, now, openrouter_answer, retryable_failure,
                            retry_wait_s, pace_wait_s, RETRY_MAX, PACE_DEFAULT)
 
 DEMO_TEXT = "SYNTHETIC DEMO: council turn."
@@ -154,7 +154,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
-    totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0,
+    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0,
               "total_tokens": 0}
     stopped = "completed"
     sub_answers, critiques = [], []
@@ -181,6 +181,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
                     failure = None
                     break
                 except Exception as exc:
+                    record_cost(None, totals, emit, phase=phase, speaker=who, model_requested=model, attempt=attempt + 1)
                     failure = exc
                     if attempt < RETRY_MAX and retryable_failure(exc):
                         wait = retry_wait_s(exc, attempt)
@@ -191,25 +192,22 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
                     else:
                         break
             if failure is not None or response is None:
+                if failure is None:
+                    record_cost(None, totals, emit, phase=phase, speaker=who, model_requested=model, attempt=attempt + 1)
                 stopped = "error"
                 emit({"type": "error", "utc": now(), "phase": phase,
                       "speaker": who,
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 return None
             clock["last_s"] = time.monotonic() - call_started
-            text = response["text"].strip()
-            usage = response["usage"]
-            cost = usage.get("cost_usd")
-            if (isinstance(cost, bool) or not isinstance(cost, (int, float))
-                    or not math.isfinite(cost) or cost < 0):
+            usage = record_cost(response, totals, emit, phase=phase, speaker=who, model_requested=model, attempt=attempt + 1)
+            raw_text = response.get("text") if isinstance(response, dict) else None
+            text = raw_text.strip() if isinstance(raw_text, str) else ""
+            if not text:
                 stopped = "error"
-                emit({"type": "error", "utc": now(), "phase": phase,
-                      "speaker": who,
-                      "error": "Invalid completion or unusable cost receipt "
-                               "(negative/NaN/inf/bool are not valid spend)"})
+                emit({"type": "error", "utc": now(), "phase": phase, "speaker": who,
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
                 return None
-            for key in totals:
-                totals[key] += usage.get(key, 0) or 0
             emit({"type": "turn", "utc": now(), "phase": phase, "speaker": who,
                   "text": text, "model_requested": model,
                   "model_returned": response.get("model_returned"),
@@ -253,6 +251,8 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
         if stopped == "completed":
             verdict = step("verdict", "chair", council["chair_model"],
                            verdict_messages(council, synthesis, critiques)) or ""
+        if totals["unknown_cost_calls"] and stopped != "error":
+            stopped = "error" if stopped == "completed" else stopped + "+error"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "subs": len(sub_answers), "synthesis": bool(synthesis),
               "critiques": len(critiques), "verdict": bool(verdict),
@@ -271,7 +271,8 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
     report = [f"# Report: {run_id}", "", f"Mode: council-{mode}",
               f"Subs answered: {len(sub_answers)}/{len(subs)}",
               f"Stop: {stopped}",
-              f"Reported cost: USD {totals['cost_usd']:.6f}",
+              f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Reported tokens: {totals['total_tokens']}", "",
               "Subs are instruments, not seats; verdicts are priors, not proof.",
               "Personal/private notebooks were not collected."]
@@ -292,7 +293,7 @@ def main():
     result = run_council(a.mode, load_council(a.council_file), a.max_cost_usd, a.outdir,
                          pace=a.pace)
     print(json.dumps(result, indent=2))
-    if result["stop"] == "error":
+    if "error" in result["stop"]:
         raise SystemExit(1)
 
 

@@ -100,7 +100,7 @@ class RetryTests(unittest.TestCase):
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
         retries = [x for x in events if x["type"] == "retry"]
         self.assertEqual(result["turns"], 2)
-        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(result["stop"], "error")  # retry charge requires reconciliation
         self.assertEqual(len(retries), 1)
         self.assertEqual(retries[0]["wait_s"], runner_mod.RETRY_WAIT_S)
         self.assertIn("429", retries[0]["reason"])
@@ -258,9 +258,9 @@ class PaceTests(unittest.TestCase):
 
 class MeteringTests(unittest.TestCase):
     """Returned costs must be usable as spend receipts (Meraki preflight
-    class-fix on the shared metering path; negative/NaN/inf/bool refused)."""
+    class-fix: invalid charges become UNKNOWN, without halting usable answers)."""
 
-    def test_unusable_cost_receipt_stops_run(self):
+    def test_unusable_cost_receipt_is_unknown_and_run_continues(self):
         def stub(*args):
             return {"text": "ok", "model_returned": None, "response_id": None,
                     "usage": {"cost_usd": -0.5, "total_tokens": 2}}
@@ -268,8 +268,8 @@ class MeteringTests(unittest.TestCase):
             result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test", answer=stub)
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
         self.assertEqual(result["stop"], "error")
-        self.assertEqual(result["turns"], 0)
-        self.assertEqual(len([x for x in events if x["type"] == "error"]), 1)
+        self.assertEqual(result["turns"], 3)
+        self.assertEqual(result["totals"]["unknown_cost_calls"], 3)
 
 
 class TopicFileTests(unittest.TestCase):

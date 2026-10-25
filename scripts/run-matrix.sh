@@ -30,3 +30,4 @@ done
 echo "matrix complete: $ok ok, $failed failed"
 [ -n "$failed_stems" ] && echo "failed stems:$failed_stems"
 echo "per-run receipts under runs/<timestamp>-<stem>/"
+[ "$failed" -eq 0 ]

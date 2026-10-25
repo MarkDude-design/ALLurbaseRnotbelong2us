@@ -98,13 +98,14 @@ class ZDeskDemoRun(unittest.TestCase):
                 raise RuntimeError("OpenRouter HTTP 429")
             return z_desk.demo_consult(agent, model, messages, provider)
 
-        with TemporaryDirectory() as tmp:
+        with mock.patch("island.z_desk.time.sleep"), TemporaryDirectory() as tmp:
             outdir = Path(tmp) / "desk"
             result = z_desk.run("demo", ["diff", "man"],
                                 {"diff": "dmodel", "man": "mmodel"},
                                 BRIEF, 1.0, outdir, answer=flaky)
             lines = [json.loads(x) for x in (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(result["stop"], "error")
+            self.assertEqual(result["totals"]["unknown_cost_calls"], 5)
             self.assertEqual(len([e for e in lines if e["type"] == "error"]), 1)
             self.assertEqual(len([e for e in lines if e["type"] == "retry"]), 4)
             consults = [e for e in lines if e["type"] == "consult"]
@@ -217,8 +218,8 @@ class ZDeskPreflightTests(unittest.TestCase):
                 lines = [json.loads(x) for x in
                          (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
             self.assertEqual(result["stop"], "error")
-            self.assertEqual([e for e in lines if e["type"] == "consult"], [])
-            self.assertEqual(len([e for e in lines if e["type"] == "error"]), 1)
+            self.assertEqual(len([e for e in lines if e["type"] == "consult"]), 1)
+            self.assertEqual(result["totals"]["unknown_cost_calls"], 1)
 
     def test_shell_metacharacter_model_ids_refused(self):
         # model IDs are data, never shell source (Meraki preflight #1, data side)

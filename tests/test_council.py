@@ -157,17 +157,17 @@ class CouncilRunTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             run_council("demo", self.council(), 11, Path("/tmp/x-invalid-council"))
 
-    def test_unusable_cost_receipt_stops_council(self):
-        # Meraki preflight class-fix: a negative cost is not a valid spend
-        # receipt; the council stops rather than metering garbage.
+    def test_unusable_cost_receipt_is_unknown_and_council_continues(self):
+        # Negative cost is rejected as spend, but usable answers continue
+        # under the owner override with explicit UNKNOWN receipts.
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp) / "council"
             result = run_council("demo", self.council(), 10.0, folder,
                                  answer=stub_answer(cost_usd=-1))
             events = [json.loads(x) for x in (folder / "bus.jsonl").read_text().splitlines()]
         self.assertEqual(result["stop"], "error")
-        self.assertEqual(result["subs"], 0)
-        self.assertEqual(len([e for e in events if e["type"] == "error"]), 1)
+        self.assertEqual(result["subs"], 2)
+        self.assertEqual(result["totals"]["unknown_cost_calls"], 6)
 
     def test_live_rejects_absent_key(self):
         old = os.environ.pop("OPENROUTER_API_KEY", None)
