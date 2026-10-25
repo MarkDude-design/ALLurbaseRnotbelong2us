@@ -1,5 +1,6 @@
 """Z Desk tests: demo runs, cap validation, secret red-line, verdict parsing."""
 import json
+import re
 import unittest
 from unittest import mock
 from pathlib import Path
@@ -173,6 +174,58 @@ class ZDeskPaceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             z_desk.run("demo", ["diff"], {"diff": "dmodel", "man": "mmodel"},
                        BRIEF, 1.0, "runs/never-created", pace="turbo")
+
+
+class ZDeskPreflightTests(unittest.TestCase):
+    """Meraki preflight (issue #9, comment 6401118055): no free-text workflow
+    input may land in shell source, and returned costs must be usable as spend
+    receipts. Static, offline, no network."""
+
+    def test_workflow_inputs_not_interpolated_in_shell(self):
+        # Every dynamic input reaches the shell only as an env var VALUE, so a
+        # metacharacter-shaped input stays literal data, never executable.
+        # Pin it: no ${{ }} expression may appear inside any run: block.
+        yml = Path(".github/workflows/z-desk.yml").read_text(encoding="utf-8")
+        in_run_block = False
+        run_indent = 0
+        offenders = []
+        for line in yml.splitlines():
+            if not in_run_block:
+                m = re.match(r"^(\s*)run: \|\s*$", line)
+                if m:
+                    in_run_block = True
+                    run_indent = len(m.group(1))
+                continue
+            if line.strip() and len(line) - len(line.lstrip()) <= run_indent:
+                in_run_block = False
+                continue
+            if "${{" in line:
+                offenders.append(line.strip())
+        self.assertEqual(offenders, [])
+
+    def test_unusable_cost_receipts_refused(self):
+        # negative / NaN / inf / bool costs are not valid spend receipts
+        for bad_cost in (-0.01, float("nan"), float("inf"), True):
+            def answer(agent, model, messages, provider, bad=bad_cost):
+                return {"text": "ok", "model_returned": None, "response_id": None,
+                        "usage": {"cost_usd": bad, "total_tokens": 1}}
+            with TemporaryDirectory() as tmp:
+                outdir = Path(tmp) / "desk"
+                result = z_desk.run("demo", ["diff"],
+                                    {"diff": "dmodel", "man": "mmodel"},
+                                    BRIEF, 1.0, outdir, answer=answer)
+                lines = [json.loads(x) for x in
+                         (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
+            self.assertEqual(result["stop"], "error")
+            self.assertEqual([e for e in lines if e["type"] == "consult"], [])
+            self.assertEqual(len([e for e in lines if e["type"] == "error"]), 1)
+
+    def test_shell_metacharacter_model_ids_refused(self):
+        # model IDs are data, never shell source (Meraki preflight #1, data side)
+        for bad in ("sh -c x", "a;b", "$(x)", "a`b", "x y", "a\nb"):
+            with self.assertRaises(ValueError):
+                z_desk.run("demo", ["diff"], {"diff": bad, "man": "mmodel"},
+                           BRIEF, 1.0, "runs/never-created")
 
 
 if __name__ == "__main__":

@@ -7,6 +7,7 @@ knob: --pace half (default) or --pace off.
 """
 import argparse
 import json
+import math
 import os
 import re
 import time
@@ -215,10 +216,14 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             last_call_s = time.monotonic() - call_started
             text = response["text"].strip()
             usage = response["usage"]
-            if not text or not isinstance(usage.get("cost_usd"), (int, float)):
+            cost = usage.get("cost_usd")
+            if (not text or isinstance(cost, bool) or not isinstance(cost, (int, float))
+                    or not math.isfinite(cost) or cost < 0):
                 stopped = "error"
                 emit({"type": "error", "utc": now(), "seq": n + 1,
-                      "speaker": who, "error": "Invalid completion"})
+                      "speaker": who,
+                      "error": "Invalid completion or unusable cost receipt "
+                               "(negative/NaN/inf/bool are not valid spend)"})
                 break
             history.append({"speaker": who, "text": text})
             for key in totals:

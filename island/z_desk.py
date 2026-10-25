@@ -28,6 +28,7 @@ from island.runner import (PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
 
 CAP_CEILING_USD = 20.0
 AGENTS = ("diff", "man")
+MODEL_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/:-]{0,119}$")
 SECRET_SHAPES = (
     r"sk-or-v1-",
     r"sk-[A-Za-z0-9_-]{20,}",
@@ -109,6 +110,9 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
         raise ValueError("live mode needs OPENROUTER_API_KEY")
     if missing := [a for a in agents if not models.get(a)]:
         raise ValueError(f"live mode needs a model for every agent; missing {missing}")
+    if unsafe := [models[a] for a in agents if not MODEL_ID_RE.match(models[a])]:
+        raise ValueError("model IDs must be plain data (letters, digits, . _ / : -); "
+                         "refusing: " + ", ".join(repr(m) for m in unsafe))
     answer = answer or (demo_consult if mode == "demo" else openrouter_answer)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
@@ -126,7 +130,8 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
               "brief_chars": len(brief),
               "brief_sha256": hashlib.sha256(brief.encode("utf-8")).hexdigest(),
               "agents": agents, "models": {a: models[a] for a in agents},
-              "max_cost_usd": max_cost_usd, "pace": pace,
+              "max_cost_usd": max_cost_usd, "cap_kind": "caller_declared_soft",
+              "pace": pace,
               "funder": "Mark (GAS standing order, Oct 2026)"})
         for agent in agents:
             if totals["cost_usd"] >= max_cost_usd:
@@ -165,10 +170,13 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
             last_call_s = time.monotonic() - call_started
             text = (response.get("text") or "").strip()
             usage = response.get("usage") or {}
-            if not text or not isinstance(usage.get("cost_usd"), (int, float)):
+            cost = usage.get("cost_usd")
+            if (not text or isinstance(cost, bool) or not isinstance(cost, (int, float))
+                    or not math.isfinite(cost) or cost < 0):
                 reasons.add("error")
                 emit({"type": "error", "utc": now(), "agent": agent,
-                      "error": "Invalid completion"})
+                      "error": "Invalid completion or unusable cost receipt "
+                               "(negative/NaN/inf/bool are not valid spend)"})
                 continue
             for key in totals:
                 totals[key] += usage.get(key, 0) or 0
@@ -197,6 +205,8 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
     report = [f"# Report: {run_id}", "", f"Mode: {mode}",
               "Agents: " + ", ".join(f"{a} ({models[a]})" for a in agents),
               f"Stop: {stopped}", f"Reported cost: USD {totals['cost_usd']:.6f}",
+              f"Cap: {max_cost_usd:g} USD (caller-declared soft post-call stop; "
+              "provider key cap governs)",
               f"Reported tokens: {totals['total_tokens']}", "",
               "A desk consult is review aid, not authorization. The owner gate remains Mark's.",
               "No secrets, keys, or private notebooks ride this bus."]

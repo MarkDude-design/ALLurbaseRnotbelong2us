@@ -15,6 +15,7 @@ the previous call's duration before the next call — 50% syscall speed cut.
 """
 import argparse
 import json
+import math
 import os
 import time
 import uuid
@@ -198,6 +199,15 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
             clock["last_s"] = time.monotonic() - call_started
             text = response["text"].strip()
             usage = response["usage"]
+            cost = usage.get("cost_usd")
+            if (isinstance(cost, bool) or not isinstance(cost, (int, float))
+                    or not math.isfinite(cost) or cost < 0):
+                stopped = "error"
+                emit({"type": "error", "utc": now(), "phase": phase,
+                      "speaker": who,
+                      "error": "Invalid completion or unusable cost receipt "
+                               "(negative/NaN/inf/bool are not valid spend)"})
+                return None
             for key in totals:
                 totals[key] += usage.get(key, 0) or 0
             emit({"type": "turn", "utc": now(), "phase": phase, "speaker": who,

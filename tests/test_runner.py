@@ -256,6 +256,22 @@ class PaceTests(unittest.TestCase):
                 run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", pace="turbo")
 
 
+class MeteringTests(unittest.TestCase):
+    """Returned costs must be usable as spend receipts (Meraki preflight
+    class-fix on the shared metering path; negative/NaN/inf/bool refused)."""
+
+    def test_unusable_cost_receipt_stops_run(self):
+        def stub(*args):
+            return {"text": "ok", "model_returned": None, "response_id": None,
+                    "usage": {"cost_usd": -0.5, "total_tokens": 2}}
+        with tempfile.TemporaryDirectory() as tmp:
+            result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        self.assertEqual(result["stop"], "error")
+        self.assertEqual(result["turns"], 0)
+        self.assertEqual(len([x for x in events if x["type"] == "error"]), 1)
+
+
 class TopicFileTests(unittest.TestCase):
     def test_topic_file_wins_over_topic_string(self):
         with tempfile.TemporaryDirectory() as tmp:
