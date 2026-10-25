@@ -1,4 +1,5 @@
 import json
+import os
 import tempfile
 import unittest
 from pathlib import Path
@@ -73,6 +74,49 @@ class SeedFileTests(unittest.TestCase):
             # 3 sub answers + 1 synthesis + 3 blind critiques + 1 verdict = 8 calls.
             self.assertEqual(len(turns), 8, name)
             self.assertEqual(events[-1]["type"], "stop", name)
+
+    def test_live_rejects_pending_slugs_before_any_call(self):
+        called = []
+
+        def spy_answer(who, model, messages, provider):
+            called.append(model)
+            return {"text": "x", "model_returned": "synthetic-stub",
+                    "provider_returned": None, "response_id": None,
+                    "usage": {"prompt_tokens": 1, "completion_tokens": 1,
+                              "total_tokens": 2, "cost_usd": 0.0}}
+
+        key = os.environ.pop("OPENROUTER_API_KEY", None)
+        os.environ["OPENROUTER_API_KEY"] = "dummy-for-guard-test"
+        try:
+            # Tier seeds on main carry PENDING-EXPERT/SUB-PICK-n slugs.
+            for name in ("eko-council-expert-C1.md", "eko-council-sub-C1.md"):
+                with tempfile.TemporaryDirectory() as tmp:
+                    council = load_council(str(SEEDS / name))
+                    with self.assertRaises(ValueError, msg=name) as ctx:
+                        run_council("live", council, 5.0,
+                                    Path(tmp) / "council", answer=spy_answer)
+                    self.assertIn("PENDING", str(ctx.exception), name)
+            # Even a single PENDING chair slug must be rejected pre-network.
+            with tempfile.TemporaryDirectory() as tmp:
+                seed = Path(tmp) / "pending-chair.md"
+                seed.write_text(
+                    "# Council: guard probe\n"
+                    "question: guard probe question\n"
+                    "sub: real/model :: brief\n"
+                    "chair: PENDING-EXPERT-PICK-9\n"
+                    "blind_round: yes\n")
+                council = load_council(str(seed))
+                with self.assertRaises(ValueError) as ctx:
+                    run_council("live", council, 5.0,
+                                Path(tmp) / "council", answer=spy_answer)
+                self.assertIn("PENDING", str(ctx.exception))
+            # Guard fires before any dispatch: the answer fn is never reached.
+            self.assertEqual(called, [])
+        finally:
+            if key is None:
+                os.environ.pop("OPENROUTER_API_KEY", None)
+            else:
+                os.environ["OPENROUTER_API_KEY"] = key
 
 
 if __name__ == "__main__":

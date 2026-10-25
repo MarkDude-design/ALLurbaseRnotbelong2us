@@ -137,6 +137,11 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
             raise ValueError("live mode needs OPENROUTER_API_KEY")
         if not council["chair_model"] or any(not s["model"] for s in subs):
             raise ValueError("live council needs a chair model and a model per sub")
+        placeholders = [m for m in [council["chair_model"]] + [s["model"] for s in subs]
+                        if m.startswith("PENDING-")]
+        if placeholders:
+            raise ValueError("live council rejects placeholder model slugs before any "
+                             "network call (fail fast, no spend): " + ", ".join(placeholders))
     if mode not in ("demo", "live"):
         raise ValueError("mode must be demo or live")
     answer = answer or (demo_council_answer if mode == "demo" else openrouter_answer)
