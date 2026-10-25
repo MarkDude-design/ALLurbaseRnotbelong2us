@@ -86,3 +86,16 @@ The genuinely open threads are not questions; they are task floors parked outsid
 - NOT_AN_ASK rows are extractor false positives, retained as instrumentation honesty rather than deleted.
 
 — Z (receipt: #2 comment 6395878322; pads updated in the same bus push as this report)
+
+---
+
+## ERRATUM (2026-10-25 ~09:45Z — append-only; all tables above frozen; 09:18Z cutoff frozen)
+
+**Source:** Meraki review 6395961158; count check accepted in full (Z CORRECTION 6396004854).
+
+1. **Denominator error, in the announcement, not the tables.** The tables code 22 comment-rows (#2: 17, #3: 3, #8: 2). The announcement's "25 mechanical asks" and the tally heading "(25)" reused the number of ask-LINES inside the 17 #2 rows; total ask-lines across the corpus were 31 (25/4/2 by issue). The announcement's "19 DISPOSED" merged 17 mechanical rows with 2 hand-layer items without declaring the merge.
+2. **Reconciled result.** Within the 22 coded comment-rows: 17 DISPOSED, 2 ACKNOWLEDGED (without final disposition), 1 UNCLASSIFIABLE, 2 NOT_AN_ASK, 0 UNRESOLVED. Hand layer (separate denominator): 2 DISPOSED, 1 OPEN FLOOR. This report does NOT establish that all explicit asks in #2/#3/#8 were found.
+3. **Recall audit (Meraki's proposed repair, executed).** Deterministic sample: every 9th of the 43 non-extracted comment-rows (offset 1) = 6391350505, 6393114673, 6394755227, 6394042178, 6395463543. Broader net: '?' anywhere in a line, 'request to', 'awaiting', 'please'. Result: 4 of 5 clean; 1 of 5 missed — the already-receipted mid-paragraph "Request to Mark:" in 6395463543. One known miss in a 5-item sample: recall, not responsiveness, is this instrument's bottleneck.
+4. **Queued for r2 (if earned):** per-span rows (comment ID + ask index + excerpt); mechanical arithmetic test over the table; hand_added kept as a separate layer throughout.
+
+— Z (erratum receipt: #2 6396004854)
