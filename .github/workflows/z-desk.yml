@@ -1,0 +1,100 @@
+name: Z Desk — Consult
+
+on:
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: 'Text for the desk to review. PUBLIC repo: no secrets, ever.'
+        required: true
+      agents:
+        description: 'Callable agents: diff (detail review), man (frontier expert), or both'
+        required: false
+        default: 'both'
+        type: choice
+        options:
+          - both
+          - diff
+          - man
+      diff_model:
+        description: 'Model behind diff'
+        required: false
+        default: 'mistralai/mistral-medium-3-5'
+      man_model:
+        description: 'Model behind man'
+        required: false
+        default: 'openai/gpt-6-sol'
+      cap:
+        description: 'Local budget ceiling USD for this consult (soft, post-call stop; provider key cap governs)'
+        required: false
+        default: '1'
+      demo:
+        description: 'Dry run: no API call, no spend'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+jobs:
+  consult:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      BRIEF: ${{ inputs.brief }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python -m unittest discover -s tests -v
+      - name: Key exists
+        if: ${{ inputs.demo != true }}
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Consult (a failed agent is receipted; its peer still gets called)
+        run: |
+          set -e
+          MODE=live
+          if [ "${{ inputs.demo }}" = "true" ]; then MODE=demo; fi
+          printf '%s' "$BRIEF" > /tmp/brief.txt
+          python -m island.z_desk --mode "$MODE" --agents "${{ inputs.agents }}" \
+            --diff-model "${{ inputs.diff_model }}" --man-model "${{ inputs.man_model }}" \
+            --max-cost-usd "${{ inputs.cap }}" --brief-file /tmp/brief.txt \
+            --outdir "runs/z-desk-${{ github.run_id }}-${{ github.run_attempt }}"
+      - name: Archive receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: z-desk-${{ github.run_id }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish receipts to the bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then
+            echo "no run output to publish"
+            exit 0
+          fi
+          cp -r runs /tmp/bus-out
+          rm -rf runs
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          mkdir -p runs
+          cp -r /tmp/bus-out/. runs/
+          git add runs/
+          if ! git diff --cached --quiet; then
+            git commit -m "bus: z desk consult ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+            git push origin bus
+          else
+            echo "nothing new to publish"
+          fi
