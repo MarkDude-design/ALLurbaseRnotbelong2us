@@ -77,7 +77,8 @@ def openrouter_answer(who, model, messages, provider):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("Missing OPENROUTER_API_KEY")
-    payload = {"model": model, "messages": messages, "max_tokens": 600,
+    payload = {"model": model, "messages": messages, "max_tokens": 1600,
+               "reasoning": {"effort": "low"},
                "usage": {"include": True}, "provider": {
                    "allow_fallbacks": False, "data_collection": "deny"}}
     if provider:
@@ -107,7 +108,12 @@ def openrouter_answer(who, model, messages, provider):
     if isinstance(content, list):
         content = "\n".join(x.get("text", "") for x in content if isinstance(x, dict))
     if not isinstance(content, str) or not content.strip():
-        raise RuntimeError("No usable text response")
+        choice0 = (data.get("choices") or [{}])[0]
+        finish = choice0.get("finish_reason")
+        ct = (data.get("usage") or {}).get("completion_tokens")
+        raise RuntimeError(
+            f"No usable text response (finish_reason={finish!r}, "
+            f"completion_tokens={ct!r}); empty content, raw body not persisted")
     usage = data.get("usage") or {}
     cost = usage.get("cost")
     if not isinstance(cost, (float, int)) or cost < 0:
