@@ -138,7 +138,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
     answer = answer or (demo_council_answer if mode == "demo" else openrouter_answer)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
-    run_id = outdir.name + "-" + uuid.uuid44().hex[:8]
+    run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
     totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0,
               "total_tokens": 0}
     stopped = "completed"
