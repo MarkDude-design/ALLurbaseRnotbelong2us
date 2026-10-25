@@ -30,13 +30,22 @@ New runner mode alongside the live conversation mode: `--mode council`:
 3. Meraki's fork: same runner, different seed, different consultants. Diff the syntheses — the differencing instrument pointed at the rooms themselves.
 
 ## Alarm steps (Z's bounded room-build, until Monday — check off as done)
-- [ ] 9 AM PT Sun: council-mode runner design + build (fetch main first, verify anchors, tests green before push).
-  - Status (2026-10-25, later Z wake, after Meraki's static review 6392903970): b/z as committed was NOT runnable — its runner.py was the stale pre-retry version and council.py's imports failed on it. Fixed in commit 6a6ced5: runner.py + the 18-test test_runner.py synced from main onto b/z, and the budget test honestly relabeled per Meraki's finding (test_budget_soft_stop_after_call — the stop is SOFT/post-call, semantics pinned in assertions; council.py docstring documents the bound). SUITE GREEN AND RECEIPTED: 29/29 (18 runner + 11 council), executed in Z's own Python runtime against the synced b/z tree, fetch-after-push byte-verified. Item stays unchecked — one receipt short of IMPLEMENTED: island.yml has no council input yet. Bus receipts: issue #2 comments 6392903970, 6393001768.
-- [ ] First council seed: docs/seeds/eko-council.md.
-- [ ] Workflow input: council file path (one-line form change, like the topic-file lane).
+- [x] 9 AM PT Sun: council-mode runner design + build (fetch main first, verify anchors, tests green before push).
+  - Status (2026-10-25 ~03:50Z, Mark's pipeline directive): IMPLEMENTED — all three receipts in. Code: island/council.py + tests/test_council.py landed on main from b/z (byte-identical to the tested 6a6ced5 copies). Green tests: 29/29 (18 runner + 11 council), executed in Z's own runtime, fetch-after-push byte-verified. Dispatchable workflow: island.yml now takes council_file + max_cost inputs; council_file set = council run, empty = conversation run as before; publish-to-bus lane unchanged. First seed: docs/seeds/eko-council.md (Eko Island Council). Meraki's review receipts live in issue #2 comments 6392903970 and 6393001768.
+- [x] First council seed: docs/seeds/eko-council.md (Eko Island Council — 3 subs, blind round, verified models only).
+- [x] Workflow input: council file path + max_cost (island.yml; conversation runs now take the budget ceiling from the form too).
 - [ ] 5/6/7/8 PM PT syncs: bus rounds, pad duty, run receipts, next runbook step.
 - [ ] Consultant matrix runbook: exact dispatch forms for the 9 bounded runs.
 - [ ] Daily self-wake (existing) continues as floor.
+
+## Sunday burn-lane recipes (Mark's clicks; $5/$10 runs)
+Glitch-token lane (Three Envelopes / spinner / carpool) HELD BACK tonight, per Mark.
+Registered predictions for the burn race: Mark — 15 minutes to burn $5. Z — throttle-bound: at run-40154079476 economics (~$0.011/turn, ~3.2 s/turn) $5 is ~450 turns ≈ 20–25 minutes of pure compute, but the B-lane 429 windows decide the pace before the budget does. Medium-tier council baselines (8–10 calls, verified models) end on completion well under $1 — the $5/$10 caps are ceilings, not targets; real burns by brunch need EXPERT-tier model picks at dispatch. Diff at brunch, bank either way.
+- Burn race A: conversation — gpt-6-sol × mistral-medium-3-5, turns=100, history_chars=100000, topic_file=docs/seeds/eko.md, first=A, max_cost=5.
+- Burn race B: same, max_cost=10.
+- Circle run 1: council_file=docs/seeds/eko-council.md, max_cost=5 (models left blank).
+- Circle run 2: same, max_cost=10.
+- Tier variants (EXPERT/SUB slugs = Mark's picks at dispatch): fork the seed, swap sub models, 3 runs per tier; the convergence detector gets fed at each decision point.
 
 ## Maintenance
 - Repo maintenance: Mark's. Contributions: Meraki's. Room design + runbook: Z's. Hazy details → sorted in-thread (issue comment), never by silent overwrite.

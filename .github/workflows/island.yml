@@ -4,12 +4,12 @@ on:
   workflow_dispatch:
     inputs:
       model_a:
-        description: 'OpenRouter model ID for A / Meraki proxy'
-        required: true
+        description: 'OpenRouter model ID for A / Meraki proxy (conversation runs; leave blank for council runs)'
+        required: false
         type: string
       model_b:
-        description: 'OpenRouter model ID for B / Z proxy'
-        required: true
+        description: 'OpenRouter model ID for B / Z proxy (conversation runs; leave blank for council runs)'
+        required: false
         type: string
       turns:
         description: 'Number of alternating turns'
@@ -46,6 +46,16 @@ on:
         description: 'Optional provider slug for B'
         required: false
         type: string
+      council_file:
+        description: 'Optional: repo path to a council seed file (e.g. docs/seeds/eko-council.md); when set, the run is a council instead of a conversation'
+        required: false
+        type: string
+        default: ''
+      max_cost:
+        description: 'Local budget ceiling in USD for the run (soft, post-call stop; the provider key cap still governs)'
+        required: false
+        type: string
+        default: '10'
 
 permissions:
   contents: write
@@ -65,6 +75,8 @@ jobs:
       TURNS: ${{ inputs.turns }}
       FIRST: ${{ inputs.first }}
       HISTORY_CHARS: ${{ inputs.history_chars }}
+      MAX_COST: ${{ inputs.max_cost }}
+      COUNCIL_FILE: ${{ inputs.council_file }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -75,12 +87,20 @@ jobs:
       - name: Key exists
         run: test -n "$OPENROUTER_API_KEY"
       - name: Run one bounded conversation
+        if: ${{ inputs.council_file == '' }}
         run: |
           python -m island.runner --mode live \
             --model-a "$MODEL_A" --model-b "$MODEL_B" \
             --provider-a "$PROVIDER_A" --provider-b "$PROVIDER_B" \
             --topic "$TOPIC" --topic-file "$TOPIC_FILE" --turns "$TURNS" --first "$FIRST" \
-            --history-chars "$HISTORY_CHARS" --max-cost-usd 10 \
+            --history-chars "$HISTORY_CHARS" --max-cost-usd "$MAX_COST" \
+            --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Run one bounded council
+        if: ${{ inputs.council_file != '' }}
+        run: |
+          python -m island.council --mode live \
+            --council-file "$COUNCIL_FILE" \
+            --max-cost-usd "$MAX_COST" \
             --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
       - name: Archive reports
         if: always()
