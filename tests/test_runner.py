@@ -5,7 +5,7 @@ import unittest
 from pathlib import Path
 from unittest import mock
 
-from island.runner import run, messages_for
+from island.runner import run, messages_for, load_topic, TOPIC
 import island.runner as runner_mod
 
 
@@ -177,3 +177,19 @@ class RetryTests(unittest.TestCase):
             with mock.patch("island.runner.time.sleep", fake_sleep):
                 run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
         self.assertEqual(waits, [runner_mod.RETRY_AFTER_CAP_S] * runner_mod.RETRY_MAX)
+
+
+class TopicFileTests(unittest.TestCase):
+    def test_topic_file_wins_over_topic_string(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            seed = Path(tmp) / "seed.md"
+            seed.write_text("  Seed from file.  ", encoding="utf-8")
+            self.assertEqual(load_topic("ignored", str(seed)), "Seed from file.")
+
+    def test_missing_topic_file_fails_cleanly(self):
+        with self.assertRaises(SystemExit):
+            load_topic("x", "/tmp/no-such-seed-42.md")
+
+    def test_topic_falls_back_to_default(self):
+        self.assertEqual(load_topic(""), TOPIC)
+        self.assertEqual(load_topic("direct topic", ""), "direct topic")

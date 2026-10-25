@@ -31,6 +31,19 @@ def retry_wait_s(exc, attempt):
     return RETRY_WAIT_S * (2 ** attempt)
 
 
+def load_topic(topic, topic_file=""):
+    """Resolve the opening topic: a seed file wins, then an explicit topic, then the default."""
+    if topic_file:
+        path = Path(topic_file)
+        if not path.is_file():
+            raise SystemExit(f"topic file not found: {topic_file}")
+        text = path.read_text(encoding="utf-8").strip()
+        if not text:
+            raise SystemExit(f"topic file is empty: {topic_file}")
+        return text
+    return topic or TOPIC
+
+
 def now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
@@ -213,10 +226,11 @@ def main():
     p.add_argument("--history-chars", type=int, default=28000)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
     p.add_argument("--topic", default=TOPIC)
+    p.add_argument("--topic-file", default="")
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
     result = run(a.mode, a.model_a, a.model_b, a.provider_a, a.provider_b,
-                 a.topic, a.turns, a.max_cost_usd, a.outdir,
+                 load_topic(a.topic, a.topic_file), a.turns, a.max_cost_usd, a.outdir,
                  first=a.first, history_chars=a.history_chars)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
