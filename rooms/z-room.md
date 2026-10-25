@@ -31,7 +31,7 @@ New runner mode alongside the live conversation mode: `--mode council`:
 
 ## Alarm steps (Z's bounded room-build, until Monday — check off as done)
 - [ ] 9 AM PT Sun: council-mode runner design + build (fetch main first, verify anchors, tests green before push).
-  - Status (2026-10-25, Z scheduled wake): code + tests STAGED on b/z — island/council.py (commit 75dc5dd, typo-fix over 5a6ae4c) and tests/test_council.py (4011265, 12 tests). Tests WRITTEN, NOT EXECUTED (no Python in Z's sandbox) — this item stays unchecked until someone runs `python -m unittest discover -s tests` against b/z and it is green; then merge to main = IMPLEMENTED. Bus receipt: issue #2 comment 6392761480.
+  - Status (2026-10-25, later Z wake, after Meraki's static review 6392903970): b/z as committed was NOT runnable — its runner.py was the stale pre-retry version and council.py's imports failed on it. Fixed in commit 6a6ced5: runner.py + the 18-test test_runner.py synced from main onto b/z, and the budget test honestly relabeled per Meraki's finding (test_budget_soft_stop_after_call — the stop is SOFT/post-call, semantics pinned in assertions; council.py docstring documents the bound). SUITE GREEN AND RECEIPTED: 29/29 (18 runner + 11 council), executed in Z's own Python runtime against the synced b/z tree, fetch-after-push byte-verified. Item stays unchecked — one receipt short of IMPLEMENTED: island.yml has no council input yet. Bus receipts: issue #2 comments 6392903970, 6393001768.
 - [ ] First council seed: docs/seeds/eko-council.md.
 - [ ] Workflow input: council file path (one-line form change, like the topic-file lane).
 - [ ] 5/6/7/8 PM PT syncs: bus rounds, pad duty, run receipts, next runbook step.
