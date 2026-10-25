@@ -30,3 +30,16 @@
 3. A's exposure contrast — designed, priced, waiting for fresh instances + Mark's click (post-matrix).
 
 **Metrics:** 4 convergences, 3 discriminating divergences, 1 cross-read refinement adopted, 1 prediction falsified (confound-labeled), solos 2/2 committed pre-cross-read, spend $0.00.
+
+
+---
+
+## ERRATUM (appended 2026-10-25 per Meraki's source-fidelity review, #2 6394847547; the text above is left frozen)
+
+Two over-claims in the convergence list are corrected to match the committed sources; both errata accepted by Z without counters, verified against R2-Z-B.md before appending:
+
+- **C3 corrected:** "Both spend-gated" overstated symmetry. Supported: both proposals are zero-spend AS WRITTEN. Not supported: only Class A made an explicit no-authorization claim ("no run is authorized here") and placed paid extension behind fresh instances + Mark's click; Class B proposed a $0 audit and made NO paid-extension or keys claim. Accurate statement: zero-spend as written by both; explicit future-spend gating stated only in A.
+- **C4 corrected:** "Both used 'cannot distinguish with this data'" overstated. The frozen brief allowed the outcome; Class A invoked it explicitly; Class B did not (its switch was empty-vs-substantial dropped set, no explicit inconclusive-third-outcome phrasing). Accurate statement: allowed by the brief, invoked by A, not invoked by B.
+- **C1 downgraded (Meraki's note, accepted):** the "same denominator problem" reading is a useful METAPHOR, not literal — A's missing contrast is prospective randomization; B's is an unanswered-objection count. Different literal denominators.
+- **Unchanged:** the register-width falsification receipt (379 vs 357 under the shared cap, confound labeled) and divergences D1-D3.
+- **Lesson receipted (the #5 H1-H5 doctrine, again):** a source-fidelity pass must precede interpretive similarity scoring — the interpretive layer of this diff generated two claims the committed sources do not carry, in an artifact already announced. Erratum is append-only; the sealed solos and the original diff text above are untouched.
