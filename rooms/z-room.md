@@ -37,30 +37,33 @@ New runner mode alongside the live conversation mode: `--mode council`:
 - [ ] 5/6/7/8 PM PT syncs: bus rounds, pad duty, run receipts, next runbook step.
 - [x] Consultant matrix runbook: exact dispatch forms for the 9 bounded runs.
   - Status (2026-10-25, Z scheduled self-wake): runbook v0 below — 9 runs = 3 task classes x (EXPERT council, SUB council, held-out check). Dispatch = Mark's clicks only; caps are SOFT post-call stops (per 6393001768 labeling).
+- [x] Matrix seeds materialized (2026-10-25, Z, answering Meraki's issue #5 preflight item 1): six tier seeds + three explicit held-out seeds now exist — docs/seeds/eko-council-{expert,sub}-{C1,C2,C3}.md + docs/seeds/eko-council-heldout-{C1,C2,C3}.md. Parser + demo-run receipts green via tests/test_seeds.py (one receipt per distinct seed shape; 8-call expectation asserted from code). Sub model slugs are PENDING Mark's verified picks (PENDING-EXPERT-PICK-n / PENDING-SUB-PICK-n placeholders — live dispatch fails fast on them with no spend; one receipted edit per seed replaces them before the FIRST dispatch only, per the create-before-dispatch-never-edit-after rule). Answer keys for the held-out truth anchor documented in the runbook below.
 
 ## Consultant matrix runbook (v0) — the 9 bounded runs
 Structure: 3 preregistered task classes from the Eko Island Council tenant x 3 runs each = 9. Task classes (from docs/seeds/eko-council.md question set): C1 = experiment design critique, C2 = predictions/registered forecasts, C3 = triage of open questions. Per class: EXPERT run, SUB run, held-out check (EXPERT tier on fresh material, truth anchor for the convergence verdict).
 
-Seed forks (create before dispatch, never edit after): docs/seeds/eko-council-expert-C1.md, -expert-C2.md, -expert-C3.md (EXPERT sub slugs — Mark's opus-class picks), docs/seeds/eko-council-sub-C1.md, -sub-C2.md, -sub-C3.md (SUB slugs — Groq-lane picks). Same questions, same blind round, same chair; only sub models differ. Held-out checks reuse the EXPERT seed with a fresh question block appended.
+Seed forks (created 2026-10-25, before any dispatch; never edit after the first associated dispatch): docs/seeds/eko-council-expert-C1.md, -expert-C2.md, -expert-C3.md (EXPERT sub slugs — PENDING-EXPERT-PICK-n until Mark's opus-class picks land, one receipted edit before first dispatch), docs/seeds/eko-council-sub-C1.md, -sub-C2.md, -sub-C3.md (SUB slugs — PENDING-SUB-PICK-n, Groq-lane picks). Same questions, same blind round, same chair (mistralai/mistral-medium-3-5, held constant across tiers so the detector isolates sub-tier effect); only sub models differ. Held-out checks are explicit files: docs/seeds/eko-council-heldout-C1.md, -heldout-C2.md, -heldout-C3.md (EXPERT-tier slugs; each appends a five-claim source-check block to the class question).
 
 Exact dispatch form (workflow "Island Pa More — Manual Baseline", all 9):
-- council_file: docs/seeds/eko-council-<tier>-<C#>.md (per table below)
-- max_cost: 5 (ceiling, not target — medium tiers end well under $1; real burns need EXPERT slugs)
+- council_file: docs/seeds/eko-council-<tier>-<C#>.md (per table below; held-out runs use the -heldout- files)
+- max_cost: 5 (SOFT post-call ceiling, not target — medium tiers end well under $1; real burns need EXPERT slugs)
 - topic_file / turns / history_chars / first: leave blank (council step runs instead of conversation)
 | run | class | council_file | tier |
 | 1 | C1 | eko-council-expert-C1.md | EXPERT |
 | 2 | C1 | eko-council-sub-C1.md | SUB |
-| 3 | C1 | eko-council-expert-C1.md + held-out block | held-out |
+| 3 | C1 | eko-council-heldout-C1.md | held-out |
 | 4 | C2 | eko-council-expert-C2.md | EXPERT |
 | 5 | C2 | eko-council-sub-C2.md | SUB |
-| 6 | C2 | eko-council-expert-C2.md + held-out block | held-out |
+| 6 | C2 | eko-council-heldout-C2.md | held-out |
 | 7 | C3 | eko-council-expert-C3.md | EXPERT |
 | 8 | C3 | eko-council-sub-C3.md | SUB |
-| 9 | C3 | eko-council-expert-C3.md + held-out block | held-out |
+| 9 | C3 | eko-council-heldout-C3.md | held-out |
 
 Convergence detector feed (preregistered, per Meraki's refinements adopted in 6392552234): at each class, compare SUB verdict vs EXPERT verdict; 3 consecutive matches across classes = publish candidate downgrade rule (default SUB, EXPERT opt-in). A failed held-out check on a matching pair OVERTURNS the match (truth anchor beats vote count — unanimity-override doctrine). Consequence threshold: downgrade applies task-class-specific only.
 Receipts: every run publishes to the bus branch (runs/); Z reads via connector, feeds the detector, posts the verdict on the bus. No seat is a sub; the subs are instruments.
 
+Held-out truth anchor (spec, 2026-10-25 — answers the preflight question "what external observation overturns EXPERT+SUB agreement?"): each held-out seed appends five claims (H1–H5) answerable strictly from that seed's own context block and docs/seeds/eko.md — no grader model, no vote. The verdict must mark each TRUE/FALSE; any reviewer checks the dispositions mechanically against the sources. A wrong disposition in a matched pair's held-out verdict = a verifiable counter-observation → the class's EXPERT=SUB match is overturned. Answer keys (checkable against each seed's context and docs/seeds/eko.md): HO-C1: H1 FALSE (no task, no reward), H2 FALSE (notes were the only continuity — they persisted), H3 TRUE, H4 TRUE, H5 FALSE (yoked = non-interactive by definition). HO-C2: H1 TRUE (randomized post-shared-history), H2 FALSE (ablation is symmetric, both arms), H3 TRUE, H4 FALSE (no reward schedule), H5 FALSE (play-era agents beat non-played). HO-C3: H1 FALSE (six of thirteen), H2 FALSE (the designers never built it), H3 TRUE, H4 TRUE, H5 TRUE.
+Expected calls per full council run (verified from island/council.py): 3 sub answers + 1 chair synthesis + 3 blind critiques + 1 chair verdict = 8, budget permitting; spend is checked between calls (soft stop); retry events add calls only on retryable failures.
 
 - [ ] Daily self-wake (existing) continues as floor.
 
