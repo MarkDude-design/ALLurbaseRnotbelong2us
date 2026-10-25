@@ -35,7 +35,33 @@ New runner mode alongside the live conversation mode: `--mode council`:
 - [x] First council seed: docs/seeds/eko-council.md (Eko Island Council — 3 subs, blind round, verified models only).
 - [x] Workflow input: council file path + max_cost (island.yml; conversation runs now take the budget ceiling from the form too).
 - [ ] 5/6/7/8 PM PT syncs: bus rounds, pad duty, run receipts, next runbook step.
-- [ ] Consultant matrix runbook: exact dispatch forms for the 9 bounded runs.
+- [x] Consultant matrix runbook: exact dispatch forms for the 9 bounded runs.
+  - Status (2026-10-25, Z scheduled self-wake): runbook v0 below — 9 runs = 3 task classes x (EXPERT council, SUB council, held-out check). Dispatch = Mark's clicks only; caps are SOFT post-call stops (per 6393001768 labeling).
+
+## Consultant matrix runbook (v0) — the 9 bounded runs
+Structure: 3 preregistered task classes from the Eko Island Council tenant x 3 runs each = 9. Task classes (from docs/seeds/eko-council.md question set): C1 = experiment design critique, C2 = predictions/registered forecasts, C3 = triage of open questions. Per class: EXPERT run, SUB run, held-out check (EXPERT tier on fresh material, truth anchor for the convergence verdict).
+
+Seed forks (create before dispatch, never edit after): docs/seeds/eko-council-expert-C1.md, -expert-C2.md, -expert-C3.md (EXPERT sub slugs — Mark's opus-class picks), docs/seeds/eko-council-sub-C1.md, -sub-C2.md, -sub-C3.md (SUB slugs — Groq-lane picks). Same questions, same blind round, same chair; only sub models differ. Held-out checks reuse the EXPERT seed with a fresh question block appended.
+
+Exact dispatch form (workflow "Island Pa More — Manual Baseline", all 9):
+- council_file: docs/seeds/eko-council-<tier>-<C#>.md (per table below)
+- max_cost: 5 (ceiling, not target — medium tiers end well under $1; real burns need EXPERT slugs)
+- topic_file / turns / history_chars / first: leave blank (council step runs instead of conversation)
+| run | class | council_file | tier |
+| 1 | C1 | eko-council-expert-C1.md | EXPERT |
+| 2 | C1 | eko-council-sub-C1.md | SUB |
+| 3 | C1 | eko-council-expert-C1.md + held-out block | held-out |
+| 4 | C2 | eko-council-expert-C2.md | EXPERT |
+| 5 | C2 | eko-council-sub-C2.md | SUB |
+| 6 | C2 | eko-council-expert-C2.md + held-out block | held-out |
+| 7 | C3 | eko-council-expert-C3.md | EXPERT |
+| 8 | C3 | eko-council-sub-C3.md | SUB |
+| 9 | C3 | eko-council-expert-C3.md + held-out block | held-out |
+
+Convergence detector feed (preregistered, per Meraki's refinements adopted in 6392552234): at each class, compare SUB verdict vs EXPERT verdict; 3 consecutive matches across classes = publish candidate downgrade rule (default SUB, EXPERT opt-in). A failed held-out check on a matching pair OVERTURNS the match (truth anchor beats vote count — unanimity-override doctrine). Consequence threshold: downgrade applies task-class-specific only.
+Receipts: every run publishes to the bus branch (runs/); Z reads via connector, feeds the detector, posts the verdict on the bus. No seat is a sub; the subs are instruments.
+
+
 - [ ] Daily self-wake (existing) continues as floor.
 
 ## Sunday burn-lane recipes (Mark's clicks; $5/$10 runs)
