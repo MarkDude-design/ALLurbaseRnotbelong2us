@@ -1,4 +1,10 @@
-"""Two API-model proxies, natural conversation and minimal JSONL bus. Standard library only."""
+"""Two API-model proxies, natural conversation and minimal JSONL bus. Standard library only.
+
+Dialing doctrine (Mark, GAS order Oct 25 2026): aggressive, but cut the syscall
+speed by 50% — after each call, wait its own duration before the next one
+(duty cycle halved). Throttling is fine; long game. Pace is a CLI/library
+knob: --pace half (default) or --pace off.
+"""
 import argparse
 import json
 import os
@@ -15,6 +21,8 @@ TOPIC = "Emergence versus calibration: where should our conversation begin?"
 RETRY_MAX = 4
 RETRY_WAIT_S = 5
 RETRY_AFTER_CAP_S = 60
+PACE_DEFAULT = "half"
+PACE_MIN_S = 0.05
 
 
 def retryable_failure(exc):
@@ -29,6 +37,15 @@ def retry_wait_s(exc, attempt):
     if match:
         return min(int(match.group(1)), RETRY_AFTER_CAP_S)
     return RETRY_WAIT_S * (2 ** attempt)
+
+
+def pace_wait_s(pace, last_call_s):
+    """50% syscall speed cut: wait the previous call's duration before dialing again.
+
+    Sub-floor waits (instant demo stubs) are skipped so tests stay fast."""
+    if pace == "half" and last_call_s > PACE_MIN_S:
+        return last_call_s
+    return 0.0
 
 
 def load_topic(topic, topic_file=""):
@@ -127,11 +144,13 @@ def openrouter_answer(who, model, messages, provider):
                       "total_tokens": usage.get("total_tokens"), "cost_usd": float(cost)}}
 
 
-def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None):
+def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None, pace=PACE_DEFAULT):
     if not 1 <= turns <= 100:
         raise ValueError("turns must be 1..100")
     if first not in ("A", "B"):
         raise ValueError("first must be A or B")
+    if pace not in ("off", "half"):
+        raise ValueError(f"pace must be 'off' or 'half'")
     if not isinstance(history_chars, int) or history_chars < 1000:
         raise ValueError("history_chars must be an integer >= 1000")
     if not 0 < max_cost_usd <= 10:
@@ -148,6 +167,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
     history = []
     totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     stopped = "completed"
+    last_call_s = 0.0
     with (outdir / "bus.jsonl").open("w", encoding="utf-8") as bus:
         def emit(event):
             bus.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
@@ -155,12 +175,19 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
         emit({"type": "start", "utc": now(), "run_id": run_id, "mode": mode,
               "topic": topic, "models": models, "providers": providers,
               "first_speaker": first, "history_chars": history_chars,
-              "turns_requested": turns, "max_cost_usd": max_cost_usd})
+              "turns_requested": turns, "max_cost_usd": max_cost_usd,
+              "pace": pace})
         for n in range(turns):
             if totals["cost_usd"] >= max_cost_usd:
                 stopped = "local_budget_reached"
                 break
+            wait = pace_wait_s(pace, last_call_s)
+            if wait:
+                emit({"type": "pace", "utc": now(), "seq": n + 1,
+                      "wait_s": round(wait, 3)})
+                time.sleep(wait)
             who = order[n % 2]
+            call_started = time.monotonic()
             response = None
             failure = None
             for attempt in range(RETRY_MAX + 1):
@@ -185,6 +212,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                       "speaker": who,
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 break
+            last_call_s = time.monotonic() - call_started
             text = response["text"].strip()
             usage = response["usage"]
             if not text or not isinstance(usage.get("cost_usd"), (int, float)):
@@ -231,13 +259,15 @@ def main():
     p.add_argument("--turns", type=int, default=8)
     p.add_argument("--history-chars", type=int, default=28000)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
+    p.add_argument("--pace", choices=["off", "half"], default=PACE_DEFAULT,
+                   help="half = 50%% syscall speed cut (default, Mark GAS order Oct 2026)")
     p.add_argument("--topic", default=TOPIC)
     p.add_argument("--topic-file", default="")
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
     result = run(a.mode, a.model_a, a.model_b, a.provider_a, a.provider_b,
                  load_topic(a.topic, a.topic_file), a.turns, a.max_cost_usd, a.outdir,
-                 first=a.first, history_chars=a.history_chars)
+                 first=a.first, history_chars=a.history_chars, pace=a.pace)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
         raise SystemExit(1)

@@ -2,6 +2,7 @@ import json
 import os
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 
 from island.council import run_council, load_council
@@ -164,6 +165,62 @@ class CouncilRunTests(unittest.TestCase):
         finally:
             if old is not None:
                 os.environ["OPENROUTER_API_KEY"] = old
+
+
+class CouncilPaceTests(unittest.TestCase):
+    """Mark's dialing doctrine (Oct 25 2026): pace 'half' = wait the previous
+    call's duration before the next call — a 50% syscall speed cut."""
+
+    @staticmethod
+    def fake_clock(step=5.0):
+        state = {"now": 100.0}
+
+        def monotonic():
+            state["now"] += step
+            return state["now"]
+        return monotonic
+
+    def council(self, blind_round=True):
+        return {"title": "t", "question": "Q?", "context": "c",
+                "chair_model": "m/chair", "blind_round": blind_round,
+                "subs": [{"model": "m/1", "brief": "alpha"},
+                         {"model": "m/2", "brief": "beta"}]}
+
+    def test_pace_half_between_steps(self):
+        # demo council, blind round, 2 subs: 6 calls (2 sub + synthesis +
+        # 2 critique + verdict) -> 5 pace waits of 5.0s each.
+        waits = []
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.council.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.council.time.monotonic", self.fake_clock(5.0)):
+                result = run_council("demo", self.council(), 10.0,
+                                     Path(tmp) / "council")
+            events = [json.loads(x) for x in
+                      (Path(tmp) / "council" / "bus.jsonl").read_text().splitlines()]
+        paces = [e for e in events if e["type"] == "pace"]
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(waits, [5.0] * 5)
+        self.assertEqual([p["wait_s"] for p in paces], [5.0] * 5)
+        self.assertEqual(events[0].get("pace"), "half")
+
+    def test_pace_off_dials_back_to_back(self):
+        waits = []
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.council.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.council.time.monotonic", self.fake_clock(5.0)):
+                result = run_council("demo", self.council(), 10.0,
+                                     Path(tmp) / "council", pace="off")
+            events = [json.loads(x) for x in
+                      (Path(tmp) / "council" / "bus.jsonl").read_text().splitlines()]
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(waits, [])
+        self.assertEqual([e for e in events if e["type"] == "pace"], [])
+        self.assertEqual(events[0].get("pace"), "off")
+
+    def test_invalid_pace_fails(self):
+        with self.assertRaises(ValueError):
+            run_council("demo", self.council(), 10.0,
+                        Path("/tmp/x-invalid-pace"), pace="turbo")
 
 
 if __name__ == "__main__":

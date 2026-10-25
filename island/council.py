@@ -9,6 +9,9 @@ library only.
 Budget is a SOFT, post-call stop: spend is checked between calls, so total
 spend may exceed --max-cost-usd by at most one call's cost. A hard ceiling
 requires a provider-side bound or pre-call reservation (not implemented).
+
+Dialing doctrine (Mark, GAS order Oct 25 2026): pace "half" (default) waits
+the previous call's duration before the next call — 50% syscall speed cut.
 """
 import argparse
 import json
@@ -19,7 +22,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from island.runner import (now, openrouter_answer, retryable_failure,
-                           retry_wait_s, RETRY_MAX)
+                           retry_wait_s, pace_wait_s, RETRY_MAX, PACE_DEFAULT)
 
 DEMO_TEXT = "SYNTHETIC DEMO: council turn."
 
@@ -128,9 +131,11 @@ def verdict_messages(council, synthesis, critiques):
     return [{"role": "system", "content": system}, {"role": "user", "content": user}]
 
 
-def run_council(mode, council, max_cost_usd, outdir, answer=None):
+def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFAULT):
     if not 0 < max_cost_usd <= 10:
         raise ValueError("local budget must be <= $10")
+    if pace not in ("off", "half"):
+        raise ValueError("pace must be 'off' or 'half'")
     subs = council["subs"]
     if mode == "live":
         if not os.getenv("OPENROUTER_API_KEY"):
@@ -153,15 +158,22 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
     stopped = "completed"
     sub_answers, critiques = [], []
     synthesis, verdict = "", ""
+    clock = {"last_s": 0.0}
     with (outdir / "bus.jsonl").open("w", encoding="utf-8") as bus:
         def emit(event):
             bus.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
             bus.flush()
 
         def step(phase, who, model, messages):
-            """One council call with retries. Returns text, or None on failure."""
+            """One council call with retries and the standing pace. Returns text, or None on failure."""
             nonlocal stopped
+            wait = pace_wait_s(pace, clock["last_s"])
+            if wait:
+                emit({"type": "pace", "utc": now(), "phase": phase,
+                      "speaker": who, "wait_s": round(wait, 3)})
+                time.sleep(wait)
             response, failure = None, None
+            call_started = time.monotonic()
             for attempt in range(RETRY_MAX + 1):
                 try:
                     response = answer(who, model, messages, None)
@@ -183,6 +195,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
                       "speaker": who,
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 return None
+            clock["last_s"] = time.monotonic() - call_started
             text = response["text"].strip()
             usage = response["usage"]
             for key in totals:
@@ -199,7 +212,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
               "chair_model": council["chair_model"],
               "subs": [{"model": s["model"], "brief": s["brief"]} for s in subs],
               "blind_round": council["blind_round"],
-              "max_cost_usd": max_cost_usd})
+              "max_cost_usd": max_cost_usd, "pace": pace})
         for i, sub in enumerate(subs):
             if stopped != "completed":
                 break
@@ -221,7 +234,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None):
                     stopped = "local_budget_reached"
                     break
                 text = step("critique", f"sub{i + 1}", sub["model"],
-                            critique_messages(council, i, synthesis))
+                             critique_messages(council, i, synthesis))
                 if text is None:
                     break
                 critiques.append(text)
@@ -262,9 +275,12 @@ def main():
     p.add_argument("--mode", choices=["demo", "live"], default="demo")
     p.add_argument("--council-file", required=True)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
+    p.add_argument("--pace", choices=["off", "half"], default=PACE_DEFAULT,
+                   help="half = 50%% syscall speed cut (default, Mark GAS order Oct 2026)")
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
-    result = run_council(a.mode, load_council(a.council_file), a.max_cost_usd, a.outdir)
+    result = run_council(a.mode, load_council(a.council_file), a.max_cost_usd, a.outdir,
+                         pace=a.pace)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
         raise SystemExit(1)

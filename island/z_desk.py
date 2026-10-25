@@ -8,6 +8,9 @@ Funded per Mark's GAS standing order (Oct 2026). Standard library only.
 Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
 no unmetered calls). Briefs are PUBLIC on this bus: anything secret-shaped
 is refused before any API call — the red-line from the billing-lane review.
+
+Dialing doctrine (Mark, Oct 25 2026): pace "half" (default) waits the
+previous consult's duration before the next call — 50% syscall speed cut.
 """
 import argparse
 import hashlib
@@ -20,8 +23,8 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from island.runner import (RETRY_MAX, now, openrouter_answer, retry_wait_s,
-                           retryable_failure)
+from island.runner import (PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
+                           pace_wait_s, retry_wait_s, retryable_failure)
 
 CAP_CEILING_USD = 20.0
 AGENTS = ("diff", "man")
@@ -87,11 +90,13 @@ def demo_consult(agent, model, messages, provider):
                                            "total_tokens": 0, "cost_usd": 0.0}}
 
 
-def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None):
+def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PACE_DEFAULT):
     if mode not in ("demo", "live"):
         raise ValueError("mode must be demo or live")
     if not agents or any(a not in AGENTS for a in agents):
         raise ValueError(f"agents must be one or more of {AGENTS}")
+    if pace not in ("off", "half"):
+        raise ValueError("pace must be 'off' or 'half'")
     agents = list(dict.fromkeys(agents))
     if not isinstance(brief, str) or not brief.strip():
         raise ValueError("brief must be non-empty text")
@@ -111,6 +116,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None):
     totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     reasons = set()
     events = []
+    last_call_s = 0.0
     with (outdir / "bus.jsonl").open("w", encoding="utf-8") as bus:
         def emit(event):
             bus.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
@@ -120,16 +126,22 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None):
               "brief_chars": len(brief),
               "brief_sha256": hashlib.sha256(brief.encode("utf-8")).hexdigest(),
               "agents": agents, "models": {a: models[a] for a in agents},
-              "max_cost_usd": max_cost_usd,
+              "max_cost_usd": max_cost_usd, "pace": pace,
               "funder": "Mark (GAS standing order, Oct 2026)"})
         for agent in agents:
             if totals["cost_usd"] >= max_cost_usd:
                 reasons.add("local_budget_reached")
                 break
+            wait = pace_wait_s(pace, last_call_s)
+            if wait:
+                emit({"type": "pace", "utc": now(), "agent": agent,
+                      "wait_s": round(wait, 3)})
+                time.sleep(wait)
             messages = [{"role": "system", "content": SYSTEM_PROMPTS[agent]},
                         {"role": "user",
                          "content": "Review this bus text:\n\n" + brief}]
             response, failure = None, None
+            call_started = time.monotonic()
             for attempt in range(RETRY_MAX + 1):
                 try:
                     response = answer(agent, models[agent], messages, "")
@@ -150,6 +162,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None):
                 emit({"type": "error", "utc": now(), "agent": agent,
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 continue
+            last_call_s = time.monotonic() - call_started
             text = (response.get("text") or "").strip()
             usage = response.get("usage") or {}
             if not text or not isinstance(usage.get("cost_usd"), (int, float)):
@@ -197,6 +210,8 @@ def main():
     parser.add_argument("--agents", default="diff,man", help="comma list from: diff,man")
     parser.add_argument("--diff-model", default="mistralai/mistral-medium-3-5")
     parser.add_argument("--man-model", default="openai/gpt-6-sol")
+    parser.add_argument("--pace", choices=["off", "half"], default=PACE_DEFAULT,
+                       help="half = 50%% syscall speed cut (default, Mark GAS order Oct 2026)")
     parser.add_argument("--brief", default="")
     parser.add_argument("--brief-file", default="")
     parser.add_argument("--max-cost-usd", type=float, default=1.0)
@@ -211,7 +226,8 @@ def main():
         agents = list(AGENTS)
     else:
         agents = [a.strip() for a in args.agents.split(",") if a.strip()]
-    result = run(args.mode, agents, models, brief, args.max_cost_usd, args.outdir)
+    result = run(args.mode, agents, models, brief, args.max_cost_usd, args.outdir,
+                 pace=args.pace)
     print(json.dumps(result, indent=2))
     if "error" in result["stop"]:
         raise SystemExit(1)

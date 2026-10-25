@@ -1,6 +1,7 @@
 """Z Desk tests: demo runs, cap validation, secret red-line, verdict parsing."""
 import json
 import unittest
+from unittest import mock
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -118,6 +119,60 @@ class ZDeskDemoRun(unittest.TestCase):
         self.assertIsNone(verdict.get("confidence"))
         bad = z_desk.parse_verdict('{"verdict": "GREAT", "findings": []}')
         self.assertEqual(bad["verdict"], "UNPARSEABLE")
+
+
+class ZDeskPaceTests(unittest.TestCase):
+    """Mark's dialing doctrine (Oct 25 2026): pace 'half' = wait the previous
+    consult's duration before the next call — a 50% syscall speed cut."""
+
+    @staticmethod
+    def fake_clock(step=5.0):
+        state = {"now": 100.0}
+
+        def monotonic():
+            state["now"] += step
+            return state["now"]
+        return monotonic
+
+    def test_pace_half_between_agents(self):
+        # 2 agents -> 2 calls -> 1 pace wait of 5.0s before the second call.
+        waits = []
+        with TemporaryDirectory() as tmp:
+            outdir = Path(tmp) / "desk"
+            with mock.patch("island.z_desk.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.z_desk.time.monotonic", self.fake_clock(5.0)):
+                result = z_desk.run("demo", ["diff", "man"],
+                                    {"diff": "dmodel", "man": "mmodel"},
+                                    BRIEF, 1.0, outdir)
+            lines = [json.loads(x) for x in
+                     (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
+        paces = [e for e in lines if e["type"] == "pace"]
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(waits, [5.0])
+        self.assertEqual([p["wait_s"] for p in paces], [5.0])
+        self.assertEqual(paces[0]["agent"], "man")
+        self.assertEqual(lines[0].get("pace"), "half")
+
+    def test_pace_off_dials_back_to_back(self):
+        waits = []
+        with TemporaryDirectory() as tmp:
+            outdir = Path(tmp) / "desk"
+            with mock.patch("island.z_desk.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.z_desk.time.monotonic", self.fake_clock(5.0)):
+                result = z_desk.run("demo", ["diff", "man"],
+                                    {"diff": "dmodel", "man": "mmodel"},
+                                    BRIEF, 1.0, outdir, pace="off")
+            lines = [json.loads(x) for x in
+                     (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(waits, [])
+        self.assertEqual([e for e in lines if e["type"] == "pace"], [])
+        self.assertEqual(lines[0].get("pace"), "off")
+
+    def test_invalid_pace_fails(self):
+        with self.assertRaises(ValueError):
+            z_desk.run("demo", ["diff"], {"diff": "dmodel", "man": "mmodel"},
+                       BRIEF, 1.0, "runs/never-created", pace="turbo")
 
 
 if __name__ == "__main__":

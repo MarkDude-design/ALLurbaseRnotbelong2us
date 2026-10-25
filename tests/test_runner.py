@@ -179,6 +179,83 @@ class RetryTests(unittest.TestCase):
         self.assertEqual(waits, [runner_mod.RETRY_AFTER_CAP_S] * runner_mod.RETRY_MAX)
 
 
+class PaceTests(unittest.TestCase):
+    """Mark's dialing doctrine (Oct 25 2026): pace 'half' = wait the previous
+    call's duration before the next call — a 50% syscall speed cut."""
+
+    @staticmethod
+    def fake_clock(step=5.0):
+        state = {"now": 100.0}
+
+        def monotonic():
+            state["now"] += step
+            return state["now"]
+        return monotonic
+
+    @staticmethod
+    def ok_stub(who, model, messages, provider):
+        return {"text": "ok " + who, "model_returned": None, "response_id": None,
+                "usage": {"cost_usd": 0.01, "total_tokens": 3}}
+
+    def test_pace_half_waits_last_call_duration_between_turns(self):
+        waits = []
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.runner.time.monotonic", self.fake_clock(5.0)):
+                result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test",
+                             answer=self.ok_stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        paces = [e for e in events if e["type"] == "pace"]
+        self.assertEqual(result["turns"], 3)
+        self.assertEqual(waits, [5.0, 5.0])  # one gap per call boundary: 3 calls -> 2 waits
+        self.assertEqual([p["wait_s"] for p in paces], [5.0, 5.0])
+        self.assertEqual(events[0].get("pace"), "half")
+
+    def test_pace_off_dials_back_to_back(self):
+        waits = []
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.runner.time.monotonic", self.fake_clock(5.0)):
+                result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test",
+                             answer=self.ok_stub, pace="off")
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        self.assertEqual(result["turns"], 3)
+        self.assertEqual(waits, [])
+        self.assertEqual([e for e in events if e["type"] == "pace"], [])
+        self.assertEqual(events[0].get("pace"), "off")
+
+    def test_instant_demo_calls_do_not_pace(self):
+        # Real clock, instant stubs: durations fall below the epsilon, so the
+        # default pace never slows demo runs or existing tests.
+        with tempfile.TemporaryDirectory() as tmp:
+            result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test")
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        self.assertEqual(result["turns"], 3)
+        self.assertEqual([e for e in events if e["type"] == "pace"], [])
+
+    def test_pace_does_not_fire_after_a_failed_call(self):
+        # All-fail run: retries back off, no pace event, run stops on error.
+        waits = []
+
+        def stub(who, model, messages, provider):
+            raise RuntimeError("OpenRouter HTTP 429")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            with mock.patch("island.runner.time.sleep", lambda s: waits.append(s)), \
+                 mock.patch("island.runner.time.monotonic", self.fake_clock(5.0)):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
+            events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
+        self.assertEqual([e for e in events if e["type"] == "pace"], [])
+        # Only the retry backoff fired (5s base, doubling, RETRY_MAX=4) — no
+        # pace waits on top: failed calls never set last_call_s.
+        self.assertEqual(waits, [5, 10, 20, 40])
+
+    def test_invalid_pace_fails(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", pace="turbo")
+
+
 class TopicFileTests(unittest.TestCase):
     def test_topic_file_wins_over_topic_string(self):
         with tempfile.TemporaryDirectory() as tmp:

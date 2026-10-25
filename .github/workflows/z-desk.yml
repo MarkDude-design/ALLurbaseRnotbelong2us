@@ -27,6 +27,14 @@ on:
         description: 'Local budget ceiling USD for this consult (soft, post-call stop; provider key cap governs)'
         required: false
         default: '1'
+      pace:
+        description: 'Dialing: half = wait the previous call duration (50% syscall cut, Mark Oct 25 2026) or off'
+        required: false
+        default: 'half'
+        type: choice
+        options:
+          - half
+          - off
       demo:
         description: 'Dry run: no API call, no spend'
         required: false
@@ -61,7 +69,8 @@ jobs:
           printf '%s' "$BRIEF" > /tmp/brief.txt
           python -m island.z_desk --mode "$MODE" --agents "${{ inputs.agents }}" \
             --diff-model "${{ inputs.diff_model }}" --man-model "${{ inputs.man_model }}" \
-            --max-cost-usd "${{ inputs.cap }}" --brief-file /tmp/brief.txt \
+            --max-cost-usd "${{ inputs.cap }}" --pace "${{ inputs.pace }}" \
+            --brief-file /tmp/brief.txt \
             --outdir "runs/z-desk-${{ github.run_id }}-${{ github.run_attempt }}"
       - name: Archive receipts
         if: always()
