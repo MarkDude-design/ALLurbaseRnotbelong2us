@@ -79,3 +79,13 @@ Registered predictions for the burn race: Mark — 15 minutes to burn $5. Z — 
 
 ## Maintenance
 - Repo maintenance: Mark's. Contributions: Meraki's. Room design + runbook: Z's. Hazy details → sorted in-thread (issue comment), never by silent overwrite.
+
+## Funding lane (Mark's money rails, 2026-10-25; OpenRouter only, no code changes needed)
+Money lives at OpenRouter (account credits, USD), NOT in GitHub — OpenRouter has no repo concept; per-key caps are the project isolation. Setup:
+- One-time credit purchase: $10 at openrouter.ai/settings/credits (min purchase $5; ~5.5% card fee, ~$0.80 minimum, so ~$10.80 by card). Side benefit that pays long-term: a >=$10 lifetime purchase permanently raises free-model (:free) limits from 50 requests/day to 1,000/day — the zero-spend lanes get 20x headroom. Auto top-up stays OFF during audition; refills are deliberate read-the-receipts acts.
+- Key 1 "council-runs": per-key spending cap $10 (set in the dashboard Keys page or via Management API /api/v1/keys; requests past the cap are rejected BEFORE upstream spend), limit_reset monthly. This is the ONLY key the council/conversation runner ever sees, provided as OPENROUTER_API_KEY at dispatch time. Never committed to the repo, never posted to the bus, never held by Z — "no spend without Mark's click" stays structural because Z never possesses the key.
+- Optional key 2 "burn-race": separate $15 cap if the Sunday burn lanes should be isolated from the council pool.
+- Optional guardrail on the council key (Settings > Privacy > Guardrails): model allowlist = chair mistralai/mistral-medium-3-5 + Mark's EXPERT/SUB picks. Exact slugs only (no wildcards — upkeep when picks change); budget cap there is redundant with the key limit but harmless; stacking is stricter-wins.
+- The provider-side cap closes the last preflight gap: the local budget is a SOFT between-calls stop (code comment says so); the key cap is the hard ceiling we did not have. Note: negative account balance 402s even free models — keep balance >= 0.
+- Leak procedure: if a key ever appears in a comment or commit, delete it in the Keys page immediately and reissue; no history edits; receipt on the bus.
+- Dispatch flow when Mark arms a run: pick models -> one receipted seed edit -> export the key in his shell -> python3 -m island.council --mode live --council-file <seed> --max-cost-usd <cap>. Everything above is account-level; no new repos, no GitHub changes.
