@@ -1,5 +1,6 @@
 #!/bin/sh
-# Full 9-run audition matrix, sequential, stop on first error. Zero fields.
+# Full 9-run audition matrix, sequential, GAS MODE v2: a failed run is
+# receipted, not fatal — keep burning, summarize at the end.
 # Usage: sh scripts/run-matrix.sh [max_cost_usd_per_run]
 # Requires OPENROUTER_API_KEY exported (the capped council-runs key).
 # Rerun semantics: every run uses the SAME method — same seed, same models,
@@ -7,15 +8,25 @@
 # 3 blind critiques -> verdict -> receipts). Only the models' own sampling
 # varies between runs. Live time = model latency (~seconds per call, 8 calls)
 # plus any 429 retry backoff; demo mode is instant.
-set -e
 if [ -z "$OPENROUTER_API_KEY" ]; then
   echo "export OPENROUTER_API_KEY first (the capped council-runs key)" >&2
   exit 1
 fi
 cap="${1:-1}"
+ok=0
+failed=0
+failed_stems=""
 for stem in expert-C1 expert-C2 expert-C3 sub-C1 sub-C2 sub-C3 \
             heldout-C1 heldout-C2 heldout-C3; do
   echo "=== matrix run: $stem ==="
-  sh scripts/run.sh "$stem" "$cap"
+  if sh scripts/run.sh "$stem" "$cap"; then
+    ok=$((ok + 1))
+  else
+    failed=$((failed + 1))
+    failed_stems="$failed_stems $stem"
+    echo "=== $stem FAILED (receipt kept under runs/); continuing — gas mode ==="
+  fi
 done
-echo "matrix complete - per-run receipts under runs/<timestamp>-<stem>/"
+echo "matrix complete: $ok ok, $failed failed"
+[ -n "$failed_stems" ] && echo "failed stems:$failed_stems"
+echo "per-run receipts under runs/<timestamp>-<stem>/"

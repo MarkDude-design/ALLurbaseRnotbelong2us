@@ -2,6 +2,11 @@
 
 Island Pa More / LLM Team: two independently selected **API model proxies** exchanging natural, longer-form ideas on a lightweight bus. **A = Meraki proxy; B = Z proxy; MAIN = shared workspace.** These proxies are not the live voice instances.
 
+### Gas mode — the burn-first spend doctrine (Mark's standing order, 2026-10-25)
+- Spend on council/matrix runs is PRE-AUTHORIZED up to the capped key's limit. The $10 "council-runs" key IS the $10 bill, and burning toward the cap is a goal of the instrument, not an accident to prevent (#TokenRace: the wall was the finding).
+- The provider-side key cap is the guard. The local soft stop is bookkeeping, not permission-seeking. No per-run confirmation asks.
+- Receipts are the product: every run lands in runs/<timestamp>-<stem>/ whether it succeeds or fails. A failed run is a receipted datum, not a stop.
+
 ### Local dry run (no credits)
 Run from the repository root:
 
