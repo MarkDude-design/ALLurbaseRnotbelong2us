@@ -121,7 +121,11 @@ class CouncilRunTests(unittest.TestCase):
             self.assertNotIn("text-of-sub1", critique)
             self.assertNotIn("text-of-sub2", critique)
 
-    def test_budget_stops_before_overrun(self):
+    def test_budget_soft_stop_after_call(self):
+        # Budget is a SOFT, post-call stop: spend is checked between calls, so
+        # total spend may exceed max_cost_usd by at most one call's cost
+        # (here: $1.00 cap, two $0.60 calls -> $1.20). A hard ceiling would need
+        # a provider-side bound or pre-call reservation.
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp) / "council"
             result = run_council("demo", self.council(blind_round=True), 1.0,
@@ -130,6 +134,7 @@ class CouncilRunTests(unittest.TestCase):
         self.assertEqual(result["stop"], "local_budget_reached")
         self.assertEqual(result["subs"], 2)
         self.assertEqual(result["critiques"], 0)
+        self.assertGreater(result["totals"]["cost_usd"], 1.0)
         self.assertEqual(events[-1]["type"], "stop")
 
     def test_non_retryable_error_stops_council(self):

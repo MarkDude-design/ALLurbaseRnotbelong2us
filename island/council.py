@@ -5,6 +5,10 @@ instruments, NOT seats: every bus event labels the speaker as a role, never a
 seat. The chair's verdict is a prior, not proof — one verifiable
 counter-observation from the environment overrides unanimity. Standard
 library only.
+
+Budget is a SOFT, post-call stop: spend is checked between calls, so total
+spend may exceed --max-cost-usd by at most one call's cost. A hard ceiling
+requires a provider-side bound or pre-call reservation (not implemented).
 """
 import argparse
 import json

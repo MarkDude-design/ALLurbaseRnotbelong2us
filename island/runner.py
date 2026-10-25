@@ -2,6 +2,8 @@
 import argparse
 import json
 import os
+import re
+import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
@@ -10,13 +12,43 @@ from urllib.error import HTTPError, URLError
 
 API_URL = "https://openrouter.ai/api/v1/chat/completions"
 TOPIC = "Emergence versus calibration: where should our conversation begin?"
+RETRY_MAX = 4
+RETRY_WAIT_S = 5
+RETRY_AFTER_CAP_S = 60
+
+
+def retryable_failure(exc):
+    msg = str(exc)
+    return ("OpenRouter HTTP 429" in msg or "OpenRouter HTTP 5" in msg
+            or msg == "OpenRouter network error")
+
+
+def retry_wait_s(exc, attempt):
+    """Exponential backoff, unless the provider sent a Retry-After hint (capped)."""
+    match = re.search(r"retry-after (\d+)", str(exc))
+    if match:
+        return min(int(match.group(1)), RETRY_AFTER_CAP_S)
+    return RETRY_WAIT_S * (2 ** attempt)
+
+
+def load_topic(topic, topic_file=""):
+    """Resolve the opening topic: a seed file wins, then an explicit topic, then the default."""
+    if topic_file:
+        path = Path(topic_file)
+        if not path.is_file():
+            raise SystemExit(f"topic file not found: {topic_file}")
+        text = path.read_text(encoding="utf-8").strip()
+        if not text:
+            raise SystemExit(f"topic file is empty: {topic_file}")
+        return text
+    return topic or TOPIC
 
 
 def now():
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
-def messages_for(who, history, topic):
+def messages_for(who, history, topic, history_chars=28000):
     peer = "B" if who == "A" else "A"
     system = (
         f"You are participant {who}, talking with participant {peer}. "
@@ -26,7 +58,7 @@ def messages_for(who, history, topic):
         "Respond to the conversation itself, not to a facilitator."
     )
     if history:
-        transcript = "\n\n".join(f"{x['speaker']}: {x['text']}" for x in history)[-28000:]
+        transcript = "\n\n".join(f"{x['speaker']}: {x['text']}" for x in history)[-history_chars:]
         text = f"Opening topic: {topic}\n\nConversation so far:\n{transcript}\n\nContinue as {who}."
     else:
         text = f"Opening topic: {topic}\n\nYou speak first. Open naturally."
@@ -59,7 +91,16 @@ def openrouter_answer(who, model, messages, provider):
         with urlopen(request, timeout=120) as response:
             data = json.load(response)
     except HTTPError as exc:
-        raise RuntimeError(f"OpenRouter HTTP {exc.code}") from None
+        # The Retry-After hint is a single number, not a remote body; keep it as a receipt.
+        retry_after = None
+        try:
+            retry_after = exc.headers.get("Retry-After")
+        except Exception:
+            retry_after = None
+        detail = f"OpenRouter HTTP {exc.code}"
+        if retry_after:
+            detail += f" retry-after {retry_after}"
+        raise RuntimeError(detail) from None
     except URLError:
         raise RuntimeError("OpenRouter network error") from None
     content = data.get("choices", [{}])[0].get("message", {}).get("content", "")
@@ -80,15 +121,20 @@ def openrouter_answer(who, model, messages, provider):
                       "total_tokens": usage.get("total_tokens"), "cost_usd": float(cost)}}
 
 
-def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, answer=None):
+def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None):
     if not 1 <= turns <= 100:
         raise ValueError("turns must be 1..100")
+    if first not in ("A", "B"):
+        raise ValueError("first must be A or B")
+    if not isinstance(history_chars, int) or history_chars < 1000:
+        raise ValueError("history_chars must be an integer >= 1000")
     if not 0 < max_cost_usd <= 10:
         raise ValueError("local budget must be <= $10")
     if mode == "live" and (not model_a or not model_b or not os.getenv("OPENROUTER_API_KEY")):
         raise ValueError("live mode needs two model IDs and OPENROUTER_API_KEY")
     models = {"A": model_a, "B": model_b}
     providers = {"A": provider_a, "B": provider_b}
+    order = (first, "B") if first == "A" else ("B", "A")
     answer = answer or (demo_answer if mode == "demo" else openrouter_answer)
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
@@ -102,23 +148,43 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             bus.flush()
         emit({"type": "start", "utc": now(), "run_id": run_id, "mode": mode,
               "topic": topic, "models": models, "providers": providers,
+              "first_speaker": first, "history_chars": history_chars,
               "turns_requested": turns, "max_cost_usd": max_cost_usd})
         for n in range(turns):
             if totals["cost_usd"] >= max_cost_usd:
                 stopped = "local_budget_reached"
                 break
-            who = "A" if n % 2 == 0 else "B"
-            try:
-                response = answer(who, models[who], messages_for(who, history, topic), providers[who])
-                text = response["text"].strip()
-                usage = response["usage"]
-                if not text or not isinstance(usage.get("cost_usd"), (int, float)):
-                    raise RuntimeError("Invalid completion")
-            except Exception as exc:
+            who = order[n % 2]
+            response = None
+            failure = None
+            for attempt in range(RETRY_MAX + 1):
+                try:
+                    response = answer(who, models[who], messages_for(who, history, topic, history_chars), providers[who])
+                    failure = None
+                    break
+                except Exception as exc:
+                    failure = exc
+                    if attempt < RETRY_MAX and retryable_failure(exc):
+                        wait = retry_wait_s(exc, attempt)
+                        emit({"type": "retry", "utc": now(), "seq": n + 1,
+                              "speaker": who, "attempt": attempt + 1,
+                              "wait_s": wait, "reason": str(exc)[:160]})
+                        time.sleep(wait)
+                    else:
+                        break
+            if failure is not None or response is None:
                 stopped = "error"
                 # Do not persist raw remote HTTP error bodies, credentials or request prompts.
                 emit({"type": "error", "utc": now(), "seq": n + 1,
-                      "speaker": who, "error": str(exc)[:160]})
+                      "speaker": who,
+                      "error": str(failure)[:160] if failure else "Invalid completion"})
+                break
+            text = response["text"].strip()
+            usage = response["usage"]
+            if not text or not isinstance(usage.get("cost_usd"), (int, float)):
+                stopped = "error"
+                emit({"type": "error", "utc": now(), "seq": n + 1,
+                      "speaker": who, "error": "Invalid completion"})
                 break
             history.append({"speaker": who, "text": text})
             for key in totals:
@@ -155,13 +221,17 @@ def main():
     p.add_argument("--model-b", default="")
     p.add_argument("--provider-a", default="")
     p.add_argument("--provider-b", default="")
+    p.add_argument("--first", choices=["A", "B"], default="A")
     p.add_argument("--turns", type=int, default=8)
+    p.add_argument("--history-chars", type=int, default=28000)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
     p.add_argument("--topic", default=TOPIC)
+    p.add_argument("--topic-file", default="")
     p.add_argument("--outdir", default="runs/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     a = p.parse_args()
     result = run(a.mode, a.model_a, a.model_b, a.provider_a, a.provider_b,
-                 a.topic, a.turns, a.max_cost_usd, a.outdir)
+                 load_topic(a.topic, a.topic_file), a.turns, a.max_cost_usd, a.outdir,
+                 first=a.first, history_chars=a.history_chars)
     print(json.dumps(result, indent=2))
     if result["stop"] == "error":
         raise SystemExit(1)
