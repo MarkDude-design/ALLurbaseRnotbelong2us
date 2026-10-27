@@ -184,13 +184,23 @@ class PairedStateRepair(unittest.TestCase):
 
     def test_shared_seed_with_differing_input_bytes_fails_equality(self):
         # Verdict: "avoid just taking the shared seed as proof if other input
-        # bytes differ." Same world_seed, DIFFERENT intervention bytes -> the
-        # start-state digest must differ.
+        # bytes differ." Same world_seed, same fixed-point SLOTS, exactly ONE
+        # intervention byte mutated -> the start-state digest must differ.
+        # (Isolation tweak from the 021-M-01 / sign-off review: a different
+        # schedule seed could move the fixed-point slots too, conflating two
+        # changes; mutating a single byte isolates the bytes-only property.)
         rep = self.report
-        other_sched = make_schedule(rep["world_seed"] + 5, rep["turns"],
-                                    exclude=rep["force_plan"].keys())
+        sched = make_schedule(rep["world_seed"], rep["turns"],
+                              exclude=rep["force_plan"].keys())
+        first_slot = min(sched["bert_fixed_points"])
+        iv = sched["interventions"][first_slot]
+        self.assertGreater(len(iv), 1)
+        mutated = iv[:-1] + bytes([iv[-1] ^ 0x01])  # flip one byte, same slots
+        sched["interventions"][first_slot] = mutated
+        self.assertEqual(sched["bert_fixed_points"],
+                         rep["manifests"]["baseline"]["run_config"]["bert_fixed_points"])
         other = run_arm(
-            condition="baseline", schedule=other_sched, world_seed=rep["world_seed"],
+            condition="baseline", schedule=sched, world_seed=rep["world_seed"],
             turns=rep["turns"], force_plan=rep["force_plan"], pair_id=rep["pair_id"],
             code_commit=rep["code_commit"], prompt_versions=rep["prompt_versions"],
         )
