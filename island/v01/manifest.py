@@ -19,6 +19,11 @@ now hashes the CONDITION-INDEPENDENT starting world state only; which arm ran
 (and whether delivery was on) is receipted separately in
 `actuals.arm_config_sha`. Paired arms with identical starts now hash
 byte-equal; a shared seed alone is never taken as proof.
+
+NAMING CHECKS (same verdict): `code_commit` is reserved for an actual Git
+revision (null when not grounded); the module-bytes content fingerprint is
+receipted as `source_bytes_sha256`. The deterministic stub clock is receipted
+explicitly as `run_config.fixture_clock`.
 """
 
 from __future__ import annotations
@@ -42,7 +47,8 @@ TEMPLATE = {
     "status": None,
     "pair_id": None,
     "condition": None,
-    "code_commit": None,
+    "code_commit": None,          # actual Git revision only; null when not grounded (verdict naming check)
+    "source_bytes_sha256": None,  # module-bytes content fingerprint, honestly labeled (verdict naming check)
     "prompt_versions": {"puppet": None, "bert_seed": None},
     "actors": [
         {
@@ -55,6 +61,7 @@ TEMPLATE = {
         "turns": 8, "bert_fixed_points": None, "world_seed": None,
         "max_escalations_per_slot": 2, "fallback_ladder": "on",
         "triggers": "turn-indexed-only", "delivery_order": "before-action",
+        "fixture_clock": None,  # explicit stub-clock marker (verdict naming check)
     },
     "actuals": {
         "run_id": None, "started_at_utc": None, "ended_at_utc": None,
@@ -77,9 +84,11 @@ TEMPLATE = {
 # Declared types for every null-placeholder path (dotted; actors handled specially).
 NULL_TYPES = {
     "status": str, "pair_id": str, "condition": str, "code_commit": str,
+    "source_bytes_sha256": str,  # verdict naming check: content fingerprint, not a Git SHA
     "prompt_versions.puppet": str, "prompt_versions.bert_seed": str,
     "run_config.bert_fixed_points": (list, str),  # list[int] or the string "none"
     "run_config.world_seed": int,
+    "run_config.fixture_clock": str,  # verdict naming check: explicit stub-clock marker
     "actuals.run_id": str, "actuals.started_at_utc": str, "actuals.ended_at_utc": str,
     "actuals.turns_attempted": int, "actuals.turns_completed": int, "actuals.turns_accepted": int,
     "actuals.actual_prompt_sha": str, "actuals.actual_state_sha": str,

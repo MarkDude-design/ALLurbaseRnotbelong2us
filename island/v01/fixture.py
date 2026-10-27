@@ -264,6 +264,7 @@ def run_fixture(outdir: str | None = None, world_seed: int = DEFAULT_WORLD_SEED,
             "The code puppet is the loop-fill bare minimum (issue #13); swapping ONLY the puppet fill to model is SPEC 6.2.",
             "bus_jsonl_sha stays null — the fixture emits no bus traffic; honest absence, not a zero.",
             "REPAIR 6452485876: actual_state_sha is condition-independent; arm_config_sha receipts the arm configuration separately.",
+            "Naming checks 6452485876: code_commit stays null (reserved for a Git revision); the module-bytes fingerprint is source_bytes_sha256; run_config.fixture_clock marks the deterministic stub clock.",
         ],
     }
 

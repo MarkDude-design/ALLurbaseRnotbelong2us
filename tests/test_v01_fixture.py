@@ -182,6 +182,50 @@ class PairedStateRepair(unittest.TestCase):
             rep["manifests"]["baseline"]["actuals"]["arm_config_sha"],
         )
 
+    def test_shared_seed_with_differing_input_bytes_fails_equality(self):
+        # Verdict: "avoid just taking the shared seed as proof if other input
+        # bytes differ." Same world_seed, DIFFERENT intervention bytes -> the
+        # start-state digest must differ.
+        rep = self.report
+        other_sched = make_schedule(rep["world_seed"] + 5, rep["turns"],
+                                    exclude=rep["force_plan"].keys())
+        other = run_arm(
+            condition="baseline", schedule=other_sched, world_seed=rep["world_seed"],
+            turns=rep["turns"], force_plan=rep["force_plan"], pair_id=rep["pair_id"],
+            code_commit=rep["code_commit"], prompt_versions=rep["prompt_versions"],
+        )
+        self.assertNotEqual(
+            other["manifest"]["actuals"]["actual_state_sha"],
+            rep["manifests"]["baseline"]["actuals"]["actual_state_sha"],
+        )
+
+
+class VerdictNamingChecks(unittest.TestCase):
+    """Verdict 6452485876 naming checks: code_commit reserved for Git SHAs;
+    content fingerprint labeled source_bytes_sha256; explicit fixture_clock."""
+
+    @classmethod
+    def setUpClass(cls):
+        cls.report = _report()
+
+    def test_code_commit_is_honest_null(self):
+        for arm in ("baseline", "perturbed"):
+            m = self.report["manifests"][arm]
+            self.assertIsNone(m["code_commit"])  # no Git revision injected
+
+    def test_source_bytes_fingerprint_labeled(self):
+        for arm in ("baseline", "perturbed"):
+            m = self.report["manifests"][arm]
+            self.assertTrue(m["source_bytes_sha256"].startswith("sha256:"))
+            self.assertNotEqual(m["source_bytes_sha256"], m["actuals"]["actual_state_sha"])
+
+    def test_fixture_clock_explicitly_receipted(self):
+        for arm in ("baseline", "perturbed"):
+            m = self.report["manifests"][arm]
+            self.assertEqual(m["run_config"]["fixture_clock"], m["actuals"]["started_at_utc"])
+            self.assertEqual(m["run_config"]["fixture_clock"], m["actuals"]["ended_at_utc"])
+            self.assertTrue(m["run_config"]["fixture_clock"])  # non-empty marker
+
 
 class ArtifactsAndCLI(unittest.TestCase):
 

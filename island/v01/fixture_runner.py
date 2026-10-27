@@ -21,6 +21,13 @@ Before the repair, the digest included "condition", so paired arms ALWAYS
 differed even with identical starts — the defect the verdict made acceptance
 conditional on. A shared seed alone is never proof; the paired-equality
 check is.
+
+NAMING CHECKS (same verdict): the module-bytes content fingerprint is
+receipted as source_bytes_sha256 — NOT as code_commit, which is reserved for
+an actual Git revision and stays an honest null in the fixture. The
+deterministic stub clock is receipted explicitly as run_config.fixture_clock
+so its UTC-looking timestamps are never mistaken for wall-clock experiment
+receipts.
 """
 
 from __future__ import annotations
@@ -182,12 +189,18 @@ def run_arm(
     # delivery setting are NOT part of this digest; they live in
     # arm_config_sha below. Paired arms with identical starts therefore hash
     # byte-equal, and a deliberately changed start state is detectable.
+    # The intervention digests are included so a shared seed alone is never
+    # proof: if any schedule/input bytes differ, this digest differs.
     state_sha = sha256_hex_of_obj(
         {
             "world_seed": world_seed,
             "turns": turns,
             "force_plan": force_plan,
             "bert_fixed_points": fixed_points,
+            "interventions_sha": [
+                [s, sha256_hex_of_bytes(interventions[s])]
+                for s in sorted(interventions)
+            ],
         }
     )
 
@@ -207,7 +220,11 @@ def run_arm(
         "status": "completed",
         "pair_id": pair_id,
         "condition": condition,
-        "code_commit": code_commit,
+        # NAMING CHECK (verdict 6452485876): code_commit is reserved for an
+        # actual Git revision; the fixture does not inject one — honest null.
+        "code_commit": None,
+        # The module-bytes content fingerprint, honestly labeled.
+        "source_bytes_sha256": code_commit,
         "prompt_versions": prompt_versions,
         "actors": [
             {
@@ -224,6 +241,10 @@ def run_arm(
             "fallback_ladder": "on",
             "triggers": "turn-indexed-only",
             "delivery_order": "before-action",
+            # NAMING CHECK (verdict 6452485876): explicit marker so the stub
+            # clock's UTC-looking timestamps are never read as wall-clock
+            # experiment receipts. started_at/ended_at below are this value.
+            "fixture_clock": FIXED_CLOCK_UTC,
         },
         "actuals": {
             "run_id": run_id,
