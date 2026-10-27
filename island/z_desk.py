@@ -6,7 +6,7 @@ man  — the frontier expert Z calls when the desk needs deep judgment.
 
 Funded per Mark's GAS standing order (Oct 2026). Standard library only.
 Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
-no unmetered calls). Briefs are PUBLIC on this bus: anything secret-shaped
+explicit UNKNOWN charge receipts under the owner's Mercurial override). Briefs are PUBLIC on this bus: anything secret-shaped
 is refused before any API call — the red-line from the billing-lane review.
 
 Dialing doctrine (Mark, Oct 25 2026): pace "half" (default) waits the
@@ -23,7 +23,7 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from island.runner import (PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
+from island.runner import (record_cost, PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
                            pace_wait_s, retry_wait_s, retryable_failure)
 
 CAP_CEILING_USD = 20.0
@@ -117,7 +117,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
-    totals = {"cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
     reasons = set()
     events = []
     last_call_s = 0.0
@@ -153,6 +153,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
                     failure = None
                     break
                 except Exception as exc:
+                    record_cost(None, totals, emit, agent=agent, model_requested=models[agent], attempt=attempt + 1)
                     failure = exc
                     if attempt < RETRY_MAX and retryable_failure(exc):
                         wait = retry_wait_s(exc, attempt)
@@ -163,29 +164,29 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
                     else:
                         break
             if failure is not None or response is None:
+                if failure is None:
+                    record_cost(None, totals, emit, agent=agent, model_requested=models[agent], attempt=attempt + 1)
                 reasons.add("error")
                 emit({"type": "error", "utc": now(), "agent": agent,
                       "error": str(failure)[:160] if failure else "Invalid completion"})
                 continue
             last_call_s = time.monotonic() - call_started
-            text = (response.get("text") or "").strip()
-            usage = response.get("usage") or {}
-            cost = usage.get("cost_usd")
-            if (not text or isinstance(cost, bool) or not isinstance(cost, (int, float))
-                    or not math.isfinite(cost) or cost < 0):
+            usage = record_cost(response, totals, emit, agent=agent, model_requested=models[agent], attempt=attempt + 1)
+            raw_text = response.get("text") if isinstance(response, dict) else None
+            text = raw_text.strip() if isinstance(raw_text, str) else ""
+            if not text:
                 reasons.add("error")
                 emit({"type": "error", "utc": now(), "agent": agent,
-                      "error": "Invalid completion or unusable cost receipt "
-                               "(negative/NaN/inf/bool are not valid spend)"})
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
                 continue
-            for key in totals:
-                totals[key] += usage.get(key, 0) or 0
             emit({"type": "consult", "utc": now(), "agent": agent, "text": text,
                   "model_requested": models[agent],
                   "model_returned": response.get("model_returned"),
                   "provider_returned": response.get("provider_returned"),
                   "response_id": response.get("response_id"), "usage": usage,
                   "verdict": parse_verdict(text)})
+        if totals["unknown_cost_calls"]:
+            reasons.add("error")
         stopped = "+".join(sorted(reasons)) if reasons else "completed"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "turns": len([e for e in events if e.get("type") == "consult"]),
@@ -204,7 +205,8 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
     (outdir / "consult.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     report = [f"# Report: {run_id}", "", f"Mode: {mode}",
               "Agents: " + ", ".join(f"{a} ({models[a]})" for a in agents),
-              f"Stop: {stopped}", f"Reported cost: USD {totals['cost_usd']:.6f}",
+              f"Stop: {stopped}", f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Cap: {max_cost_usd:g} USD (caller-declared soft post-call stop; "
               "provider key cap governs)",
               f"Reported tokens: {totals['total_tokens']}", "",

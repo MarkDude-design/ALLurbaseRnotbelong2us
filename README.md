@@ -36,3 +36,31 @@ Add `--first B` (A or B) to choose the opening speaker — the first-speaker ste
 - Outputs are workflow artifacts rather than automatic pushes to main, pending deliberate release. A/B have no independent GitHub identities in this runner.
 
 See docs/TAKE37.md, docs/PHASE_ZERO.md, docs/TO_Z.md and docs/TO_A.md. The next step is a genuine API conversation, not proof of emergence. No live calls have been made yet.
+
+
+### Mercurial accounting policy
+
+The owner authorizes continuation of otherwise authorized calls when local cost
+receipts are unusable. This does not authorize new dispatches or cap increases.
+Provider-side caps/deposits are configured externally; these scripts neither set
+nor verify them. Mark retains STOP authority: cancel the workflow or interrupt the
+local process. Interrupts are not retried or swallowed.
+
+Each attempted call produces a `cost_receipt` with its timestamp, requested model,
+role/phase, attempt number, response ID when available, and `KNOWN` or `UNKNOWN`
+status. Invalid raw cost values (including booleans) are rejected before float
+conversion and stored as null, never zero. `totals.cost_usd` is the **known subtotal**;
+`totals.unknown_cost_calls` counts attempts requiring reconciliation, including
+transport failures and retries whose charge status cannot be established locally.
+Reconcile those receipts manually against OpenRouter's billing ledger; no billing
+API is invoked automatically. A missing response ID can require matching by time
+and model. A zero known subtotal with unknown attempts does not mean no spend.
+
+Usable answers with unknown charges continue with a visible stderr warning. Empty
+answers are failed completions; any valid returned charge is still counted. Z Desk
+continues to its peer after a failed completion, subject to the existing local
+soft cap. Council and baseline conversation retain their completion-failure stops.
+Local soft caps compare the known subtotal only and cannot bound unknown spend.
+Runs with unresolved charge attempts report an error at completion (without an
+early cost-only halt); matrix execution still attempts all nine stems and exits
+nonzero if any stem failed. Archive/publish steps remain `if: always()`.
