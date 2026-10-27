@@ -13,6 +13,12 @@ validate_manifest() with zero errors:
   * paper-illustration manifests cannot masquerade as finalized runs;
   * `cost.unknown_charge_attempts` starts at 0 as a COUNT (a real
     measurement: zero charge attempts so far) — the ONE sanctioned zero.
+
+REPAIR (Meraki GATE 1 verdict 6452485876, 2026-10-27): `actuals.actual_state_sha`
+now hashes the CONDITION-INDEPENDENT starting world state only; which arm ran
+(and whether delivery was on) is receipted separately in
+`actuals.arm_config_sha`. Paired arms with identical starts now hash
+byte-equal; a shared seed alone is never taken as proof.
 """
 
 from __future__ import annotations
@@ -29,6 +35,7 @@ ENUM_CLASS = ("SUB", "EXPERT")
 _PLACEHOLDER_RE = re.compile(r"<[^>]*>")
 
 # Template exactly per SPEC v0.1.2 section 4 (null = explicit placeholder).
+# arm_config_sha added by the 6452485876 repair (see module docstring).
 TEMPLATE = {
     "experiment_id": "island-v01",
     "schema_version": SCHEMA_VERSION,
@@ -53,7 +60,7 @@ TEMPLATE = {
         "run_id": None, "started_at_utc": None, "ended_at_utc": None,
         "turns_requested": 8, "turns_attempted": None, "turns_completed": None,
         "turns_accepted": None, "actual_prompt_sha": None, "actual_state_sha": None,
-        "actual_event_log_sha": None,
+        "arm_config_sha": None, "actual_event_log_sha": None,
         "results": {
             "action_distribution": None, "landmark_visits": None, "notebook_bytes": None,
             "fallback_events": None, "bert_opportunities": None, "bert_deliveries": None,
@@ -76,6 +83,7 @@ NULL_TYPES = {
     "actuals.run_id": str, "actuals.started_at_utc": str, "actuals.ended_at_utc": str,
     "actuals.turns_attempted": int, "actuals.turns_completed": int, "actuals.turns_accepted": int,
     "actuals.actual_prompt_sha": str, "actuals.actual_state_sha": str,
+    "actuals.arm_config_sha": str,  # REPAIR 6452485876: arm config receipted apart from start state
     "actuals.actual_event_log_sha": str,
     "actuals.results.action_distribution": dict, "actuals.results.landmark_visits": dict,
     "actuals.results.notebook_bytes": int, "actuals.results.fallback_events": int,
@@ -227,7 +235,8 @@ def _validate_status_discipline(m, errors):
             errors.append("actuals.started_at_utc: required for any non-paper status")
         if status == "completed":
             for k in ("ended_at_utc", "turns_attempted", "turns_completed", "turns_accepted",
-                      "actual_event_log_sha", "actual_state_sha", "actual_prompt_sha"):
+                      "actual_event_log_sha", "actual_state_sha", "arm_config_sha",
+                      "actual_prompt_sha"):
                 if actuals.get(k) is None:
                     errors.append(f"actuals.{k}: required when status=completed")
             results = actuals.get("results", {})

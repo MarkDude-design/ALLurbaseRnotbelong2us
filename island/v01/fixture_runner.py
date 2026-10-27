@@ -13,6 +13,14 @@ response in the triggering slot; every event carries
 Baseline arm: the SAME schedule code runs with delivery OFF — every scheduled
 slot emits a shadow event (delivered:false) into the event log. The shadow
 record lives in the log, never in the notebook (notebook isolation check).
+
+REPAIR (Meraki GATE 1 verdict 6452485876, 2026-10-27): actual_state_sha now
+hashes the CONDITION-INDEPENDENT starting world state only. The arm's
+condition and delivery setting are receipted separately in arm_config_sha.
+Before the repair, the digest included "condition", so paired arms ALWAYS
+differed even with identical starts — the defect the verdict made acceptance
+conditional on. A shared seed alone is never proof; the paired-equality
+check is.
 """
 
 from __future__ import annotations
@@ -168,14 +176,28 @@ def run_arm(
     notebook_bytes = ("\n".join(notebook_lines) + "\n").encode("utf-8")
     log_bytes = event_log_bytes(events)
 
-    # World-state receipt: canonical hash of everything that defines initial conditions.
+    # World-state receipt (REPAIR 6452485876): canonical hash of the
+    # CONDITION-INDEPENDENT starting world state ONLY — everything that
+    # defines initial conditions for BOTH arms. The arm's condition and
+    # delivery setting are NOT part of this digest; they live in
+    # arm_config_sha below. Paired arms with identical starts therefore hash
+    # byte-equal, and a deliberately changed start state is detectable.
     state_sha = sha256_hex_of_obj(
         {
-            "condition": condition,
             "world_seed": world_seed,
             "turns": turns,
             "force_plan": force_plan,
             "bert_fixed_points": fixed_points,
+        }
+    )
+
+    # Arm-config/provenance receipt (REPAIR 6452485876): which arm this was
+    # and whether Bert delivery was ON — hashed separately so it can never
+    # contaminate the paired start-state comparison.
+    arm_config_sha = sha256_hex_of_obj(
+        {
+            "condition": condition,
+            "delivery_on": condition == "perturbed",
         }
     )
 
@@ -213,6 +235,7 @@ def run_arm(
             "turns_accepted": turns_accepted,
             "actual_prompt_sha": prompt_versions["puppet"],
             "actual_state_sha": state_sha,
+            "arm_config_sha": arm_config_sha,
             "actual_event_log_sha": sha256_hex_of_bytes(log_bytes),
             "results": {
                 "action_distribution": dict(sorted(action_counter.items())),

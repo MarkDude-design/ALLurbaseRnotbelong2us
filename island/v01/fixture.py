@@ -15,7 +15,11 @@ Checklist (SPEC v0.1.2 section 6.1, all required for fixture acceptance):
      shadow shas live ONLY in the baseline event log;
   7. both instantiated manifests pass strict validation green;
   8. reproducible hashes: a full rerun reproduces every artifact hash from
-     exact bytes.
+     exact bytes;
+  9. PAIRED-STATE REPAIR (Meraki verdict 6452485876): the start-state digest
+     is condition-INDEPENDENT — paired arms hash byte-equal; the arm config
+     is receipted separately; per-arm event logs differ; a deliberately
+     changed start state makes the equality check FAIL.
 
 THIS IS NOT THE EXPERIMENTAL SUBJECT. Island runs with model actors happen
 only after fixture acceptance + the owner's explicit dispatch grant.
@@ -210,6 +214,38 @@ def run_fixture(outdir: str | None = None, world_seed: int = DEFAULT_WORLD_SEED,
                      for c in ("baseline", "perturbed")},
     }
 
+    # 9. PAIRED-STATE REPAIR (Meraki GATE 1 verdict 6452485876): the start-state
+    # digest is condition-INDEPENDENT, so paired arms with identical starts
+    # hash BYTE-EQUAL; the arm config is receipted separately; per-arm event
+    # logs differ; and a deliberately corrupted start state makes the paired
+    # equality check FAIL (a shared seed alone is never proof — the check is).
+    corrupt = run_arm(
+        condition="baseline", schedule=schedule_arm_a, world_seed=world_seed + 1,
+        turns=turns, force_plan=fixed, pair_id=pair_id,
+        code_commit=code_commit, prompt_versions=prompt_versions,
+    )
+    b_state = base["manifest"]["actuals"]["actual_state_sha"]
+    p_state = pert["manifest"]["actuals"]["actual_state_sha"]
+    b_cfg = base["manifest"]["actuals"]["arm_config_sha"]
+    p_cfg = pert["manifest"]["actuals"]["arm_config_sha"]
+    b_log = base["manifest"]["actuals"]["actual_event_log_sha"]
+    p_log = pert["manifest"]["actuals"]["actual_event_log_sha"]
+    corrupt_state = corrupt["manifest"]["actuals"]["actual_state_sha"]
+    checks["paired_state_repair"] = {
+        "description": "start-state digest condition-INDEPENDENT (paired arms byte-equal); arm config receipted separately; per-arm logs differ; corrupted start state DETECTED",
+        "pass": (b_state == p_state) and (b_cfg != p_cfg) and (b_log != p_log)
+                and (corrupt_state != b_state),
+        "evidence": {
+            "paired_state_digests_equal": b_state == p_state,
+            "paired_state_sha": b_state,
+            "arm_config_receipts_differ": b_cfg != p_cfg,
+            "baseline_arm_config_sha": b_cfg,
+            "perturbed_arm_config_sha": p_cfg,
+            "event_logs_differ": b_log != p_log,
+            "corrupt_start_state_detected": corrupt_state != b_state,
+        },
+    }
+
     report = {
         "fixture": "island-v01 GATE 1 deterministic paired mock fixture (SPEC 6.1)",
         "subject_honesty": "THIS IS NOT THE EXPERIMENTAL SUBJECT; model arms only after acceptance + owner grant",
@@ -227,6 +263,7 @@ def run_fixture(outdir: str | None = None, world_seed: int = DEFAULT_WORLD_SEED,
             "cost.unknown_charge_attempts=0 is a measured count (zero charge attempts); all unmeasured cost fields stay null.",
             "The code puppet is the loop-fill bare minimum (issue #13); swapping ONLY the puppet fill to model is SPEC 6.2.",
             "bus_jsonl_sha stays null — the fixture emits no bus traffic; honest absence, not a zero.",
+            "REPAIR 6452485876: actual_state_sha is condition-independent; arm_config_sha receipts the arm configuration separately.",
         ],
     }
 

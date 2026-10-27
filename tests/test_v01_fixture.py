@@ -4,7 +4,11 @@ Run: python3 -m unittest tests.test_v01_fixture -v
 or:  python3 -m unittest discover -s tests -p "test_v01_fixture.py"
 
 Every §6.1 checklist item is asserted positive, plus anti-masquerade
-negative tests for the strict manifest validator (SPEC §3).
+negative tests for the strict manifest validator (SPEC §3), plus the
+PAIRED-STATE REPAIR tests (Meraki GATE 1 verdict 6452485876): the start-state
+digest must be condition-INDEPENDENT, with the arm configuration receipted
+separately — and a deliberately changed start state must FAIL the equality
+check.
 """
 
 import json
@@ -14,6 +18,7 @@ from pathlib import Path
 
 from island.v01 import fixture as fixture_mod
 from island.v01.fixture import run_fixture
+from island.v01.fixture_runner import run_arm
 from island.v01.hashes import sha256_hex_of_bytes
 from island.v01.manifest import TEMPLATE, validate_manifest
 from island.v01.scheduler import make_schedule
@@ -60,7 +65,7 @@ class PositiveChecklist(unittest.TestCase):
         self.assertTrue(c["pass"], c)
         m = self.report["manifests"]["perturbed"]
         self.assertEqual(m["actuals"]["results"]["bert_deliveries"],
-                         len(m["run_config"]["bert_fixed_points"]))
+                        len(m["run_config"]["bert_fixed_points"]))
 
     def test_4_fallback_exercised(self):
         c = self.report["checklist"]["fallback_exercised"]
@@ -96,6 +101,14 @@ class PositiveChecklist(unittest.TestCase):
         for arm in ("baseline", "perturbed"):
             self.assertEqual(c["evidence"][arm]["first"], c["evidence"][arm]["rerun"])
 
+    def test_9_paired_state_repair(self):
+        c = self.report["checklist"]["paired_state_repair"]
+        self.assertTrue(c["pass"], c)
+        self.assertTrue(c["evidence"]["paired_state_digests_equal"])
+        self.assertTrue(c["evidence"]["arm_config_receipts_differ"])
+        self.assertTrue(c["evidence"]["event_logs_differ"])
+        self.assertTrue(c["evidence"]["corrupt_start_state_detected"])
+
     def test_all_pass_and_honest_fields(self):
         self.assertTrue(self.report["all_pass"])
         for arm in ("baseline", "perturbed"):
@@ -110,6 +123,64 @@ class PositiveChecklist(unittest.TestCase):
             self.assertIsNone(m["actuals"]["results"]["landmark_visits"])
             self.assertIsNone(m["artifacts"]["bus_jsonl_sha"])
             self.assertTrue(m["actuals"]["run_id"].startswith("v01-fixture-"))
+
+
+class PairedStateRepair(unittest.TestCase):
+    """REPAIR (verdict 6452485876): the start-state digest is condition-INDEPENDENT.
+
+    Before the repair, actual_state_sha hashed "condition" too, so paired arms
+    ALWAYS differed even with identical starts — making the paired comparison
+    vacuous. These tests pin the repaired contract from both directions:
+    identical starts must hash EQUAL, and a changed start state must FAIL.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.report = _report()
+
+    def test_paired_state_digests_byte_equal(self):
+        b = self.report["manifests"]["baseline"]["actuals"]
+        p = self.report["manifests"]["perturbed"]["actuals"]
+        self.assertEqual(b["actual_state_sha"], p["actual_state_sha"])
+
+    def test_arm_config_receipted_separately_and_differs(self):
+        b = self.report["manifests"]["baseline"]["actuals"]
+        p = self.report["manifests"]["perturbed"]["actuals"]
+        self.assertNotEqual(b["arm_config_sha"], p["arm_config_sha"])
+
+    def test_per_arm_event_log_hashes_differ(self):
+        b = self.report["manifests"]["baseline"]["actuals"]
+        p = self.report["manifests"]["perturbed"]["actuals"]
+        self.assertNotEqual(b["actual_event_log_sha"], p["actual_event_log_sha"])
+
+    def test_changed_start_state_fails_equality(self):
+        # Deliberately corrupt the start state (different world_seed): the
+        # paired equality check MUST fail — a shared schedule alone is never
+        # proof of a shared start state.
+        rep = self.report
+        sched = make_schedule(rep["world_seed"], rep["turns"], exclude=rep["force_plan"].keys())
+        corrupt = run_arm(
+            condition="baseline", schedule=sched, world_seed=rep["world_seed"] + 1,
+            turns=rep["turns"], force_plan=rep["force_plan"], pair_id=rep["pair_id"],
+            code_commit=rep["code_commit"], prompt_versions=rep["prompt_versions"],
+        )
+        baseline_state = rep["manifests"]["baseline"]["actuals"]["actual_state_sha"]
+        self.assertNotEqual(corrupt["manifest"]["actuals"]["actual_state_sha"], baseline_state)
+
+    def test_arm_config_sha_does_not_depend_on_start_state(self):
+        # Same condition + delivery setting -> same arm-config receipt, even
+        # when the start state differs (config is orthogonal to the world).
+        rep = self.report
+        sched = make_schedule(rep["world_seed"], rep["turns"], exclude=rep["force_plan"].keys())
+        corrupt = run_arm(
+            condition="baseline", schedule=sched, world_seed=rep["world_seed"] + 1,
+            turns=rep["turns"], force_plan=rep["force_plan"], pair_id=rep["pair_id"],
+            code_commit=rep["code_commit"], prompt_versions=rep["prompt_versions"],
+        )
+        self.assertEqual(
+            corrupt["manifest"]["actuals"]["arm_config_sha"],
+            rep["manifests"]["baseline"]["actuals"]["arm_config_sha"],
+        )
 
 
 class ArtifactsAndCLI(unittest.TestCase):
@@ -193,6 +264,13 @@ class ValidatorAntiMasquerade(unittest.TestCase):
         del m["artifacts"]
         errs = validate_manifest(m)
         self.assertTrue(any("missing key" in e for e in errs), errs)
+
+    def test_completed_requires_arm_config_sha(self):
+        # REPAIR 6452485876: a completed run must receipt its arm config.
+        m = _valid_manifest()
+        m["actuals"]["arm_config_sha"] = None
+        errs = validate_manifest(m)
+        self.assertTrue(any("arm_config_sha" in e for e in errs), errs)
 
     def test_template_is_not_a_valid_instance(self):
         # The template keeps explicit nulls (never measured-looking defaults),
