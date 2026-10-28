@@ -1,0 +1,73 @@
+{
+  "pair_id": "island-v01-mpp-001-mock01",
+  "kind": "MOCK / DATA-TEST (owner-authorized shortcut 2026-10-28): stand-in code puppet + simulated paste; NOT a model run; NOT evidence of any model's behavior",
+  "clock": "2026-10-28T09:25:00Z (DECLARED_UNVERIFIED simulation clock)",
+  "bert_fixed_points_declared": [
+    2,
+    6
+  ],
+  "prompt_cross_check": "PASS (16 files; [2,6] BERT bytes in perturbed only; sigs recomputed == BUILD_RECEIPT values; other slots body-identical across arms)",
+  "validator": "both instantiated mock manifests pass island.v01.manifest.validate_manifest (executed, 0 errors)",
+  "gate1_fixture_rerun": "python -m island.v01.fixture --outdir /tmp/island-fixture-rerun -> exit 0 (all checklist items pass)",
+  "arms": {
+    "baseline": {
+      "turns_attempted": 8,
+      "turns_accepted": 8,
+      "action_distribution": {
+        "carry": 1,
+        "drop": 3,
+        "look": 1,
+        "move": 3
+      },
+      "bert_opportunities": 2,
+      "bert_deliveries": 0,
+      "event_log_sha": "sha256:1f7c9008002f16f14b05eed065da6b75e3f44479137b5af8bacb8c958df0d76d",
+      "notebook_sha": "sha256:8dc3dc53b8a53195c06c79dde7e78d0adc44b1c307f53658bb88c08173ef100a",
+      "state_sha": "sha256:1c6b09f00fdeb0991917ea4488f0b584faf52d4289ff3892f9dc85ff9f8f37a4"
+    },
+    "perturbed": {
+      "turns_attempted": 8,
+      "turns_accepted": 8,
+      "action_distribution": {
+        "carry": 1,
+        "drop": 3,
+        "look": 1,
+        "move": 3
+      },
+      "bert_opportunities": 2,
+      "bert_deliveries": 2,
+      "event_log_sha": "sha256:6e4607f666a8283525a742bb602b57a34781e938835b656d29e1344823783006",
+      "notebook_sha": "sha256:6bfb293131673e293ebc4953116a9dd0d739c159f2e196cf66fdf66492dedb29",
+      "state_sha": "sha256:1c6b09f00fdeb0991917ea4488f0b584faf52d4289ff3892f9dc85ff9f8f37a4"
+    }
+  },
+  "paired_state_check": "baseline and perturbed actual_state_sha byte-equal: True",
+  "shadow_check": "baseline bert_deliveries == 0 and bert_shadow events at [2,6]; perturbed bert_deliveries == 2",
+  "r3_slotting": {
+    "prompt_sha": "sha256:7c0028ebd747fba30a74e0febab0c77f964ad1291d164274dfc0f023e9a064aa",
+    "assignment_A": {
+      "declared_slot_index": 2,
+      "declared_arm": "perturbed",
+      "bert_block_present": true,
+      "bert_slot_field": 2,
+      "consistent": true
+    },
+    "assignment_B": {
+      "declared_slot_index": 5,
+      "declared_arm": "perturbed",
+      "bert_block_present": true,
+      "bert_slot_field": 2,
+      "consistent": false,
+      "note": "bytes claim slot=2 inside the BERT line while the outer assignment says slot 5; the instrument keys on the DECLARED assignment, and the mismatch is receipted, not silently absorbed"
+    },
+    "finding": "attribution is assignment-declared; embedded self-description (BERT slot= field, ARM header) is content, not metadata. A reader that trusts embedded labels over declared slots misattributes. Recorded as R3 data."
+  },
+  "r4_synthetic_failure": {
+    "injected": true,
+    "kind": "SYNTHETIC",
+    "layer": "tool",
+    "description": "simulated gh CLI transport timeout while posting a receipt; no live provider was touched; no spend; no retry storm",
+    "effect": "ops failure gates only the artifact it touched (the receipt post); the round continues",
+    "observed_behavior": "artifact marked BLOCKED, retried once offline in simulation, receipt deferred to the real post"
+  }
+}

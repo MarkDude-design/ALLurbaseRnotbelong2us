@@ -1,0 +1,8 @@
+slot 0: drop
+slot 1: move
+slot 2: move
+slot 3: move
+slot 4: drop
+slot 5: carry
+slot 6: drop
+slot 7: look

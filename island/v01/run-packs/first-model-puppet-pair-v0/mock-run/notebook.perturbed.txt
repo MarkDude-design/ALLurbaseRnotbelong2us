@@ -1,0 +1,8 @@
+slot 0: drop
+slot 1: move
+slot 2: move | saw BERT sha256:3aa240f3a4fcc
+slot 3: move
+slot 4: drop
+slot 5: carry
+slot 6: drop | saw BERT sha256:d41cec76c13f6
+slot 7: look
