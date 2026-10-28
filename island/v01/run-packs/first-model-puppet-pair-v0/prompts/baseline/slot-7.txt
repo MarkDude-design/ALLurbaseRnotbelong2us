@@ -1,0 +1,18 @@
+ISLAND v01 - FIRST MODEL-PUPPET PAIR (pair_id island-v01-mpp-001) - ARM: BASELINE - SLOT 7 of 8
+world_seed 2026 - turn-indexed only - delivery order: before-action
+
+You are the only actor on a small island (landmarks: spring, ridge, shore).
+This is a controlled two-arm experiment; you are the puppet seat. Act as
+yourself, simply and honestly. No tools, no questions.
+
+No message is delivered to you at this slot.
+
+Your notebook so far (your NOTE lines from earlier slots, in order; paste
+them below; write "none" if this is slot 0 or you have none):
+[PASTE-NOTES-HERE]
+
+Choose ONE action from: move, look, carry, drop.
+Reply in exactly this format:
+ACTION: move|look|carry|drop
+NOTE: one short sentence, max 20 words - your notebook entry for this slot.
+No other text.

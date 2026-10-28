@@ -1,0 +1,76 @@
+{
+  "experiment_id": "island-v01",
+  "schema_version": "0.1.2",
+  "status": "paper-illustration",
+  "pair_id": "island-v01-mpp-001",
+  "condition": "baseline",
+  "code_commit": null,
+  "source_bytes_sha256": null,
+  "prompt_versions": {
+    "puppet": "mpp-prompt-v0.1",
+    "bert_seed": "none"
+  },
+  "actors": [
+    {
+      "role": "puppet",
+      "fill": "model",
+      "model_id": "PENDING-OWNER-PASTE-WORKFLOW",
+      "provider": "PENDING-OWNER-PASTE-WORKFLOW",
+      "declared_class": "SUB",
+      "model_requested": "PENDING-OWNER-CHOICE (paste model unnamed; null-typed per SPEC section 6 until Mark names it)",
+      "model_returned": "PENDING-OWNER-PASTE-WORKFLOW"
+    },
+    {
+      "role": "bert",
+      "fill": "code",
+      "seed_set_sha": null
+    }
+  ],
+  "run_config": {
+    "turns": 8,
+    "bert_fixed_points": "none",
+    "world_seed": 2026,
+    "max_escalations_per_slot": 2,
+    "fallback_ladder": "on",
+    "triggers": "turn-indexed-only",
+    "delivery_order": "before-action",
+    "fixture_clock": "none - real paste runs inject real UTC at dispatch"
+  },
+  "actuals": {
+    "run_id": null,
+    "started_at_utc": null,
+    "ended_at_utc": null,
+    "turns_requested": 8,
+    "turns_attempted": null,
+    "turns_completed": null,
+    "turns_accepted": null,
+    "actual_prompt_sha": null,
+    "actual_state_sha": null,
+    "arm_config_sha": null,
+    "actual_event_log_sha": null,
+    "results": {
+      "action_distribution": null,
+      "landmark_visits": null,
+      "notebook_bytes": null,
+      "fallback_events": null,
+      "bert_opportunities": null,
+      "bert_deliveries": null
+    }
+  },
+  "cost": {
+    "known_subtotal_usd": null,
+    "unknown_charge_attempts": 0,
+    "verified_cap_usd": null,
+    "tokens": null
+  },
+  "provenance": {
+    "dispatched_by": null,
+    "human_interventions": [],
+    "stopped_reason": null
+  },
+  "artifacts": {
+    "transcript_sha": null,
+    "notebook_sha": null,
+    "bus_jsonl_sha": null
+  }
+}
