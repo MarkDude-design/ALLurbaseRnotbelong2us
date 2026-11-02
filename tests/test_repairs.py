@@ -91,7 +91,9 @@ class ReceiptRepairs(unittest.TestCase):
         # max_tokens is the COMPLETION budget and covers reasoning + content
         # together. At 1600, low-effort reasoning starved content to empty
         # while the call still charged (~1600 completion tokens, no text).
-        # Pin the repair: 4096, reasoning effort low.
+        # At 4096 the same class struck twice more (runs 41515254395-1 +
+        # 41515989287: completion_tokens exactly 4096, finish_reason "length",
+        # no text). Pin the repair: 8192, reasoning effort low.
         data = {'id': 'budget-test-id', 'choices': [{'message': {'content': 'ok'},
                 'finish_reason': 'stop'}], 'usage': {'cost': 0}}
         captured = {}
@@ -103,7 +105,7 @@ class ReceiptRepairs(unittest.TestCase):
         with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
              patch('island.runner.urlopen', side_effect=fake_urlopen):
             runner.openrouter_answer('A', 'model', [], None)
-        self.assertEqual(captured['payload']['max_tokens'], 4096)
+        self.assertEqual(captured['payload']['max_tokens'], 8192)
         self.assertEqual(captured['payload']['reasoning']['effort'], 'low')
 
     def test_empty_text_error_carries_finish_reason(self):

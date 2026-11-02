@@ -100,9 +100,13 @@ def openrouter_answer(who, model, messages, provider):
     # max_tokens is a COMPLETION budget covering reasoning + content together.
     # At 1600, low-effort reasoning could starve content to empty while the
     # call still charged (~1600 completion tokens, ~$0.0125, no text) — twice.
-    # Raised to 4096 so reasoning and content both fit; finish_reason is
-    # captured so any future empty-content miss is diagnosed on the bus.
-    payload = {"model": model, "messages": messages, "max_tokens": 4096,
+    # RAISED AGAIN (runs 41515254395-1 + 41515989287, 2026-11-02): even at
+    # 4096, two absolutes-heavy briefs burned the entire budget on reasoning
+    # (completion_tokens exactly 4096, finish_reason "length" receipted, no
+    # text, ~$0.031 each). diff's reasoning distribution runs ~4k tokens on
+    # those briefs — 4096 sat on the tail. 8192 gives it headroom; the
+    # finish_reason receipt stays the diagnosis if the tail ever reaches here.
+    payload = {"model": model, "messages": messages, "max_tokens": 8192,
                "reasoning": {"effort": "low"},
                "usage": {"include": True}, "provider": {
                    "allow_fallbacks": False, "data_collection": "deny"}}
