@@ -102,6 +102,54 @@ class MeterTests(unittest.TestCase):
         self.assertEqual(c["by_class"]["TRANSPORT"], 1)
         self.assertEqual(c["cost_usd"], 0.012)
 
+    def test_replay_bus_carries_paired_charges(self):
+        # MERCURIAL REPAIR (run 41505052609-1, 2026-11-02): the adapter used to
+        # write cost 0.0 on error events, making a paid-no-text miss's money
+        # invisible ($0.012849 was invisible until a manual record carried it).
+        # Now the paired KNOWN cost_receipt rides the ERROR event; an UNKNOWN
+        # charge adds no amount but flags the note; unpaired errors keep 0.0.
+        bus = Path(self.tmp.name) / "paid.jsonl"
+        events = [
+            {"type": "start", "utc": "t0", "run_id": "r2"},
+            {"type": "cost_receipt", "utc": "t1", "agent": "diff", "attempt": 1,
+             "cost_status": "KNOWN", "cost_usd": 0.012849,
+             "response_id": "gen-x"},
+            {"type": "error", "utc": "t2", "agent": "diff",
+             "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"},
+            {"type": "cost_receipt", "utc": "t3", "agent": "man", "attempt": 1,
+             "cost_status": "UNKNOWN", "cost_usd": None},
+            {"type": "error", "utc": "t4", "agent": "man", "error": "boom"},
+            {"type": "error", "utc": "t5", "agent": "lonely", "error": "no receipt at all"},
+        ]
+        bus.write_text("\n".join(json.dumps(e) for e in events) + "\n",
+                       encoding="utf-8")
+        written = replay_bus(bus, self.log, "round2")
+        self.assertEqual(written, 3)
+        evs = read_events(self.log)
+        by_agent = {e["actor"]: e for e in evs}
+        self.assertAlmostEqual(by_agent["diff"]["cost"], 0.012849)  # money visible
+        self.assertIn("No usable text", by_agent["diff"]["note"])
+        self.assertEqual(by_agent["man"]["cost"], 0.0)  # UNKNOWN: no fake amount
+        self.assertIn("UNKNOWN", by_agent["man"]["note"])
+        self.assertIn("reconcile", by_agent["man"]["note"])
+        self.assertEqual(by_agent["lonely"]["cost"], 0.0)  # honest zero: no charge event
+        c = counts(self.log)
+        self.assertAlmostEqual(c["cost_usd"], 0.012849)
+
+    def test_replay_bus_error_charge_not_double_carried(self):
+        bus = Path(self.tmp.name) / "twice.jsonl"
+        events = [
+            {"type": "cost_receipt", "utc": "t1", "agent": "diff",
+             "cost_status": "KNOWN", "cost_usd": 0.02},
+            {"type": "error", "utc": "t2", "agent": "diff", "error": "first"},
+            {"type": "error", "utc": "t3", "agent": "diff", "error": "second"},
+        ]
+        bus.write_text("\n".join(json.dumps(e) for e in events) + "\n",
+                       encoding="utf-8")
+        replay_bus(bus, self.log, "double")
+        c = counts(self.log)
+        self.assertAlmostEqual(c["cost_usd"], 0.02)  # carried once, not twice
+
     def test_demo_deterministic_and_scale(self):
         demo(self.log, 50, seed=42)
         c1 = counts(self.log)

@@ -66,18 +66,27 @@ def contains_secret(text):
 
 
 def parse_verdict(text):
-    """Best-effort extraction of the JSON verdict; raw text always stays in the receipt."""
+    """Best-effort extraction of the JSON verdict; raw text always stays in the receipt.
+
+    FIDELITY REPAIR (run 41505052609-1, 2026-11-02): the parser used to force
+    any verdict word outside (CLEAN, ISSUES_FOUND) to UNPARSEABLE — discarding
+    the model's own verdict (live receipt: "NEEDS_REVISION" was valid JSON with
+    a real verdict, stamped UNPARSEABLE by the desk's own whitelist; meter
+    catch #3, finder credit: the man lane + the Mayhem Meter). UNPARSEABLE
+    now means NO verdict was extractable — never a verdict we disliked.
+    The verdict word rides verbatim; the raw text stays in the receipt.
+    """
     match = re.search(r"\{.*\}", text, re.DOTALL)
     if match:
         try:
             verdict = json.loads(match.group(0))
         except (ValueError, TypeError):
             verdict = None
-        if isinstance(verdict, dict) and "verdict" in verdict:
+        if isinstance(verdict, dict) and isinstance(verdict.get("verdict"), str) \
+                and verdict["verdict"].strip():
+            verdict["verdict"] = verdict["verdict"].strip()
             verdict.setdefault("findings", [])
             verdict.setdefault("confidence", None)
-            if verdict["verdict"] not in ("CLEAN", "ISSUES_FOUND"):
-                verdict["verdict"] = "UNPARSEABLE"
             return verdict
     return {"verdict": "UNPARSEABLE", "findings": [], "confidence": None}
 

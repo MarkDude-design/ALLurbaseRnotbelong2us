@@ -119,8 +119,31 @@ class ZDeskDemoRun(unittest.TestCase):
         self.assertEqual(verdict["verdict"], "ISSUES_FOUND")
         self.assertEqual(verdict["findings"][0]["kind"], "absolutes")
         self.assertIsNone(verdict.get("confidence"))
-        bad = z_desk.parse_verdict('{"verdict": "GREAT", "findings": []}')
+        # No verdict at all -> UNPARSEABLE. (The old whitelist used to force
+        # off-list words to UNPARSEABLE; repaired per run 41505052609-1.)
+        bad = z_desk.parse_verdict('{"findings": []}')
         self.assertEqual(bad["verdict"], "UNPARSEABLE")
+        nonstr = z_desk.parse_verdict('{"verdict": 42}')
+        self.assertEqual(nonstr["verdict"], "UNPARSEABLE")
+        empty = z_desk.parse_verdict('{"verdict": "   "}')
+        self.assertEqual(empty["verdict"], "UNPARSEABLE")
+
+    def test_parse_verdict_keeps_model_word_verbatim(self):
+        # FIDELITY REPAIR (run 41505052609-1, 2026-11-02): the man lane's live
+        # verdict "NEEDS_REVISION" — valid JSON, real verdict — was stamped
+        # UNPARSEABLE by the desk's own CLEAN/ISSUES_FOUND whitelist (meter
+        # catch #3). The model's verdict word now rides verbatim; the raw
+        # text stays in the receipt. UNPARSEABLE means NO verdict extracted.
+        live = z_desk.parse_verdict(
+            'Review follows.\n\n{"verdict":"NEEDS_REVISION",'
+            '"supported":"precedence established","observed_issue":"read-back wording",'
+            '"inferred_risk":"boundary not explicit","arithmetic":"None."}')
+        self.assertEqual(live["verdict"], "NEEDS_REVISION")
+        self.assertEqual(live["observed_issue"], "read-back wording")
+        self.assertIsNone(live.get("confidence"))
+        self.assertEqual(live["findings"], [])
+        other = z_desk.parse_verdict('{"verdict": "GREAT", "findings": []}')
+        self.assertEqual(other["verdict"], "GREAT")  # fossil kept, not judged
 
 
 class ZDeskPaceTests(unittest.TestCase):

@@ -119,13 +119,34 @@ def replay_bus(bus_path, log_path, source, actor_prefix=""):
     error -> ERROR/TOOLING or ERROR/TRANSPORT when the error text says
     transport-shaped words. start/stop are run metadata, not agent
     events; they are skipped. Returns the number of events written.
+
+    MERCURIAL REPAIR (run 41505052609-1, 2026-11-02): an error event now
+    carries the paired cost_receipt's KNOWN charge for the same agent —
+    a paid-no-text miss kept its money invisible while the adapter wrote
+    cost 0.0 ($0.012849 was invisible until a manual record carried it).
+    UNKNOWN-charge receipts add no amount (unmeasured) but flag the note
+    for ledger reconciliation. Errors with no paired receipt keep an
+    honest 0.0 (no charge event exists).
     """
+    events = read_events(bus_path)
+    charges = {}    # agent -> latest KNOWN numeric charge (cost_receipt)
+    unknowns = set()  # agents with an UNKNOWN-charge receipt on the bus
+    for e in events:
+        if e.get("type") == "cost_receipt":
+            agent = e.get("agent") or "unknown"
+            if e.get("cost_status") == "KNOWN":
+                c = e.get("cost_usd")
+                if isinstance(c, (int, float)) and not isinstance(c, bool):
+                    charges[agent] = float(c)
+            else:
+                unknowns.add(agent)
     written = 0
-    for e in read_events(bus_path):
+    for e in events:
         kind = e.get("type")
         if kind not in ("consult", "error", "retry"):
             continue
         agent = actor_prefix + (e.get("agent") or "unknown")
+        bare_agent = e.get("agent") or "unknown"
         if kind == "consult":
             usage = e.get("usage") or {}
             record(log_path, agent, "consult", "OK", "TOOLING",
@@ -141,9 +162,12 @@ def replay_bus(bus_path, log_path, source, actor_prefix=""):
             klass = "TRANSPORT" if any(w in text.lower() for w in
                                        ("timeout", "connection", "network",
                                         "429", "502", "503", "rate")) else "TOOLING"
+            note = text[:120]
+            if bare_agent in unknowns:
+                note = note + "; paired charge UNKNOWN — reconcile with ledger"
             record(log_path, agent, "consult", "ERROR", klass,
                    f"{source} bus.jsonl error",
-                   cost=0.0, note=text[:120])
+                   cost=charges.pop(bare_agent, 0.0), note=note)
         written += 1
     return written
 
