@@ -185,8 +185,10 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
             text = raw_text.strip() if isinstance(raw_text, str) else ""
             if not text:
                 reasons.add("error")
+                fr = response.get("finish_reason") if isinstance(response, dict) else None
                 emit({"type": "error", "utc": now(), "agent": agent,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
+                               + (f" [finish_reason: {fr}]" if fr else "")})
                 continue
             emit({"type": "consult", "utc": now(), "agent": agent, "text": text,
                   "model_requested": models[agent],

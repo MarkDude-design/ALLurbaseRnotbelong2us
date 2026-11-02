@@ -205,8 +205,10 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
             text = raw_text.strip() if isinstance(raw_text, str) else ""
             if not text:
                 stopped = "error"
+                fr = response.get("finish_reason") if isinstance(response, dict) else None
                 emit({"type": "error", "utc": now(), "phase": phase, "speaker": who,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
+                               + (f" [finish_reason: {fr}]" if fr else "")})
                 return None
             emit({"type": "turn", "utc": now(), "phase": phase, "speaker": who,
                   "text": text, "model_requested": model,

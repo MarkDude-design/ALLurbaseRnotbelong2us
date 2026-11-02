@@ -86,6 +86,44 @@ class ReceiptRepairs(unittest.TestCase):
         self.assertEqual(calls, ['diff'])
         self.assertEqual(result['totals']['cost_usd'], .6)
 
+    def test_completion_budget_covers_reasoning(self):
+        # PAID-NO-TEXT ROOT CAUSE (runs 41505052609-1 + 41509741842, 2026-11-02):
+        # max_tokens is the COMPLETION budget and covers reasoning + content
+        # together. At 1600, low-effort reasoning starved content to empty
+        # while the call still charged (~1600 completion tokens, no text).
+        # Pin the repair: 4096, reasoning effort low.
+        data = {'id': 'budget-test-id', 'choices': [{'message': {'content': 'ok'},
+                'finish_reason': 'stop'}], 'usage': {'cost': 0}}
+        captured = {}
+
+        def fake_urlopen(request, timeout=None):
+            captured['payload'] = json.loads(request.data.decode('utf-8'))
+            return io.StringIO(json.dumps(data))
+
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+             patch('island.runner.urlopen', side_effect=fake_urlopen):
+            runner.openrouter_answer('A', 'model', [], None)
+        self.assertEqual(captured['payload']['max_tokens'], 4096)
+        self.assertEqual(captured['payload']['reasoning']['effort'], 'low')
+
+    def test_empty_text_error_carries_finish_reason(self):
+        # Same repair, diagnosis side: an empty-content miss receipts the
+        # provider's finish_reason on the error event, so a future starve is
+        # diagnosed on the bus instead of arriving as mystery money.
+        for component in ('runner', 'council', 'desk'):
+            with self.subTest(component=component):
+                data = {'id': 'fr-test-id', 'choices': [{'message': {'content': ''},
+                        'finish_reason': 'length'}], 'usage': {'cost': 0.3}}
+                with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+                     patch('island.runner.urlopen', return_value=io.StringIO(json.dumps(data))):
+                    first = runner.openrouter_answer('A', 'model', [], None)
+                self.assertEqual(first['finish_reason'], 'length')
+                responses = iter([first, self.provider(.2)])
+                _, events, _, _ = self.execute(component, lambda *a: next(responses))
+                errors = [e for e in events if e['type'] == 'error']
+                self.assertEqual(len(errors), 1)
+                self.assertIn('finish_reason: length', errors[0]['error'])
+
     def test_stop_interrupt_propagates_without_peer_call(self):
         for component in ('runner', 'council', 'desk'):
             calls = []

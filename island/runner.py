@@ -96,7 +96,13 @@ def openrouter_answer(who, model, messages, provider):
     key = os.environ.get("OPENROUTER_API_KEY")
     if not key:
         raise RuntimeError("Missing OPENROUTER_API_KEY")
-    payload = {"model": model, "messages": messages, "max_tokens": 1600,
+    # PAID-NO-TEXT REPAIR (runs 41505052609-1 + 41509741842, 2026-11-02):
+    # max_tokens is a COMPLETION budget covering reasoning + content together.
+    # At 1600, low-effort reasoning could starve content to empty while the
+    # call still charged (~1600 completion tokens, ~$0.0125, no text) — twice.
+    # Raised to 4096 so reasoning and content both fit; finish_reason is
+    # captured so any future empty-content miss is diagnosed on the bus.
+    payload = {"model": model, "messages": messages, "max_tokens": 4096,
                "reasoning": {"effort": "low"},
                "usage": {"include": True}, "provider": {
                    "allow_fallbacks": False, "data_collection": "deny"}}
@@ -128,6 +134,7 @@ def openrouter_answer(who, model, messages, provider):
     choices = data.get("choices")
     choice = choices[0] if isinstance(choices, list) and choices else {}
     choice = choice if isinstance(choice, dict) else {}
+    finish_reason = choice.get("finish_reason")
     message = choice.get("message")
     content = message.get("content", "") if isinstance(message, dict) else ""
     if isinstance(content, list):
@@ -139,6 +146,7 @@ def openrouter_answer(who, model, messages, provider):
     metadata = data.get("openrouter_metadata")
     metadata = metadata if isinstance(metadata, dict) else {}
     return {"text": content.strip() if isinstance(content, str) else "",
+            "finish_reason": finish_reason,
             "response_id": data.get("id"), "model_returned": data.get("model"),
             "provider_returned": metadata.get("provider_name") or metadata.get("provider"),
             "usage": {"prompt_tokens": usage.get("prompt_tokens"),
@@ -256,8 +264,10 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             text = raw_text.strip() if isinstance(raw_text, str) else ""
             if not text:
                 stopped = "error"
+                fr = response.get("finish_reason") if isinstance(response, dict) else None
                 emit({"type": "error", "utc": now(), "seq": n + 1, "speaker": who,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"})
+                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
+                               + (f" [finish_reason: {fr}]" if fr else "")})
                 break
             history.append({"speaker": who, "text": text})
             emit({"type": "turn", "utc": now(), "seq": n + 1, "speaker": who,
