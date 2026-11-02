@@ -163,6 +163,23 @@ class MeterTests(unittest.TestCase):
                          c2["by_class"]["FIDELITY"])
         self.assertGreater(c1["by_status"]["ERROR"], 0)  # failures counted, not hidden
 
+    def test_counts_microcent_exact_no_float_drift(self):
+        # MICRO-CENT REPAIR (live receipt 2026-11-02): with the first 10 real
+        # consult cost receipts, float accumulation + per-step round printed
+        # USD 0.074946 where the ledger's exact sum is 0.074945. Two defects:
+        # counts() now sums exactly (math.fsum, one display rounding), and
+        # record() no longer rounds sub-micro-cent receipts away.
+        live_ledger = [0.012849, 0.005982, 0.007269, 0.002808, 0.0124665,
+                       0.003168, 0.0152175, 0.002632, 0.009561, 0.002992]
+        for i, cost in enumerate(live_ledger):
+            record(self.log, "Z", f"ev{i}", "OK", "TOOLING", "e", cost=cost)
+        # sub-micro-cent receipts ride verbatim, unrounded
+        self.assertEqual(read_events(self.log)[4]["cost"], 0.0124665)
+        self.assertEqual(read_events(self.log)[6]["cost"], 0.0152175)
+        got = counts(self.log)["cost_usd"]
+        self.assertEqual(got, 0.074945)  # the exact ledger sum, not 0.074946
+        self.assertEqual(got, round(sum(live_ledger), 6))
+
 
 if __name__ == "__main__":
     unittest.main()

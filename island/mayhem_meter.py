@@ -37,7 +37,11 @@ def _validate_cost(cost):
         raise ValueError("cost must be a number (never omitted; 0.00 = unmetered)")
     if not math.isfinite(cost) or cost < 0:
         raise ValueError("cost must be finite and >= 0")
-    return round(float(cost), 6)
+    # RECEIPT-PRECISION REPAIR (live receipt 2026-11-02): the ledger carries
+    # sub-micro-cent charges (e.g. $0.0124665). Rounding here altered the
+    # receipted money itself — the meter's own records no longer matched the
+    # bus. Costs are now stored at receipt precision, unrounded.
+    return float(cost)
 
 
 def record(log_path, actor, action, status, klass, evidence, cost=0.0,
@@ -86,13 +90,20 @@ def counts(log_path):
            "by_class": {c: 0 for c in CLASSES},
            "cost_usd": 0.0,
            "first_ts": None, "last_ts": None}
+    # MICRO-CENT REPAIR (live receipt 2026-11-02: meter printed 0.074946 where
+    # the ledger's exact sum is 0.074945). Two defects, both fixed: (1) record
+    # time no longer rounds sub-micro-cent receipts away (see _validate_cost);
+    # (2) accumulation was float += with a per-step round — each step could
+    # drift by 1e-6 and the drift compounded. One exact sum (math.fsum is
+    # correctly-rounded by construction), then a single display rounding.
+    costs = [float(e["cost"]) for e in events]
     for e in events:
         out["by_status"][e["status"]] = out["by_status"].get(e["status"], 0) + 1
         out["by_class"][e["class"]] = out["by_class"].get(e["class"], 0) + 1
-        out["cost_usd"] = round(out["cost_usd"] + e["cost"], 6)
         if out["first_ts"] is None:
             out["first_ts"] = e["ts"]
         out["last_ts"] = e["ts"]
+    out["cost_usd"] = round(math.fsum(costs), 6)
     return out
 
 
