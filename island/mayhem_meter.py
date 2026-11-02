@@ -109,8 +109,7 @@ def render(log_path):
              f"| NULL | {c['by_status']['NULL']} |   | CONCURRENCY | {c['by_class']['CONCURRENCY']} |",
              f"|   |   |   | FIDELITY | {c['by_class']['FIDELITY']} |",
              "", "Misses are kept. The meter counts; it never judges."]
-    return NL.join(lines) if false else "
-".join(lines)
+    return "\n".join(lines)
 
 
 def replay_bus(bus_path, log_path, source, actor_prefix=""):
