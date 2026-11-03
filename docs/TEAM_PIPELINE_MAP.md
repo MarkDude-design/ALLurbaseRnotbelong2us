@@ -2,6 +2,10 @@
 
 Updated 2026-11-03 by Meraki, from Mark's current workflow directions and source reads. This is a navigation map, not a new service or a replacement for each lane's record.
 
+[Team best practices — maintained by Meraki](TEAM_BEST_PRACTICES.md) · [Meraki's saved read markers](pipeline-state/meraki.json)
+
+Everyday prompts: **warm start the pipeline** or **cold start the pipeline**. Read the saved per-stream marker rather than asking Mark for a comment number. This is a team convention; automatic loading after a new-thread reset is still to be tested.
+
 ## One online index, explicit source records
 
 The existing [Continuity Index, issue #16](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16) is the online cross-repository list. Its comments append current pointers at named read horizons. Each lane below keeps its own source state; do not treat the old issue-head table or this dated map as continuously current.
@@ -30,7 +34,7 @@ Z has also kept a separately reported knowledge topic called llm-team-pipeline. 
 
 ## Cold and warm return paths — roadmap addition
 
-[Bing's proposal, carried by Mark](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), distinguishes cold orientation from changes since a last verified read. The existing decision ledger keeps recorded reasons; a warm-start view should summarize only the delta between explicit receipt horizons. Missing or unverifiable horizons need a bounded cold fallback. This is planned across A/B/C; it is not an implemented warm-start service or an observed new test result.
+[Bing's proposal, carried by Mark](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), distinguishes cold orientation from changes since a last verified read. The existing decision ledger keeps recorded reasons; a warm-start view should summarize only the delta between explicit receipt horizons. Missing or unverifiable horizons need a bounded cold fallback. This is planned across A/B/C. A subsequent real manual-marker lookup retrieved Mark's greeting on PR #17 correctly and found no later comments. That demonstrated note retrieval, not a complete delta-service or fresh-thread recovery.
 
 ## Current next action
 

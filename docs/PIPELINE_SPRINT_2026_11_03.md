@@ -67,7 +67,7 @@ The initial scorer mistakenly omitted the final LF present in sources/quote.txt.
 3. **READY — QC/Mark:** actual workspace connection, one useful hotpad answer, direct-write/readback or labeled relay; later normal-restart persistence check. No manual packet body should be needed when the connection works.
 4. **AFTER QC — Meraki/Z with Mark's active session:** test Bing's new integration for actual reading, writing and output retrieval; maintain a paste/relay fallback while needed.
 5. **LATER — Q route:** tune its actual capabilities and creative handoff. Do not inherit QC's identity or permissions by name.
-6. **FOLLOW-UP EXPERIMENT — Meraki:** separate warm-start delta recovery from cold-start orientation, following [Bing's contribution](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md). Compare changes since an explicit last-read receipt, plus interrupted/duplicate delivery. Measure delta coverage, unnecessary rereads, human edits, copied characters and app switches. No warm-start trial run yet; do not rank frameworks on the first cold-start tie.
+6. **FOLLOW-UP EXPERIMENT — Meraki:** separate warm-start delta recovery from cold-start orientation, following [Bing's contribution](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md). Compare changes since an explicit last-read receipt, plus interrupted/duplicate delivery. Measure delta coverage, unnecessary rereads, human edits, copied characters and app switches. A real manually supplied marker lookup has now retrieved Mark's greeting and correctly inferred no task/approval; full delta recovery and no-number fresh-thread lookup remain untested. Do not rank frameworks on the first cold-start tie.
 7. **Z-owned, optional:** assess whether a tiny recovery-check/ticket validator is useful behind Z Desk. This is an offer, not an assigned interruption. No queue entry was added to Z's paid consult queue.
 8. **ONLY IF A MEASURED NEED REMAINS:** stage a supported shared hosted endpoint. No new cloud router is necessary to run the current bench.
 
@@ -79,3 +79,9 @@ A file hash verifies observed bytes, not an author's identity, source truth, per
 
 This sprint touched new documentation and a separate offline experiment only. It did not modify Z's desk, queue, workflows, secrets, account configuration or the frozen Puppy acceptance.
 
+
+## Best-practices ownership and readiness — follow-up
+
+Mark assigned Meraki the [team best-practices guide](TEAM_BEST_PRACTICES.md), complementing Z's style guide. A [per-stream reader marker](pipeline-state/meraki.json) now holds the PR and continuity-index horizons behind the normal warm-start request. Mark need not carry the identifier. These files are readable on the working branch; they do not install an automatic loader.
+
+Next portability check: use a separate recovery snapshot or explicitly supplied Page when the live GitHub route is unavailable. Verify orientation at the saved horizon; do not claim unseen live changes. Canvas/Page recovery and no-number startup after a full reset are still separate unrun tests.
