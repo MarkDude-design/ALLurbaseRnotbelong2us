@@ -1,4 +1,5 @@
 """Z Desk tests: demo runs, cap validation, secret red-line, verdict parsing."""
+import hashlib
 import json
 import re
 import unittest
@@ -209,23 +210,26 @@ class ZDeskPreflightTests(unittest.TestCase):
         # Every dynamic input reaches the shell only as an env var VALUE, so a
         # metacharacter-shaped input stays literal data, never executable.
         # Pin it: no ${{ }} expression may appear inside any run: block.
-        yml = Path(".github/workflows/z-desk.yml").read_text(encoding="utf-8")
-        in_run_block = False
-        run_indent = 0
-        offenders = []
-        for line in yml.splitlines():
-            if not in_run_block:
-                m = re.match(r"^(\s*)run: \|\s*$", line)
-                if m:
-                    in_run_block = True
-                    run_indent = len(m.group(1))
-                continue
-            if line.strip() and len(line) - len(line.lstrip()) <= run_indent:
-                in_run_block = False
-                continue
-            if "${{" in line:
-                offenders.append(line.strip())
-        self.assertEqual(offenders, [])
+        offenders = {}
+        for name in ("z-desk.yml", "z-desk-queue.yml"):
+            yml = Path(f".github/workflows/{name}").read_text(encoding="utf-8")
+            in_run_block = False
+            run_indent = 0
+            found = []
+            for line in yml.splitlines():
+                if not in_run_block:
+                    m = re.match(r"^(\s*)run: \|\s*$", line)
+                    if m:
+                        in_run_block = True
+                        run_indent = len(m.group(1))
+                    continue
+                if line.strip() and len(line) - len(line.lstrip()) <= run_indent:
+                    in_run_block = False
+                    continue
+                if "${{" in line:
+                    found.append(line.strip())
+            offenders[name] = found
+        self.assertEqual(offenders, {"z-desk.yml": [], "z-desk-queue.yml": []})
 
     def test_unusable_cost_receipts_refused(self):
         # negative / NaN / inf / bool costs are not valid spend receipts
@@ -254,3 +258,46 @@ class ZDeskPreflightTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class RecordsChannel(unittest.TestCase):
+    RECORDS = "LEDGER (owner-supplied): 16 events, 12 OK / 4 ERROR, $0.180130 of $5."
+
+    def test_records_ride_prompts_bus_and_consult_md(self):
+        captured = []
+
+        def answer(agent, model, messages, provider):
+            captured.append((agent, messages[1]["content"]))
+            return z_desk.demo_consult(agent, model, messages, provider)
+
+        result, lines, files = run_demo(answer=answer, records=self.RECORDS)
+        self.assertEqual(result["stop"], "completed")
+        self.assertEqual(len(captured), 2)
+        for agent, content in captured:
+            self.assertIn("GROUND TRUTH RECORDS (owner-supplied; authoritative", content)
+            self.assertIn("$0.180130", content)
+        start = lines[0]
+        self.assertEqual(start["records_chars"], len(self.RECORDS))
+        self.assertEqual(start["records_sha256"],
+                         hashlib.sha256(self.RECORDS.encode("utf-8")).hexdigest())
+        self.assertIn("Ground-truth records", files["consult.md"])
+        self.assertIn("$0.180130", files["consult.md"])
+
+    def test_records_absent_by_default(self):
+        result, lines, files = run_demo()
+        start = lines[0]
+        self.assertEqual(start["records_chars"], 0)
+        self.assertIsNone(start["records_sha256"])
+        self.assertNotIn("Ground-truth records", files["consult.md"])
+
+    def test_secret_records_refused(self):
+        with TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
+                           Path(tmp) / "never", records="token ghp_" + "A" * 30)
+
+    def test_empty_records_refused(self):
+        with TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
+                           Path(tmp) / "never", records="   ")

@@ -100,7 +100,12 @@ def demo_consult(agent, model, messages, provider):
                                            "total_tokens": 0, "cost_usd": 0.0}}
 
 
-def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PACE_DEFAULT):
+def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
+         pace=PACE_DEFAULT, records=None):
+    """records: optional owner-supplied ground-truth text for a truth-audit —
+    prepended to every agent prompt as authoritative, sha256-receipted in the
+    start event. Same PUBLIC-bus red-line as briefs: secret-shaped text is
+    refused before any API call."""
     if mode not in ("demo", "live"):
         raise ValueError("mode must be demo or live")
     if not agents or any(a not in AGENTS for a in agents):
@@ -112,6 +117,11 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
         raise ValueError("brief must be non-empty text")
     if contains_secret(brief):
         raise ValueError("brief appears to contain a secret/token; PUBLIC bus, refusing")
+    if records is not None:
+        if not isinstance(records, str) or not records.strip():
+            raise ValueError("records must be non-empty text when provided")
+        if contains_secret(records):
+            raise ValueError("records appear to contain a secret/token; PUBLIC bus, refusing")
     if (not isinstance(max_cost_usd, (int, float)) or isinstance(max_cost_usd, bool)
             or not math.isfinite(max_cost_usd) or not 0 < max_cost_usd <= CAP_CEILING_USD):
         raise ValueError(f"local budget must be finite, positive, <= ${CAP_CEILING_USD:g}")
@@ -138,6 +148,9 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
         emit({"type": "start", "utc": now(), "run_id": run_id, "mode": mode,
               "brief_chars": len(brief),
               "brief_sha256": hashlib.sha256(brief.encode("utf-8")).hexdigest(),
+              "records_chars": len(records) if records else 0,
+              "records_sha256": (hashlib.sha256(records.encode("utf-8")).hexdigest()
+                                 if records else None),
               "agents": agents, "models": {a: models[a] for a in agents},
               "max_cost_usd": max_cost_usd, "cap_kind": "caller_declared_soft",
               "pace": pace,
@@ -151,9 +164,13 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
                 emit({"type": "pace", "utc": now(), "agent": agent,
                       "wait_s": round(wait, 3)})
                 time.sleep(wait)
+            user_content = "Review this bus text:\n\n" + brief
+            if records:
+                user_content += ("\n\nGROUND TRUTH RECORDS (owner-supplied; authoritative "
+                                 "for this audit — check claims against them, not just "
+                                 "for internal consistency):\n\n" + records)
             messages = [{"role": "system", "content": SYSTEM_PROMPTS[agent]},
-                        {"role": "user",
-                         "content": "Review this bus text:\n\n" + brief}]
+                        {"role": "user", "content": user_content}]
             response, failure = None, None
             call_started = time.monotonic()
             for attempt in range(RETRY_MAX + 1):
@@ -205,6 +222,8 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None, pace=PAC
     lines = [f"# Z Desk consult — {run_id}", "", f"**Mode: {mode.upper()}**",
              "Agents: " + ", ".join(agents), "",
              "## Brief (sha256 in bus.jsonl)", "", brief, ""]
+    if records:
+        lines += ["## Ground-truth records (sha256 in bus.jsonl)", "", records, ""]
     for event in events:
         if event.get("type") == "consult":
             lines += [f"## {event['agent']} ({event.get('model_returned') or event.get('model_requested')})",
@@ -237,6 +256,8 @@ def main():
                        help="half = 50%% syscall speed cut (default, Mark GAS order Oct 2026)")
     parser.add_argument("--brief", default="")
     parser.add_argument("--brief-file", default="")
+    parser.add_argument("--records-file", default="",
+                        help="optional ground-truth records for a truth-audit (PUBLIC bus)")
     parser.add_argument("--max-cost-usd", type=float, default=1.0)
     parser.add_argument("--outdir", default="runs/z-desk-"
                        + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
@@ -244,13 +265,16 @@ def main():
     brief = args.brief
     if args.brief_file:
         brief = Path(args.brief_file).read_text(encoding="utf-8")
+    records = None
+    if args.records_file:
+        records = Path(args.records_file).read_text(encoding="utf-8")
     models = {"diff": args.diff_model, "man": args.man_model}
     if args.agents.strip().lower() == "both":
         agents = list(AGENTS)
     else:
         agents = [a.strip() for a in args.agents.split(",") if a.strip()]
     result = run(args.mode, agents, models, brief, args.max_cost_usd, args.outdir,
-                 pace=args.pace)
+                 pace=args.pace, records=records)
     print(json.dumps(result, indent=2))
     if "error" in result["stop"]:
         raise SystemExit(1)

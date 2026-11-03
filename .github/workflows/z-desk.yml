@@ -40,6 +40,10 @@ on:
         required: false
         default: false
         type: boolean
+      records:
+        description: 'Optional ground-truth records for a truth-audit (rides both agent prompts; PUBLIC repo: no secrets)'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -57,6 +61,7 @@ jobs:
       INPUT_CAP: ${{ inputs.cap }}
       INPUT_PACE: ${{ inputs.pace }}
       INPUT_DEMO: ${{ inputs.demo }}
+      RECORDS: ${{ inputs.records }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -73,10 +78,15 @@ jobs:
           MODE=live
           if [ "$INPUT_DEMO" = "true" ]; then MODE=demo; fi
           printf '%s' "$BRIEF" > /tmp/brief.txt
+          RECORDS_ARGS=""
+          if [ -n "$RECORDS" ]; then
+            printf '%s' "$RECORDS" > /tmp/records.txt
+            RECORDS_ARGS="--records-file /tmp/records.txt"
+          fi
           python -m island.z_desk --mode "$MODE" --agents "$INPUT_AGENTS" \
             --diff-model "$DIFF_MODEL" --man-model "$MAN_MODEL" \
             --max-cost-usd "$INPUT_CAP" --pace "$INPUT_PACE" \
-            --brief-file /tmp/brief.txt \
+            --brief-file /tmp/brief.txt $RECORDS_ARGS \
             --outdir "runs/z-desk-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
       - name: Archive receipts
         if: always()

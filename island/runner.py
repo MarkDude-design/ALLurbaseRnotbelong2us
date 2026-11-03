@@ -93,9 +93,6 @@ def demo_answer(who, model, messages, provider):
 
 
 def openrouter_answer(who, model, messages, provider):
-    key = os.environ.get("OPENROUTER_API_KEY")
-    if not key:
-        raise RuntimeError("Missing OPENROUTER_API_KEY")
     # PAID-NO-TEXT REPAIR (runs 41505052609-1 + 41509741842, 2026-11-02):
     # max_tokens is a COMPLETION budget covering reasoning + content together.
     # At 1600, low-effort reasoning could starve content to empty while the
@@ -106,7 +103,40 @@ def openrouter_answer(who, model, messages, provider):
     # text, ~$0.031 each). diff's reasoning distribution runs ~4k tokens on
     # those briefs — 4096 sat on the tail. 8192 gives it headroom; the
     # finish_reason receipt stays the diagnosis if the tail ever reaches here.
-    payload = {"model": model, "messages": messages, "max_tokens": 8192,
+    # LENGTH-RETRY LANE (owner-approved "do all the things", 2026-11-02):
+    # if content is STILL starved at the cap, retry ONCE with the budget
+    # doubled, and sum both attempts' charges into the returned usage — the
+    # wasted spend rides the same receipt, never invisible. Bounded: one
+    # retry; a second starve returns the honest empty-text result.
+    result = _openrouter_call(model, messages, provider, 8192)
+    result["attempts"] = 1
+    if not result["text"] and result["finish_reason"] == "length":
+        second = _openrouter_call(model, messages, provider, 16384)
+        costs = [result["usage"]["cost_usd"], second["usage"]["cost_usd"]]
+        tokens = {}
+        for field in ("prompt_tokens", "completion_tokens", "total_tokens"):
+            values = [r["usage"].get(field) for r in (result, second)]
+            values = [v for v in values if isinstance(v, int)
+                      and not isinstance(v, bool)]
+            tokens[field] = sum(values) if len(values) == 2 else None
+        known = all(isinstance(c, (int, float)) and not isinstance(c, bool)
+                    for c in costs)
+        second["usage"] = {"prompt_tokens": tokens["prompt_tokens"],
+                           "completion_tokens": tokens["completion_tokens"],
+                           "total_tokens": tokens["total_tokens"],
+                           "cost_usd": sum(costs) if known else None}
+        second["attempts"] = 2
+        second["length_retry"] = True
+        second["first_attempt_cost_usd"] = result["usage"]["cost_usd"]
+        return second
+    return result
+
+
+def _openrouter_call(model, messages, provider, max_tokens):
+    key = os.environ.get("OPENROUTER_API_KEY")
+    if not key:
+        raise RuntimeError("Missing OPENROUTER_API_KEY")
+    payload = {"model": model, "messages": messages, "max_tokens": max_tokens,
                "reasoning": {"effort": "low"},
                "usage": {"include": True}, "provider": {
                    "allow_fallbacks": False, "data_collection": "deny"}}

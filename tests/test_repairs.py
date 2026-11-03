@@ -114,12 +114,18 @@ class ReceiptRepairs(unittest.TestCase):
         # diagnosed on the bus instead of arriving as mystery money.
         for component in ('runner', 'council', 'desk'):
             with self.subTest(component=component):
-                data = {'id': 'fr-test-id', 'choices': [{'message': {'content': ''},
-                        'finish_reason': 'length'}], 'usage': {'cost': 0.3}}
+                # LENGTH-RETRY LANE note: both HTTP attempts starve here, so
+                # the runner's one bounded retry runs and still returns the
+                # honest empty-text result with the finish_reason receipt.
+                def fake_urlopen(request, timeout=None):
+                    data = {'id': 'fr-test-id', 'choices': [{'message': {'content': ''},
+                            'finish_reason': 'length'}], 'usage': {'cost': 0.3}}
+                    return io.StringIO(json.dumps(data))
                 with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
-                     patch('island.runner.urlopen', return_value=io.StringIO(json.dumps(data))):
+                     patch('island.runner.urlopen', side_effect=fake_urlopen):
                     first = runner.openrouter_answer('A', 'model', [], None)
                 self.assertEqual(first['finish_reason'], 'length')
+                self.assertEqual(first['attempts'], 2)  # retry fired, both starved
                 responses = iter([first, self.provider(.2)])
                 _, events, _, _ = self.execute(component, lambda *a: next(responses))
                 errors = [e for e in events if e['type'] == 'error']
@@ -135,6 +141,92 @@ class ReceiptRepairs(unittest.TestCase):
             with self.assertRaises(KeyboardInterrupt):
                 self.execute(component, answer)
             self.assertEqual(len(calls), 1)
+
+    def test_length_retry_once_sums_costs(self):
+        # LENGTH-RETRY LANE (owner-approved, 2026-11-02): content starved at
+        # the cap (finish_reason "length", empty text — live receipts
+        # 41515254395-1 + 41515989287 at 4096, ~$0.031 each) retries ONCE at
+        # double budget; both attempts' charges sum into ONE receipt so the
+        # wasted spend stays visible.
+        first = {'id': 'len-1', 'choices': [{'message': {'content': ''},
+                 'finish_reason': 'length'}], 'usage': {'cost': 0.03}}
+        second = {'id': 'len-2', 'choices': [{'message': {'content': 'recovered'},
+                 'finish_reason': 'stop'}], 'usage': {'cost': 0.01}}
+        payloads = []
+
+        def fake_urlopen(request, timeout=None):
+            payloads.append(json.loads(request.data.decode('utf-8')))
+            data = first if len(payloads) == 1 else second
+            return io.StringIO(json.dumps(data))
+
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+             patch('island.runner.urlopen', side_effect=fake_urlopen):
+            result = runner.openrouter_answer('A', 'model', [], None)
+        self.assertEqual(result['text'], 'recovered')
+        self.assertEqual(result['attempts'], 2)
+        self.assertTrue(result['length_retry'])
+        self.assertEqual(result['first_attempt_cost_usd'], 0.03)
+        self.assertAlmostEqual(result['usage']['cost_usd'], 0.04)
+        self.assertEqual(len(payloads), 2)
+        self.assertEqual(payloads[0]['max_tokens'], 8192)
+        self.assertEqual(payloads[1]['max_tokens'], 16384)
+
+    def test_length_retry_bounded_to_one(self):
+        # A second starve returns the honest empty-text result: bounded at
+        # one retry, no runaway spend loop.
+        starved = {'id': 'x', 'choices': [{'message': {'content': ''},
+                   'finish_reason': 'length'}], 'usage': {'cost': 0.03}}
+        calls = []
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(1)
+            return io.StringIO(json.dumps(starved))
+
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+             patch('island.runner.urlopen', side_effect=fake_urlopen):
+            result = runner.openrouter_answer('A', 'model', [], None)
+        self.assertEqual(result['attempts'], 2)
+        self.assertEqual(len(calls), 2)
+        self.assertEqual(result['text'], '')
+        self.assertAlmostEqual(result['usage']['cost_usd'], 0.06)
+
+    def test_no_length_retry_when_text_present(self):
+        # Usable text is success: no retry, attempts=1 — even if the provider
+        # stamped finish_reason "length".
+        data = {'id': 'x', 'choices': [{'message': {'content': 'ok text'},
+                'finish_reason': 'length'}], 'usage': {'cost': 0.01}}
+        calls = []
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(1)
+            return io.StringIO(json.dumps(data))
+
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+             patch('island.runner.urlopen', side_effect=fake_urlopen):
+            result = runner.openrouter_answer('A', 'model', [], None)
+        self.assertEqual(result['attempts'], 1)
+        self.assertEqual(len(calls), 1)
+        self.assertAlmostEqual(result['usage']['cost_usd'], 0.01)
+
+    def test_unknown_charge_on_length_retry_stays_unknown(self):
+        # If either attempt's charge is missing, the summed receipt stays
+        # UNKNOWN (cost None) — never fabricate the wasted spend.
+        first = {'id': 'len-1', 'choices': [{'message': {'content': ''},
+                 'finish_reason': 'length'}], 'usage': {}}
+        second = {'id': 'len-2', 'choices': [{'message': {'content': 'ok'},
+                 'finish_reason': 'stop'}], 'usage': {'cost': 0.01}}
+
+        def fake_urlopen(request, timeout=None):
+            fake_urlopen.calls += 1
+            data = first if fake_urlopen.calls == 1 else second
+            return io.StringIO(json.dumps(data))
+
+        fake_urlopen.calls = 0
+        with patch.dict(os.environ, {'OPENROUTER_API_KEY': 'offline-dummy'}, clear=True), \
+             patch('island.runner.urlopen', side_effect=fake_urlopen):
+            result = runner.openrouter_answer('A', 'model', [], None)
+        self.assertEqual(result['attempts'], 2)
+        self.assertIsNone(result['usage']['cost_usd'])
 
 
 class MatrixRepairs(unittest.TestCase):

@@ -1,0 +1,130 @@
+name: Z Desk — Queue (self-serve consults)
+
+# SELF-FIRE LANE (owner-approved "do all the things", 2026-11-02). Z (or the
+# owner) enqueues JSON entries at queue/pending/ on the bus branch; this
+# workflow drains up to MAX_PER_TICK of them every 10 minutes, runs the same
+# z_desk consult as the manual lane, publishes receipts to runs/ on the bus,
+# and moves each entry to queue/done/ with a status marker. Kill switch:
+# disable this workflow's schedule (owner's click) — the queue then holds.
+# Entries are PUBLIC and secret-red-lined exactly like manual briefs; caps
+# are hard-clamped to QUEUE_CAP_USD per entry.
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  queue:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      MAX_PER_TICK: "3"
+      QUEUE_CAP_USD: "1"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python -m unittest discover -s tests -v
+      - name: Fetch pending entries from the bus branch
+        run: |
+          set -e
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git ls-tree -r --name-only origin/bus | grep '^queue/pending/' | head -n "$MAX_PER_TICK" > /tmp/queue.txt || true
+          else
+            : > /tmp/queue.txt
+            echo "no bus branch yet; queue empty"
+          fi
+          echo "pending entries this tick: $(wc -l < /tmp/queue.txt || echo 0)"
+      - name: Run each queued consult (a failed entry is receipted; the tick continues)
+        if: always()
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, subprocess, sys
+          entries = [l.strip() for l in open('/tmp/queue.txt') if l.strip()]
+          status_dir = pathlib.Path('queue-status')
+          status_dir.mkdir(exist_ok=True)
+          cap_usd = float(os.environ.get('QUEUE_CAP_USD', '1'))
+          for i, entry in enumerate(entries, 1):
+              run_id = os.environ.get('GITHUB_RUN_ID', 'local')
+              outdir = f'runs/z-desk-queue-{run_id}-{i}'
+              status = {'entry': entry, 'run_outdir': outdir}
+              try:
+                  spec = json.loads(subprocess.run(
+                      ['git', 'show', f'origin/bus:{entry}'],
+                      capture_output=True, text=True, check=True).stdout)
+              except Exception as exc:
+                  status['status'] = 'parse-error'
+                  status['error'] = str(exc)[:200]
+                  (status_dir / f'{i}.json').write_text(json.dumps(status))
+                  continue
+              pathlib.Path('/tmp/brief.txt').write_text(spec.get('brief', ''))
+              cmd = [sys.executable, '-m', 'island.z_desk',
+                     '--mode', 'live' if spec.get('mode') == 'live' else 'demo',
+                     '--agents', spec.get('agents', 'both'),
+                     '--diff-model', spec.get('diff_model', 'mistralai/mistral-medium-3-5'),
+                     '--man-model', spec.get('man_model', 'openai/gpt-6-sol'),
+                     '--max-cost-usd', str(min(float(spec.get('cap', 1) or 1), cap_usd)),
+                     '--pace', spec.get('pace', 'half'),
+                     '--brief-file', '/tmp/brief.txt',
+                     '--outdir', outdir]
+              if spec.get('records'):
+                  pathlib.Path('/tmp/records.txt').write_text(spec['records'])
+                  cmd += ['--records-file', '/tmp/records.txt']
+              result = subprocess.run(cmd)
+              status['status'] = 'completed' if result.returncode == 0 else 'error'
+              (status_dir / f'{i}.json').write_text(json.dumps(status))
+          print('tick done')
+          PY
+      - name: Publish receipts + dequeue on the bus branch
+        if: always()
+        run: |
+          set -e
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          if [ -d runs ] && [ -n "$(ls -A runs 2>/dev/null)" ]; then
+            cp -r runs /tmp/bus-out
+            rm -rf runs
+          else
+            echo "no run output to publish"
+          fi
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          if [ -d /tmp/bus-out ]; then
+            mkdir -p runs
+            cp -r /tmp/bus-out/. runs/
+            git add runs/
+          fi
+          if [ -d queue-status ]; then
+            mkdir -p queue/done
+            ts=$(date -u +%Y%m%dT%H%M%SZ)
+            for status in queue-status/*.json; do
+              [ -e "$status" ] || continue
+              name=$(basename "$status" .json)
+              entry=$(python -c "import json,sys;print(json.load(open(sys.argv[1])).get('entry',''))" "$status")
+              if [ -n "$entry" ] && [ -e "$entry" ]; then
+                git rm -q "$entry"
+              fi
+              cp "$status" "queue/done/${ts}-${name}.json"
+              git add "queue/done/${ts}-${name}.json"
+            done
+          fi
+          if ! git diff --cached --quiet; then
+            git commit -m "bus: queue tick ${GITHUB_RUN_ID} (receipts + dequeue)"
+            git push origin bus
+          else
+            echo "nothing new to publish"
+          fi
