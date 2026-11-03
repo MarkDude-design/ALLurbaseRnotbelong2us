@@ -59,5 +59,13 @@ read secondarily, implied by context.
       stdlib-only; bus could be a bare repo on the box). Owner: open.
 
 ## Done (kept one entry deep, newest on top)
-- [x] 2026-11-03 — T4 scale round + skeptic-prelim: 3/3 + 1 fires, zero
-      starves, desk READY. Wall read: $0.31 of $5 (6.2%), 0 UNKNOWN.
+- [x] 2026-11-03 — First external desk submission (Meraki, GitHub resilience
+      roadmap review): claim→run→done chain green, 3 lanes, $0.38 of $1 cap
+      (meter $0.69 of $5, 13.8%), 0 UNKNOWN. Verdicts: diff ISSUES_FOUND (3
+      wording fixes), man qualified_support (roadmap substantially faithful;
+      recovery-design risks untested — manifest completeness + independent
+      auth + write reconciliation), skeptic SECOND CHECK answered (3 claims
+      false-but-consistent; honest-claim list issued) with verdict-line
+      UNPARSEABLE = receipt defect, desk COLD-START item. Run 41700028376;
+      receipts on bus. Credit: Meraki (brief + roadmap), Mark (dispatch),
+      Z (verify + meter + report).
