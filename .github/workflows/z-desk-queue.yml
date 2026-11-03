@@ -91,38 +91,45 @@ jobs:
           claimed = []
           if due:
               wt = '/tmp/bus-wt'
-              subprocess.run(['git', 'worktree', 'add', '--detach', wt, 'origin/bus'],
-                             check=True, capture_output=True)
-              for arg in (('user.name', 'island-bus'),
-                          ('user.email', 'actions@users.noreply.github.com')):
-                  subprocess.run(['git', '-C', wt, 'config', arg[0], arg[1]],
-                                 check=True, capture_output=True)
-
-              def exists(path):
-                  return subprocess.run(['git', '-C', wt, 'cat-file', '-e',
-                                          f'origin/bus:{path}'],
-                                         capture_output=True).returncode == 0
-
-              def stage_batch():
-                  # resync to the latest bus, then stage the moves fresh
-                  subprocess.run(['git', '-C', wt, 'fetch', 'origin', 'bus'],
-                                 check=True, capture_output=True)
-                  subprocess.run(['git', '-C', wt, 'reset', '--hard', 'origin/bus'],
-                                 check=True, capture_output=True)
-                  batch = []
-                  for i, entry, spec in due:
-                      claim = lane.claim_path(entry)
-                      if exists(claim) or not exists(entry):
-                          (status_dir / f'{i}.json').write_text(json.dumps(
-                              {'entry': entry, 'status': 'claimed-elsewhere'}))
-                          print(f'claimed elsewhere (or gone): {entry}')
-                          continue
-                      subprocess.run(['git', '-C', wt, 'mv', entry, claim],
-                                     check=True, capture_output=True)
-                      batch.append((i, entry, spec))
-                  return batch
-
+              worktree_ready = False
               try:
+                  subprocess.run(['git', 'worktree', 'add', '--detach', wt, 'origin/bus'],
+                                 check=True, capture_output=True)
+                  worktree_ready = True
+                  for arg in (('user.name', 'island-bus'),
+                              ('user.email', 'actions@users.noreply.github.com')):
+                      subprocess.run(['git', '-C', wt, 'config', arg[0], arg[1]],
+                                     check=True, capture_output=True)
+
+                  def exists(path):
+                      return subprocess.run(['git', '-C', wt, 'cat-file', '-e',
+                                              f'origin/bus:{path}'],
+                                             capture_output=True).returncode == 0
+
+                  def stage_batch():
+                      # resync to the latest bus, then stage the moves fresh
+                      subprocess.run(['git', '-C', wt, 'fetch', 'origin', 'bus'],
+                                     check=True, capture_output=True)
+                      subprocess.run(['git', '-C', wt, 'reset', '--hard', 'origin/bus'],
+                                     check=True, capture_output=True)
+                      batch = []
+                      for i, entry, spec in due:
+                          claim = lane.claim_path(entry)
+                          if exists(claim) or not exists(entry):
+                              (status_dir / f'{i}.json').write_text(json.dumps(
+                                  {'entry': entry, 'status': 'claimed-elsewhere'}))
+                              print(f'claimed elsewhere (or gone): {entry}')
+                              continue
+                          # git mv never creates the destination's parent: the
+                          # claimed/ shelf must exist before the move (first-run
+                          # blocker, Astra pre-flight review 2026-11-03).
+                          (pathlib.Path(wt) / claim).parent.mkdir(parents=True,
+                                                                 exist_ok=True)
+                          subprocess.run(['git', '-C', wt, 'mv', entry, claim],
+                                         check=True, capture_output=True)
+                          batch.append((i, entry, spec))
+                      return batch
+
                   for attempt in range(3):
                       batch = stage_batch()
                       if not batch:
@@ -145,9 +152,20 @@ jobs:
                           (status_dir / f'{i}.json').write_text(json.dumps(
                               {'entry': entry, 'status': 'claim-failed'}))
                           print(f'claim-failed (stays pending): {entry}')
+              except Exception as exc:
+                  # A claim-side crash still receipts every unreceipted due
+                  # entry claim-failed; nothing silently vanishes (failure
+                  # containment, Astra pre-flight review 2026-11-03).
+                  print(f'claim error: {exc}')
+                  for i, entry, _ in due:
+                      if not (status_dir / f'{i}.json').exists():
+                          (status_dir / f'{i}.json').write_text(json.dumps(
+                              {'entry': entry, 'status': 'claim-failed'}))
+                          print(f'claim-failed (stays pending): {entry}')
               finally:
-                  subprocess.run(['git', 'worktree', 'remove', '--force', wt],
-                                 capture_output=True)
+                  if worktree_ready:
+                      subprocess.run(['git', 'worktree', 'remove', '--force', wt],
+                                     capture_output=True)
           with open('/tmp/claimed.txt', 'w') as fh:
               for i, entry, spec in claimed:
                   fh.write(json.dumps({'index': i, 'entry': entry, 'spec': spec}) + '\n')
@@ -200,6 +218,24 @@ jobs:
           set -e
           git config user.name "island-bus"
           git config user.email "actions@users.noreply.github.com"
+          # Stamp each terminal receipt's claim path NOW, while the main
+          # checkout still carries island/ — the bus branch has no code
+          # (publication blocker, Astra pre-flight review 2026-11-03).
+          python - <<'PY'
+          import json, pathlib
+          from island.queue import claim_path
+          sd = pathlib.Path('queue-status')
+          if sd.is_dir():
+              for f in sorted(sd.glob('*.json')):
+                  d = json.loads(f.read_text())
+                  d['claim'] = ''
+                  if d.get('entry') and d.get('status') in ('completed', 'error', 'parse-error'):
+                      try:
+                          d['claim'] = claim_path(d['entry'])
+                      except ValueError:
+                          pass
+                  f.write_text(json.dumps(d))
+          PY
           if [ -d runs ] && [ -n "$(ls -A runs 2>/dev/null)" ]; then
             cp -r runs /tmp/bus-out
             rm -rf runs
@@ -223,11 +259,20 @@ jobs:
             for status in queue-status/*.json; do
               [ -e "$status" ] || continue
               name=$(basename "$status" .json)
-              set -- $(python -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('entry',''),d.get('status',''))" "$status")
-              entry="$1"; st="$2"
+              set -- $(python -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('entry') or '-', d.get('status') or '-', d.get('claim') or '-')" "$status")
+              entry="$1"; st="$2"; claim="$3"
+              [ "$entry" = "-" ] && entry=""
+              [ "$st" = "-" ] && st=""
+              [ "$claim" = "-" ] && claim=""
               case "$st" in
                 held|claimed-elsewhere|claim-failed)
                   echo "$st entry left as-is: $entry"
+                  continue
+                  ;;
+                completed|error|parse-error)
+                  ;;
+                *)
+                  echo "unknown status left as-is: $st"
                   continue
                   ;;
               esac
@@ -235,8 +280,7 @@ jobs:
                 if [ -e "$entry" ]; then
                   git rm -q "$entry"
                 fi
-                claim=$(python -c "from island.queue import claim_path;import sys;print(claim_path(sys.argv[1]))" "$entry")
-                if [ -e "$claim" ]; then
+                if [ -n "$claim" ] && [ -e "$claim" ]; then
                   git rm -q "$claim"
                 fi
               fi
@@ -254,7 +298,20 @@ jobs:
             done
             if [ "$pushed" = false ]; then
               echo "PUBLISH RACE: bus push still rejected after retries; receipts preserved in run artifacts"
+              exit 1
             fi
           else
             echo "nothing new to publish"
           fi
+      - name: Archive queue tick receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: z-desk-queue-${{ github.run_id }}
+          path: |
+            queue-status/
+            /tmp/bus-out/
+            /tmp/claimed.txt
+            /tmp/queue.txt
+          retention-days: 30
+          if-no-files-found: warn

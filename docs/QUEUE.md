@@ -93,6 +93,14 @@ dumb check out makes sense."*
 - **Held entries never steal claim slots.** `not_before` holds and
   parse-errors are receipted before the claim step; only DUE entries count
   against `MAX_PER_TICK`.
+- **Containment (Astra pre-flight review, 2026-11-03):** a claim-side
+  crash still receipts every unreceipted due entry `claim-failed` — nothing
+  silently vanishes; claim paths are stamped into the tick's status
+  receipts BEFORE the bus switch (the bus branch carries no `island/`
+  code); only `completed | error | parse-error` may dequeue — any unknown
+  status is left as-is; if the publish push stays rejected after retries
+  the tick fails RED, and an always-on artifact upload preserves
+  `queue-status/`, the receipts, and the claim log on every run.
 - **Statuses that own their bookkeeping:** `completed | error | parse-error`
   → publish step removes the claim (and the pending entry on parse-error)
   and writes the done marker. `held | claimed-elsewhere | claim-failed` →
