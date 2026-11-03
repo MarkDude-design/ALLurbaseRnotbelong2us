@@ -19,8 +19,10 @@ File: `queue/pending/<timestamp>-<slug>.json` on the **bus branch**
   "cap": 1,
   "pace": "half",
   "records": "",
+  "not_before": "",
   "diff_model": "mistralai/mistral-medium-3-5",
   "man_model": "openai/gpt-6-sol",
+  "skeptic_model": "mistralai/mistral-medium-3-5",
   "requested_by": "Z"
 }
 ```
@@ -39,7 +41,20 @@ Fields:
   order) or `off`.
 - `records` — optional ground-truth text for a truth-audit; rides both agent
   prompts as authoritative and is sha256-receipted in the run's start event.
-- `requested_by` — provenance: who enqueued (receipt credit).
+- `not_before` — optional ISO 8601 **with timezone** (e.g.
+  `2026-11-04T03:30:00Z`): the scheduled-fire field. Ticks before that moment
+  HOLD the entry in `queue/pending/` (status `held` in the tick log, no done
+  marker); the first tick past it runs the entry. Owner's pattern: ask at
+  21:00 for a 03:30 fire, a downstream seat picks the receipts up at 04:30.
+  Naive or malformed timestamps are refused (receipted `error`, dequeued) —
+  a bad timer must not become a forever-pending poison entry.
+- `skeptic_model` — model behind the skeptic lane (falsification agent;
+  helper preliminaries, owner-go 2026-11-03). `agents` accepts `skeptic`
+  alone, or `all` for all three lanes (`both` stays diff+man).
+- `requested_by` — provenance: who enqueued (receipt credit). Downstream
+  seats' tooling (Meraki QC, Bing) may enqueue with their own handle here —
+  that is the feedback-loop vehicle: their tool's output rides a brief, the
+  desk reviews it, receipts land on the bus, their next tick reads them.
 
 ## Processing
 
@@ -51,7 +66,9 @@ Fields:
   `report.md`.
 - The entry is then removed from `queue/pending/` and a status marker is
   written to `queue/done/<ts>-<n>.json` with
-  `status` ∈ `completed | error | parse-error`.
+  `status` ∈ `completed | error | parse-error`. A `held` entry (future
+  `not_before`) stays in `queue/pending/` untouched — the hold is visible
+  in the tick's Actions log.
 - A failed entry is receipted and does not block the rest of the tick; a
   `parse-error` entry is moved to done without running.
 
@@ -63,5 +80,7 @@ human fires a manual tick via workflow_dispatch.
 
 ## Who may enqueue
 
-Anyone with push access to the bus branch: Z (via the GitHub app) and Mark.
-Entries are PUBLIC — the red-line scan refuses secrets before any call.
+Anyone with push access to the bus branch: Z (via the GitHub app) and Mark
+— plus, when their tooling is ready, Meraki's and Bing's seats enqueue with
+`requested_by` provenance. Entries are PUBLIC — the red-line scan refuses
+secrets before any call.

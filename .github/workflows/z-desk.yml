@@ -7,7 +7,7 @@ on:
         description: 'Text for the desk to review. PUBLIC repo: no secrets, ever.'
         required: true
       agents:
-        description: 'Callable agents: diff (detail review), man (frontier expert), or both'
+        description: 'Callable agents: diff (detail review), man (frontier expert), skeptic (falsification lane), both, or all'
         required: false
         default: 'both'
         type: choice
@@ -15,6 +15,8 @@ on:
           - both
           - diff
           - man
+          - skeptic
+          - all
       diff_model:
         description: 'Model behind diff'
         required: false
@@ -23,6 +25,10 @@ on:
         description: 'Model behind man'
         required: false
         default: 'openai/gpt-6-sol'
+      skeptic_model:
+        description: 'Model behind skeptic (falsification lane)'
+        required: false
+        default: 'mistralai/mistral-medium-3-5'
       cap:
         description: 'Local budget ceiling USD for this consult (soft, post-call stop; provider key cap governs)'
         required: false
@@ -57,6 +63,7 @@ jobs:
       BRIEF: ${{ inputs.brief }}
       DIFF_MODEL: ${{ inputs.diff_model }}
       MAN_MODEL: ${{ inputs.man_model }}
+      SKEPTIC_MODEL: ${{ inputs.skeptic_model }}
       INPUT_AGENTS: ${{ inputs.agents }}
       INPUT_CAP: ${{ inputs.cap }}
       INPUT_PACE: ${{ inputs.pace }}
@@ -85,6 +92,7 @@ jobs:
           fi
           python -m island.z_desk --mode "$MODE" --agents "$INPUT_AGENTS" \
             --diff-model "$DIFF_MODEL" --man-model "$MAN_MODEL" \
+            --skeptic-model "$SKEPTIC_MODEL" \
             --max-cost-usd "$INPUT_CAP" --pace "$INPUT_PACE" \
             --brief-file /tmp/brief.txt $RECORDS_ARGS \
             --outdir "runs/z-desk-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"

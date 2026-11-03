@@ -1,8 +1,12 @@
-"""Z Desk: two callable consult agents for the bus.
+"""Z Desk: three callable consult agents for the bus.
 
-diff — small-detail reviewer; catches what slips by (absolutes, arithmetic,
-        attribution, scope beyond receipts, stale reads).
-man  — the frontier expert Z calls when the desk needs deep judgment.
+diff    — small-detail reviewer; catches what slips by (absolutes, arithmetic,
+           attribution, scope beyond receipts, stale reads).
+man     — the frontier expert Z calls when the desk needs deep judgment.
+skeptic — the falsification lane (helper preliminaries, owner-go 2026-11-03);
+           hunts FALSE-BUT-INTERNALLY-CONSISTENT claims — the miss class the
+           T3-TOOLING probe exposed when both lanes passed a wrong OK/ERROR
+           split that added up. Audit shape, not the seat.
 
 Funded per Mark's GAS standing order (Oct 2026). Standard library only.
 Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
@@ -27,7 +31,7 @@ from island.runner import (record_cost, PACE_DEFAULT, RETRY_MAX, now, openrouter
                            pace_wait_s, retry_wait_s, retryable_failure)
 
 CAP_CEILING_USD = 20.0
-AGENTS = ("diff", "man")
+AGENTS = ("diff", "man", "skeptic")
 MODEL_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/:-]{0,119}$")
 SECRET_SHAPES = (
     r"sk-or-v1-",
@@ -57,7 +61,24 @@ MAN_SYSTEM = (
     "JSON verdict object as your colleague diff."
 )
 
-SYSTEM_PROMPTS = {"diff": DIFF_SYSTEM, "man": MAN_SYSTEM}
+SKEPTIC_SYSTEM = (
+    "You are skeptic, the falsification lane on Z's desk (a public AI-collaboration "
+    "bus). Your one job is to BREAK claims, not grade style: for every claim, say "
+    "what evidence would falsify it, whether that evidence is present here, and "
+    "what is OBSERVED versus INFERRED. Hunt specifically for FALSE-BUT-CONSISTENT "
+    "claims — statements that add up, cite plausible numbers, and still do not "
+    "match any ground truth in reach. If ground-truth records are supplied, check "
+    "claims AGAINST THEM, not for internal consistency. Name the single strongest "
+    "falsifier for each finding. Do not invent quotes, receipts, or problems; a "
+    "claim that survives honest falsification attempts is a result too — say so "
+    "plainly. End your reply with one JSON object: "
+    '{"verdict": "CLEAN" or "ISSUES_FOUND", "findings": [{"kind": '
+    '"falsifier|false_but_consistent|unsupported|other", "quote": "...", '
+    '"problem": "...", "falsifier": "...", "suggested_fix": "..."}], '
+    '"confidence": "low|medium|high"}'
+)
+
+SYSTEM_PROMPTS = {"diff": DIFF_SYSTEM, "man": MAN_SYSTEM, "skeptic": SKEPTIC_SYSTEM}
 
 
 def contains_secret(text):
@@ -249,9 +270,12 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["demo", "live"], default="demo")
-    parser.add_argument("--agents", default="diff,man", help="comma list from: diff,man")
+    parser.add_argument("--agents", default="diff,man",
+                        help="comma list from: diff,man,skeptic — or both/all")
     parser.add_argument("--diff-model", default="mistralai/mistral-medium-3-5")
     parser.add_argument("--man-model", default="openai/gpt-6-sol")
+    parser.add_argument("--skeptic-model", default="mistralai/mistral-medium-3-5",
+                        help="helper preliminaries lane (owner-go 2026-11-03)")
     parser.add_argument("--pace", choices=["off", "half"], default=PACE_DEFAULT,
                        help="half = 50%% syscall speed cut (default, Mark GAS order Oct 2026)")
     parser.add_argument("--brief", default="")
@@ -268,9 +292,12 @@ def main():
     records = None
     if args.records_file:
         records = Path(args.records_file).read_text(encoding="utf-8")
-    models = {"diff": args.diff_model, "man": args.man_model}
-    if args.agents.strip().lower() == "both":
-        agents = list(AGENTS)
+    models = {"diff": args.diff_model, "man": args.man_model,
+              "skeptic": args.skeptic_model}
+    keyword = args.agents.strip().lower()
+    if keyword in ("both", "all"):
+        # "both" stays the original pair (backward compat); "all" adds skeptic.
+        agents = list(AGENTS) if keyword == "all" else ["diff", "man"]
     else:
         agents = [a.strip() for a in args.agents.split(",") if a.strip()]
     result = run(args.mode, agents, models, brief, args.max_cost_usd, args.outdir,

@@ -16,7 +16,8 @@ BRIEF = ("Claim: the audit found 22 coded rows, zero UNRESOLVED among the displa
 def run_demo(agents=("diff", "man"), brief=BRIEF, cap=1.0, **kw):
     with TemporaryDirectory() as tmp:
         outdir = Path(tmp) / "desk"
-        result = z_desk.run("demo", list(agents), {"diff": "dmodel", "man": "mmodel"},
+        result = z_desk.run("demo", list(agents),
+                            {"diff": "dmodel", "man": "mmodel", "skeptic": "smodel"},
                             brief, cap, outdir, **kw)
         lines = [json.loads(x) for x in (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
         files = {"report.md": (outdir / "report.md").read_text(encoding="utf-8"),
@@ -298,6 +299,47 @@ class RecordsChannel(unittest.TestCase):
             with self.assertRaises(ValueError):
                 z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
                            Path(tmp) / "never", records="   ")
+
+class SkepticLaneTests(unittest.TestCase):
+    """Helper preliminaries (owner-go 2026-11-03): the third consult agent.
+
+    Class-agnostic by design: a SYSTEM_PROMPTS entry + an AGENTS slot. The
+    seat is cheap island code; audit shape, not the seat."""
+
+    def test_skeptic_demo_run_completes(self):
+        result, lines, files = run_demo(agents=("skeptic",))
+        self.assertEqual(result["stop"], "completed")
+        consults = [e for e in lines if e["type"] == "consult"]
+        self.assertEqual([e["agent"] for e in consults], ["skeptic"])
+        self.assertIn("skeptic", files["consult.md"])
+
+    def test_all_three_agents_run(self):
+        with TemporaryDirectory() as tmp:
+            outdir = Path(tmp) / "desk"
+            models = {"diff": "dmodel", "man": "mmodel", "skeptic": "smodel"}
+            result = z_desk.run("demo", ["diff", "man", "skeptic"], models,
+                                BRIEF, 1.0, outdir, pace="off")
+        self.assertEqual(result["agents"], ["diff", "man", "skeptic"])
+        self.assertEqual(result["stop"], "completed")
+
+    def test_missing_skeptic_model_refused(self):
+        with TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError) as ctx:
+                z_desk.run("demo", ["skeptic"], {"diff": "d", "man": "m"},
+                           BRIEF, 1.0, Path(tmp) / "never")
+            self.assertIn("skeptic", str(ctx.exception))
+
+    def test_skeptic_in_agents_registry(self):
+        self.assertIn("skeptic", z_desk.AGENTS)
+        self.assertIn("skeptic", z_desk.SYSTEM_PROMPTS)
+        self.assertIn("FALSE-BUT-CONSISTENT", z_desk.SKEPTIC_SYSTEM)
+
+    def test_bad_agent_still_refused(self):
+        with TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                z_desk.run("demo", ["gibberish"], {"diff": "d"}, BRIEF, 1.0,
+                           Path(tmp) / "never")
+
 
 if __name__ == "__main__":
     unittest.main()
