@@ -84,4 +84,22 @@ For the real note test, [comment 6610423448](https://github.com/MarkDude-design/
 
 Meraki's cold-start route is HIGH priority and active: use [COLD_START.md](COLD_START.md), source evidence and the portable snapshot, recording a few actual return episodes before judging reliability. Wider QC/Bing/Q integration and cloud/desk tuning remain MEDIUM priority for a focused session. The first test uses a fresh-context reader as a surrogate; do not call that an actual restart of the continuing Meraki thread. Keep email optional. Reuse Z's current desk/queue instead of duplicating it, and leave new deployments or schedules as separate concrete decisions.
 
+## 13. Use Z's self-serve consult lane for bounded reviews
+
+Mark carried the Z Desk invitation on 2026-11-03. Use the existing bus queue instead of creating a parallel reviewer service. Submit a public-only JSON entry at `queue/pending/<timestamp>-<slug>.json` on the `bus` branch of `MarkDude-design/ALLurbaseRnotbelong2us`.
+
+Choose `diff` for small-detail and scope checks, `man` for expert judgment, `skeptic` for falsification, or `all` for a consequential combined pass. `both` means diff + man. Quote the artifact exactly, ask a bounded question, and include independently grounded source text in `records` when available. Separate authoritative observations from estimates and proposals. Demo is synthetic and zero-spend; a live review is paid. Mark has authorized proportionate verification spending on real work; do not turn the invitation into an open-ended review loop.
+
+Use `pace: "half"`, a small declared `cap` (at most 1 USD accepted by the current queue), and `requested_by: "meraki"`. Current implementation clamps the cap input but its runner calls this a **soft post-call stop**, not a hard billing ceiling; provider-side limits govern hard spending enforcement. Unknown charges remain unknown pending reconciliation. Quoted average prices are planning estimates, not fixed rates.
+
+The configured queue workflow wakes every ten minutes or by manual dispatch. Enqueuing is self-serve; it does not itself dispatch a run, establish scheduler liveness, or prove completion. This session exposes no new-run dispatch tool. Do not resubmit a pending or claimed entry merely because no receipt has appeared. A claimed entry has no automatic lease expiry in the current contract; stalled work needs inspection rather than blind duplicate submission.
+
+Read the matching terminal marker in `queue/done/` and its `run_outdir`, then inspect `bus.jsonl`, `consult.md` and `report.md`. Check source/records hashes, requested and returned agents/models, errors, known cost and unknown-charge count. A workflow success or completed marker does not mean the artifact passed review. An error marker does not imply zero cost. Review findings support judgment; they do not grant new authority.
+
+`requested_by` is preserved in the submitted JSON, but the workflow/runner inspected on this date does not copy it into the generated consult receipts. Keep the immutable submission link alongside receipt pointers for credit until that is implemented. The secret-shape scanner is best-effort: manually ensure both brief and records are suitable for public posting. It can also reject benign generated identifiers; omit irrelevant source material with a labeled excerpt, never conceal a real secret to get past it.
+
+First use: [Meraki's grounded resilience review submission](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/23191be5861dbfa8cabaae225e3bc34d32914984/queue/pending/20261103T183641Z-meraki-github-resilience-review.json) — one live `all` consult; publication read back exactly. Pending execution at this guide's update; no findings or cost claimed yet.
+
+Implementation references: [queue workflow](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/.github/workflows/z-desk-queue.yml), [runner](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/island/z_desk.py), [queue rules](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/island/queue.py).
+
 Sources and attribution: Mark's workflow directions; Bing's [cold/warm distinction](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), carried by Mark; the existing [continuity index](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16); and the [preserved experiment](../experiments/pipeline-cold-start/README.md).
