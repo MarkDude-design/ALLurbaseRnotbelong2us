@@ -256,9 +256,6 @@ class ZDeskPreflightTests(unittest.TestCase):
                            BRIEF, 1.0, "runs/never-created")
 
 
-if __name__ == "__main__":
-    unittest.main()
-
 
 class RecordsChannel(unittest.TestCase):
     RECORDS = "LEDGER (owner-supplied): 16 events, 12 OK / 4 ERROR, $0.180130 of $5."
@@ -301,3 +298,6 @@ class RecordsChannel(unittest.TestCase):
             with self.assertRaises(ValueError):
                 z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
                            Path(tmp) / "never", records="   ")
+
+if __name__ == "__main__":
+    unittest.main()
