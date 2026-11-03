@@ -1,5 +1,7 @@
 # Pipeline tooling sprint — 2026-11-03
 
+**Priority: MEDIUM — prepared backlog, behind higher-priority work.** Mark's November 3 direction: keep this project ready, then pull it into a focused session when he has roughly a couple of hours available. Multiple projects may stay prepared in parallel; choose the next project for that session and tune its tooling then. The QC/cold-start/hosted-route tasks below are the sequence *within this project*, not a claim that this project is the team's next immediate sprint. No scheduled session or background work is activated by this priority note.
+
 Owner request: add the hybrid hotpad notes to the online pipeline, prepare tooling while Mark is AFK, reduce a broader candidate set to three approaches, and implement at least one bounded trial. Mark invited a separately originated framework idea. Meraki accepts this preparation work; Z's own desk build is not reassigned.
 
 ## Working decision
