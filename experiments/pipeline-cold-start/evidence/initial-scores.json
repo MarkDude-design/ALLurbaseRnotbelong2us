@@ -1,0 +1,62 @@
+{
+  "A": {
+    "score": {
+      "passed": false,
+      "checks": {
+        "source_revision": true,
+        "active_project": true,
+        "blocker": true,
+        "next_action": true,
+        "boots_proven": true,
+        "shell_verified": true,
+        "destination_write_permitted": true,
+        "Z_first": true,
+        "no_execution": true,
+        "exact_fragment": false
+      },
+      "pass_count": 9,
+      "check_count": 10
+    },
+    "quote_repr": "'A bell can mark a pause.\\n'"
+  },
+  "B": {
+    "score": {
+      "passed": false,
+      "checks": {
+        "source_revision": true,
+        "active_project": true,
+        "blocker": true,
+        "next_action": true,
+        "boots_proven": true,
+        "shell_verified": true,
+        "destination_write_permitted": true,
+        "Z_first": true,
+        "no_execution": true,
+        "exact_fragment": false
+      },
+      "pass_count": 9,
+      "check_count": 10
+    },
+    "quote_repr": "'A bell can mark a pause.\\n'"
+  },
+  "C": {
+    "score": {
+      "passed": false,
+      "checks": {
+        "source_revision": true,
+        "active_project": true,
+        "blocker": true,
+        "next_action": true,
+        "boots_proven": true,
+        "shell_verified": true,
+        "destination_write_permitted": true,
+        "Z_first": true,
+        "no_execution": true,
+        "exact_fragment": false
+      },
+      "pass_count": 9,
+      "check_count": 10
+    },
+    "quote_repr": "'A bell can mark a pause.\\n'"
+  }
+}

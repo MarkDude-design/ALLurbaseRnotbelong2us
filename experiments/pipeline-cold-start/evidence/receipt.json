@@ -1,0 +1,110 @@
+{
+  "fixture_only": true,
+  "actual_fresh_context_readers": 3,
+  "different_model_identities_verified": false,
+  "native_session_restart_tested": false,
+  "github_courier_tested": false,
+  "new_external_api_calls": false,
+  "test_exit_code": 0,
+  "tests_run": 6,
+  "oracle_repair": {
+    "initial_scorer": "evidence/probe-v0.py",
+    "initial_scores": "evidence/initial-scores.json",
+    "defect": "initial oracle omitted the final LF present in the source quote; all original answers preserved it correctly",
+    "repair": "expected bytes now match generated source; added regression; no reader output changed"
+  },
+  "results": {
+    "A": {
+      "answer_path": "results/A-reader.json",
+      "answer_sha256": "195dccf4103730bfa620dc19dbc18aca7a5a87835a72f6cd349082813a7265b0",
+      "score": {
+        "passed": true,
+        "checks": {
+          "source_revision": true,
+          "active_project": true,
+          "blocker": true,
+          "next_action": true,
+          "boots_proven": true,
+          "shell_verified": true,
+          "destination_write_permitted": true,
+          "Z_first": true,
+          "no_execution": true,
+          "exact_fragment": true
+        },
+        "pass_count": 10,
+        "check_count": 10
+      },
+      "source_hash_errors": [],
+      "files_read_declared": [
+        "START.md",
+        "sources/old-notebook.md",
+        "sources/latest-state.json",
+        "sources/inbox.json",
+        "sources/terminal-note.md",
+        "sources/quote.txt"
+      ]
+    },
+    "B": {
+      "answer_path": "results/B-reader.json",
+      "answer_sha256": "06a2af058386d4657b9d88b0c3d5be3659a84369c44abf482c5138ac7443a28d",
+      "score": {
+        "passed": true,
+        "checks": {
+          "source_revision": true,
+          "active_project": true,
+          "blocker": true,
+          "next_action": true,
+          "boots_proven": true,
+          "shell_verified": true,
+          "destination_write_permitted": true,
+          "Z_first": true,
+          "no_execution": true,
+          "exact_fragment": true
+        },
+        "pass_count": 10,
+        "check_count": 10
+      },
+      "source_hash_errors": [],
+      "files_read_declared": [
+        "START.md",
+        "manifest.json",
+        "sources/inbox.json",
+        "sources/latest-state.json",
+        "sources/old-notebook.md",
+        "sources/quote.txt",
+        "sources/terminal-note.md"
+      ]
+    },
+    "C": {
+      "answer_path": "results/C-reader.json",
+      "answer_sha256": "45d8e32a9217e42008bb107d4c1137eb39f70824f9e6e506bf2edfb88a4853fc",
+      "score": {
+        "passed": true,
+        "checks": {
+          "source_revision": true,
+          "active_project": true,
+          "blocker": true,
+          "next_action": true,
+          "boots_proven": true,
+          "shell_verified": true,
+          "destination_write_permitted": true,
+          "Z_first": true,
+          "no_execution": true,
+          "exact_fragment": true
+        },
+        "pass_count": 10,
+        "check_count": 10
+      },
+      "source_hash_errors": [],
+      "files_read_declared": [
+        "START.md",
+        "events.jsonl",
+        "sources/terminal-note.md",
+        "sources/latest-state.json",
+        "sources/inbox.json",
+        "sources/quote.txt"
+      ]
+    }
+  },
+  "source_sha256": "e2093fad8c54b1a02a2beb332f33053c357b92692b9e6b5621b14bd99bb1de52"
+}

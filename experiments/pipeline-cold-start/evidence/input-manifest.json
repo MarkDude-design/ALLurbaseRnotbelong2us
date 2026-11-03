@@ -1,0 +1,29 @@
+{
+  "fixture_only": true,
+  "sha256": {
+    "A_hotpad/START.md": "4a1219dca9ef4b5dd2d8b0fa48ea6487402e835ac4258ceb42b5e6c9f013ac96",
+    "A_hotpad/events.jsonl": "4580cf2f6b895533672b1ffed17237b1d3e2ec7bf0f1b7d40dfa5fb07045091c",
+    "A_hotpad/manifest.json": "e744dccaa4af996fcf7c0619fb65ba3cecec49802ce79d651641015ae7d12f7e",
+    "A_hotpad/sources/inbox.json": "5d81f92b822a2483c2e7b12eef67bb25bc507df7b2f675fe868d1f336901a9a8",
+    "A_hotpad/sources/latest-state.json": "5975817e225fd58c950fd13261e992ca1ed4f121af4383cea503b43c77a6ffa6",
+    "A_hotpad/sources/old-notebook.md": "d951b2e08af96c210badeed6a544d9900415f41405a1b2f5db1a1d5acfbb2e56",
+    "A_hotpad/sources/quote.txt": "6b8a74deffa681eae1dffadefc60232db79105d276ad48d8eed234330f9c8c3a",
+    "A_hotpad/sources/terminal-note.md": "9a0c4625fca24e6938d410ba2d26769c5c36f13663c7326f8aa8c31a653c9410",
+    "B_evidence_desk/START.md": "164fb9d95740c2d05a245840f979bbefd1f22a1afff683cf5e0a7885813ba72d",
+    "B_evidence_desk/events.jsonl": "4580cf2f6b895533672b1ffed17237b1d3e2ec7bf0f1b7d40dfa5fb07045091c",
+    "B_evidence_desk/manifest.json": "e744dccaa4af996fcf7c0619fb65ba3cecec49802ce79d651641015ae7d12f7e",
+    "B_evidence_desk/sources/inbox.json": "5d81f92b822a2483c2e7b12eef67bb25bc507df7b2f675fe868d1f336901a9a8",
+    "B_evidence_desk/sources/latest-state.json": "5975817e225fd58c950fd13261e992ca1ed4f121af4383cea503b43c77a6ffa6",
+    "B_evidence_desk/sources/old-notebook.md": "d951b2e08af96c210badeed6a544d9900415f41405a1b2f5db1a1d5acfbb2e56",
+    "B_evidence_desk/sources/quote.txt": "6b8a74deffa681eae1dffadefc60232db79105d276ad48d8eed234330f9c8c3a",
+    "B_evidence_desk/sources/terminal-note.md": "9a0c4625fca24e6938d410ba2d26769c5c36f13663c7326f8aa8c31a653c9410",
+    "C_ticket_ledger/START.md": "651103097ba0cf4863eb1f5b1cff88f3fc63a3af82ebdef54e31d1d2cdf6ba7e",
+    "C_ticket_ledger/events.jsonl": "4580cf2f6b895533672b1ffed17237b1d3e2ec7bf0f1b7d40dfa5fb07045091c",
+    "C_ticket_ledger/manifest.json": "e744dccaa4af996fcf7c0619fb65ba3cecec49802ce79d651641015ae7d12f7e",
+    "C_ticket_ledger/sources/inbox.json": "5d81f92b822a2483c2e7b12eef67bb25bc507df7b2f675fe868d1f336901a9a8",
+    "C_ticket_ledger/sources/latest-state.json": "5975817e225fd58c950fd13261e992ca1ed4f121af4383cea503b43c77a6ffa6",
+    "C_ticket_ledger/sources/old-notebook.md": "d951b2e08af96c210badeed6a544d9900415f41405a1b2f5db1a1d5acfbb2e56",
+    "C_ticket_ledger/sources/quote.txt": "6b8a74deffa681eae1dffadefc60232db79105d276ad48d8eed234330f9c8c3a",
+    "C_ticket_ledger/sources/terminal-note.md": "9a0c4625fca24e6938d410ba2d26769c5c36f13663c7326f8aa8c31a653c9410"
+  }
+}

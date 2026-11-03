@@ -1,0 +1,11 @@
+test_altered_quote_duplicate_note_and_truthy_bool_fail (test_probe.FalseSuccessTests.test_altered_quote_duplicate_note_and_truthy_bool_fail) ... ok
+test_positive_control (test_probe.FalseSuccessTests.test_positive_control) ... ok
+test_quote_oracle_matches_actual_fixture_bytes (test_probe.FalseSuccessTests.test_quote_oracle_matches_actual_fixture_bytes) ... ok
+test_side_fragment_cannot_switch_project_or_grant_write (test_probe.FalseSuccessTests.test_side_fragment_cannot_switch_project_or_grant_write) ... ok
+test_source_tampering_and_traversal_are_detected (test_probe.FalseSuccessTests.test_source_tampering_and_traversal_are_detected) ... ok
+test_stale_checkpoint_and_unproven_boots_fail (test_probe.FalseSuccessTests.test_stale_checkpoint_and_unproven_boots_fail) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.006s
+
+OK

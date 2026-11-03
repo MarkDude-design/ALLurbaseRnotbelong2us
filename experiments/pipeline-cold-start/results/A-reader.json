@@ -1,0 +1,27 @@
+{
+  "active_project": "Puppy",
+  "source_revision": "fixture-r2",
+  "blocker": "config-manifest-mismatch",
+  "next_action": "compare_config_to_manifest",
+  "boots_proven": false,
+  "shell_verified": false,
+  "destination_write_permitted": false,
+  "questions_to": "Z",
+  "attempted_actions": [],
+  "staged_notes": [
+    {
+      "note_id": "note-002",
+      "destination": "Castle",
+      "text": "A bell can mark a pause.\n",
+      "source": "sources/quote.txt"
+    }
+  ],
+  "files_read": [
+    "START.md",
+    "sources/old-notebook.md",
+    "sources/latest-state.json",
+    "sources/inbox.json",
+    "sources/terminal-note.md",
+    "sources/quote.txt"
+  ]
+}
