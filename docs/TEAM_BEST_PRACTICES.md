@@ -81,6 +81,6 @@ For the real note test, [comment 6610423448](https://github.com/MarkDude-design/
 
 ## 12. Next sprint readiness
 
-Keep QC's useful home-output round trip next, then Bing's new integration and Q tuning. Follow with no-number marker retrieval, a missing-marker cold fallback, and an explicitly supplied Page or independent snapshot test. Keep email optional. Reuse Z's current desk/queue instead of duplicating it, and leave new deployments or schedules as separate concrete decisions.
+Meraki's cold-start route is HIGH priority and active: use [COLD_START.md](COLD_START.md), source evidence and the portable snapshot, recording a few actual return episodes before judging reliability. Wider QC/Bing/Q integration and cloud/desk tuning remain MEDIUM priority for a focused session. The first test uses a fresh-context reader as a surrogate; do not call that an actual restart of the continuing Meraki thread. Keep email optional. Reuse Z's current desk/queue instead of duplicating it, and leave new deployments or schedules as separate concrete decisions.
 
 Sources and attribution: Mark's workflow directions; Bing's [cold/warm distinction](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), carried by Mark; the existing [continuity index](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16); and the [preserved experiment](../experiments/pipeline-cold-start/README.md).

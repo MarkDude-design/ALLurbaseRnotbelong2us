@@ -1,6 +1,6 @@
 # Pipeline tooling sprint — 2026-11-03
 
-**Priority: MEDIUM — prepared backlog, behind higher-priority work.** Mark's November 3 direction: keep this project ready, then pull it into a focused session when he has roughly a couple of hours available. Multiple projects may stay prepared in parallel; choose the next project for that session and tune its tooling then. The QC/cold-start/hosted-route tasks below are the sequence *within this project*, not a claim that this project is the team's next immediate sprint. No scheduled session or background work is activated by this priority note.
+**Priority split — owner clarification, 2026-11-03:** **HIGH / active: Meraki cold-start recovery**, using candidate B (evidence-first entry plus portable snapshot). Make the route usable and exercise it across several actual return/recovery episodes before drawing broad conclusions. **MEDIUM / prepared backlog: wider QC/Bing/Q integration, cloud routing and desk fine-tuning**, for a later focused session. This clarification supersedes the earlier blanket medium-priority label; it does not reprioritize Z's own desk work or create a schedule.
 
 Owner request: add the hybrid hotpad notes to the online pipeline, prepare tooling while Mark is AFK, reduce a broader candidate set to three approaches, and implement at least one bounded trial. Mark invited a separately originated framework idea. Meraki accepts this preparation work; Z's own desk build is not reassigned.
 
@@ -8,7 +8,7 @@ Owner request: add the hybrid hotpad notes to the online pipeline, prepare tooli
 
 Use [ALLur #16](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16) as the existing navigation index, with [the pipeline map](TEAM_PIPELINE_MAP.md) pointing to lane source records. Keep one canonical work record reachable by direct GitHub, Z relay, or a hosted adapter.
 
-Prioritize the evidence-first recovery desk for AFK preparation because it can be tested without access to QC's live workspace. Keep the ordinary hotpad as the low-overhead baseline. Treat the independent ticket approach as an optional validator behind that interface, not a newly required platform.
+Candidate B is the selected HIGH-priority recovery route for Meraki. Use the short [cold-start entry](COLD_START.md), current source receipts and the independently saved recovery snapshot; revise from observed use rather than building another framework. The wider integration work remains medium priority. Keep the ordinary hotpad as the low-overhead baseline. Treat the independent ticket approach as an optional validator behind that interface, not a newly required platform.
 
 ## Fifteen candidate improvements, reduced to three experiments
 
@@ -66,12 +66,13 @@ The initial scorer mistakenly omitted the final LF present in sources/quote.txt.
 
 1. **DONE — Meraki:** deposit the hybrid-flow map and experiment pointers in the online continuity index.
 2. **DONE — Meraki + invited independent consultant:** build the three-arm synthetic recovery bench; run fresh readers; preserve independent C idea and offline reducer evidence.
-3. **READY — QC/Mark:** actual workspace connection, one useful hotpad answer, direct-write/readback or labeled relay; later normal-restart persistence check. No manual packet body should be needed when the connection works.
-4. **AFTER QC — Meraki/Z with Mark's active session:** test Bing's new integration for actual reading, writing and output retrieval; maintain a paste/relay fallback while needed.
-5. **LATER — Q route:** tune its actual capabilities and creative handoff. Do not inherit QC's identity or permissions by name.
-6. **FOLLOW-UP EXPERIMENT — Meraki:** separate warm-start delta recovery from cold-start orientation, following [Bing's contribution](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md). Compare changes since an explicit last-read receipt, plus interrupted/duplicate delivery. Measure delta coverage, unnecessary rereads, human edits, copied characters and app switches. A real manually supplied marker lookup has now retrieved Mark's greeting and correctly inferred no task/approval; full delta recovery and no-number fresh-thread lookup remain untested. Do not rank frameworks on the first cold-start tie.
-7. **Z-owned, optional:** assess whether a tiny recovery-check/ticket validator is useful behind Z Desk. This is an offer, not an assigned interruption. No queue entry was added to Z's paid consult queue.
-8. **ONLY IF A MEASURED NEED REMAINS:** stage a supported shared hosted endpoint. No new cloud router is necessary to run the current bench.
+3. **HIGH / ACTIVE — Meraki:** use candidate B for operational cold-start recovery; run one fresh-context snapshot/source reconciliation now, then record subsequent natural returns separately. Keep actual native-thread recovery distinct from a fresh reader acting as a test surrogate. Record only source horizon, recovered priority/next action, gaps and operator effort; several return episodes are needed before assessing reliability.
+4. **MEDIUM / READY — QC/Mark:** actual workspace connection, one useful hotpad answer, direct-write/readback or labeled relay; later normal-restart persistence check. No manual packet body should be needed when the connection works.
+5. **MEDIUM / AFTER QC — Meraki/Z with Mark's active session:** test Bing's new integration for actual reading, writing and output retrieval; maintain a paste/relay fallback while needed.
+6. **MEDIUM / LATER — Q route:** tune its actual capabilities and creative handoff. Do not inherit QC's identity or permissions by name.
+7. **FOLLOW-UP EXPERIMENT — Meraki:** separate warm-start delta recovery from cold-start orientation, following [Bing's contribution](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md). Compare changes since an explicit last-read receipt, plus interrupted/duplicate delivery. Measure delta coverage, unnecessary rereads, human edits, copied characters and app switches. A real manually supplied marker lookup has now retrieved Mark's greeting and correctly inferred no task/approval; full delta recovery and no-number fresh-thread lookup remain untested. Do not rank frameworks on the first cold-start tie.
+8. **Z-owned, optional:** assess whether a tiny recovery-check/ticket validator is useful behind Z Desk. This is an offer, not an assigned interruption. No queue entry was added to Z's paid consult queue.
+9. **ONLY IF A MEASURED NEED REMAINS:** stage a supported shared hosted endpoint. No new cloud router is necessary to run the current bench.
 
 ## Deferred tradeoffs
 

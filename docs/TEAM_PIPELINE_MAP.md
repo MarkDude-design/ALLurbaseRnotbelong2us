@@ -36,9 +36,11 @@ Z has also kept a separately reported knowledge topic called llm-team-pipeline. 
 
 [Bing's proposal, carried by Mark](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), distinguishes cold orientation from changes since a last verified read. The existing decision ledger keeps recorded reasons; a warm-start view should summarize only the delta between explicit receipt horizons. Missing or unverifiable horizons need a bounded cold fallback. This is planned across A/B/C. A subsequent real manual-marker lookup retrieved Mark's greeting on PR #17 correctly and found no later comments. That demonstrated note retrieval, not a complete delta-service or fresh-thread recovery.
 
-## Current next action
+## Current next action — priority clarified
 
-Open [QC's bounded return task](QC_GITHUB_RETURN_V0.md) in its actual workspace when available. Read one real note, deposit one useful answer if direct writing exists, and have another seat retrieve it. If writing is absent, preserve an attributed relay result and the precise missing capability. Check retained access on the next normal restart.
+**HIGH / active: Meraki cold-start recovery.** Use [the short cold-start entry](COLD_START.md), selected evidence-first route B and the saved recovery snapshot. Exercise it over several return episodes and preserve small receipts before deciding what works reliably.
+
+**MEDIUM / prepared:** the wider integration and fine-tuning work. When pulled into a focused session, start with [QC's bounded return task](QC_GITHUB_RETURN_V0.md), then Bing and Q. The earlier blanket medium label is superseded for Meraki's cold-start lane only.
 
 The preparatory files in PR #17 are proposed, unmerged artifacts. They are readable from that branch before merge. No new cloud deployment, paid dispatch, cron activation or access-policy change is claimed by this map. Z's existing queue and desk code are untouched.
 
