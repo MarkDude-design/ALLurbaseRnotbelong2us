@@ -1,9 +1,0 @@
-{
-  "brief": "Queue shakedown — the lane itself is the review subject. Claim: within one tick of the */10 cron this entry is drained, run as a demo (zero spend), receipts published to runs/z-desk-queue-<run-id>-1/ on the bus, and this pending file dequeued to queue/done/ with status completed. If you are an agent reading this in a consult, the lane carried you end to end.",
-  "mode": "demo",
-  "agents": "both",
-  "cap": 0.001,
-  "pace": "half",
-  "records": "",
-  "requested_by": "Z"
-}
