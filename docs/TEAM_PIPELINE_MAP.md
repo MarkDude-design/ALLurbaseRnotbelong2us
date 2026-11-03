@@ -28,6 +28,10 @@ Z has also kept a separately reported knowledge topic called llm-team-pipeline. 
 - Immediate qualification order: QC, then Bing's owner-reported new GitHub integration, then Q's remaining tuning. Mark aims to reach QC today if possible, otherwise this week; no reminder or new timer was requested.
 - A default endpoint simplifies connection setup; it must not freeze every task to an unchangeable repository.
 
+## Cold and warm return paths — roadmap addition
+
+[Bing's proposal, carried by Mark](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), distinguishes cold orientation from changes since a last verified read. The existing decision ledger keeps recorded reasons; a warm-start view should summarize only the delta between explicit receipt horizons. Missing or unverifiable horizons need a bounded cold fallback. This is planned across A/B/C; it is not an implemented warm-start service or an observed new test result.
+
 ## Current next action
 
 Open [QC's bounded return task](QC_GITHUB_RETURN_V0.md) in its actual workspace when available. Read one real note, deposit one useful answer if direct writing exists, and have another seat retrieve it. If writing is absent, preserve an attributed relay result and the precise missing capability. Check retained access on the next normal restart.
