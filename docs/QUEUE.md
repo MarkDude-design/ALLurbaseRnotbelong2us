@@ -119,3 +119,10 @@ Anyone with push access to the bus branch: Z (via the GitHub app) and Mark
 — plus, when their tooling is ready, Meraki's and Bing's seats enqueue with
 `requested_by` provenance. Entries are PUBLIC — the red-line scan refuses
 secrets before any call.
+
+## Cap distinctions + sprint-mode ceiling (rulings, 2026-11-03)
+
+- **Clamp vs. billing ceiling (Meraki, owner-endorsed):** the per-entry cap is an input-side HARD CLAMP (clamped to QUEUE_CAP_USD); the spending stop is POST-CALL and soft (`cap_kind: caller_declared_soft`; the provider key cap governs actual billing). A clamped ceiling is not a hard billing ceiling.
+- **requested_by stays in the submission** and is NOT copied into generated receipts; the submission → done-marker chain retains the credit link — deliberately, so post-mortems and retrospective analysis can trace who asked for what. (Meraki distinction, owner ruling 2026-11-03)
+- **SPRINT-MODE CEILING (owner, 2026-11-03):** the normal ceiling stays $1. In declared sprint mode only, the ceiling may jump to $5 (maybe $10) for huge push builds (Puppy-class). Not the default; raise only in those circumstances. Implementation = a QUEUE_CAP_USD edit at sprint declaration, owner-gated.
+
