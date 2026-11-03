@@ -1,8 +1,16 @@
 # THE LEDGER — Z Desk project
 
-One canonical book per project. "Ledger" means THIS file and nothing else:
-the Bus is the receipts journal, the Meter is the spend book — they keep
-their names, never "ledger." Naming ruling: Mark + Z, 2026-11-03.
+THE canonical central point — the starting assumption in any thread, even
+when the work is cross-project. Technically every project has its own; we
+don't say that, and when we must, it's "the project's ledger." "Ledger"
+means THIS file and nothing else: the Bus is the receipts journal, the Meter
+is the spend book — they keep their names, never "ledger." Desk specifics
+live in the desk's books, never clouding this one. Semantics ruling:
+Mark, 2026-11-03.
+
+Command grammar (natural use, Mark's example): "ledger medium level, fire
+those off, maybe check the desk" = work the MEDIUM tier now; the desk gets
+read secondarily, implied by context.
 
 ## How to read it
 - "What do we have on the ledger?" → this file, top to bottom.
