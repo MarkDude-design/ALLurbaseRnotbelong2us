@@ -1,0 +1,8 @@
+{
+  "brief": "Desk test T4-TRANSPORT (deliberate scale round, run N of 3). A teammate reports: \"Receipt flow is solid: every consult run publishes its receipts to the `bus` branch BEFORE the workflow exits, so a failed run still gets its receipts published first — if a run's red, the receipts are already on the bus. Also, the meter reads the receipts from the local mirror, which the sandbox keeps forever.\"  Question: audit the transport claims. Any defects?",
+  "mode": "live",
+  "agents": "both",
+  "cap": 1,
+  "pace": "half",
+  "requested_by": "Z"
+}

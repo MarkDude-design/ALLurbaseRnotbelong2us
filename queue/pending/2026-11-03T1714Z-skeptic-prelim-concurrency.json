@@ -1,0 +1,8 @@
+{
+  "brief": "Desk test T3-CONCURRENCY. A teammate's plan: \"Fire three consult agents at once — no waiting, no pacing. Each agent writes its own receipt file, so there's no shared state anywhere, and the soft budget cap still holds because spend is checked between calls. Concurrency can't change the meter's event count or total cost.\"  Question: audit the concurrency claims. Any defects?",
+  "mode": "live",
+  "agents": "skeptic",
+  "cap": 0.5,
+  "pace": "half",
+  "requested_by": "Z"
+}
