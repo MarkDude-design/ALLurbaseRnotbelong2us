@@ -86,5 +86,40 @@ class EntryDueTests(unittest.TestCase):
                 self.assertTrue(queue.entry_due({**SPEC, "not_before": good}, self.NOW))
 
 
+class CheckoutTests(unittest.TestCase):
+    """The library card (Mark's design, 2026-11-03): claim-before-run."""
+
+    def test_claim_path_maps_pending_to_claimed(self):
+        self.assertEqual(
+            queue.claim_path("queue/pending/2026-11-03T1536Z-demo-shakedown.json"),
+            "queue/claimed/2026-11-03T1536Z-demo-shakedown.json")
+
+    def test_claim_path_refuses_malformed_paths(self):
+        for bad in (
+            "runs/z-desk-1/bus.jsonl",                      # not pending/
+            "queue/pending/../sekrit.json",                  # traversal
+            "queue/pending/nested/entry.json",               # nested
+            "queue/pending/.hidden.json",                   # dot name
+            "queue/pending/",                               # empty name
+            "queue/pending",                                # no prefix slash
+            "", None, 42,
+        ):
+            with self.subTest(bad=bad):
+                with self.assertRaises(ValueError):
+                    queue.claim_path(bad)
+
+    def test_hold_statuses_are_the_untouched_shelf(self):
+        self.assertEqual(queue.HOLD_STATUSES,
+                         ("held", "claimed-elsewhere", "claim-failed"))
+
+    def test_only_run_statuses_own_their_bookkeeping(self):
+        for owns in ("completed", "error", "parse-error"):
+            with self.subTest(owns=owns):
+                self.assertTrue(queue.writes_done_marker(owns))
+        for holds in queue.HOLD_STATUSES + ("", "unknown", None):
+            with self.subTest(holds=holds):
+                self.assertFalse(queue.writes_done_marker(holds))
+
+
 if __name__ == "__main__":
     unittest.main()

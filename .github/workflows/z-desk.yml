@@ -127,7 +127,15 @@ jobs:
           git add runs/
           if ! git diff --cached --quiet; then
             git commit -m "bus: z desk consult ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
-            git push origin bus
+            pushed=false
+            for i in 1 2 3; do
+              if git push origin bus; then pushed=true; break; fi
+              git fetch origin bus
+              git rebase origin/bus || break
+            done
+            if [ "$pushed" = false ]; then
+              echo "PUBLISH RACE: bus push still rejected after retries; receipts preserved in run artifacts"
+            fi
           else
             echo "nothing new to publish"
           fi

@@ -72,6 +72,33 @@ Fields:
 - A failed entry is receipted and does not block the rest of the tick; a
   `parse-error` entry is moved to done without running.
 
+## Checkout (library card)
+
+Mark's design, 2026-11-03 — verbatim doctrine: *"if the library is there they
+can check it out if it's not then they can't and they can report an error…
+any thinking or coordination would be done by the circle otherwise allowing
+dumb check out makes sense."*
+
+- **Claim-before-run.** A tick first CLAIMS each due entry with one commit
+  moving it `queue/pending/` → `queue/claimed/`; the push IS the atomic card
+  swipe. Only then does it run the consult. Two workers (schedule + manual
+  tick, or a future helper seat) can never run the same entry twice.
+- **Dumb on purpose.** The checkout carries no priority logic, no leases, no
+  expiry. Coordination, time windows, and who-should-run-what are the
+  circle's common sense — the mechanism just makes collisions impossible.
+- **Claim collision = report, move on.** If the claim push is rejected
+  (another worker claimed first), the entry is receipted
+  `claimed-elsewhere` and the tick proceeds. Neither worker bounces off the
+  other's run.
+- **Held entries never steal claim slots.** `not_before` holds and
+  parse-errors are receipted before the claim step; only DUE entries count
+  against `MAX_PER_TICK`.
+- **Statuses that own their bookkeeping:** `completed | error | parse-error`
+  → publish step removes the claim (and the pending entry on parse-error)
+  and writes the done marker. `held | claimed-elsewhere | claim-failed` →
+  the entry is left exactly where it is (`claim-failed` stays pending for a
+  later tick).
+
 ## Kill switch
 
 Disable the `z-desk-queue.yml` schedule (owner's click in the Actions UI).

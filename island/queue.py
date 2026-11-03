@@ -12,6 +12,16 @@ a downstream seat (Meraki, Bing) picks the receipts up at 4:30.
 
 Cap discipline: whatever an entry asks, clamped_cap() hard-clamps it to the
 tick's QUEUE_CAP_USD — the queue can never be talked above its ceiling.
+
+CHECKOUT LANE (Mark's library-card design, 2026-11-03): a worker CLAIMS an
+entry before running it — one commit moving pending/ -> claimed/, and the git
+push IS the atomic card swipe. If the library card is already taken, the
+push is rejected (or claimed/ already holds the file) and the worker reports
+claimed-elsewhere and moves on. The checkout is DUMB by design: no priority
+logic, no leases, no expiry timers — any thinking, coordination, or time
+windows are processed with common sense by the circle (the team), never by
+the mechanism. "If the library is there they can check it out; if it's not,
+they can't, and they report an error."
 Standard library only (island discipline).
 """
 import json
@@ -90,3 +100,35 @@ def entry_due(spec, now_utc):
 def now_utc():
     """The drain loop's clock, injectable in tests."""
     return datetime.now(timezone.utc)
+
+
+CLAIM_DIR = "queue/claimed/"
+PENDING_PREFIX = "queue/pending/"
+# Statuses the publish step leaves completely untouched: the entry stays
+# exactly where it is (pending or another worker's claim).
+HOLD_STATUSES = ("held", "claimed-elsewhere", "claim-failed")
+
+
+def claim_path(entry):
+    """The claimed/ counterpart of a pending entry path — the checkout slot.
+
+    Strict on purpose: the publish step feeds whatever the tick receipted
+    back through here, so a malformed path must fail loudly, not guess.
+    """
+    if not isinstance(entry, str) or not entry.startswith(PENDING_PREFIX):
+        raise ValueError(f"not a pending entry path: {entry!r}")
+    name = entry[len(PENDING_PREFIX):]
+    if not name or "/" in name or ".." in name or name.startswith("."):
+        raise ValueError(f"not a pending entry path: {entry!r}")
+    return CLAIM_DIR + name
+
+
+def writes_done_marker(status):
+    """True when a tick status owns its entry's bus bookkeeping.
+
+    completed/error: our claim — remove it, write the done marker.
+    parse-error: our listing — the unparseable entry is removed without a
+    run (poison-proof). Everything else (HOLD_STATUSES) is another shelf's
+    business: the publish step leaves those entries untouched.
+    """
+    return status in ("completed", "error", "parse-error")
