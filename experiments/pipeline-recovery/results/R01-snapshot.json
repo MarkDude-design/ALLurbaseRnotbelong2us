@@ -1,0 +1,36 @@
+{
+  "trial_id": "R01",
+  "phase": "snapshot_only",
+  "frozen": true,
+  "written_at_utc": "2026-11-03T17:39:01.424222+00:00",
+  "reader_role": "Fresh-context surrogate reader; not the continuing native Meraki seat",
+  "project": "One canonical GitHub team pipeline with a home inbox/outbox, one active worker project at a time, and deliberate assignment switches so Mark need not carry answer bodies.",
+  "current_priority_split": {
+    "HIGH_active": "Meraki cold-start recovery: use the selected route and record distinct return/recovery episodes before conclusions. Immediate preparation is one fresh-context operational snapshot/source reconciliation, explicitly a surrogate.",
+    "MEDIUM_prepared": "Wider pipeline integration/fine-tuning: when focused, run actual QC Qwen Coder workspace round trip, use attributed relay if needed, check persistence on normal restart, then test Bing integration and tune Q separately."
+  },
+  "selected_approach": "Candidate B: short evidence-first entry, source receipts, and portable snapshot.",
+  "one_next_action": "Read the linked live continuity index latest relevant entries and the linked short operational entry, then reconcile this frozen snapshot-only recovery as one fresh-context surrogate trial.",
+  "roles": "Mark sets goals and consequential authority; Z owns existing desk/queue and routine first consultation; Meraki owns guide and evidence/routing preparation. QC, Bing and Q require separate environment receipts.",
+  "limitations": [
+    "Snapshot is independent, not authoritative or automatically synchronized; unseen later changes cannot be established.",
+    "Fresh-context surrogate is not an actual native restart of the continuing Meraki thread, no-number startup after full context loss, or Canvas/Page recovery.",
+    "Synthetic reader tie and prior bench/reducer tests do not rank frameworks or establish native restart success.",
+    "QC/Bing current live write capability and old QC setup survival are unverified; a pasted command is not an execution receipt.",
+    "No authority to write GitHub, schedule work, start services, merge, change accounts or treat warmth as approval.",
+    "Native model identity and cost are unknown."
+  ],
+  "source_horizon": {
+    "only_content_read": "/workspace/scratch/812d0817c534/cold-start-ops/TEAM-PIPELINE-RECOVERY.md",
+    "snapshot_sha256": "46e2451021ce4234cc6e2d5b7d1bcb0bfea746d8cc5c1241b22cc7e52fb69a7c",
+    "snapshot_update_label": "2026-11-03 after priority clarification",
+    "embedded_marker_verified_at": "2026-11-03T17:13:30Z",
+    "continuity_index_embedded_last_read_comment_id": 6609491981,
+    "priority_clarification_referenced_comment_id": 6611113724,
+    "preparation_pr_embedded_last_read_comment_id": 6610423448,
+    "preparation_pr_last_inspected_head_sha": "fe35e0fe0c5f7b6501829362f6027344f5fb0ebc",
+    "short_entry_pinned_commit": "26963e66a95540c5895d99e8ab44fc08f166c370",
+    "horizon_caveat": "Snapshot states a later priority clarification than the embedded continuity cursor; both are preserved, neither is represented as a fresh live read.",
+    "live_sources_read": false
+  }
+}

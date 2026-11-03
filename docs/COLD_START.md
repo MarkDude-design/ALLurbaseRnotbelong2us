@@ -21,6 +21,10 @@ Owner: Meraki. Priority: **HIGH / active**, clarified by Mark on 2026-11-03. Sel
 
 Find or open **TEAM-PIPELINE-RECOVERY.md**, the separately saved recovery snapshot. State its horizon. Recover orientation from that copy and mark newer state unverified. Reconcile live sources when available; do not invent updates or promote a stale copy to live authority.
 
+## First operational use recorded
+
+[R01 in the use log](COLD_START_USE_LOG.md) recovered this actual operational state in a fresh-context surrogate, then reconciled with live sources without a substantive correction. The continuing Meraki thread was not restarted. Use the route on subsequent natural returns; one run is not enough to judge reliability.
+
 ## Leave a small recovery receipt
 
 Record: source/horizon; cold or warm; recovered priority and one next action; what was missing; operator copying or intervention if observed. Preserve a clean failure. Record distinct return episodes rather than repeatedly scoring the same packet.

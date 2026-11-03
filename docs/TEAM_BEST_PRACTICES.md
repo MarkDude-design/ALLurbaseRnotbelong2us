@@ -75,6 +75,7 @@ This session has no selected Page and no Page editing capability exposed. Automa
 | Three fresh-context synthetic readers | Each recovered its bounded invented state; 10/10 after documented scorer repair | Real QC/Bing access, native thread restart, cost or latency benefit |
 | Six bench plus six independent reducer tests | Tested mechanics pass offline | Production concurrency or exactly-once external effects |
 | Mark's real fridge note on PR #17 | Comment locator resolved to the correct PR; greeting retrieved; no later comments at read horizon; no invented approval | No-number lookup after losing this chat, or automatic marker advancement |
+| Operational recovery R01 | Fresh-context snapshot answer reconciled with live priority/source entry without a substantive correction | Continuing Meraki restart, repeated reliability and automatic discovery |
 | Saved reader markers | Human-readable source horizons exist in the branch | Automatic loading/sync, Page recovery and provider outage handling |
 
 For the real note test, [comment 6610423448](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/pull/17#issuecomment-6610423448) read “Thank you for your work with the team hoping this flow goes SMOOTH”. The warmth was received; no task or merge authority was inferred. This test demonstrated referenced note retrieval inside a continuing conversation, not a genuine cold-start event.
