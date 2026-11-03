@@ -1,8 +1,29 @@
-# QC: resume GitHub delivery from the existing workspace
+# QC: reconnect GitHub delivery in the Qwen Coder workspace
 
 Prepared 2026-11-03 by Meraki. Status: READY FOR QC; NOT EXECUTED IN QC'S WORKSPACE.
 
 Mark identified the target as the **Qwen Coder workspace** on November 3. His goal is direct GitHub work with fewer manual transfers. This packet is a narrow connectivity task, not a change to the scientific or creative assignments.
+
+## Owner clarification — default flow and connection recovery
+
+Mark's November 3 follow-up sets the default routing: **agent → Z → Meraki/Mark when escalation is needed**. An empowered agent may still consult Meraki directly; this default keeps routine questions from expanding the coordination flow. Routine work within recorded authority continues without a new permission request.
+
+Z owns the desk and first-line questions. Its successful consult tests are an available basis for quality checks before consequential work and review afterwards. This is a routing/design decision, not a claim that every task already has an automatic preflight or postflight check. Checks should be proportionate to the task.
+
+Mark reports that the earlier GUI setup was tied to one repository, could not be changed there, and was eventually deleted. The exact deleted component and current workspace state are unverified. **Do not assume the previous connection still exists.** He also reports that a pasted terminal command was interpreted successfully; establish which operations actually execute before claiming shell access.
+
+Immediate sequence:
+1. Re-establish QC's supported GitHub route and deliver one useful receipt.
+2. Check connection retention on the next normal restart.
+3. Test Bing's new GitHub integration after QC is on track. The new integration is owner-reported; current read/write behavior still needs a fresh receipt.
+4. Tune Q's route separately.
+
+Use one canonical GitHub work record, with three possible ways to reach it:
+- the agent's supported native GitHub connection;
+- a transparent Z relay when the agent cannot publish;
+- a supported hosted MCP/worker route if it solves a measured limitation.
+
+The default endpoint simplifies setup; each task still names its repository, input refs and output destination. A default must not recreate the old unchangeable repository binding. Extra storage or cloud components remain optional transport/runtime choices, with the canonical record kept explicit.
 
 ## Reuse the proven route
 
@@ -27,14 +48,14 @@ These establish a past working transport. They do not prove that today's workspa
    command -v gh
    ```
    Missing checkout or shell is a reported capability result; it need not prevent a GitHub connector from working.
-2. Use the existing approved GitHub connection. If using the already configured `gh` CLI, `gh auth status` is suitable; do not run `gh auth token`, print environment variables, inspect credential files, or place credentials in URLs. Do not re-provision a credential merely because its value is invisible.
-3. Read issue #8 and identify its latest comment ID. Verify repository access through the actual API/connector rather than public web search. If no authorized connection is available, return BLOCKED with the missing capability. Do not ask Mark to paste a key into chat.
-4. Write one short, public-safe receipt to issue #8 using the existing Issues-write capability. With `gh`, write the receipt to a local UTF-8 file and use:
+2. Check whether an approved GitHub connection remains available after the reported deletion. If it is absent or still bound to the wrong repository, report the exact setup limitation to Z; use the supported reconnection flow when authorized, rather than retrying the old binding. If using an already configured `gh` CLI, `gh auth status` is suitable; do not run `gh auth token`, print environment variables, inspect credential files, or place credentials in URLs. Do not re-provision a credential merely because its value is invisible.
+3. Read issue #8 and identify its latest comment ID. Verify repository access through the actual API/connector rather than public web search. If no authorized connection is available, return BLOCKED with the missing capability to Z. Z may carry a clearly attributed receipt into the canonical issue using the established relay lane; label it RELAYED, not a verified direct QC write. Do not ask Mark to paste a key into chat.
+4. If direct publication is available, write one short, public-safe receipt to issue #8 using the approved Issues-write capability. With `gh`, write the receipt to a local UTF-8 file and use:
    ```sh
    gh issue comment 8 -R MarkDude-design/ALLurbaseRnotbelong2us --body-file /absolute/path/to/receipt.md
    ```
    A host's purpose-built GitHub connector is equally acceptable. Do not add an extra API key or router for this test.
-5. Fetch the returned comment by its server-assigned ID and compare the body with the intended receipt. Report its URL and actual transport. Stop after this receipt. No repeat authentication-test loop.
+5. For a direct write, fetch the returned comment by its server-assigned ID and compare the body with the intended receipt. Report its URL and actual transport. Stop after this receipt. No repeat authentication-test loop.
 6. On the next normal workspace restart, try reading that same receipt using the retained approved connection. This is the persistence check; do not restart or alter a running session solely for this task.
 
 Suggested receipt fields:
@@ -43,6 +64,7 @@ seat_claimed: QC / Qwen Coder (workspace-declared)
 transport: actual tool or CLI used
 read_up_to: actual latest issue-8 comment ID
 did: read/comment/readback, with actual results
+delivery: direct | relayed | not_delivered
 credential_persistence: untested | retained_after_restart | missing_after_restart
 blocked: precise missing capability, or none
 next: one useful repository task
