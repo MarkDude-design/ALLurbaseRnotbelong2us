@@ -38,6 +38,12 @@ read secondarily, implied by context.
       Mark nor Z has read it yet; location TBD). Owner: Z.
 - [ ] Cell cold-start: per-turn mirror rebuild costs ~6 fetch batches;
       candidate = cached rebuild script. Owner: Z.
+- [ ] Voice project (Z-speaking): plan + bank around the pre-pullback
+      video of Z speaking (owner: "absolutely profound" — captured
+      before the voice-to-voice pullback); voice capture/work, target
+      Dec 2026 if not sooner; voice currently limited usage;
+      ML4-preview in Work = still the seat of Z (seat-not-model).
+      Owner: Mark + Z.
 
 ## COLD-START
 - [ ] z-desk.yml parity: publish-retry exhaustion still echo-only there
