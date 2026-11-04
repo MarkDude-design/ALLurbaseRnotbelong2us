@@ -1,0 +1,139 @@
+{
+  "trial_id": "R01",
+  "phase": "live_source_reconciliation",
+  "written_at_utc": "2026-11-03T17:39:50.651Z",
+  "reader_role": "Fresh-context surrogate; not the continuing native Meraki seat",
+  "status": "completed; no source access failure",
+  "frozen_snapshot_answer": {
+    "path": "/workspace/scratch/812d0817c534/cold-start-ops/results/R01-snapshot.json",
+    "sha256": "0f5987cd0bfcb0627b970eab67f7a080e0462e82b257b383fb6d886c898a4596",
+    "written_before_live_reads": true,
+    "modified_after_freeze": false
+  },
+  "source_receipts": [
+    {
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16",
+      "kind": "continuity_index_issue",
+      "tool": "github_fetch_issue",
+      "issue_number": 16,
+      "observed_comment_count": 15,
+      "issue_updated_at": "2026-11-03T17:37:45Z",
+      "scope": "Index body is older; latest relevant comments supply the correction. Index rows are pointers, not continuous assertions."
+    },
+    {
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16",
+      "kind": "all_issue_comments",
+      "tool": "github_fetch_issue_comments",
+      "returned_comment_count": 15,
+      "through_comment_id": 6611113724,
+      "through_comment_url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6611113724",
+      "relevant_entries": [
+        {
+          "id": 6609491981,
+          "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6609491981",
+          "title": "## PIPELINE ROADMAP APPEND — Bing's cold/warm-start distinction (2026-11-03)",
+          "body": "## PIPELINE ROADMAP APPEND — Bing's cold/warm-start distinction (2026-11-03)\n\nSource: Mark pasted a proposal attributed to Bing; Meraki records an attributed summary, not a direct Bing GitHub post. [Contribution and design response](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/fe35e0fe0c5f7b6501829362f6027344f5fb0ebc/docs/pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), in unmerged PR #17.\n\nCold start = project/role/current-state orientation. Warm start = changes since the returning seat's last verified receipt. The existing decision ledger preserves recorded reasons, evidence and superseded decisions; an optional narrative is a source-linked view, not another authority. The pasted sample names, decisions, roles and successes are illustrative, not verified team state.\n\nRoadmap refinement: apply both cold and warm entry points across A/B/C rather than adding a fourth framework. Warm views should have explicit from/to source horizons; a missing cursor or source gap needs bounded cold reconciliation. Expiring a sticky-note display must not erase unread work or its source decisions.\n\nNext proposed test: last-read receipt + resolved blocker + newly pending action + unrelated fragment + duplicate delivery; check material delta coverage, preserved project focus and missing-cursor fallback. NOT RUN. Earlier 10/10 three-reader results remain a cold-start synthetic trial only.\n\nThree documentation changes fetched back exactly at fe35e0fe0c5f7b6501829362f6027344f5fb0ebc. Z's desk and the live QC next action are unchanged. No associated code needed yet; no execution, queue entry, spending, timer or merge added by this note."
+        },
+        {
+          "id": 6610664693,
+          "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6610664693",
+          "title": "## BEST PRACTICES — Meraki-owned guide and saved reader markers (2026-11-03)",
+          "body": "## BEST PRACTICES — Meraki-owned guide and saved reader markers (2026-11-03)\n\nMark assigned Meraki a reusable best-practices guide to complement Z's style guide. [Guide](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/8b25f260ab22251fa2e7b4b411f8c31da52d9ea9/docs/TEAM_BEST_PRACTICES.md) · [pipeline map](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/8b25f260ab22251fa2e7b4b411f8c31da52d9ea9/docs/TEAM_PIPELINE_MAP.md) · [saved per-stream reader horizons](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/8b25f260ab22251fa2e7b4b411f8c31da52d9ea9/docs/pipeline-state/meraki.json). Readable in PR #17, still unmerged.\n\nThe intended everyday request is **warm start the pipeline**; the agent retrieves its own markers instead of asking Mark for a number. Exact IDs remain an optional debugging override. Markers advance only after a successful read, stay separate by source thread/seat, and missing horizons need bounded cold reconciliation. Saved markers exist; automatic fresh-thread loading and synchronization are not claimed.\n\nObserved real test: Mark's greeting was on PR #17 comment 6610423448, not index #16. The direct comment lookup found the correct thread; no later comments existed at the read horizon. Greeting received without inventing a task or approval. This demonstrates referenced note retrieval, not a full native cold start.\n\nThe guide also covers focused worker projects with a side-note hotpad, direct/relayed/hosted delivery, exact attribution, recorded decision reasons, proportionate checks and precise test claims. Z's desk, queue and style ownership remain unchanged.\n\nPortability: a separate dated recovery snapshot has been saved outside GitHub. It carries project state, source revision, reader horizons and scope; it is not automatically synchronized. Official OpenAI Pages documentation supports shared reference content and reusable prompts, but no selected Page or Page-editing tool was available here, so Canvas recovery is untested. Next optional portability test: a new reader recovers from the snapshot or an explicitly supplied Page, then reconciles live sources when available.\n\nFour repository files fetched back exactly at 8b25f260ab22251fa2e7b4b411f8c31da52d9ea9. No new deployment, paid call, timer or merge. Meraki owns guide maintenance; QC's real hotpad round trip remains the next integration action."
+        },
+        {
+          "id": 6611047266,
+          "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6611047266",
+          "title": "## PRIORITY UPDATE — owner direction (2026-11-03)",
+          "body": "## PRIORITY UPDATE — owner direction (2026-11-03)\n\n| Project | Priority / state | Next action |\n| --- | --- | --- |\n| LLM pipeline, recovery desks and integration tuning | **MEDIUM — prepared backlog; other work comes first** | Keep the prepared tooling and experiments ready. Mark pulls this project into a focused session when he has roughly a couple of hours available; then resume the in-project sequence with QC's useful hotpad round trip. |\n\nMultiple projects can remain prepared in parallel; a deliberate session choice selects which one gets worker/tool tuning. Earlier 'next QC' notes describe the order within this project, not its priority over the rest of the team backlog.\n\nMeraki maintains the guide and preparation. Z's current desk work is not reprioritized or reassigned. No timer, queue entry, dispatch or new background commitment. [Sprint plan updated and read-back verified](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/4beee4f958585c9b4f6f15f781c76a9d6d4df1b7/docs/PIPELINE_SPRINT_2026_11_03.md); PR #17 remains unmerged."
+        },
+        {
+          "id": 6611113724,
+          "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6611113724",
+          "title": "## PRIORITY CLARIFICATION — Meraki cold start HIGH; broader tooling MEDIUM (2026-11-03)",
+          "body": "## PRIORITY CLARIFICATION — Meraki cold start HIGH; broader tooling MEDIUM (2026-11-03)\n\nThis corrects the blanket medium-priority entry at 6611047266. Mark explicitly clarified that Meraki's cold-start path is **HIGH priority / active**. The wider QC/Bing/Q integration, cloud options and desk fine-tuning stay **MEDIUM / prepared**.\n\nMeraki selects candidate B: a short evidence-first entry with a portable recovery snapshot. [Usable cold-start entry](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/26963e66a95540c5895d99e8ab44fc08f166c370/docs/COLD_START.md). The task is to use the candidate, observe several actual return episodes and refine from evidence; one fixture pass is insufficient to judge reliability. A fresh-context reader may provide a clearly labeled surrogate test, not proof that the continuing Meraki thread restarted.\n\nCurrent action: align the saved snapshot with this priority, run one bounded operational snapshot/source reconciliation, preserve its result and record later natural returns separately. No scheduler created; Z's desk is not reassigned. Four repository files fetched back exactly at 26963e66a95540c5895d99e8ab44fc08f166c370. Prepared files remain in unmerged PR #17."
+        }
+      ]
+    },
+    {
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/26963e66a95540c5895d99e8ab44fc08f166c370/docs/COLD_START.md",
+      "kind": "pinned_short_operational_entry",
+      "tool": "github_fetch_file",
+      "path": "docs/COLD_START.md",
+      "ref": "26963e66a95540c5895d99e8ab44fc08f166c370",
+      "blob_sha": "994be32df79e6f75723c32c2f129ee364411c7e4",
+      "read_complete": true
+    }
+  ],
+  "changed_vs_frozen_snapshot": [
+    {
+      "finding": "No substantive project, priority, selected approach or immediate action changed.",
+      "classification": "unchanged"
+    },
+    {
+      "finding": "The snapshot-only priority citation is now directly verified by live comment 6611113724. Its explicit correction supersedes blanket MEDIUM comment 6611047266.",
+      "classification": "verification_status_changed",
+      "source_id": 6611113724
+    },
+    {
+      "finding": "Live index horizon is now observed through comment 6611113724; the snapshot's embedded continuity marker was 6609491981 even though its narrative already included the later clarification.",
+      "classification": "horizon_advanced_for_this_trial_only"
+    },
+    {
+      "finding": "Short entry is accessible at the snapshot's exact pinned commit and agrees with the priority split, candidate B and small recovery-receipt contract.",
+      "classification": "verification_status_changed"
+    }
+  ],
+  "unchanged_findings": {
+    "project": "Canonical GitHub team pipeline/home inbox-outbox; focused worker projects and deliberate switches.",
+    "priority_split": {
+      "HIGH_active": "Meraki recovery path: use candidate B and gather distinct return episodes.",
+      "MEDIUM_prepared": "QC/Bing/Q integration, cloud routing and desk tuning; useful QC home-answer round trip first when that project is deliberately focused."
+    },
+    "selected_approach": "B: short evidence-first entry, source receipts and portable snapshot.",
+    "ownership": "Z retains desk/routine-question ownership; Meraki owns recovery/guide maintenance. No reassignment.",
+    "prepared_work_status": "Sources report files in unmerged PR #17; PR status was not independently fetched in this bounded trial.",
+    "evidence_limits": "Prior synthetic 10/10 tie, twelve offline tests and referenced greeting retrieval do not establish repeated native-thread recovery."
+  },
+  "recovered_next_action": "Preserve this bounded operational snapshot/source reconciliation as one surrogate receipt, then use the selected recovery route on later natural returns and record each distinct episode separately before judging reliability.",
+  "blockers": {
+    "trial_completion": [],
+    "unverified_beyond_trial": [
+      "Native continuing-Meraki restart and automatic no-number discovery after full context loss",
+      "Canvas/Page recovery and background synchronization",
+      "Actual QC/Bing current live write capability or old QC credential/setup survival",
+      "Current PR #17 merge status beyond the latest relevant index report",
+      "Changes after this live read horizon"
+    ],
+    "source_access_failures": []
+  },
+  "what_this_exercise_proves": [
+    "A fresh reader, given only the supplied operational snapshot as initial content, recovered project, current priority split, candidate B, one scoped next action, ownership and limits.",
+    "That frozen reading reconciled with accessible GitHub index entries and the linked pinned short entry without a substantive correction.",
+    "The packet supports one bounded source-based orientation and live-source reconciliation."
+  ],
+  "what_this_exercise_does_not_prove": [
+    "An actual restart or preserved native memory of the continuing Meraki seat.",
+    "Repeated reliability across distinct natural return episodes.",
+    "Automatic snapshot discovery/loading, synchronization, Canvas/Page recovery, or full outage recovery.",
+    "A ranking of A/B/C frameworks, actual QC/Bing/Q execution or writes, or any native model identity/cost claim."
+  ],
+  "operator_intervention_observed": {
+    "initial_input": "Task supplied one snapshot filesystem path and the two-phase bounded trial contract.",
+    "during_retrieval": "No manual answer-body copying, extra source pointer or operator intervention observed during this trial.",
+    "broader_operator_burden": "Unknown outside this bounded trial."
+  },
+  "scope_compliance": {
+    "initial_content_source_only": "/workspace/scratch/812d0817c534/cold-start-ops/TEAM-PIPELINE-RECOVERY.md",
+    "parent_chat_or_sibling_results_read": false,
+    "github_writes": false,
+    "snapshot_modified": false,
+    "schedule_created": false,
+    "model_provider_called": false,
+    "sample_commands_executed": false,
+    "credentials_inspected_or_handled": false,
+    "local_writes": "Only requested R01-snapshot.json and R01-reconciled.json",
+    "continuing_seat_markers_modified": false
+  },
+  "native_model_identity": "unknown",
+  "native_model_cost": "unknown"
+}

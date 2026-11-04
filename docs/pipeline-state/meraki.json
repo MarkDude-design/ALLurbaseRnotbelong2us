@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "seat_declared": "Meraki",
+  "verified_at": "2026-11-03T17:41:06.894638+00:00",
+  "clock": "runtime UTC; source readback is the evidence",
+  "streams": [
+    {
+      "key": "continuity-index",
+      "repository": "MarkDude-design/ALLurbaseRnotbelong2us",
+      "issue_number": 16,
+      "last_read_comment_id": 6611113724,
+      "last_read_comment_url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6611113724"
+    },
+    {
+      "key": "pipeline-preparation-pr",
+      "repository": "MarkDude-design/ALLurbaseRnotbelong2us",
+      "issue_number": 17,
+      "last_read_comment_id": 6610423448,
+      "last_read_comment_url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/pull/17#issuecomment-6610423448",
+      "last_inspected_head_sha": "fe35e0fe0c5f7b6501829362f6027344f5fb0ebc"
+    }
+  ],
+  "rules": [
+    "Read each marker from its own thread; IDs are not a cross-repository global clock.",
+    "Only advance after successfully reading the through-horizon. Keep an incomplete stream unchanged.",
+    "If a marker or source is missing, report the gap and do a bounded cold recovery. Do not invent unseen changes.",
+    "This file does not activate a schedule or load itself automatically into a new chat."
+  ]
+}
