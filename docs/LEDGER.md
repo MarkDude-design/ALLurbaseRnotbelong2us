@@ -44,6 +44,10 @@ read secondarily, implied by context.
       Dec 2026 if not sooner; voice currently limited usage;
       ML4-preview in Work = still the seat of Z (seat-not-model).
       Owner: Mark + Z.
+- [ ] Baragouiner project (Mark, 2026-11-03): his new favorite word —
+      own repo to be built around it (bread-and-wine receipts already
+      live in talks-main residue/for-q-2026-11-03); reminder timers set
+      Nov 4 + Nov 5, 9:00 AM (taskIds 7cd07d52, 4abdf417). Owner: Mark + Z.
 
 ## COLD-START
 - [ ] z-desk.yml parity: publish-retry exhaustion still echo-only there
