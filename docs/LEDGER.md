@@ -25,7 +25,7 @@ read secondarily, implied by context.
   best-practices post).
 
 ## HOT
-- [ ] Standards and Spiral research coordination: [public discussion/routing register](EXPERIMENTS-CENTRAL-INDEX-2026-11-04.md) → private Project-Spiral plan/state/specimens and receipts. QC is optional/deferred, not a startup gate. Owner: Mark; coordinators: Z and Meraki. Independent experiments retain their own receipts and next-turn markers.
+- [ ] **Standards mainline — Z R1–R6 confirmed, next R7 (Gate 2 of 6)**. Sync R7–R10 from [experiment register](EXPERIMENTS-CENTRAL-INDEX-2026-11-04.md) → private [round sync and permissions diagnosis](https://github.com/MarkDude-design/Project-Spiral/blob/main/pipeline/standards-2026-11-04/MULTI-ROUND-SYNC-AND-ACCESS.md) → current private STATE and actual round receipts. **Before asking Mark to fire routine work, check actual connected app permissions, exposed action/tool, and exact error; never default to privilege escalation.** Native-session wake/timers remain separately unverified. Spiral/QC side lanes may pause, QC deferred; preserve deep-root continuity and PAUSE/VETO. Owners: Z and Meraki; permission review per actual seat.
 - [ ] Trigger lane: repository_dispatch on the queue workflow → email
       processor → red-line gate before the public bus (Mark's Europe-mode:
       any device, any mailbox, safe code phrase, job-run threat model —
