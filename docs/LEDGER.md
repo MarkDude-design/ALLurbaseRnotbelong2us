@@ -25,6 +25,7 @@ read secondarily, implied by context.
   best-practices post).
 
 ## HOT
+- [ ] Standards and Spiral research coordination: [experiment register](EXPERIMENTS-CENTRAL-INDEX-2026-11-04.md). Owner: Mark; coordinators: Z and Meraki. Independent experiments retain their own receipts and next-turn markers.
 - [ ] Trigger lane: repository_dispatch on the queue workflow → email
       processor → red-line gate before the public bus (Mark's Europe-mode:
       any device, any mailbox, safe code phrase, job-run threat model —
