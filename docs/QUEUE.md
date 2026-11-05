@@ -1,10 +1,13 @@
 # Z Desk Queue — self-serve consult protocol
 
 Owner-approved 2026-11-02 ("make this into tooling you can do yourself").
-The queue lets Z (or the owner) request consults without a human click per
-round: enqueue an entry, GitHub's cron (`*/10 * * * *`, workflow
-`z-desk-queue.yml`) drains it, receipts auto-publish to the bus branch, and
-the entry moves to `queue/done/` with a status marker.
+The queue lets Z (or the owner) request consults with no per-consult
+approval ritual: enqueue an entry, a tick drains it, receipts auto-publish
+to the bus branch, and the entry moves to `queue/done/` with a status
+marker. A tick is either the scheduled fire (`*/10 * * * *` cron in
+`z-desk-queue.yml` — never yet observed executing in the desk's receipts;
+honest residue C1/C2) or the owner's manual `workflow_dispatch` (the
+proven drain path; every completed drain to date).
 
 ## Entry format
 
@@ -126,3 +129,9 @@ secrets before any call.
 - **requested_by stays in the submission** and is NOT copied into generated receipts; the submission → done-marker chain retains the credit link — deliberately, so post-mortems and retrospective analysis can trace who asked for what. (Meraki distinction, owner ruling 2026-11-03)
 - **SPRINT-MODE CEILING (owner, 2026-11-03):** the normal ceiling stays $1. In declared sprint mode only, the ceiling may jump to $5 (maybe $10) for huge push builds (Puppy-class). Not the default; raise only in those circumstances. Implementation = a QUEUE_CAP_USD edit at sprint declaration, owner-gated.
 
+## Correction (2026-11-05, owner-ordered)
+
+The Nov-3 SECOND-CHECK consult (run `z-desk-queue-41700028376-1`, diff ISSUES_FOUND high) left two findings standing after R12 fixed the cap wording. Both fixed now by owner order ("address the audit note and fix it now", 2026-11-05):
+
+1. **"Without a human click per round" (opening paragraph) — overclaim, corrected.** The scheduled tick has never once been observed executing; every completed drain to date was the owner's manual `workflow_dispatch`. The opening above is rewritten; no claim rides on the cron firing (C1/C2 stay open).
+2. **`contains_secret` docstring (island/z_desk.py) — ambiguous absolute, rewritten.** "never proof a brief is secret-free" was grammatically mangled and readable as the scan guaranteeing secrecy. It now reads: best-effort scan over known token shapes; a clean result is not proof a brief is secret-free. Docstring-only change, zero behavior delta (next tick's test suite is the mechanical check).
