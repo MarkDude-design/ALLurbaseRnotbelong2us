@@ -66,6 +66,26 @@ read secondarily, implied by context.
       stdlib-only; bus could be a bare repo on the box). Owner: open.
 
 ## Done (kept one entry deep, newest on top)
+- [x] 2026-11-05 — Nov 5 HARD DATE MET: $5 mayhem burn fired and closed. 3
+      owner ticks (41990048367/41992360919/41993687526), 11/11 entries
+      disposed (F4 held to Nov 6, $0); drain ran 3 ticks, not 4 — claim
+      drift (F1 malformed unclaimable, F5 pulled forward), metered as data.
+      Spend $0.762964 of $5.00 (15.26%), 14 live calls, 0 UNKNOWN, stop
+      rule never approached; $4.24 runway. Mayhem: F1 parse-error probe
+      fired as designed; B3 paid-no-text $0.187719; B4 truncated-at-
+      ceiling + UNPARSEABLE $0.189786 (mistral-medium-3-5 length-ceiling
+      series now 3 points); B2 verdict-parse fail; F2/F3/F5 designed
+      probes not provoked — misses kept. Consult substance: B1
+      ISSUES_FOUND/high (VETO boundary gaps); B2 seeded falsifier LANDED
+      (CRITICAL status-enum gap + render.sh jq drop — fix-later queue,
+      owner-gated); B5 governance 7 structural findings; B6 DQ-03 stays
+      OPEN-AT-SOURCE, DQ-05 = next falsify candidate. Read-lane:
+      get_file_contents sha=<commit> reads bus files (branch-param wall
+      superseded). [Burn report](https://github.com/MarkDude-design/Mayhem/blob/main/burn-report-2026-11-05.md),
+      [meter](https://github.com/MarkDude-design/Mayhem/blob/main/events.jsonl)
+      @ 54bbb1db, [ALLur #16 pointer](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16#issuecomment-6653400081).
+      Credit: Mark (plan + rulings + 3 dispatch ticks), Z (watch, meter,
+      report, banking).
 - [x] 2026-11-03 — First external desk submission (Meraki, GitHub resilience
       roadmap review): claim→run→done chain green, 3 lanes, $0.38 of $1 cap
       (meter $0.69 of $5, 13.8%), 0 UNKNOWN. Verdicts: diff ISSUES_FOUND (3
