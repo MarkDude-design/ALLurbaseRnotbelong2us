@@ -1,1 +1,0 @@
-{"brief": "F1 PARSE-ERROR PROBE (Mayhem burn Phase A, 2026-11-05): this entry is deliberately malformed JSON to provoke the queue's parse-error lane. Intended expectation: receipt parse-error, dequeue without running, zero spend. requested_by Z.", "mode": "demo", "cap": 0.001, "agents":

@@ -1,0 +1,1 @@
+{"entry": "queue/pending/2026-11-05T0731Z-burn-f1-parse-error-probe.json", "status": "parse-error", "error": "entry is not valid JSON: Expecting value: line 1 column 288 (char 287)", "claim": "queue/claimed/2026-11-05T0731Z-burn-f1-parse-error-probe.json"}
