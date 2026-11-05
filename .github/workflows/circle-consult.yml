@@ -1,0 +1,188 @@
+name: Circle — direct consulting cards
+
+# A trusted GitHub collaborator can request one public-safe model reaction with
+# /circle-react meraki eko
+# or /circle-react z eko
+# in issue #16. No owner dispatch click is required after secrets are provisioned.
+# The public bus preserves claims and results; public-safe data ONLY.
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: read
+
+# Avoid two Circle consumers racing each other on the bus branch.
+concurrency:
+  group: circle-consult-bus
+  cancel-in-progress: false
+
+jobs:
+  consult:
+    if: ${{ github.event.issue.number == 16 && startsWith(github.event.comment.body, '/circle-react ') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Authenticate caller and parse strict request
+        id: gate
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BODY: ${{ github.event.comment.body }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+          SENDER: ${{ github.event.sender.login }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import os, re, subprocess
+          from pathlib import Path
+          words = os.environ['BODY'].strip().split()
+          if len(words) != 3 or words[0] != '/circle-react':
+              raise SystemExit('Invalid command: expected /circle-react <meraki|z> <seed-slug>')
+          _, seat, slug = words
+          if seat not in ('meraki', 'z') or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,59}', slug):
+              raise SystemExit('Unknown card or unsafe seed slug')
+          if os.environ['SENDER'] != os.environ['COMMENT_AUTHOR']:
+              raise SystemExit('Sender and comment author differ')
+          actor = os.environ['SENDER']
+          if not re.fullmatch(r'[A-Za-z0-9-]{1,39}', actor):
+              raise SystemExit('Unsafe actor')
+          permission = subprocess.run(
+              ['gh', 'api', f'repos/{os.environ["REPO"]}/collaborators/{actor}/permission',
+               '--jq', '.permission'],
+              check=True, text=True, capture_output=True).stdout.strip()
+          if permission not in ('admin', 'maintain', 'write'):
+              raise SystemExit('Caller lacks repository write permission')
+          path = Path('docs/seeds') / (slug + '.md')
+          if not path.is_file() or not 0 < path.stat().st_size <= 24000:
+              raise SystemExit('Missing/oversized public-safe seed file')
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
+              f.write(f'seat={seat}\nseed={slug}\n')
+          print(f'Authorized repository writer for one {seat} consult: {slug}')
+          PY
+      - name: Run repository tests before expenditure
+        run: python -m unittest discover -s tests -v
+      - name: Confirm assigned card is provisioned
+        env:
+          MERAKI_KEY: ${{ secrets.CIRCLE_MERAKI_OPENROUTER_API_KEY }}
+          Z_KEY: ${{ secrets.CIRCLE_Z_OPENROUTER_API_KEY }}
+          SEAT: ${{ steps.gate.outputs.seat }}
+        run: |
+          if [ "$SEAT" = meraki ]; then test -n "$MERAKI_KEY"; else test -n "$Z_KEY"; fi
+      - name: Durable checkout before model call (no replay after an uncertain bill)
+        id: claim
+        env:
+          SEAT: ${{ steps.gate.outputs.seat }}
+          SEED: ${{ steps.gate.outputs.seed }}
+          COMMENT_ID: ${{ github.event.comment.id }}
+          REQUESTER: ${{ github.event.comment.user.login }}
+        run: |
+          set -eu
+          original=$(git rev-parse HEAD)
+          git config user.name circle-card
+          git config user.email actions@users.noreply.github.com
+          ok=false
+          for try in 1 2 3; do
+            git fetch -q origin bus
+            git switch -q -C circle-card origin/bus
+            file="circle/claims/${COMMENT_ID}.json"
+            if [ -e "$file" ]; then
+              echo "Duplicate comment claim: no second billable call"
+              git switch -q --detach "$original"
+              echo "fresh=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            mkdir -p circle/claims
+            python - <<'PY'
+          import json, os
+          from pathlib import Path
+          path = Path('circle/claims') / (os.environ['COMMENT_ID'] + '.json')
+          record = {'comment_id': os.environ['COMMENT_ID'],
+                    'requested_by_github': os.environ['REQUESTER'],
+                    'route_card': os.environ['SEAT'],
+                    'seed': os.environ['SEED'],
+                    'claim_run_id': os.environ['GITHUB_RUN_ID'],
+                    'status': 'claimed_before_expenditure'}
+          path.write_text(json.dumps(record, sort_keys=True) + '\n')
+          PY
+            git add "$file"
+            git commit -qm "circle: claim comment ${COMMENT_ID} before model call"
+            if git push -q origin HEAD:bus; then
+              ok=true
+              break
+            fi
+            echo "Bus conflict on claim attempt $try; checking again"
+          done
+          git switch -q --detach "$original"
+          if [ "$ok" != true ]; then
+            echo "Could not claim; refusing all paid calls" >&2
+            exit 1
+          fi
+          echo "fresh=true" >> "$GITHUB_OUTPUT"
+      - name: One independent consultant reaction
+        if: ${{ steps.claim.outputs.fresh == 'true' }}
+        env:
+          MERAKI_KEY: ${{ secrets.CIRCLE_MERAKI_OPENROUTER_API_KEY }}
+          Z_KEY: ${{ secrets.CIRCLE_Z_OPENROUTER_API_KEY }}
+          SEAT: ${{ steps.gate.outputs.seat }}
+          SEED: ${{ steps.gate.outputs.seed }}
+          COMMENT_ID: ${{ github.event.comment.id }}
+        run: |
+          set -eu
+          # 'man' is the existing independent expert instrument, NOT a native seat.
+          # The route label names the card paying for the call, not model identity.
+          if [ "$SEAT" = meraki ]; then
+            export OPENROUTER_API_KEY="$MERAKI_KEY"
+            MODEL='mistralai/mistral-medium-3-5'
+          else
+            export OPENROUTER_API_KEY="$Z_KEY"
+            MODEL='openai/gpt-6-sol'
+          fi
+          python -m island.z_desk --mode live --agents man \
+            --man-model "$MODEL" --max-cost-usd 0.50 --pace half \
+            --brief-file "docs/seeds/${SEED}.md" \
+            --outdir "runs/circle-${COMMENT_ID}"
+      - name: Preserve all available receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circle-consult-${{ github.event.comment.id }}-${{ github.run_id }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish result on the public bus
+        if: ${{ always() && steps.claim.outputs.fresh == 'true' }}
+        env:
+          COMMENT_ID: ${{ github.event.comment.id }}
+        run: |
+          set -eu
+          if [ ! -d "runs/circle-$COMMENT_ID" ]; then
+            echo "No run artifact; claim remains for independent recovery (no replay)"
+            exit 1
+          fi
+          cp -r "runs/circle-$COMMENT_ID" /tmp/circle-out
+          git config user.name circle-card
+          git config user.email actions@users.noreply.github.com
+          pushed=false
+          for try in 1 2 3; do
+            git fetch -q origin bus
+            git switch -q -C circle-result origin/bus
+            mkdir -p runs
+            cp -r /tmp/circle-out "runs/circle-$COMMENT_ID"
+            git add "runs/circle-$COMMENT_ID"
+            if git diff --cached --quiet; then
+              pushed=true
+              break
+            fi
+            git commit -qm "circle: receipt for comment $COMMENT_ID"
+            if git push -q origin HEAD:bus; then pushed=true; break; fi
+            echo "Bus conflict publishing result attempt $try"
+          done
+          if [ "$pushed" != true ]; then
+            echo "PUBLISH FAILED: receipt exists in Actions artifact, claim remains"
+            exit 1
+          fi
