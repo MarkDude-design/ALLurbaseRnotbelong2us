@@ -3,6 +3,10 @@
 
 This is the **single public entry point** for simultaneously moving experiments. The experiments have *separate* private methods, participant choices, cursors, costs and stop conditions. **Visible here** does not mean **executed**. Links into the private `Project-Spiral` repository require permission; never paste unpublished private prompts, code or findings to this public file. Refresh from each linked source before performing actions, because this is a snapshot, not an automatic live dashboard.
 
+## Current routing pointer
+
+For present status and next actors, start with the [private pickup summary](https://github.com/MarkDude-design/Project-Spiral/blob/main/pipeline/spiral-2026-11-04/GPT-PICKUP.md#current-pickup-before-archiving) or the [Precipient issue](https://github.com/MarkDude-design/precipient/issues/1). The dated snapshots below preserve earlier coordination, including round numbers as they stood at the time.
+
 ## Spiral visibility boundary (owner clarification 2026-11-04)
 
 **Public is for conversation and discovery; private is for actually building Spiral.**
