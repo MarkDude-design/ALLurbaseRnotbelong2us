@@ -34,6 +34,7 @@ read secondarily, implied by context.
       "we'll build all those rules," green-lit 2026-11-03). Owner: Z.
 
 ## MEDIUM
+- [ ] **Spiral 03 / Relationship Space — owner-priority development candidate (2026-11-05):** original two-anchor/one-weaver observer-inversion HTML, companion to The Loom, already preserved in **private** `MarkDude-design/Project-Spiral`. Mark wants dedicated development time and regards it as a possible product direction; **no validated commercial/financial performance claimed**. Frozen source stays unchanged; proposed next passes are browser observation, recovering one missing observation channel, and a measurement-noise falsifier. **No round started.** [Private source](https://github.com/MarkDude-design/Project-Spiral/blob/main/experiments/2026-10-28/spiral-03-relationship-space.html); [private priority handoff](https://github.com/MarkDude-design/Project-Spiral/blob/main/notes/2026-11-05-relationship-space-priority-and-next-pass.md). Owner: Mark; next build/design: Meraki/Sol when selected.
 - [ ] Cron re-register test: disable → enable toggle on "Z Desk — Queue"
       (one click, observational — does a scheduled run ever self-fire?).
       Owner: Mark.
