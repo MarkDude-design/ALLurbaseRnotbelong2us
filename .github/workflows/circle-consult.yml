@@ -2,7 +2,8 @@ name: Circle — direct consulting cards
 
 # A trusted GitHub collaborator can request one public-safe model reaction with
 # /circle-react meraki eko
-# or /circle-react z eko
+# /circle-react z eko
+# /circle-react demo eko (zero-spend end-to-end shakedown)
 # in issue #16. No owner dispatch click is required after secrets are provisioned.
 # The public bus preserves claims and results; public-safe data ONLY.
 on:
@@ -42,9 +43,9 @@ jobs:
           from pathlib import Path
           words = os.environ['BODY'].strip().split()
           if len(words) != 3 or words[0] != '/circle-react':
-              raise SystemExit('Invalid command: expected /circle-react <meraki|z> <seed-slug>')
+              raise SystemExit('Invalid command: expected /circle-react <meraki|z|demo> <seed-slug>')
           _, seat, slug = words
-          if seat not in ('meraki', 'z') or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,59}', slug):
+          if seat not in ('meraki', 'z', 'demo') or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,59}', slug):
               raise SystemExit('Unknown card or unsafe seed slug')
           if os.environ['SENDER'] != os.environ['COMMENT_AUTHOR']:
               raise SystemExit('Sender and comment author differ')
@@ -72,6 +73,7 @@ jobs:
           Z_KEY: ${{ secrets.CIRCLE_Z_OPENROUTER_API_KEY }}
           SEAT: ${{ steps.gate.outputs.seat }}
         run: |
+          if [ "$SEAT" = demo ]; then exit 0; fi
           if [ "$SEAT" = meraki ]; then test -n "$MERAKI_KEY"; else test -n "$Z_KEY"; fi
       - name: Durable checkout before model call (no replay after an uncertain bill)
         id: claim
@@ -135,14 +137,18 @@ jobs:
           set -eu
           # 'man' is the existing independent expert instrument, NOT a native seat.
           # The route label names the card paying for the call, not model identity.
-          if [ "$SEAT" = meraki ]; then
+          MODE=live
+          if [ "$SEAT" = demo ]; then
+            MODE=demo
+            MODEL='mistralai/mistral-medium-3-5'
+          elif [ "$SEAT" = meraki ]; then
             export OPENROUTER_API_KEY="$MERAKI_KEY"
             MODEL='mistralai/mistral-medium-3-5'
           else
             export OPENROUTER_API_KEY="$Z_KEY"
             MODEL='openai/gpt-6-sol'
           fi
-          python -m island.z_desk --mode live --agents man \
+          python -m island.z_desk --mode "$MODE" --agents man \
             --man-model "$MODEL" --max-cost-usd 0.50 --pace half \
             --brief-file "docs/seeds/${SEED}.md" \
             --outdir "runs/circle-${COMMENT_ID}"
