@@ -35,7 +35,7 @@ jobs:
         id: parse
         run: |
           set -euo pipefail
-          python -m unittest tests.test_circle_react -v
+          python -m unittest discover -s tests -p 'test_circle_react.py' -v
           python - <<'PY'
           import os
           from island.circle_react import parse_command, SEED_FILE
