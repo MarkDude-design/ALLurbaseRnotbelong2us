@@ -82,7 +82,13 @@ SYSTEM_PROMPTS = {"diff": DIFF_SYSTEM, "man": MAN_SYSTEM, "skeptic": SKEPTIC_SYS
 
 
 def contains_secret(text):
-    """Best-effort red-line scan; never proof a brief is secret-free."""
+    """Best-effort red-line scan over known token shapes.
+
+    A clean result is not proof that a brief is secret-free: the scan
+    matches the shapes in SECRET_SHAPES only. (Wording corrected
+    2026-11-05, owner-ordered, per the Nov-3 consult finding; the prior
+    docstring "never proof a brief is secret-free" was ambiguous.)
+    """
     return any(re.search(pattern, text) for pattern in SECRET_SHAPES)
 
 
