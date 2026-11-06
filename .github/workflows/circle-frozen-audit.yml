@@ -1,0 +1,106 @@
+name: Circle — frozen audit one-shot (manual, paid)
+
+# One owner click = one frozen test. No issue_comment trigger, so the
+# old /circle-react double-route is bypassed.
+on:
+  workflow_dispatch:
+    inputs:
+      arm:
+        description: 'Solo vs three independent reviewers of SAME evidence'
+        type: choice
+        required: true
+        default: solo
+        options: [solo, trio, trio-repeat, skeptic]
+      confirm_paid:
+        description: 'Type YES to permit LIVE test (USD 1 soft cap per click)'
+        required: true
+        type: string
+        default: NO
+
+permissions:
+  contents: write
+
+concurrency:
+  group: circle-frozen-audit-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  benchmark:
+    if: ${{ github.actor == 'MarkDude-design' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      INPUT_ARM: ${{ inputs.arm }}
+      INPUT_CONFIRM: ${{ inputs.confirm_paid }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Preflight frozen packet, confirmation, and tests
+        run: |
+          set -euo pipefail
+          test "$INPUT_CONFIRM" = YES || { echo 'Not confirmed; no model call'; exit 1; }
+          test -n "$OPENROUTER_API_KEY" || { echo 'Provider key absent; no model call'; exit 1; }
+          test -s docs/seeds/circle-benchmark-audit-v0.md
+          test -s docs/seeds/circle-benchmark-records-v0.md
+          python -m unittest discover -s tests -v
+      - name: Run one fixed-source, billable review arm
+        run: |
+          set -euo pipefail
+          case "$INPUT_ARM" in
+            solo) agents=man ;;
+            trio|trio-repeat) agents=all ;;
+            skeptic) agents=skeptic ;;
+            *) echo 'Unknown arm'; exit 1 ;;
+          esac
+          # Same verified OpenRouter model in every active role.
+          # This controls model identity; role instructions differ.
+          MODEL='mistralai/mistral-medium-3-5'
+          python -m island.z_desk --mode live --agents "$agents" \
+            --diff-model "$MODEL" --man-model "$MODEL" --skeptic-model "$MODEL" \
+            --brief-file docs/seeds/circle-benchmark-audit-v0.md \
+            --records-file docs/seeds/circle-benchmark-records-v0.md \
+            --max-cost-usd 1 --pace half \
+            --outdir "runs/circle-frozen-audit-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Preserve raw receipts even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circle-frozen-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Bank available receipts on bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then
+            echo 'No run receipt to bank'
+            exit 0
+          fi
+          cp -r runs /tmp/circle-audit-out
+          rm -rf runs
+          git config user.name 'circle-audit-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          if git ls-remote --exit-code --heads origin bus >/dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          mkdir -p runs
+          cp -r /tmp/circle-audit-out/. runs/
+          git add runs/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "bus: frozen Circle audit ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+          pushed=false
+          for i in 1 2 3; do
+            if git push origin bus; then pushed=true; break; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          if [ "$pushed" = false ]; then
+            echo 'Bank push not confirmed; receipts still in Actions artifact'
+          fi
