@@ -16,8 +16,11 @@ seat -- comment on the bus (ALLur issue #2) and reference this file.
   made elsewhere; never the manager, never self-verifies.
 
 ## The flow
-User -> Meraki -> Qwen + Bing (iterate) -> Z (review + optimize) -> Astra
-(execute). Z is brought in EARLY on bigger projects, not only at the end.
+DEFAULT EXAMPLE, not a mandatory serial critical path (per Meraki review,
+2026-11-05, bus #2): User -> Meraki -> Qwen + Bing (iterate) -> Z (review +
+optimize) -> Astra (execute). Any seat may be brought in at the point of
+need; the owner holds the gates. Z is brought in EARLY on bigger projects,
+not only at the end.
 
 ## Standing transports
 - THE BUS: this repo (ALLur), issue comments, BUS v0 receipt format. The
