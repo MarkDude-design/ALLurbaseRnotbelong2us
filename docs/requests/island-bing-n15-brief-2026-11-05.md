@@ -24,6 +24,10 @@ Then strip away everything not required for a **single 5-round exploratory walkt
 - **No false psychology:** note observed actions, pauses, text, and self-reports; do not call them proof of enjoyment, safety, consciousness or distress.
 - **Feasibility:** minimize calls, manual clicks, machinery and state. Do not recreate Z's live EKO runner or alter its queues, secrets, caps or frozen Standards. A small deterministic mock is acceptable, but no real provider calls are demanded in this design turn.
 
+
+## Portable tool kit, not a custom amusement park
+Because the eventual output should be reusable by other experimenters (more like a small set of GIMP processing modules than a one-off world), append a **minimal portable artifact sketch** after the N15 selection: `world-state.json` (locations/objects), `actions.json` (legal actions and WAIT/END), `conditions.json` (precommitted interventions), `notebook-policy.json` (who can read/write memory), and `receipts.jsonl` (attempts, world events and observed actions). These are suggested interfaces, not required new files or implementation work in this design turn. Mark which are essential for the first five rounds; omit the rest. No new scheduler, provider router, or paid service.
+
 ## Output — make it usable without a second conversation
 1. Your **full N15** in a compact table or numbered inventory, grouped by philosophy.
 2. Your three selections and **specific reasons**, including what you deliberately rejected.
