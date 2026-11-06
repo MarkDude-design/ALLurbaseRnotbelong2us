@@ -1,0 +1,145 @@
+name: Circle — One-Shot Independent REACT
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: read
+
+concurrency:
+  group: circle-react-bus-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  react:
+    if: >-
+      github.event.issue.number == 16 &&
+      github.event.comment.user.login == 'MarkDude-design' &&
+      startsWith(github.event.comment.body, '/circle-react ')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      COMMENT_ID: ${{ github.event.comment.id }}
+      COMMENT_BODY: ${{ github.event.comment.body }}
+      REQUESTOR: ${{ github.event.comment.user.login }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Exact command and tests (no spend)
+        id: parse
+        run: |
+          set -euo pipefail
+          python -m unittest discover -s tests -p 'test_circle_react.py' -v
+          python - <<'PY'
+          import os
+          from island.circle_react import parse_command, SEED_FILE
+          from pathlib import Path
+          route, seed = parse_command(os.environ["COMMENT_BODY"])
+          if not Path(SEED_FILE).is_file(): raise SystemExit("Missing seed")
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write("route=" + route + "\nseed=" + seed + "\n")
+          PY
+
+      - name: Durable claim before expenditure
+        id: claim
+        run: |
+          set -euo pipefail
+          git config user.name circle-react-bot
+          git config user.email actions@users.noreply.github.com
+          git fetch origin bus
+          git switch -C bus origin/bus
+          claim="claims/circle-react/$COMMENT_ID.json"
+          if [ -e "$claim" ]; then
+            echo "status=duplicate" >> "$GITHUB_OUTPUT"
+            echo "Already claimed; no replay"; exit 0
+          fi
+          mkdir -p claims/circle-react
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          Path("claims/circle-react", os.environ["COMMENT_ID"]+".json").write_text(
+              json.dumps({"comment_id":os.environ["COMMENT_ID"],
+                          "requestor_github_login":os.environ["REQUESTOR"],
+                          "route":os.environ["COMMENT_BODY"].split()[1],
+                          "seed":"circle-island-react-v0",
+                          "state":"claimed-before-call"},
+                         sort_keys=True, indent=2)+"\n", encoding="utf-8")
+          PY
+          git add "$claim"
+          git commit -m "circle: claim $COMMENT_ID"
+          git push origin HEAD:bus
+          echo "status=claimed" >> "$GITHUB_OUTPUT"
+          git switch --detach "$GITHUB_SHA"
+
+      - name: Fresh STOP/veto gate before paid call
+        if: steps.claim.outputs.status == 'claimed'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          state=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '.state')
+          [ "$state" = "open" ] || { echo "STOP: closed issue"; exit 1; }
+          stop_label=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '[.labels[].name] | index("circle-stop")')
+          [ "$stop_label" = "null" ] || { echo "STOP: circle-stop label"; exit 1; }
+          ids=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/16/comments?per_page=100" \
+            --jq '.[] | select(.user.login == "MarkDude-design" and (.body | startswith("/circle-stop"))) | .id') || exit 1
+          if printf '%s\n' "$ids" | awk -v id="$COMMENT_ID" '$1 > id {found=1} END {exit !found}'; then
+            echo "STOP: later owner STOP comment"; exit 1
+          fi
+
+      - name: Demo — zero paid calls
+        if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'demo'
+        run: python -m island.circle_react --route demo --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+
+      - name: Meraki-card consultant
+        if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'meraki'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_MERAKI }}
+        run: python -m island.circle_react --route meraki --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+
+      - name: Z-card consultant
+        if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'z'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_Z }}
+        run: python -m island.circle_react --route z --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+
+      - name: Publish receipts to bus
+        if: always() && steps.claim.outputs.status == 'claimed'
+        run: |
+          set -euo pipefail
+          if [ ! -d "runs/circle-react-$COMMENT_ID" ]; then
+            echo "Claim exists; runner absent; see Actions failure."; exit 0
+          fi
+          mkdir -p /tmp/circle-art
+          cp -r "runs/circle-react-$COMMENT_ID" /tmp/circle-art/
+          git config user.name circle-react-bot
+          git config user.email actions@users.noreply.github.com
+          git fetch origin bus
+          git switch -C bus origin/bus
+          mkdir -p runs
+          cp -r /tmp/circle-art/. runs/
+          git add runs
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "circle: receipts $COMMENT_ID"
+          pushed=false
+          for i in 1 2 3; do
+            if git push origin HEAD:bus; then pushed=true; break; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          [ "$pushed" = true ] || { echo "Publish failed; artifact retained"; exit 1; }
+
+      - name: Archive local receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: circle-react-${{ github.event.comment.id }}-${{ github.run_id }}
+          path: runs/circle-react-${{ github.event.comment.id }}/
+          retention-days: 30
+          if-no-files-found: warn
