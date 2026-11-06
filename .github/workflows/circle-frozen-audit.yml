@@ -15,7 +15,7 @@ on:
         description: 'Type YES to permit LIVE test (USD 1 soft cap per click)'
         required: true
         type: string
-        default: NO
+        default: 'NO'
 
 permissions:
   contents: write
