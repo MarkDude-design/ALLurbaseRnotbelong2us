@@ -1,9 +1,10 @@
 name: Circle — direct consulting cards
 
 # A trusted GitHub collaborator can request one public-safe model reaction with
-# /circle-react meraki eko
-# /circle-react z eko
-# /circle-react demo eko (zero-spend end-to-end shakedown)
+# /circle-card meraki eko
+# /circle-card z eko
+# /circle-card demo eko (zero-spend end-to-end shakedown)
+# (Renamed 2026-11-06: /circle-react now belongs solely to the circle-react lane.)
 # in issue #16. No owner dispatch click is required after secrets are provisioned.
 # The public bus preserves claims and results; public-safe data ONLY.
 on:
@@ -21,7 +22,7 @@ concurrency:
 
 jobs:
   consult:
-    if: ${{ github.event.issue.number == 16 && startsWith(github.event.comment.body, '/circle-react ') }}
+    if: ${{ github.event.issue.number == 16 && startsWith(github.event.comment.body, '/circle-card ') }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -42,8 +43,8 @@ jobs:
           import os, re, subprocess
           from pathlib import Path
           words = os.environ['BODY'].strip().split()
-          if len(words) != 3 or words[0] != '/circle-react':
-              raise SystemExit('Invalid command: expected /circle-react <meraki|z|demo> <seed-slug>')
+          if len(words) != 3 or words[0] != '/circle-card':
+              raise SystemExit('Invalid command: expected /circle-card <meraki|z|demo> <seed-slug>')
           _, seat, slug = words
           if seat not in ('meraki', 'z', 'demo') or not re.fullmatch(r'[a-z0-9][a-z0-9-]{0,59}', slug):
               raise SystemExit('Unknown card or unsafe seed slug')
