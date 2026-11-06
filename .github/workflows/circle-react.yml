@@ -85,8 +85,8 @@ jobs:
           set -euo pipefail
           state=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '.state')
           [ "$state" = "open" ] || { echo "STOP: closed issue"; exit 1; }
-          stop_label=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '[.labels[].name] | index("circle-stop")')
-          [ "$stop_label" = "null" ] || { echo "STOP: circle-stop label"; exit 1; }
+          stop_label=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '([.labels[].name] | index("circle-stop")) != null' | tr -d '[:space:]')
+          [ "$stop_label" = "false" ] || { echo "STOP: circle-stop label"; exit 1; }
           ids=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/16/comments?per_page=100" \
             --jq '.[] | select(.user.login == "MarkDude-design" and (.body | startswith("/circle-stop"))) | .id') || exit 1
           if printf '%s\n' "$ids" | awk -v id="$COMMENT_ID" '$1 > id {found=1} END {exit !found}'; then
