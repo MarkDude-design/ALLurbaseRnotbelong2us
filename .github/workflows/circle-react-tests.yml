@@ -8,6 +8,11 @@ on:
       - 'docs/seeds/circle-island-react-v0.md'
       - '.github/workflows/circle-react.yml'
       - '.github/workflows/circle-react-tests.yml'
+      - 'island/z_desk.py'
+      - 'island/runner.py'
+      - 'tests/test_z_desk.py'
+      - '.github/workflows/island.yml'
+      - '.github/workflows/circle-frozen-audit.yml'
 
 permissions:
   contents: read

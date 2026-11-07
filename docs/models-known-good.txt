@@ -1,0 +1,5 @@
+# Model IDs verified live against OpenRouter (2026-11-07 five-bite sweep).
+# island.yml refuses paid conversation runs for IDs not listed here.
+# Add a route ONLY with a banked live receipt; remove on deprecation.
+mistralai/mistral-medium-3-5
+openai/gpt-6-sol

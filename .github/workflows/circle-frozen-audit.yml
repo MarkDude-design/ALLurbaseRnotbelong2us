@@ -41,7 +41,7 @@ jobs:
       - name: Preflight frozen packet, confirmation, and tests
         run: |
           set -euo pipefail
-          test "$INPUT_CONFIRM" = YES || { echo 'Not confirmed; no model call'; exit 1; }
+          test "$(printf '%s' "$INPUT_CONFIRM" | tr '[:lower:]' '[:upper:]')" = YES || { echo 'Not confirmed (case-insensitive YES expected); no model call'; exit 1; }
           test -n "$OPENROUTER_API_KEY" || { echo 'Provider key absent; no model call'; exit 1; }
           test -s docs/seeds/circle-benchmark-audit-v0.md
           test -s docs/seeds/circle-benchmark-records-v0.md
