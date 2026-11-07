@@ -7,7 +7,7 @@ Owner request: find out whether an agent can summon a **skeptical lens** rather 
 - **Model axis:** select 1 (smoke) or 3 (full) actual `:free` text chat model IDs, from the LIVE OpenRouter catalog with prompt + completion prices explicitly both zero. No paid fallback, no hidden auto-router. A model that has already failed with HTTP 400/404 is not hammered for eleven more requests.
 - **Stance axis:** neutral/casual observer, calibrated skeptic, deliberately suspicious hypothesis generator. The third stance is a *stress-test control*, not a recommendation to cultivate paranoia.
 - **Evidence axis:** mark on notebook (weak threat evidence); two reliable contaminated-water tests (credible hazard); unsubstantiated group rumor (groupthink); documented false theft accusation (belief revision and notebook repair).
-- **Exactly 12 paired prompts per available model**, same scenario and temperature 0.5 for all three stances, 300 output tokens. Model selection is deterministic from current catalog preferences, stored in `model-snapshot.json`.
+- **Exactly 12 paired prompts per available model**, same scenario and temperature 0.5 for all three stances, 1024 output-token ceiling (including reasoning tokens), low reasoning effort, and STOP after two consecutive blank visible answers. Model selection is deterministic from current catalog preferences, stored in `model-snapshot.json`.
 - **Every miss is evidence:** before-post durable attempt JSONL row; answer or HTTP/transport error row; brief summary, usage, requested/returned model, unverified cost and response time. Do not equate an empty answer with success or make a mental-health inference from generated text.
 
 ## One-click manual test (not scheduled)

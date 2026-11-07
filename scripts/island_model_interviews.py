@@ -48,6 +48,10 @@ def as_float(value):
     except (TypeError, ValueError):
         return None
 
+def should_stop_on_empty_output(streak):
+    """Guard quota when models return repeated HTTP-OK but invisible answers."""
+    return streak >= 2
+
 def choose_models(catalog, limit):
     chosen = []
     for model in catalog.get("data", []):
@@ -124,9 +128,14 @@ def main():
         append_event(events, {"type": "STOP", "reason": "no verified zero-price free text models"})
         raise SystemExit("STOP: no free text models validated against live catalog")
     stop_reason = "completed"
+    empty_streak = 0
+    last_model_id = None
     last_started = 0.0
     for model in models:
         for question in questions:
+            if last_model_id != model["id"]:
+                empty_streak = 0
+                last_model_id = model["id"]
             if counts["attempted"] >= args.max_attempts:
                 stop_reason = "attempt cap"
                 break
@@ -141,7 +150,7 @@ def main():
             payload = {"model": model["id"], "messages": [
                 {"role": "system", "content": SYSTEM},
                 {"role": "user", "content": prompt}],
-                "temperature": 0.5, "max_tokens": 300}
+                "temperature": 0.5, "max_tokens": 1024, "reasoning": {"effort": "low"}}
             counts["attempted"] += 1
             rid = "%s-%s-%03d" % (model["id"], question["id"], counts["attempted"])
             append_event(events, {"type": "attempt", "id": rid,
@@ -161,15 +170,23 @@ def main():
                 counts["success"] += 1
                 if not answer.strip():
                     counts["empty"] += 1
+                    empty_streak += 1
+                else:
+                    empty_streak = 0
                 append_event(events, {"type": "answer", "id": rid,
                                       "model_requested": model["id"],
                                       "model_returned": response.get("model"),
                                       "question_id": question["id"], "answer": answer,
                                       "usage": usage, "response_id": response.get("id"),
+                                      "visible_text_present": bool(answer.strip()),
+                                      "finish_reason": ((response.get("choices") or [{}])[0]).get("finish_reason"),
                                       "elapsed_s": round(time.monotonic()-last_started, 2),
                                       "utc": dt.datetime.now(dt.timezone.utc).isoformat()})
                 if cost is not None and cost > 0:
                     stop_reason = "STOP: nonzero reported cost on free model"
+                    break
+                if should_stop_on_empty_output(empty_streak):
+                    stop_reason = "STOP: two consecutive empty visible replies; output format or token budget"
                     break
             except urllib.error.HTTPError as exc:
                 counts["error"] += 1

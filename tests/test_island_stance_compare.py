@@ -27,6 +27,10 @@ class StanceComparisonTests(unittest.TestCase):
         self.assertEqual({r["id"] for m,r,q in plan[:12]}, {"casual","skeptic","suspicious"})
         self.assertEqual({q["id"] for m,r,q in plan[:12]}, {q["id"] for q in bank["scenarios"]})
 
+    def test_shared_blank_output_guard(self):
+        self.assertFalse(stance.should_stop_on_empty_output(1))
+        self.assertTrue(stance.should_stop_on_empty_output(2))
+
     def test_free_tier_catalog_guard_reused(self):
         catalog={"data":[
             {"id":"liquid/lfm3-1.7b:free","pricing":{"prompt":"0","completion":"0"},
