@@ -1,0 +1,137 @@
+name: Island — free model interview waves (Nov 2026)
+
+# Free-only catalog validation before every chat request, no paid fallback,
+# no retries, 96 max outbound attempts per job, 6.5s minimum pacing.
+# Synthetic prompts and raw results are PUBLIC in this repository.
+# Only Nov 9, 11, 13 in 2026 are eligible for scheduled model calls.
+on:
+  pull_request:
+    paths:
+      - 'scripts/island_model_interviews.py'
+      - 'tests/test_island_model_interviews.py'
+      - 'research/island-interviews/**'
+      - '.github/workflows/island-model-interviews.yml'
+  workflow_dispatch:
+    inputs:
+      wave:
+        description: 'Frozen interview panel (1 arrival, 2 social friction, 3 long journey)'
+        required: true
+        type: choice
+        options: ['1', '2', '3']
+        default: '1'
+      confirm_free:
+        description: 'Type YES; free-only requests still consume provider quota'
+        required: true
+        type: string
+        default: 'NO'
+      max_attempts:
+        description: 'Outbound API attempt cap, maximum 96; no auto-retries'
+        required: false
+        default: '96'
+        type: string
+  schedule:
+    - cron: '5 8 9,11,13 11 *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: island-model-interviews-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  offline-tests:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_island_model_interviews.py' -v
+
+  questionnaire:
+    if: ${{ github.event_name != 'pull_request' && vars.ISLAND_INTERVIEWS_STOP != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate schedule/owner confirmation and build wave cursor
+        id: choose
+        env:
+          USER_WAVE: ${{ inputs.wave }}
+          USER_CONFIRM: ${{ inputs.confirm_free }}
+          USER_ATTEMPTS: ${{ inputs.max_attempts }}
+        run: |
+          set -euo pipefail
+          if [ "$GITHUB_EVENT_NAME" = schedule ]; then
+            case "$(date -u +%Y-%m-%d)" in
+              2026-11-09) WAVE=1 ;;
+              2026-11-11) WAVE=2 ;;
+              2026-11-13) WAVE=3 ;;
+              *) echo "Outside three approved 2026 dates"; echo "enabled=false" >> "$GITHUB_OUTPUT"; exit 0 ;;
+            esac
+            ATTEMPTS=96
+          else
+            test "$USER_CONFIRM" = "YES" || { echo "Not confirmed; no calls"; exit 1; }
+            WAVE="$USER_WAVE"
+            ATTEMPTS="$USER_ATTEMPTS"
+          fi
+          case "$WAVE" in 1|2|3) ;; *) echo "bad wave"; exit 1 ;; esac
+          [[ "$ATTEMPTS" =~ ^[0-9]+$ ]] || { echo "bad attempt cap"; exit 1; }
+          [ "$ATTEMPTS" -ge 1 ] && [ "$ATTEMPTS" -le 96 ] || { echo "attempt cap must be 1..96"; exit 1; }
+          echo "enabled=true" >> "$GITHUB_OUTPUT"
+          echo "wave=$WAVE" >> "$GITHUB_OUTPUT"
+          echo "attempts=$ATTEMPTS" >> "$GITHUB_OUTPUT"
+      - name: Test model-selection guards and frozen panels without API calls
+        run: python -m unittest discover -s tests -p 'test_island_model_interviews.py' -v
+      - name: Execute bounded free-only interview panel
+        if: ${{ steps.choose.outputs.enabled == 'true' }}
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          ALLOW_FREE_INTERVIEWS: YES
+          WAVE: ${{ steps.choose.outputs.wave }}
+          ATTEMPTS: ${{ steps.choose.outputs.attempts }}
+        run: |
+          python scripts/island_model_interviews.py \
+            --wave "$WAVE" --max-attempts "$ATTEMPTS" \
+            --model-limit 12 --min-gap-seconds 6.5 --max-seconds 1080 \
+            --outdir "interview-runs/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Archive all evidence, including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: island-interviews-${{ github.run_id }}-${{ github.run_attempt }}
+          path: interview-runs/
+          if-no-files-found: warn
+          retention-days: 30
+      - name: Bank PUBLIC synthetic receipts to bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d interview-runs ] || [ -z "$(ls -A interview-runs 2>/dev/null)" ]; then
+            echo "No evidence to bank; gate or schedule skip"
+            exit 0
+          fi
+          cp -r interview-runs /tmp/island-interview-out
+          rm -rf interview-runs
+          git config user.name 'island-interview-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git fetch origin bus
+          git switch bus
+          mkdir -p interview-runs
+          cp -r /tmp/island-interview-out/. interview-runs/
+          git add interview-runs
+          git diff --cached --quiet && exit 0
+          git commit -m "bus: Island interview run $GITHUB_RUN_ID attempt $GITHUB_RUN_ATTEMPT"
+          for i in 1 2 3; do
+            if git push origin bus; then exit 0; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          echo "BUS WRITE CONFLICT: artifact remains independent receipt"
+          exit 1
