@@ -3,6 +3,19 @@ name: Circle — One-Shot Independent REACT
 on:
   issue_comment:
     types: [created]
+  workflow_dispatch:
+    inputs:
+      route:
+        description: 'demo = $0 synthetic stub (no keys); meraki = gpt-6-luna card; z = mistral-medium-3-5 card'
+        type: choice
+        options: [demo, meraki, z]
+        default: demo
+        required: true
+      confirm:
+        description: 'yes = fire (any case). meraki/z use $10 monthly capped OpenRouter cards'
+        type: string
+        default: 'yes'
+        required: true
 
 permissions:
   contents: write
@@ -15,15 +28,20 @@ concurrency:
 jobs:
   react:
     if: >-
+      (github.event_name == 'issue_comment' &&
       github.event.issue.number == 16 &&
       github.event.comment.user.login == 'MarkDude-design' &&
-      startsWith(github.event.comment.body, '/circle-react ')
+      startsWith(github.event.comment.body, '/circle-react ')) ||
+      (github.event_name == 'workflow_dispatch' &&
+      github.actor == 'MarkDude-design')
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      COMMENT_ID: ${{ github.event.comment.id }}
-      COMMENT_BODY: ${{ github.event.comment.body }}
-      REQUESTOR: ${{ github.event.comment.user.login }}
+      COMMENT_ID: ${{ github.event.comment.id || github.run_id }}
+      COMMENT_BODY: ${{ github.event.comment.body || format('/circle-react {0} circle-island-react-v0', inputs.route) }}
+      REQUESTOR: ${{ github.event.comment.user.login || github.actor }}
+      EVENT: ${{ github.event_name }}
+      CONFIRM: ${{ inputs.confirm }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -35,6 +53,9 @@ jobs:
         id: parse
         run: |
           set -euo pipefail
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            test "$(printf '%s' "$CONFIRM" | tr '[:upper:]' '[:lower:]')" = "yes" || { echo "STOP: confirm not yes"; exit 1; }
+          fi
           python -m unittest discover -s tests -p 'test_circle_react.py' -v
           python - <<'PY'
           import os
@@ -67,6 +88,7 @@ jobs:
               json.dumps({"comment_id":os.environ["COMMENT_ID"],
                           "requestor_github_login":os.environ["REQUESTOR"],
                           "route":os.environ["COMMENT_BODY"].split()[1],
+                          "trigger":os.environ["EVENT"],
                           "seed":"circle-island-react-v0",
                           "state":"claimed-before-call"},
                          sort_keys=True, indent=2)+"\n", encoding="utf-8")
@@ -87,10 +109,12 @@ jobs:
           [ "$state" = "open" ] || { echo "STOP: closed issue"; exit 1; }
           stop_label=$(gh api "repos/$GITHUB_REPOSITORY/issues/16" --jq '([.labels[].name] | index("circle-stop")) != null' | tr -d '[:space:]')
           [ "$stop_label" = "false" ] || { echo "STOP: circle-stop label"; exit 1; }
-          ids=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/16/comments?per_page=100" \
-            --jq '.[] | select(.user.login == "MarkDude-design" and (.body | startswith("/circle-stop"))) | .id') || exit 1
-          if printf '%s\n' "$ids" | awk -v id="$COMMENT_ID" '$1 > id {found=1} END {exit !found}'; then
-            echo "STOP: later owner STOP comment"; exit 1
+          if [ "$EVENT" != "workflow_dispatch" ]; then
+            ids=$(gh api --paginate "repos/$GITHUB_REPOSITORY/issues/16/comments?per_page=100" \
+              --jq '.[] | select(.user.login == "MarkDude-design" and (.body | startswith("/circle-stop"))) | .id') || exit 1
+            if printf '%s\n' "$ids" | awk -v id="$COMMENT_ID" '$1 > id {found=1} END {exit !found}'; then
+              echo "STOP: later owner STOP comment"; exit 1
+            fi
           fi
 
       - name: Demo — zero paid calls
@@ -139,7 +163,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: circle-react-${{ github.event.comment.id }}-${{ github.run_id }}
-          path: runs/circle-react-${{ github.event.comment.id }}/
+          name: circle-react-${{ env.COMMENT_ID }}-${{ github.run_id }}
+          path: runs/circle-react-${{ env.COMMENT_ID }}/
           retention-days: 30
           if-no-files-found: warn
