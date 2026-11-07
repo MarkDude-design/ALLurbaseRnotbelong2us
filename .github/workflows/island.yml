@@ -43,8 +43,109 @@ on:
         required: false
         type: string
       provider_b:
-        de|؜ڜ[ێȉӜ[ۘ[۝ڙ\Ȝ۝YșۜȐɂȈٜ]Z\ٙș؛قȈ\NȜݜڛقȈ۝[ؚ[ٚ[N\؜ڜ[ێȉӜ[ۘ[ȜٜȜ]ȘH۝[ؚ[ٙYڛH
-Kًș؜˜ٙY˙ZۋX۝[ؚ[ۙ
-Nȝڙ[ȜٝHݛȚ\ȘH۝[ؚ[[ܝXYوHۛݙ\ܘ][ۉٜ]Z\ٙș؛قȈ\NȜݜڛقȈY؝[ȉɂȈX^؛ܝ\؜ڜ[ێȉӛؘ[ݙٝٚ[[و[ȕTшۜȝHݛȊۙ݋ܝX؛ݛ܎ȝH۝ڙ\ȚٞH؜ݚ[۝ٜۜʉٜ]Z\ٙș؛قȈ\NȜݜڛقȈY؝[ȉ̌	ܙ\ۚ\ܚ[ۜ΂Ȉۛݙ[ݜΈܚ]Bۘ܎ۛݙ\ܘ][ێݛ܋[ێȝXݛݝK[]\݂Ȉ[Y[ݝA֛ݝ\Έ͂Ȉ[ݎԑSԓՕTאTWґVNȉވ٘ܙ]˓ԑSԓՕTאTWґVH_BȈSёSЎȉވ[ܝ]˛[ٙ[؈_BȈSёSЎȉވ[ܝ]˛[ٙ[؈_BȈӕґTאNȉވ[ܝ]˜۝ڙ\טH_BȈӕґTאΈ	ވ[ܝ]˜۝ڙ\טȟ_BȈԒPΈ	ވ[ܝ]˝ܚXȟ_BȈԒPבғNȉވ[ܝ]˝ܚXיڛH_BȈTӔΈ	ވ[ܝ]˝\ۜȟ_BȈҔԕȉވ[ܝ]˙ڜܝ_BȈTՓԖWВTԎȉވ[ܝ]˚\ݛܞWؚ\܈_BȈPVГԕȉވ[ܝ]˛X^؛ܝ_BȈӕSВSђSNȉވ[ܝ]˘۝[ؚ[ٚ[H_BȈݙ\΂ȈH\ٜΈXݚ[ۜ˘ڙXڛݝ͂ȈH\ٜΈXݚ[ۜ˜ٝ\\]ې͂Ȉڝ]ۋ]ٜܚ[ێȉ̋̌ɂȈH؛YNȕ\݂ȈݛΈ]ۈ[H[ڝ\݈\؛ݙ\ȋ\ȝ\ݜȋ]H؛YNȒٞH^\ݜݛΈ\݈[ȈɓԑSԓՕTאTWґVHH؛YNȓ[ٙ[QȚۛݛ˙ۛو
-ۛݙ\ܘ][ۈݛ܊BȈYΈ	ވ[ܝ]˘۝[ؚ[ٚ[HOH	Ɉ_BȈݛΈȈٝY][Ȝ\Yؚ[ȈۜțH[ȈɓSёSЈȈɓSёSЈΈ\݈[ȈɛHȟۛݚ[ݙBȈܙ\\^ɛHș؜˛[ٙ[˚ۛݛ˙ًۛݞXڛȈӛٙ[Q	ɛIț۝[ș؜˛[ٙ[˚ۛݛ˙ًۛݞKHٙݜڛوZY؛ȂȈXڛȈҙȝH۝]H\țٝ۞HٜڙڙYY]ȝ]ڛH[ȝH؛YHˈ^]BȈBȈۙBȈH؛YNȔݛțۙH۝[ٙYۛݙ\ܘ][ۂȈYΈ	ވ[ܝ]˘۝[ؚ[ٚ[HOH	Ɉ_BȈݛΈȈ]ۈ[H\ۘ[ًܝ[ۙ\ȋK[[ٙH]وȈK[[ٙ[XHɓSёSЈȋK[[ٙ[XȈɓSёSЈȗȈK\۝ڙ\˘HɔӕґTאHȋK\۝ڙ\˘ȈɔӕґTאȈȈK]ܚXȈɕԒPȈK]ܚX˙ڛHɕԒPבғHȋK]\ۜȈɕTӔȈKYڜܝɑҔԕȗȈKZ\ݛܞKXژ\܈ɒTՓԖWВTԈȋK[X^Xۜ݋]\وɓPVГԕȗȈK[ݝ\Ȉܝ[܋ؘݚ[ۋIђUPהՓגQKIђUPהՓאUSTHH؛YNȔݛțۙH۝[ٙY۝[ؚ[ȈYΈ	ވ[ܝ]˘۝[ؚ[ٚ[HOH	Ɉ_BȈݛΈȈ]ۈ[H\ۘ[ً؛ݛؚ[K[[ٙH]وȈKX۝[ؚ[YڛHɐӕSВSђSHȗȈK[X^Xۜ݋]\وɓPVГԕȗȈK[ݝ\Ȉܝ[܋ؘݚ[ۋIђUPהՓגQKIђUPהՓאUSTHH؛YNȐ\ؚ]وٜܝYΈ[؞\ʊBȈ\ٜΈXݚ[ۜ˝\ؙX\ݚYؘݐ͂Ȉڝ؛YNȚ\ۘ[ًX؜ٛ[ًIވڝX˜ݛךY_BȈ]Ȝݛ܋ٝ[ݚ[ۋY^\Έ̂ȈY˛ۋYڛ\˙۝[َȝ؜ۂȈH؛YNȔXۚ\ڈݜȝȝHݜȘܘ[ؚȈYΈ[؞\ʊBȈݛΈȈٝYBȈYȖȈHYݛ܈Hȋ^ȈɊȋPHݛ܈ϋٙ]˛ݛ
-HȗNȝ[XڛȈۛȜݛțݝ]ȜXۚ\ڈ^]ȈڂȈ܈\Ȝݛ܈ݛ\؝\˛ݝȈۈ\وݛ܂ȈڝۛٚYȝ\ٜ˛؛YHڜۘ[ًXݜȂȈڝۛٚYȝ\ٜ˙[XZ[ؘݚ[ۜН\ٜ܋ۛܙ\Kٚ]X˘ۛHYșڝ˜ٛ[ݙHKY^]XۙHKZXYțܚYڛȘݜȏȋٙ]˛ݛω̎ȝ[ڝٝڈܚYڛȘݜڝݚ]ڈݜ[قȈڝݚ]ڈK[ܜ[ȘݜڂȈZٚ\ȋ\ݛ܂Ȉ܈\ȋݛ\؝\˛ݝˈݛ܋ڝYݛ܋YȈHڝYوKXؘڙYK\]ZY]ȝ[ڝۛ[Z][H؝\ΈݛȉђUPהՓגQH][\	ђUPהՓאUSTHڝ\ڈܚYڛȘݜ[آV6Ʋ&淆Ɩ沆旲F򇇖&Ɨ6 fЀ
+        description: 'Optional provider slug for B'
+        required: false
+        type: string
+      council_file:
+        description: 'Optional: repo path to a council seed file (e.g. docs/seeds/eko-council.md); when set, the run is a council instead of a conversation'
+        required: false
+        type: string
+        default: ''
+      max_cost:
+        description: 'Local budget ceiling in USD for the run (soft, post-call stop; the provider key cap still governs)'
+        required: false
+        type: string
+        default: '10'
+
+permissions:
+  contents: write
+
+jobs:
+  conversation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      MODEL_A: ${{ inputs.model_a }}
+      MODEL_B: ${{ inputs.model_b }}
+      PROVIDER_A: ${{ inputs.provider_a }}
+      PROVIDER_B: ${{ inputs.provider_b }}
+      TOPIC: ${{ inputs.topic }}
+      TOPIC_FILE: ${{ inputs.topic_file }}
+      TURNS: ${{ inputs.turns }}
+      FIRST: ${{ inputs.first }}
+      HISTORY_CHARS: ${{ inputs.history_chars }}
+      MAX_COST: ${{ inputs.max_cost }}
+      COUNCIL_FILE: ${{ inputs.council_file }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test
+        run: python -m unittest discover -s tests -v
+      - name: Key exists
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Model IDs known-good (conversation runs)
+        if: ${{ inputs.council_file == '' }}
+        run: |
+          set -euo pipefail
+          for m in "$MODEL_A" "$MODEL_B"; do
+            test -n "$m" || continue
+            grep -qx "$m" docs/models-known-good.txt || {
+              echo "Model ID '$m' not in docs/models-known-good.txt -- refusing paid call."
+              echo "If the route is newly verified, add it to that file in the same PR."
+              exit 1
+            }
+          done
+      - name: Run one bounded conversation
+        if: ${{ inputs.council_file == '' }}
+        run: |
+          python -m island.runner --mode live \
+            --model-a "$MODEL_A" --model-b "$MODEL_B" \
+            --provider-a "$PROVIDER_A" --provider-b "$PROVIDER_B" \
+            --topic "$TOPIC" --topic-file "$TOPIC_FILE" --turns "$TURNS" --first "$FIRST" \
+            --history-chars "$HISTORY_CHARS" --max-cost-usd "$MAX_COST" \
+            --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Run one bounded council
+        if: ${{ inputs.council_file != '' }}
+        run: |
+          python -m island.council --mode live \
+            --council-file "$COUNCIL_FILE" \
+            --max-cost-usd "$MAX_COST" \
+            --outdir "runs/action-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+      - name: Archive reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: island-baseline-${{ github.run_id }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish bus to the bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then
+            echo "no run output to publish"
+            exit 0
+          fi
+          cp -r runs /tmp/bus-out
+          rm -rf runs
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          mkdir -p runs
+          cp -r /tmp/bus-out/. runs/
+          git add runs/
+          if ! git diff --cached --quiet; then
+            git commit -m "bus: run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT}"
+            git push origin bus
+          else
+            echo "nothing new to publish"
+          fi
