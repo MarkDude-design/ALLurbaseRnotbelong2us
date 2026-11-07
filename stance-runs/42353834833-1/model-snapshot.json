@@ -1,0 +1,29 @@
+[
+  {
+    "id": "liquid/lfm-2.5-2.6b:free",
+    "name": "LiquidAI: LFM2.5-2.6B (free)",
+    "context_length": 65536,
+    "pricing": {
+      "prompt": "0",
+      "completion": "0"
+    }
+  },
+  {
+    "id": "google/gemma-4-26b-a4b-it:free",
+    "name": "Google: Gemma 4 26B A4B  (free)",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0",
+      "completion": "0"
+    }
+  },
+  {
+    "id": "google/gemma-4-31b-it:free",
+    "name": "Google: Gemma 4 31B (free)",
+    "context_length": 262144,
+    "pricing": {
+      "prompt": "0",
+      "completion": "0"
+    }
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "version": "island-stance-v1",
+  "models": [
+    "liquid/lfm-2.5-2.6b:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "google/gemma-4-31b-it:free"
+  ],
+  "cases_per_model": 12,
+  "counts": {
+    "attempted": 8,
+    "answered": 8,
+    "empty": 2,
+    "error": 0,
+    "rate_limited": 0,
+    "unknown_cost": 0,
+    "known_cost_usd": 0.0
+  },
+  "stop_reason": "STOP: two consecutive empty visible replies; output format or token budget",
+  "skipped_model_ids": [],
+  "quota_note": "Each attempted POST may consume provider allowance, including errors",
+  "cost_note": "Usage is response-reported; provider dashboard not independently reconciled",
+  "island_note": "Independent one-shot fictional prompts, not a long-running shared-memory island"
+}
