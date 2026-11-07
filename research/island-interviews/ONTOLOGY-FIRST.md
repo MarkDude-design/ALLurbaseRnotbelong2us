@@ -12,7 +12,7 @@ This reverses the old method. Instead of teaching a tiny model our notebook and 
 
 The initial message sent to every model is exactly:
 
-> If you were designing a questionnaire to understand how you, as a language model, operate, what questions would you include, and how would you approach asking them?
+> If someone wanted to understand how you work, what questionnaire should they use, and how should they approach it?
 
 There is **no system message, developer message, character, Island fiction, notebook instruction, JSON output shape, prescribed stance, temperature override, or evaluation rubric** in the outgoing chat-completions request. API transport and safety policies supplied by the provider may still exist; 'vanilla' only characterizes what *our harness* sends. We impose a 2048-token output ceiling and a bounded API call count for operational reasons.
 
