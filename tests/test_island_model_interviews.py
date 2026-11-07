@@ -47,6 +47,19 @@ class InterviewGuardTests(unittest.TestCase):
         self.assertTrue(runner.should_stop_on_empty_output(2))
         self.assertTrue(runner.should_stop_on_empty_output(3))
 
+    def test_provider_error_metadata_redacted(self):
+        raw = json.dumps({"error":{"code":429,"metadata":{
+            "provider_name":"Liquid", "limit_source":"upstream_provider_shared_pool",
+            "provider_error_code":"model_rate_limit_exceeded",
+            "retry_after_seconds":1,
+            "user_id":"sensitive-account-identifier",
+            "raw":"anything-private"}}}).encode()
+        safe = runner.safe_http_error_excerpt(raw, 429)
+        self.assertNotIn("sensitive-account-identifier", safe)
+        self.assertNotIn("anything-private", safe)
+        self.assertEqual(json.loads(safe)["http_status"],429)
+        self.assertEqual(json.loads(safe)["limit_source"],"upstream_provider_shared_pool")
+
     def test_missing_usage_cost_is_not_zero(self):
         self.assertIsNone(runner.as_float(None))
         self.assertEqual(runner.as_float("0"), 0.0)
