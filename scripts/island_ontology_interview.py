@@ -44,12 +44,24 @@ def messages_for_round(history, question):
 
 def choose_interview_models(catalog, count, excluded=None):
     excluded = set(excluded or ())
-    models = choose_models(catalog, 12)
-    # Correct catalog ID for the newly released small Liquid model; do not
-    # depend on stale model slugs in the older generic Island preference list.
+    # Select from the entire catalog-verified free set BEFORE sorting.
+    # The generic Island helper has a dated preferred list; limiting it to
+    # twelve here could omit a newly launched free model.
+    models = choose_models(catalog, len(catalog.get("data", [])))
+    by_id = {item.get("id"): item for item in catalog.get("data", [])}
+    checked = []
+    for model in models:
+        prices = (by_id.get(model["id"]) or {}).get("pricing") or {}
+        # A zero token price is insufficient if the route charges per request
+        # or separately for hidden reasoning. Absence of those optional fields
+        # is allowed for an explicitly :free route.
+        extra = [prices.get("request"), prices.get("internal_reasoning")]
+        if any(value is not None and as_float(value) != 0 for value in extra):
+            continue
+        checked.append(model)
     preferred = ("liquid/lfm-3-1.7b:free", "google/gemma-4-26b-a4b-it:free")
-    models.sort(key=lambda m: (preferred.index(m["id"]) if m["id"] in preferred else 99, m["id"]))
-    return [m for m in models if m["id"] not in excluded][:count]
+    checked.sort(key=lambda m: (preferred.index(m["id"]) if m["id"] in preferred else 99, m["id"]))
+    return [m for m in checked if m["id"] not in excluded][:count]
 
 def clean_usage(usage):
     usage = usage if isinstance(usage, dict) else {}
