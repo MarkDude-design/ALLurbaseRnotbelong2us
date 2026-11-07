@@ -41,6 +41,12 @@ class InterviewGuardTests(unittest.TestCase):
             self.assertTrue(all(q["prompt"].strip() for q in wave))
         self.assertEqual(len(ids), len(set(ids)))
 
+    def test_early_stop_on_two_empty_visible_replies(self):
+        self.assertFalse(runner.should_stop_on_empty_output(0))
+        self.assertFalse(runner.should_stop_on_empty_output(1))
+        self.assertTrue(runner.should_stop_on_empty_output(2))
+        self.assertTrue(runner.should_stop_on_empty_output(3))
+
     def test_missing_usage_cost_is_not_zero(self):
         self.assertIsNone(runner.as_float(None))
         self.assertEqual(runner.as_float("0"), 0.0)
