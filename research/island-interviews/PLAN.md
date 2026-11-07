@@ -40,7 +40,7 @@ For each dimension, grade **0 (failure), 1 (weak), 2 (appropriate), 3 (exception
 
 - **Before merge:** review branch diff and free offline CI. This PR does not call models; only `offline-tests` runs on PR events.
 - **Once merged to default main**, manual action:
-  [Island — free model interview waves](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/workflows/island-model-interviews.yml) → **Run workflow** → branch `main`; `wave=1`, `confirm_free=YES`, `max_attempts=96` (or **8** for a small first smoke) → final **Run workflow** button. Take resulting run ID; verify `interview-runs/` artifact and `bus` receipt, not just a green job.
+  [Island — free model interview waves](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/workflows/island-model-interviews.yml) → **Run workflow** → branch `main`; `wave=1`, `confirm_free=yes` (defaults to yes, any case), `max_attempts=96` (or **8** for a small first smoke) → final **Run workflow** button. Take resulting run ID; verify `interview-runs/` artifact and `bus` receipt, not just a green job.
 - **Scheduled after merge:** Monday Nov 9, Wednesday Nov 11, Friday Nov 13, 2026 at about **00:05 America/Los_Angeles** (08:05 UTC), subject to GitHub Actions scheduler delays. Only these 2026 dates make model calls; later calendar repeats skip by date gate. Up to 96 attempts each. **Do not merge before verifying that these free-model quota uses fit with Z's active sessions.**
 - **Before next wave:** inspect model availability, 429/failed attempt counts and independent provider quota/cost; do not extrapolate the requested number of calls into successful responses.
 

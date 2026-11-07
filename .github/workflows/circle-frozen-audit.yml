@@ -12,10 +12,10 @@ on:
         default: solo
         options: [solo, trio, trio-repeat, skeptic]
       confirm_paid:
-        description: 'Type YES to permit LIVE test (USD 1 soft cap per click)'
+        description: 'yes = fire (any case). LIVE test, USD 1 soft cap'
         required: true
         type: string
-        default: 'NO'
+        default: 'yes'
 
 permissions:
   contents: write
