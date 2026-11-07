@@ -12,7 +12,6 @@ from island import z_desk
 BRIEF = ("Claim: the audit found 22 coded rows, zero UNRESOLVED among the displayed "
          "rows, and 31 extracted ask-lines corpus-wide.")
 
-
 def run_demo(agents=("diff", "man"), brief=BRIEF, cap=1.0, **kw):
     with TemporaryDirectory() as tmp:
         outdir = Path(tmp) / "desk"
@@ -23,7 +22,6 @@ def run_demo(agents=("diff", "man"), brief=BRIEF, cap=1.0, **kw):
         files = {"report.md": (outdir / "report.md").read_text(encoding="utf-8"),
                  "consult.md": (outdir / "consult.md").read_text(encoding="utf-8")}
         return result, lines, files
-
 
 class ZDeskDemoRun(unittest.TestCase):
     def test_demo_two_agents_completed(self):
@@ -147,7 +145,6 @@ class ZDeskDemoRun(unittest.TestCase):
         other = z_desk.parse_verdict('{"verdict": "GREAT", "findings": []}')
         self.assertEqual(other["verdict"], "GREAT")  # fossil kept, not judged
 
-
 class ZDeskPaceTests(unittest.TestCase):
     """Mark's dialing doctrine (Oct 25 2026): pace 'half' = wait the previous
     consult's duration before the next call — a 50% syscall speed cut."""
@@ -201,7 +198,6 @@ class ZDeskPaceTests(unittest.TestCase):
             z_desk.run("demo", ["diff"], {"diff": "dmodel", "man": "mmodel"},
                        BRIEF, 1.0, "runs/never-created", pace="turbo")
 
-
 class ZDeskPreflightTests(unittest.TestCase):
     """Meraki preflight (issue #9, comment 6401118055): no free-text workflow
     input may land in shell source, and returned costs must be usable as spend
@@ -251,11 +247,10 @@ class ZDeskPreflightTests(unittest.TestCase):
 
     def test_shell_metacharacter_model_ids_refused(self):
         # model IDs are data, never shell source (Meraki preflight #1, data side)
-        for bad in ("sh -c x", "a;b", "$(x)", "a`b", "x y", "a\nb"):
+        for bad in ("sh -c x", "a;b", "$(x)", "a`b`, "x y", "a\nb"):
             with self.assertRaises(ValueError):
                 z_desk.run("demo", ["diff"], {"diff": bad, "man": "mmodel"},
                            BRIEF, 1.0, "runs/never-created")
-
 
 
 class RecordsChannel(unittest.TestCase):
@@ -339,6 +334,63 @@ class SkepticLaneTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 z_desk.run("demo", ["gibberish"], {"diff": "d"}, BRIEF, 1.0,
                            Path(tmp) / "never")
+
+class ManPromptSchemaTests(unittest.TestCase):
+    """Run 42346430906-1 (2026-11-07, trio arm): diff and skeptic spell their
+    verdict JSON schema in the system prompt; man's prompt only said "same as
+    your colleague diff" — and man's live reply ended with a fenced JSON
+    object that had no "verdict" key. The schema is now literal in all three."""
+
+    def test_all_three_prompts_spell_the_schema(self):
+        for name, prompt in z_desk.SYSTEM_PROMPTS.items():
+            self.assertIn('"verdict"', prompt, name)
+            self.assertIn('"findings"', prompt, name)
+            self.assertIn('"confidence"', prompt, name)
+
+class VerdictExtractionRepairTests(unittest.TestCase):
+    """EXTRACTION REPAIR (run 42346430906-1): string-aware balanced-object
+    scan; the LAST parseable object with a string 'verdict' wins. Fenced JSON
+    and prose survive; no-verdict shapes stay honestly UNPARSEABLE."""
+
+    def test_fenced_verdict_parsed(self):
+        text = ('Analysis here.\n\n```json\n'
+                '{"verdict": "ISSUES_FOUND", "findings": [{"kind": "absolutes", '
+                '"quote": "all five", "problem": "D5 not attempted", '
+                '"suggested_fix": "four of five"}], "confidence": "high"}\n```')
+        v = z_desk.parse_verdict(text)
+        self.assertEqual(v["verdict"], "ISSUES_FOUND")
+        self.assertEqual(v["confidence"], "high")
+        self.assertEqual(v["findings"][0]["kind"], "absolutes")
+
+    def test_prose_with_braces_then_final_verdict(self):
+        text = ('Metrics say { planned: 5 } in prose braces.\n\n'
+                'Final check:\\n{"verdict": "CLEAN", "findings": [], "confidence": "medium"}')
+        v = z_desk.parse_verdict(text)
+        self.assertEqual(v["verdict"], "CLEAN")
+        self.assertEqual(v["confidence"], "medium")
+
+    def test_last_verdict_object_wins(self):
+        text = ('{"verdict": "FIRST", "findings": []} middle '
+                '{"verdict": "SECOND", "findings": [], "confidence": "low"}')
+        v = z_desk.parse_verdict(text)
+        self.assertEqual(v["verdict"], "SECOND")
+
+    def test_braces_inside_strings_do_not_confuse_the_scan(self):
+        text = ('{"verdict": "ISSUES_FOUND", "findings": [{"kind": "other", '
+                 '"quote": "the set {5} was wrong", "problem": "brace in string", '
+                 '"suggested_fix": "none"}], "confidence": "low"}')
+        v = z_desk.parse_verdict(text)
+        self.assertEqual(v["verdict"], "ISSUES_FOUND")
+        self.assertEqual(v["findings"][0]["quote"], "the set {5} was wrong")
+
+    def test_object_without_verdict_key_still_unparseable(self):
+        # run 42346430906-1 man lane shape: fenced JSON, claim strings as keys.
+        text = ('```json\n{"All five accepted": "CONTRADICTED", '
+                 '"zero retries": "CONTRADICTED", "planned_slots": 5}\n```')
+        v = z_desk.parse_verdict(text)
+        self.assertEqual(v["verdict"], "UNPARSEABLE")
+        self.assertEqual(v["findings"], [])
+        self.assertIsNone(v["confidence"])
 
 
 if __name__ == "__main__":

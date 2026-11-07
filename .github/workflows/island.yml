@@ -1,5 +1,4 @@
 name: Island Pa More — Manual Baseline
-
 on:
   workflow_dispatch:
     inputs:
@@ -86,6 +85,18 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: Key exists
         run: test -n "$OPENROUTER_API_KEY"
+      - name: Model IDs known-good (conversation runs)
+        if: ${{ inputs.council_file == '' }}
+        run: |
+          set -euo pipefail
+          for m in "$MODEL_A" "$MODEL_B"; do
+            test -n "$m" || continue
+            grep -qx "$m" docs/models-known-good.txt || {
+              echo "Model ID '$m' not in docs/models-known-good.txt -- refusing paid call."
+              echo "If the route is newly verified, add it to that file in the same PR."
+              exit 1
+            }
+          done
       - name: Run one bounded conversation
         if: ${{ inputs.council_file == '' }}
         run: |

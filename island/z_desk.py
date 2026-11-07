@@ -10,7 +10,7 @@ skeptic — the falsification lane (helper preliminaries, owner-go 2026-11-03);
 
 Funded per Mark's GAS standing order (Oct 2026). Standard library only.
 Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
-explicit UNKNOWN charge receipts under the owner's Mercurial override). Briefs are PUBLIC on this bus: anything secret-shaped
+explicit UNKNOWN charge receipts under the owner's Mercurial override. Briefs are PUBLIC on this bus: anything secret-shaped
 is refused before any API call — the red-line from the billing-lane review.
 
 Dialing doctrine (Mark, Oct 25 2026): pace "half" (default) waits the
@@ -57,8 +57,12 @@ MAN_SYSTEM = (
     "You are man, the frontier expert Z calls when the desk needs deep judgment. "
     "Review the claim on its merits: is it supported by what is quoted, what evidence "
     "would falsify it, what is OBSERVED versus INFERRED. Challenge premises; do not "
-    "manufacture agreement, and do not invent receipts. End your reply with the same "
-    "JSON verdict object as your colleague diff."
+    "manufacture agreement, and do not invent receipts. End your reply with exactly "
+    "one JSON object, same shape as your colleague diff: "
+    '{"verdict": "CLEAN" or "ISSUES_FOUND", "findings": [{"kind": '
+    '"absolutes|arithmetic|attribution|scope|freshness|other", "quote": "...", '
+    '"problem": "...", "suggested_fix": "..."}], '
+    '"confidence": "low|medium|high"}'
 )
 
 SKEPTIC_SYSTEM = (
@@ -80,7 +84,6 @@ SKEPTIC_SYSTEM = (
 
 SYSTEM_PROMPTS = {"diff": DIFF_SYSTEM, "man": MAN_SYSTEM, "skeptic": SKEPTIC_SYSTEM}
 
-
 def contains_secret(text):
     """Best-effort red-line scan over known token shapes.
 
@@ -91,6 +94,39 @@ def contains_secret(text):
     """
     return any(re.search(pattern, text) for pattern in SECRET_SHAPES)
 
+def _json_object_spans(text):
+    """Balanced top-level {...} spans, in order of appearance.
+
+    Tracks JSON string state (with escapes) so braces inside quoted strings
+    neither open nor close objects; markdown fence markers and surrounding
+    prose are ignored naturally — the scan only closes on a depth-zero brace.
+    """
+    spans = []
+    depth = 0
+    start = -1
+    in_str = False
+    esc = False
+    for i, ch in enumerate(text):
+        if in_str:
+            if esc:
+                esc = False
+            elif ch == "\\":
+                esc = True
+            elif ch == '"':
+                in_str = False
+            continue
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            if depth:
+                depth -= 1
+                if depth == 0:
+                    spans.append((start, i + 1))
+    return spans
 
 def parse_verdict(text):
     """Best-effort extraction of the JSON verdict; raw text always stays in the receipt.
@@ -102,13 +138,22 @@ def parse_verdict(text):
     catch #3, finder credit: the man lane + the Mayhem Meter). UNPARSEABLE
     now means NO verdict was extractable — never a verdict we disliked.
     The verdict word rides verbatim; the raw text stays in the receipt.
+
+    EXTRACTION REPAIR (run 42346430906-1, 2026-11-07, trio arm): the old
+    greedy first-brace-to-last-brace span could not survive prose around the
+    JSON. The man lane returned prose plus a fenced JSON object without a
+    "verdict" key and was stamped UNPARSEABLE while diff and skeptic (raw
+    JSON, matching schema) parsed clean. The scan now walks every balanced
+    {...} object string-aware and takes the LAST parseable one carrying a
+    string "verdict" — the desk contract says the verdict object ends the
+    reply. Markdown fences and stray braces in prose are tolerated; an
+    object without a "verdict" key still extracts as UNPARSEABLE.
     """
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    if match:
+    for start, end in reversed(_json_object_spans(text)):
         try:
-            verdict = json.loads(match.group(0))
+            verdict = json.loads(text[start:end])
         except (ValueError, TypeError):
-            verdict = None
+            continue
         if isinstance(verdict, dict) and isinstance(verdict.get("verdict"), str) \
                 and verdict["verdict"].strip():
             verdict["verdict"] = verdict["verdict"].strip()
@@ -117,7 +162,6 @@ def parse_verdict(text):
             return verdict
     return {"verdict": "UNPARSEABLE", "findings": [], "confidence": None}
 
-
 def demo_consult(agent, model, messages, provider):
     text = ('SYNTHETIC DEMO: desk shakedown, no call placed. The brief is reviewed '
             'with receipts in hand, absolutes flagged, arithmetic re-added.\n\n'
@@ -125,7 +169,6 @@ def demo_consult(agent, model, messages, provider):
     return {"text": text, "model_returned": "synthetic-stub", "provider_returned": None,
             "response_id": None, "usage": {"prompt_tokens": 0, "completion_tokens": 0,
                                            "total_tokens": 0, "cost_usd": 0.0}}
-
 
 def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
          pace=PACE_DEFAULT, records=None):
@@ -271,7 +314,6 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
               "No secrets, keys, or private notebooks ride this bus."]
     (outdir / "report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
     return {"run_id": run_id, "agents": agents, "stop": stopped, "totals": totals}
-
 
 def main():
     parser = argparse.ArgumentParser()
