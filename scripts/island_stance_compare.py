@@ -10,7 +10,8 @@ import time
 import urllib.error
 import urllib.request
 from island_model_interviews import (
-    BASE, request_json, choose_models, append_event, as_float, extract_text
+    BASE, request_json, choose_models, append_event, as_float, extract_text,
+    should_stop_on_empty_output
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -145,7 +146,7 @@ def main():
             if cost is not None and cost > 0:
                 stop_reason = "STOP: nonzero charge returned for catalog-verified free endpoint"
                 break
-            if empty_streak >= 2:
+            if should_stop_on_empty_output(empty_streak):
                 stop_reason = "STOP: two consecutive empty visible replies; output format or token budget"
                 break
         except urllib.error.HTTPError as exc:
