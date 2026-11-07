@@ -17,7 +17,7 @@ Owner request: find out whether an agent can summon a **skeptical lens** rather 
 1. Open the link above AFTER this workflow is on **main**.
 2. Choose **Run workflow**, branch `main`.
 3. `model_count=1` for a **12-request smoke** or `model_count=3` for a **36-request comparison**. Start with 1 and look at the actual catalog/receipts before scaling.
-4. `confirm_free=YES` (type uppercase exactly); verify the selected count; click the final **Run workflow**.
+4. `confirm_free` defaults to `yes` and any case works; verify the selected count; click the final **Run workflow**.
 5. Inspect the individual run, artifact `island-stance-<run-id>-<attempt>`, and `bus:stance-runs/<run-id>-<attempt>/`. A green status is transport success, not a high score.
 
 **No schedule.** No triggered model calls from PR tests; offline tests run on PR. This workflow never fires by itself. `ISLAND_INTERVIEWS_STOP=true` repository Actions variable skips the live job; for urgent interruption cancel the running GitHub Action. Stop and preserve evidence on auth/balance/quota 401/402/403/429, 5xx, reported nonzero charge on a catalog-verified free model, model substitution, or 6 errors. No automatic retries. At least 6.5 seconds between outbound POST starts. Max 12 or 36 POST attempts depending on model count; there is also one catalog GET. Do not treat a quota request as a dollar charge or the provider-side $ balance as proof of requests remaining.

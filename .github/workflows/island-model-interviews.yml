@@ -20,10 +20,10 @@ on:
         options: ['1', '2', '3']
         default: '1'
       confirm_free:
-        description: 'Type YES; free-only requests still consume provider quota'
+        description: 'yes = fire (any case). Free-only, uses provider quota'
         required: true
         type: string
-        default: 'NO'
+        default: 'yes'
       max_attempts:
         description: 'Outbound API attempt cap, maximum 96; no auto-retries'
         required: false
@@ -77,7 +77,7 @@ jobs:
             esac
             ATTEMPTS=96
           else
-            test "$USER_CONFIRM" = "YES" || { echo "Not confirmed; no calls"; exit 1; }
+            test "$(printf '%s' "$USER_CONFIRM" | tr '[:upper:]' '[:lower:]')" = yes || { echo "Not confirmed (yes in any case); no calls"; exit 1; }
             WAVE="$USER_WAVE"
             ATTEMPTS="$USER_ATTEMPTS"
           fi
