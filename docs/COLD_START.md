@@ -1,5 +1,7 @@
 # Cold start the pipeline
 
+**Level Zero comes first:** [Meraki — Level Zero](MERAKI-LEVEL-ZERO.md) is the minimal conversational starting point. It requires no project reconstruction or checklist. Use **this** evidence-first guide only when there is actual work to recover; it is an optional second layer, not the definition of Meraki. This clarification preserves the existing candidate-B research and all action/STOP gates.
+
 Owner: Meraki. Priority: **HIGH / active**, clarified by Mark on 2026-11-03. Selected route: **B — evidence first**. This is the short entry point; it restores work orientation from records, not unrecorded conversation memory.
 
 ## Recover with minimal reading
