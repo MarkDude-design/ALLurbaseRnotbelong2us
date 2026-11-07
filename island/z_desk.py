@@ -10,7 +10,7 @@ skeptic — the falsification lane (helper preliminaries, owner-go 2026-11-03);
 
 Funded per Mark's GAS standing order (Oct 2026). Standard library only.
 Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
-explicit UNKNOWN charge receipts under the owner's Mercurial override. Briefs are PUBLIC on this bus: anything secret-shaped
+explicit UNKNOWN charge receipts under the owner's Mercurial override). Briefs are PUBLIC on this bus: anything secret-shaped
 is refused before any API call — the red-line from the billing-lane review.
 
 Dialing doctrine (Mark, Oct 25 2026): pace "half" (default) waits the
@@ -84,6 +84,7 @@ SKEPTIC_SYSTEM = (
 
 SYSTEM_PROMPTS = {"diff": DIFF_SYSTEM, "man": MAN_SYSTEM, "skeptic": SKEPTIC_SYSTEM}
 
+
 def contains_secret(text):
     """Best-effort red-line scan over known token shapes.
 
@@ -93,6 +94,7 @@ def contains_secret(text):
     docstring "never proof a brief is secret-free" was ambiguous.)
     """
     return any(re.search(pattern, text) for pattern in SECRET_SHAPES)
+
 
 def _json_object_spans(text):
     """Balanced top-level {...} spans, in order of appearance.
@@ -115,18 +117,19 @@ def _json_object_spans(text):
             elif ch == '"':
                 in_str = False
             continue
-        if ch == '"':
-            in_str = True
-        elif ch == "{":
-            if depth == 0:
-                start = i
-            depth += 1
-        elif ch == "}":
-            if depth:
-                depth -= 1
+            if ch == '"':
+                in_str = True
+            elif ch == "{":
                 if depth == 0:
-                    spans.append((start, i + 1))
+                    start = i
+                depth += 1
+             elif ch == "}":
+                if depth:
+                    depth -= 1
+                    if depth == 0:
+                        spans.append((start, i + 1))
     return spans
+
 
 def parse_verdict(text):
     """Best-effort extraction of the JSON verdict; raw text always stays in the receipt.
@@ -162,6 +165,7 @@ def parse_verdict(text):
             return verdict
     return {"verdict": "UNPARSEABLE", "findings": [], "confidence": None}
 
+
 def demo_consult(agent, model, messages, provider):
     text = ('SYNTHETIC DEMO: desk shakedown, no call placed. The brief is reviewed '
             'with receipts in hand, absolutes flagged, arithmetic re-added.\n\n'
@@ -169,6 +173,7 @@ def demo_consult(agent, model, messages, provider):
     return {"text": text, "model_returned": "synthetic-stub", "provider_returned": None,
             "response_id": None, "usage": {"prompt_tokens": 0, "completion_tokens": 0,
                                            "total_tokens": 0, "cost_usd": 0.0}}
+
 
 def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
          pace=PACE_DEFAULT, records=None):
@@ -275,7 +280,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
                 fr = response.get("finish_reason") if isinstance(response, dict) else None
                 emit({"type": "error", "utc": now(), "agent": agent,
                       "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
-                               + (f" [finish_reason: {fr}]" if fr else "")})
+                                       + (f" [finish_reason: {fr}]" if fr else ""))})
                 continue
             emit({"type": "consult", "utc": now(), "agent": agent, "text": text,
                   "model_requested": models[agent],
@@ -315,6 +320,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
     (outdir / "report.md").write_text("\n".join(report) + "\n", encoding="utf-8")
     return {"run_id": run_id, "agents": agents, "stop": stopped, "totals": totals}
 
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mode", choices=["demo", "live"], default="demo")
@@ -332,7 +338,7 @@ def main():
                         help="optional ground-truth records for a truth-audit (PUBLIC bus)")
     parser.add_argument("--max-cost-usd", type=float, default=1.0)
     parser.add_argument("--outdir", default="runs/z-desk-"
-                       + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+                        + datetime.now(timezone.utc).strtime("%Y%m%d%H%M%SZ"))
     args = parser.parse_args()
     brief = args.brief
     if args.brief_file:

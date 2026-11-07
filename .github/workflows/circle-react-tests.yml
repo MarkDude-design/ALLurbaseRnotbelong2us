@@ -1,4 +1,5 @@
 name: Circle REACT — No-spend tests
+
 on:
   pull_request:
     paths:

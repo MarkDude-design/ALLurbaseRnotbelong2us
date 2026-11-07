@@ -12,6 +12,7 @@ from island import z_desk
 BRIEF = ("Claim: the audit found 22 coded rows, zero UNRESOLVED among the displayed "
          "rows, and 31 extracted ask-lines corpus-wide.")
 
+
 def run_demo(agents=("diff", "man"), brief=BRIEF, cap=1.0, **kw):
     with TemporaryDirectory() as tmp:
         outdir = Path(tmp) / "desk"
@@ -22,6 +23,7 @@ def run_demo(agents=("diff", "man"), brief=BRIEF, cap=1.0, **kw):
         files = {"report.md": (outdir / "report.md").read_text(encoding="utf-8"),
                  "consult.md": (outdir / "consult.md").read_text(encoding="utf-8")}
         return result, lines, files
+
 
 class ZDeskDemoRun(unittest.TestCase):
     def test_demo_two_agents_completed(self):
@@ -101,10 +103,10 @@ class ZDeskDemoRun(unittest.TestCase):
         with mock.patch("island.z_desk.time.sleep"), TemporaryDirectory() as tmp:
             outdir = Path(tmp) / "desk"
             result = z_desk.run("demo", ["diff", "man"],
-                                {"diff": "dmodel", "man": "mmodel"},
-                                BRIEF, 1.0, outdir, answer=flaky)
+                                {"diff": "dmmodel", "man": "mmodel"},
+                                 BRIEF, 1.0, outdir, answer=flaky)
             lines = [json.loads(x) for x in (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
-            self.assertEqual(result["stop"], "error")
+            self.assertEqual(result´op"], "error")
             self.assertEqual(result["totals"]["unknown_cost_calls"], 5)
             self.assertEqual(len([e for e in lines if e["type"] == "error"]), 1)
             self.assertEqual(len([e for e in lines if e["type"] == "retry"]), 4)
@@ -115,7 +117,7 @@ class ZDeskDemoRun(unittest.TestCase):
     def test_parse_verdict(self):
         self.assertEqual(z_desk.parse_verdict("no json at all")["verdict"], "UNPARSEABLE")
         verdict = z_desk.parse_verdict('prefix {"verdict": "ISSUES_FOUND", '
-                                        '"findings": [{"kind": "absolutes"}]} suffix')
+                                        "findings": [{"kind": "absolutes"}]} suffix')
         self.assertEqual(verdict["verdict"], "ISSUES_FOUND")
         self.assertEqual(verdict["findings"][0]["kind"], "absolutes")
         self.assertIsNone(verdict.get("confidence"))
@@ -144,6 +146,7 @@ class ZDeskDemoRun(unittest.TestCase):
         self.assertEqual(live["findings"], [])
         other = z_desk.parse_verdict('{"verdict": "GREAT", "findings": []}')
         self.assertEqual(other["verdict"], "GREAT")  # fossil kept, not judged
+
 
 class ZDeskPaceTests(unittest.TestCase):
     """Mark's dialing doctrine (Oct 25 2026): pace 'half' = wait the previous
@@ -185,9 +188,9 @@ class ZDeskPaceTests(unittest.TestCase):
                  mock.patch("island.z_desk.time.monotonic", self.fake_clock(5.0)):
                 result = z_desk.run("demo", ["diff", "man"],
                                     {"diff": "dmodel", "man": "mmodel"},
-                                    BRIEF, 1.0, outdir, pace="off")
+                                      BRIEF, 1.0, outdir, pace="off")
             lines = [json.loads(x) for x in
-                     (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
+                      (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
         self.assertEqual(result["stop"], "completed")
         self.assertEqual(waits, [])
         self.assertEqual([e for e in lines if e["type"] == "pace"], [])
@@ -197,6 +200,7 @@ class ZDeskPaceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             z_desk.run("demo", ["diff"], {"diff": "dmodel", "man": "mmodel"},
                        BRIEF, 1.0, "runs/never-created", pace="turbo")
+
 
 class ZDeskPreflightTests(unittest.TestCase):
     """Meraki preflight (issue #9, comment 6401118055): no free-text workflow
@@ -229,169 +233,81 @@ class ZDeskPreflightTests(unittest.TestCase):
         self.assertEqual(offenders, {"z-desk.yml": [], "z-desk-queue.yml": []})
 
     def test_unusable_cost_receipts_refused(self):
-        # negative / NaN / inf / bool costs are not valid spend receipts
-        for bad_cost in (-0.01, float("nan"), float("inf"), True):
-            def answer(agent, model, messages, provider, bad=bad_cost):
-                return {"text": "ok", "model_returned": None, "response_id": None,
-                        "usage": {"cost_usd": bad, "total_tokens": 1}}
-            with TemporaryDirectory() as tmp:
-                outdir = Path(tmp) / "desk"
-                result = z_desk.run("demo", ["diff"],
-                                    {"diff": "dmodel", "man": "mmodel"},
-                                    BRIEF, 1.0, outdir, answer=answer)
-                lines = [json.loads(x) for x in
-                         (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
-            self.assertEqual(result["stop"], "error")
-            self.assertEqual(len([e for e in lines if e["type"] == "consult"]), 1)
-            self.assertEqual(result["totals"]["unknown_cost_calls"], 1)
-
-    def test_shell_metacharacter_model_ids_refused(self):
-        # model IDs are data, never shell source (Meraki preflight #1, data side)
-        for bad in ("sh -c x", "a;b", "$(x)", "a`b`, "x y", "a\nb"):
-            with self.assertRaises(ValueError):
-                z_desk.run("demo", ["diff"], {"diff": bad, "man": "mmodel"},
-                           BRIEF, 1.0, "runs/never-created")
-
-
-class RecordsChannel(unittest.TestCase):
-    RECORDS = "LEDGER (owner-supplied): 16 events, 12 OK / 4 ERROR, $0.180130 of $5."
-
-    def test_records_ride_prompts_bus_and_consult_md(self):
-        captured = []
-
-        def answer(agent, model, messages, provider):
-            captured.append((agent, messages[1]["content"]))
-            return z_desk.demo_consult(agent, model, messages, provider)
-
-        result, lines, files = run_demo(answer=answer, records=self.RECORDS)
-        self.assertEqual(result["stop"], "completed")
-        self.assertEqual(len(captured), 2)
-        for agent, content in captured:
-            self.assertIn("GROUND TRUTH RECORDS (owner-supplied; authoritative", content)
-            self.assertIn("$0.180130", content)
-        start = lines[0]
-        self.assertEqual(start["records_chars"], len(self.RECORDS))
-        self.assertEqual(start["records_sha256"],
-                         hashlib.sha256(self.RECORDS.encode("utf-8")).hexdigest())
-        self.assertIn("Ground-truth records", files["consult.md"])
-        self.assertIn("$0.180130", files["consult.md"])
-
-    def test_records_absent_by_default(self):
-        result, lines, files = run_demo()
-        start = lines[0]
-        self.assertEqual(start["records_chars"], 0)
-        self.assertIsNone(start["records_sha256"])
-        self.assertNotIn("Ground-truth records", files["consult.md"])
-
-    def test_secret_records_refused(self):
-        with TemporaryDirectory() as tmp:
-            with self.assertRaises(ValueError):
-                z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
-                           Path(tmp) / "never", records="token ghp_" + "A" * 30)
-
-    def test_empty_records_refused(self):
-        with TemporaryDirectory() as tmp:
-            with self.assertRaises(ValueError):
-                z_desk.run("demo", ["diff"], {"diff": "dmodel"}, BRIEF, 1.0,
-                           Path(tmp) / "never", records="   ")
-
-class SkepticLaneTests(unittest.TestCase):
-    """Helper preliminaries (owner-go 2026-11-03): the third consult agent.
-
-    Class-agnostic by design: a SYSTEM_PROMPTS entry + an AGENTS slot. The
-    seat is cheap island code; audit shape, not the seat."""
-
-    def test_skeptic_demo_run_completes(self):
-        result, lines, files = run_demo(agents=("skeptic",))
-        self.assertEqual(result["stop"], "completed")
-        consults = [e for e in lines if e["type"] == "consult"]
-        self.assertEqual([e["agent"] for e in consults], ["skeptic"])
-        self.assertIn("skeptic", files["consult.md"])
-
-    def test_all_three_agents_run(self):
-        with TemporaryDirectory() as tmp:
-            outdir = Path(tmp) / "desk"
-            models = {"diff": "dmodel", "man": "mmodel", "skeptic": "smodel"}
-            result = z_desk.run("demo", ["diff", "man", "skeptic"], models,
-                                BRIEF, 1.0, outdir, pace="off")
-        self.assertEqual(result["agents"], ["diff", "man", "skeptic"])
-        self.assertEqual(result["stop"], "completed")
-
-    def test_missing_skeptic_model_refused(self):
-        with TemporaryDirectory() as tmp:
-            with self.assertRaises(ValueError) as ctx:
-                z_desk.run("demo", ["skeptic"], {"diff": "d", "man": "m"},
-                           BRIEF, 1.0, Path(tmp) / "never")
-            self.assertIn("skeptic", str(ctx.exception))
-
-    def test_skeptic_in_agents_registry(self):
-        self.assertIn("skeptic", z_desk.AGENTS)
-        self.assertIn("skeptic", z_desk.SYSTEM_PROMPTS)
-        self.assertIn("FALSE-BUT-CONSISTENT", z_desk.SKEPTIC_SYSTEM)
-
-    def test_bad_agent_still_refused(self):
-        with TemporaryDirectory() as tmp:
-            with self.assertRaises(ValueError):
-                z_desk.run("demo", ["gibberish"], {"diff": "d"}, BRIEF, 1.0,
-                           Path(tmp) / "never")
-
-class ManPromptSchemaTests(unittest.TestCase):
-    """Run 42346430906-1 (2026-11-07, trio arm): diff and skeptic spell their
-    verdict JSON schema in the system prompt; man's prompt only said "same as
-    your colleague diff" — and man's live reply ended with a fenced JSON
-    object that had no "verdict" key. The schema is now literal in all three."""
-
-    def test_all_three_prompts_spell_the_schema(self):
-        for name, prompt in z_desk.SYSTEM_PROMPTS.items():
-            self.assertIn('"verdict"', prompt, name)
-            self.assertIn('"findings"', prompt, name)
-            self.assertIn('"confidence"', prompt, name)
-
-class VerdictExtractionRepairTests(unittest.TestCase):
-    """EXTRACTION REPAIR (run 42346430906-1): string-aware balanced-object
-    scan; the LAST parseable object with a string 'verdict' wins. Fenced JSON
-    and prose survive; no-verdict shapes stay honestly UNPARSEABLE."""
-
-    def test_fenced_verdict_parsed(self):
-        text = ('Analysis here.\n\n```json\n'
-                '{"verdict": "ISSUES_FOUND", "findings": [{"kind": "absolutes", '
-                '"quote": "all five", "problem": "D5 not attempted", '
-                '"suggested_fix": "four of five"}], "confidence": "high"}\n```')
-        v = z_desk.parse_verdict(text)
-        self.assertEqual(v["verdict"], "ISSUES_FOUND")
-        self.assertEqual(v["confidence"], "high")
-        self.assertEqual(v["findings"][0]["kind"], "absolutes")
-
-    def test_prose_with_braces_then_final_verdict(self):
-        text = ('Metrics say { planned: 5 } in prose braces.\n\n'
-                'Final check:\\n{"verdict": "CLEAN", "findings": [], "confidence": "medium"}')
-        v = z_desk.parse_verdict(text)
-        self.assertEqual(v["verdict"], "CLEAN")
-        self.assertEqual(v["confidence"], "medium")
-
-    def test_last_verdict_object_wins(self):
-        text = ('{"verdict": "FIRST", "findings": []} middle '
-                '{"verdict": "SECOND", "findings": [], "confidence": "low"}')
-        v = z_desk.parse_verdict(text)
-        self.assertEqual(v["verdict"], "SECOND")
-
-    def test_braces_inside_strings_do_not_confuse_the_scan(self):
-        text = ('{"verdict": "ISSUES_FOUND", "findings": [{"kind": "other", '
-                 '"quote": "the set {5} was wrong", "problem": "brace in string", '
-                 '"suggested_fix": "none"}], "confidence": "low"}')
-        v = z_desk.parse_verdict(text)
-        self.assertEqual(v["verdict"], "ISSUES_FOUND")
-        self.assertEqual(v["findings"][0]["quote"], "the set {5} was wrong")
-
-    def test_object_without_verdict_key_still_unparseable(self):
-        # run 42346430906-1 man lane shape: fenced JSON, claim strings as keys.
-        text = ('```json\n{"All five accepted": "CONTRADICTED", '
-                 '"zero retries": "CONTRADICTED", "planned_slots": 5}\n```')
-        v = z_desk.parse_verdict(text)
-        self.assertEqual(v["verdict"], "UNPARSEABLE")
-        self.assertEqual(v["findings"], [])
-        self.assertIsNone(v["confidence"])
-
-
-if __name__ == "__main__":
-    unittest.main()
+        # negative / NaN / inf / bool costs are not valiܙ[و٘ٚ\ۜȘؙ؛ܝ[ȊL̌Kۛ؝
+ۘ[ȊKۛ؝
+ڛوʋݙJNYȘ[ܝٜʘYٛ݋[ٙ[Y\ܘYٜˈ۝ڙ\ˈؙXؙ؛ܝ
+Nٝ\ۈȝ^Έۚȋۛٙ[ܙ]\ۙYΈًۛܙ\ܛۜٗڙΈًۛȈݜؙوΈȘۜݗݜوΈؙݛݘ[ݛڙ[܈Έ__BȈڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ݝ\ȏH]
+\
+HȈٙ\ڈٜݛHי\ڋܝ[ʈٙ[[ȋșYو׋ȈșYوΈٛ[ٙ[ˈۘ[ȎȈۛ[ٙ[ߋȈԒQQˈK̋ݝ\ˈ[ܝٜϘ[ܝٜʂȈ[ٜȏHڜۛ˛ؙʞ
+HۜȞ[
+ݝ\ȋȈ؝\˚ܛۛʋܙXYݙ^
+[؛ٚ[ُHݝˎʋܜ][ٜʊWBȈٛ˘\ܙ\ݑ\]X[
+ٜݛȜݛ܈׋ٜܛ܈ʂȈٛ˘\ܙ\ݑ\]X[
+[ʖوۜșH[ț[ٜȚYșVȝ\H׈OH؛ۜݛ׊KJBȈٛ˘\ܙ\ݑ\]X[
+ٜݛȝݘ[ȗVȝ[ڛ۝ۗ؛ܝؘ[ȗKJBYȝ\ݗܚ[ۙ]Xژ\ؘݙ\כ[ٙ[ڙלٙݜٙ
+ٛʎț[ٙ[QȘ\و]KٜٝȜڙ[۝\ؙH
+Y\ؚڈٙۚYڝ̋]HڙJBȈۜȘؙ[ȊܚXȞˈ؎؈ˈɊ
+HˈؘȋވHˈؗ؈ʎڝٛ˘\ܙ\ݔؚ\ٜʕ؛YQ\ܛ܊Nי\ڋܝ[ʈٙ[[ȋșYو׋șYوΈؙۘ[ȎȈۛ[ٙ[ߋȈԒQQˈK̋ܝ[܋ۙ]ٜ˘ܙX]Yʂۘ\܈ٜ٘ۜК[ۙ[
+[ڝ\݋ՙ\ݐ؜يNѐӔєȏHӑQєȊݛٜ˜ݜYY
+NȌMș]ٛݜˈLȓ҈ȍTԓԋ	̎L̈و	KȂYȝ\ݗܙXٜۜלڙWܜۛ\טݜט[ٗ؛ۜݛۙ
+ٛʎ؜\ٙHׂYȘ[ܝٜʘYٛ݋[ٙ[Y\ܘYٜˈ۝ڙ\ʎ؜\ٙ؜[ي
+Yٛ݋Y\ܘYٜ֌WVȘۛݙ[݈׊JBȈٝ\ۈי\ڋٙ[[טۛܝ[
+Yٛ݋[ٙ[Y\ܘYٜˈ۝ڙ\ʂٜݛ[ٜˈڛ\ȏHݛי[[ʘ[ܝٜϘ[ܝٜˈٜ٘ۜϜٛ˔ѐӔєʂȈٛ˘\ܙ\ݑ\]X[
+ٜݛȜݛ܈׋؛ۜ]YʂȈٛ˘\ܙ\ݑ\]X[
+[ʘ؜\ٙ
+KʂȈۜȘYٛ݋ۛݙ[݈[Ș؜\ٙٛ˘\ܙ\ݒ[ʈєӕSшՕѐӔєȊݛٜ˜ݜYYȘ]]ܚ]]]وˈۛݙ[݊BȈٛ˘\ܙ\ݒ[ʈɌ̎L̈ˈۛݙ[݊BȈݘ\݈H[ٜ֌BȈٛ˘\ܙ\ݑ\]X[
+ݘ\ݖȜٜ٘ۜטژ\܈׋[ʜٛ˔ѐӔєʊBȈٛ˘\ܙ\ݑ\]X[
+ݘ\ݖȜٜ٘ۜלژL͍ȗKȈ\ڛX˜ژL͍ʜٛ˔ѐӔє˙[؛ٙJݝˎʊKڙ^Yٜ݊
+JBȈٛ˘\ܙ\ݒ[ʈќ۝[ً]ݝٜ٘ۜȋڛ\ֈ؛ۜݛۙ׊BȈٛ˘\ܙ\ݒ[ʈɌ̎L̈ˈڛ\ֈ؛ۜݛۙ׊BYȝ\ݗܙXٜۜטXܙ[ݗ؞WٙY؝[
+ٛʎٜݛ[ٜˈڛ\ȏHݛי[[ʊBȈݘ\݈H[ٜ֌BȈٛ˘\ܙ\ݑ\]X[
+ݘ\ݖȜٜ٘ۜטژ\܈׋
+BȈٛ˘\ܙ\ݒ\ӛۙJݘ\ݖȜٜ٘ۜלژL͍ȗJBȈٛ˘\ܙ\ݓ۝[ʈќ۝[ً]ݝٜ٘ۜȋڛ\ֈ؛ۜݛۙ׊BYȝ\ݗܙXܙ]ܙXٜۜלٙݜٙ
+ٛʎڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ڝٛ˘\ܙ\ݔؚ\ٜʕ؛YQ\ܛ܊Nי\ڋܝ[ʈٙ[[ȋșYو׋șYوΈٛ[ٙ[ߋԒQQˈK̋Ȉ]
+\
+HȈۙ]ٜȋٜ٘ۜψݛڙ[șڜȈ
+ȈЈȊȌ̊BYȝ\ݗٛ\WܙXٜۜלٙݜٙ
+ٛʎڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ڝٛ˘\ܙ\ݔؚ\ٜʕ؛YQ\ܛ܊Nי\ڋܝ[ʈٙ[[ȋșYو׋șYوΈٛ[ٙ[ߋԒQQˈK̋Ȉ]
+\
+HȈۙ]ٜȋٜ٘ۜψȈʂۘ\܈ڙ\XӘ[ٕ\ݜʝ[ڝ\݋ՙ\ݐ؜يNȈҙ[\Ȝٛ[Z[؜ڙ\Ȋݛٜ˙ۈ̌͋LLKLʎȝH\وۛܝ[Yٛ݋Ȉۘ\܋XYۛܝXȘވ\ڙێȘH֔ՑSWԔӓTș[ݜވ
+Ș[ȐQѓՔȜۛ݋ȕBȈ٘]\ȘڙX\\ۘ[وۙNȘ]Y]ژ\K۝H٘]ȈȂYȝ\ݗܚٜXי[[לݛטۛ\]\ʜٛʎٜݛ[ٜˈڛ\ȏHݛי[[ʘYٛݜϊܚٜXȋ
+JBȈٛ˘\ܙ\ݑ\]X[
+ٜݛȜݛ܈׋؛ۜ]YʂȈۛܝ[ȏHوۜșH[ț[ٜȚYșVȝ\H׈OH؛ۜݛׂȈٛ˘\ܙ\ݑ\]X[
+ٖȘY݈ٛ׈ۜșH[Șۛܝ[׋Ȝڙ\XȗJBȈٛ˘\ܙ\ݒ[ʈܚٜXȋڛ\ֈ؛ۜݛۙ׊BYȝ\ݗ؛ݚٙWؙٛݜלݛʜٛʎڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ݝ\ȏH]
+\
+HȈٙ\ڈ[ٙ[ȏHșYوΈٛ[ٙ[ˈۘ[ȎȈۛ[ٙ[ˈܚٜXȎȈܛ[ٙ[߂ȈٜݛHי\ڋܝ[ʈٙ[[ȋșYوˈۘ[ȋܚٜXȗK[ٙ[˂ȈԒQQˈK̋ݝ\ˈXُHۙوʂȈٛ˘\ܙ\ݑ\]X[
+ٜݛȘYٛݜȗKșYوˈۘ[ȋܚٜXȗJBȈٛ˘\ܙ\ݑ\]X[
+ٜݛȜݛ܈׋؛ۜ]YʂYȝ\ݗۚ\ܚ[ٗܚٜXכ[ٙ[ܙYݜٙ
+ٛʎڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ڝٛ˘\ܙ\ݔؚ\ٜʕ؛YQ\ܛ܊H\Șݞי\ڋܝ[ʈٙ[[ȋȜڙ\XȗKșYوΈوˈۘ[ȎȈۈߋȈԒQQˈK̋]
+\
+HȈۙ]ٜȊBȈٛ˘\ܙ\ݒ[ʈܚٜXȋݜʘݞٞٜ[ۊJBYȝ\ݗܚٜXך[טYٛݜלٙڜݜފٛʎٛ˘\ܙ\ݒ[ʈܚٜXȋי\ڋБѓՔʂȈٛ˘\ܙ\ݒ[ʈܚٜXȋי\ڋԖTՑSWԔӓTʂȈٛ˘\ܙ\ݒ[ʈѐSыPՕPӓԒTՑSՈˈי\ڋԒєPה֔ՑSJBYȝ\ݗؘYؙٛݗܝ[ܙYݜٙ
+ٛʎڝ[\ܘ\ޑ\٘ݛܞJ
+H\ȝ\ڝٛ˘\ܙ\ݔؚ\ٜʕ؛YQ\ܛ܊Nי\ڋܝ[ʈٙ[[ȋșژؙ\ڜڈ׋șYوΈوߋԒQQˈK̋Ȉ]
+\
+HȈۙ]ٜȊB؛\܈X[Ԝۛ\ؚ[XU\ݜʝ[ڝ\݋ՙ\ݐ؜يNȈԝ[ȍ̍͌̎LˌH
+̌͋LLKLˈڛȘ\ۊNșYو[وڙ\XȜܙ[Z\ٜٚX݈ԓӈؚ[XH[ȝHޜݙ[Hۛ\țX[ɜȜۛ\ۛHؚYܘ[YH\[ݜȘۛXYݙHYوȸ%[وX[ɜț]وٜH[ٙYڝHؙٛYԓӂȈؚ݈٘]Yۈݙ\ٚX݈ȚٞKȕHؚ[XH\ț۝ț]\؛[Ș[ٙKȈȂYȝ\ݗ؛ݚٙWܜۛ\לܙ[ݚWܘڙ[XJٛʎۜț؛YKۛ\[Ȟי\ڋԖTՑSWԔӓT˚][\ʊNٛ˘\ܙ\ݒ[ʉȝٜٚX݈ɋۛ\؛YJBȈٛ˘\ܙ\ݒ[ʉșڛٚ[ٜȉˈۛ\؛YJBȈٛ˘\ܙ\ݒ[ʉȘۛٚY[ؙHɋۛ\؛YJB؛\܈ٜٚXݑ^ؘݚ[۔ٜZ\ՙ\ݜʝ[ڝ\݋ՙ\ݐ؜يNȈіАՒSӈєRTȊݛȍ̍͌̎LˌJNȜݜڛًX]؜و؛[ؙY[ؚ݂٘Ȉؘ[ΈHTՈ\ܙXXۙHؚ݈٘ڝHݜڛو	ݙ\ٚX݉ȝڛ܋ȑؙٛYԓӂȈ[وۜوݜݚ]َțۋ]ٜٚX݈ژ\\Ȝݘ^Hۙ\ݛHSԐTԑPPӑKȈȂYȝ\ݗٙ[ؙYݙ\ٚXݗܘ\ܙY
+ٛʎ^H
+	Л؛\ڜȚ\ًככؘܛۗɂȈ	ވݙ\ٚX݈ΈҔԕQTבӕSшˈٚ[ٚ[ٜȎȖވښ[وΈؘܛ۝]\ȋ		Ȝ][ݙHΈ؛ڝوˈܜۘۙ[HΈэH۝][\Yˈ		Ȝݙٙ\ݙYٚ^ΈٛݜțوڝوߗK؛ۙڙ[ؙHΈښYڈߗؘ	ʂȈȏHי\ڋܘ\ܙWݙ\ٚX݊^
+BȈٛ˘\ܙ\ݑ\]X[
+ֈݙ\ٚX݈׋ҔԕQTבӕSшʂȈٛ˘\ܙ\ݑ\]X[
+ֈ؛ۙڙ[ؙH׋ښYڈʂȈٛ˘\ܙ\ݑ\]X[
+ֈٚ[ٚ[ٜȗV̗VȚڛو׋ؘܛ۝]\ȊBYȝ\ݗܜۜٗݚ]؜ؘٜם[יڛ؛ݙ\ٚX݊ٛʎ^H
+	ә]ژ܈؞HȜ[ۙYȍHH[ȜۜوܘXٜ˗כɂȈ	њ[؛ڙXڎכވݙ\ٚX݈ΈГPSȋٚ[ٚ[ٜȎȖ׋؛ۙڙ[ؙHΈۙY][H߉ʂȈȏHי\ڋܘ\ܙWݙ\ٚX݊^
+BȈٛ˘\ܙ\ݑ\]X[
+ֈݙ\ٚX݈׋ГPSȊBȈٛ˘\ܙ\ݑ\]X[
+ֈ؛ۙڙ[ؙH׋ۙY][HʂYȝ\ݗۘ\ݗݙ\ٚXݗۘڙXݗݚ[܊ٛʎ^H
+	ވݙ\ٚX݈ΈђTԕˈٚ[ٚ[ٜȎȖןHZYH		ވݙ\ٚX݈ΈԑPӓшˈٚ[ٚ[ٜȎȖ׋؛ۙڙ[ؙHΈ݈ۛ߉ʂȈȏHי\ڋܘ\ܙWݙ\ٚX݊^
+BȈٛ˘\ܙ\ݑ\]X[
+ֈݙ\ٚX݈׋ԑPӓшʂYȝ\ݗ؜ؘٜך[ܚYWܝڛٜיכ۝؛ۙݜٗݚWܘ؛ʜٛʎ^H
+	ވݙ\ٚX݈ΈҔԕQTבӕSшˈٚ[ٚ[ٜȎȖވښ[وΈ۝\ȋ		Ȝ][ݙHΈݚHٝ͟H؜ȝܛۙȋܜۘۙ[HΈ؜ؘو[Ȝݜڛوˈ		Ȝݙٙ\ݙYٚ^ΈۛۙHߗK؛ۙڙ[ؙHΈ݈ۛ߉ʂȈȏHי\ڋܘ\ܙWݙ\ٚX݊^
+BȈٛ˘\ܙ\ݑ\]X[
+ֈݙ\ٚX݈׋ҔԕQTבӕSшʂȈٛ˘\ܙ\ݑ\]X[
+ֈٚ[ٚ[ٜȗV̗VȜ][ݙH׋ݚHٝ͟H؜ȝܛۙȊBYȝ\ݗۘڙXݗݚ]ݝݙ\ٚXݗڙ^Wܝ[ݛܘ\ܙXXۙJٛʎȜݛȍ̍͌̎LˌHX[ț[وژ\NșؙٛYԓӋۘZ[HݜڛٜȘ\Țٞ\˂Ȉ^H
+	ؘܛۗވЛڝوXؙ\YΈГӕБPՑQˈ		Ȟٜۈٝڙ\ȎȈГӔБPՑQˈܛ[ۙYܛݜȎȍ_Wؘ	ʂȈȏHי\ڋܘ\ܙWݙ\ٚX݊^
+BȈٛ˘\ܙ\ݑ\]X[
+ֈݙ\ٚX݈׋ՓԐTԑPPӑHʂȈٛ˘\ܙ\ݑ\]X[
+ֈٚ[ٚ[ٜȗK׊BȈٛ˘\ܙ\ݒ\ӛۙJֈ؛ۙڙ[ؙH׊BYȗכ؛YW׈OHחۘZ[חȎ[ڝ\݋ۘZ[ʊB
