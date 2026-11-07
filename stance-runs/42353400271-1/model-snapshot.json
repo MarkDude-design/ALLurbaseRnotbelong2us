@@ -1,0 +1,11 @@
+[
+  {
+    "id": "liquid/lfm-2.5-2.6b:free",
+    "name": "LiquidAI: LFM2.5-2.6B (free)",
+    "context_length": 65536,
+    "pricing": {
+      "prompt": "0",
+      "completion": "0"
+    }
+  }
+]
