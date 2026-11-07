@@ -5,6 +5,12 @@ name: Island — free model interview waves (Nov 2026)
 # Synthetic prompts and raw results are PUBLIC in this repository.
 # Only Nov 9, 11, 13 in 2026 are eligible for scheduled model calls.
 on:
+  pull_request:
+    paths:
+      - 'scripts/island_model_interviews.py'
+      - 'tests/test_island_model_interviews.py'
+      - 'research/island-interviews/**'
+      - '.github/workflows/island-model-interviews.yml'
   workflow_dispatch:
     inputs:
       wave:
@@ -34,8 +40,19 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  offline-tests:
+    if: ${{ github.event_name == 'pull_request' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_island_model_interviews.py' -v
+
   questionnaire:
-    if: ${{ vars.ISLAND_INTERVIEWS_STOP != 'true' }}
+    if: ${{ github.event_name != 'pull_request' && vars.ISLAND_INTERVIEWS_STOP != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
