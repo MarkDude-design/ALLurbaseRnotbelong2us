@@ -11,7 +11,7 @@ import urllib.error
 import urllib.request
 from island_model_interviews import (
     BASE, request_json, choose_models, append_event, as_float, extract_text,
-    should_stop_on_empty_output
+    should_stop_on_empty_output, safe_http_error_excerpt
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -153,7 +153,7 @@ def main():
             counts["error"] += 1
             if exc.code == 429:
                 counts["rate_limited"] += 1
-            body = exc.read(800).decode("utf-8", errors="replace")
+            body = safe_http_error_excerpt(exc.read(800), exc.code)
             append_event(events, {
                 "type": "http_error", "id": request_id, "status": exc.code,
                 "body_excerpt": body, "latency_s": round(time.monotonic()-last_started,2)
