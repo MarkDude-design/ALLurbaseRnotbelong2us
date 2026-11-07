@@ -1,0 +1,4 @@
+{"first_speaker": "A", "history_chars": 28000, "max_cost_usd": 1.0, "mode": "live", "models": {"A": "mistralai/mistral-medium-3.5", "B": "mistralai/mistral-medium-3.5"}, "pace": "half", "providers": {"A": "", "B": ""}, "run_id": "action-42347489160-1-10bfd320", "topic": "Emergence versus calibration: where should we begin?", "turns_requested": 4, "type": "start", "utc": "2026-11-07T06:32:52+00:00"}
+{"attempt": 1, "cost_status": "UNKNOWN", "cost_usd": null, "model_requested": "mistralai/mistral-medium-3.5", "response_id": null, "seq": 1, "speaker": "A", "type": "cost_receipt", "utc": "2026-11-07T06:32:52+00:00"}
+{"error": "OpenRouter HTTP 400", "seq": 1, "speaker": "A", "type": "error", "utc": "2026-11-07T06:32:52+00:00"}
+{"reason": "error", "totals": {"completion_tokens": 0, "cost_usd": 0.0, "prompt_tokens": 0, "total_tokens": 0, "unknown_cost_calls": 1}, "turns": 0, "type": "stop", "utc": "2026-11-07T06:32:52+00:00"}
