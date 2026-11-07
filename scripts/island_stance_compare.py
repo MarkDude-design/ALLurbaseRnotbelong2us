@@ -77,6 +77,7 @@ def main():
         raise SystemExit("STOP: insufficient free text models in catalog; do not substitute paid IDs")
     questions = plan_comparisons(models, roles, scenarios)
     stop_reason = "completed"
+    empty_streak = 0
     last_started = None
     failed_models = set()
     for model, role, scenario in questions:
@@ -101,7 +102,7 @@ def main():
         payload = {"model": model["id"], "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user}],
-            "temperature": 0.5, "max_tokens": 300}
+            "temperature": 0.5, "max_tokens": 1024, "reasoning": {"effort": "low"}}
         counts["attempted"] += 1
         append_event(events, {
             "type": "attempt", "id": request_id, "model_requested": model["id"],
@@ -119,6 +120,9 @@ def main():
             counts["answered"] += 1
             if not answer.strip():
                 counts["empty"] += 1
+                empty_streak += 1
+            else:
+                empty_streak = 0
             if cost is None:
                 counts["unknown_cost"] += 1
             else:
@@ -128,6 +132,8 @@ def main():
                 "model_returned": response.get("model"), "stance": role["id"],
                 "scenario_id": scenario["id"], "answer": answer, "usage": usage,
                 "response_id": response.get("id"), "cost_status": "UNKNOWN" if cost is None else "KNOWN",
+                "visible_text_present": bool(answer.strip()),
+                "finish_reason": ((response.get("choices") or [{}])[0]).get("finish_reason"),
                 "latency_s": round(time.monotonic()-last_started,2),
                 "at": dt.datetime.now(dt.timezone.utc).isoformat()
             })
@@ -138,6 +144,9 @@ def main():
                 break
             if cost is not None and cost > 0:
                 stop_reason = "STOP: nonzero charge returned for catalog-verified free endpoint"
+                break
+            if empty_streak >= 2:
+                stop_reason = "STOP: two consecutive empty visible replies; output format or token budget"
                 break
         except urllib.error.HTTPError as exc:
             counts["error"] += 1
