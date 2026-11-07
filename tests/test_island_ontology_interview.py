@@ -42,14 +42,14 @@ class OntologyInterviewTests(unittest.TestCase):
                     "architecture":{"input_modalities":["text"],"output_modalities":["text"]}}
         catalog = {"data":[
             model("liquid/lfm-2.5-2.6b:free"),
-            model("liquid/lfm3-1.7b:free"),
+            model("liquid/lfm-3-1.7b:free"),
             model("google/gemma-4-26b-a4b-it:free"),
             model("paid/model", price=".01")
         ]}
         selected = ontology.choose_interview_models(
             catalog,2,excluded=[ontology.KNOWN_UPSTREAM_429])
         self.assertEqual([m["id"] for m in selected],
-                         ["liquid/lfm3-1.7b:free","google/gemma-4-26b-a4b-it:free"])
+                         ["liquid/lfm-3-1.7b:free","google/gemma-4-26b-a4b-it:free"])
 
     def test_usage_is_whitelisted_for_public_receipt(self):
         usage={"prompt_tokens":19,"completion_tokens":20,"cost":0,
