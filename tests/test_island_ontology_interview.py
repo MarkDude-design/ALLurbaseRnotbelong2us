@@ -51,6 +51,21 @@ class OntologyInterviewTests(unittest.TestCase):
         self.assertEqual([m["id"] for m in selected],
                          ["liquid/lfm-3-1.7b:free","google/gemma-4-26b-a4b-it:free"])
 
+    def test_new_free_model_not_lost_to_short_catalog_cutoff(self):
+        fake = [{"id":"aaa/filler-%02d:free" % i,
+                 "pricing":{"prompt":"0","completion":"0","request":"0"},
+                 "architecture":{"input_modalities":["text"],"output_modalities":["text"]}}
+                for i in range(20)]
+        fake.append({"id":"liquid/lfm-3-1.7b:free",
+                     "pricing":{"prompt":"0","completion":"0","request":"0"},
+                     "architecture":{"input_modalities":["text"],"output_modalities":["text"]}})
+        fake.append({"id":"charge/surprise:free",
+                     "pricing":{"prompt":"0","completion":"0","request":"0.1"},
+                     "architecture":{"input_modalities":["text"],"output_modalities":["text"]}})
+        chosen = ontology.choose_interview_models({"data":fake},2)
+        self.assertEqual(chosen[0]["id"],"liquid/lfm-3-1.7b:free")
+        self.assertNotIn("charge/surprise:free",[m["id"] for m in chosen])
+
     def test_usage_is_whitelisted_for_public_receipt(self):
         usage={"prompt_tokens":19,"completion_tokens":20,"cost":0,
                "completion_tokens_details":{"reasoning_tokens":15,"user_id":"NOPE"},
