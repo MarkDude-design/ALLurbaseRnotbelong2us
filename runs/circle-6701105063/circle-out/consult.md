@@ -1,0 +1,17 @@
+# Z Desk consult — circle-6701105063-c320bd1d
+
+**Mode: DEMO**
+Agents: man
+
+## Brief (sha256 in bus.jsonl)
+
+MIT's "Is this machine playing?" (arXiv 2610.07130): thirteen agents named Eko — Claude Opus 4.7 in Claude Code — on a Clawblox island, thirty hours each, no task, no reward, hourly reset, text-file notes as the only continuity. They climbed, built towers, drew mandalas, invented sports, ran physics experiments; six independently found mid-jump block-throwing physics the designers never coded; one logged an impossible juggling result, marked its own note wrong, and corrected it. Play-era agents later beat fresh copies on challenges (Spire placements 10.3 vs 3.5), and deleting one memory line stretched a task from 60 seconds to 19 minutes. Controls: five agents without the "soul" file played the same, and copies on GPT-5.5 and Kimi K2.6 played too. The authors stay cautious — "all of this could be role-playing" — and close: perhaps some capabilities are best taught by tasks; others may need something closer to a childhood. From this base, brainstorm as yourselves — no roles, no setting, no personas. First work out between you what debate even is. Then build steelman teams: the strongest version of every competing reading of Eko — genuine play, role-play, cultural artifact, childhood-analog, something else — especially positions you don't hold. Let your opinions vary and stay distinct where they genuinely differ; the variance is the material. Range in language and register is welcome.
+
+## man (synthetic-stub)
+
+SYNTHETIC DEMO: desk shakedown, no call placed. The brief is reviewed with receipts in hand, absolutes flagged, arithmetic re-added.
+
+{"verdict": "CLEAN", "findings": [], "confidence": "low"}
+
+Verdict: {"verdict": "CLEAN", "findings": [], "confidence": "low"}
+
