@@ -1,0 +1,21 @@
+{
+  "version": "island-stance-v1",
+  "models": [
+    "liquid/lfm-2.5-2.6b:free"
+  ],
+  "cases_per_model": 12,
+  "counts": {
+    "attempted": 6,
+    "answered": 5,
+    "empty": 0,
+    "error": 1,
+    "rate_limited": 1,
+    "unknown_cost": 0,
+    "known_cost_usd": 0.0
+  },
+  "stop_reason": "STOP: provider returned HTTP 429",
+  "skipped_model_ids": [],
+  "quota_note": "Each attempted POST may consume provider allowance, including errors",
+  "cost_note": "Usage is response-reported; provider dashboard not independently reconciled",
+  "island_note": "Independent one-shot fictional prompts, not a long-running shared-memory island"
+}
