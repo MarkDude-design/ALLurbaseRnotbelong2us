@@ -117,17 +117,17 @@ def _json_object_spans(text):
             elif ch == '"':
                 in_str = False
             continue
-            if ch == '"':
-                in_str = True
-            elif ch == "{":
+        if ch == '"':
+            in_str = True
+        elif ch == "{":
+            if depth == 0:
+                start = i
+            depth += 1
+        elif ch == "}":
+            if depth:
+                depth -= 1
                 if depth == 0:
-                    start = i
-                depth += 1
-             elif ch == "}":
-                if depth:
-                    depth -= 1
-                    if depth == 0:
-                        spans.append((start, i + 1))
+                    spans.append((start, i + 1))
     return spans
 
 
@@ -280,7 +280,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
                 fr = response.get("finish_reason") if isinstance(response, dict) else None
                 emit({"type": "error", "utc": now(), "agent": agent,
                       "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
-                                       + (f" [finish_reason: {fr}]" if fr else ""))})
+                               + (f" [finish_reason: {fr}]" if fr else "")})
                 continue
             emit({"type": "consult", "utc": now(), "agent": agent, "text": text,
                   "model_requested": models[agent],
@@ -338,7 +338,7 @@ def main():
                         help="optional ground-truth records for a truth-audit (PUBLIC bus)")
     parser.add_argument("--max-cost-usd", type=float, default=1.0)
     parser.add_argument("--outdir", default="runs/z-desk-"
-                        + datetime.now(timezone.utc).strtime("%Y%m%d%H%M%SZ"))
+                       + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
     args = parser.parse_args()
     brief = args.brief
     if args.brief_file:
