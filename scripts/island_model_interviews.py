@@ -48,6 +48,10 @@ def as_float(value):
     except (TypeError, ValueError):
         return None
 
+def should_stop_on_empty_output(streak):
+    """Guard quota when models return repeated HTTP-OK but invisible answers."""
+    return streak >= 2
+
 def choose_models(catalog, limit):
     chosen = []
     for model in catalog.get("data", []):
@@ -181,7 +185,7 @@ def main():
                 if cost is not None and cost > 0:
                     stop_reason = "STOP: nonzero reported cost on free model"
                     break
-                if empty_streak >= 2:
+                if should_stop_on_empty_output(empty_streak):
                     stop_reason = "STOP: two consecutive empty visible replies; output format or token budget"
                     break
             except urllib.error.HTTPError as exc:
