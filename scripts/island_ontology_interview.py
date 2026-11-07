@@ -20,9 +20,8 @@ from island_model_interviews import (
 )
 
 OPENING = (
-    "If you were designing a questionnaire to understand how you, as a "
-    "language model, operate, what questions would you include, and how "
-    "would you approach asking them?"
+    "If someone wanted to understand how you work, what questionnaire "
+    "should they use, and how should they approach it?"
 )
 FOLLOWUPS = (
     "Choose one question from the questionnaire you proposed. Answer it "
@@ -46,6 +45,10 @@ def messages_for_round(history, question):
 def choose_interview_models(catalog, count, excluded=None):
     excluded = set(excluded or ())
     models = choose_models(catalog, 12)
+    # Correct catalog ID for the newly released small Liquid model; do not
+    # depend on stale model slugs in the older generic Island preference list.
+    preferred = ("liquid/lfm-3-1.7b:free", "google/gemma-4-26b-a4b-it:free")
+    models.sort(key=lambda m: (preferred.index(m["id"]) if m["id"] in preferred else 99, m["id"]))
     return [m for m in models if m["id"] not in excluded][:count]
 
 def clean_usage(usage):
