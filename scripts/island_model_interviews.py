@@ -79,6 +79,26 @@ def append_event(path, event):
         handle.flush()
         os.fsync(handle.fileno())
 
+def safe_http_error_excerpt(raw, status):
+    """Allowlist provider error diagnostics; never publish raw account metadata."""
+    try:
+        value = json.loads(raw.decode("utf-8", errors="replace"))
+    except (ValueError, AttributeError):
+        value = {}
+    root = value.get("error") if isinstance(value, dict) else {}
+    root = root if isinstance(root, dict) else {}
+    metadata = root.get("metadata") or {}
+    metadata = metadata if isinstance(metadata, dict) else {}
+    clean = {"http_status": status}
+    for key in ("provider_name", "provider_error_code", "limit_source"):
+        val = metadata.get(key)
+        if isinstance(val, str) and len(val) <= 80 and all(c.isalnum() or c in "_-. /" for c in val):
+            clean[key] = val
+    delay = metadata.get("retry_after_seconds")
+    if isinstance(delay, (int, float)) and 0 <= delay <= 3600:
+        clean["retry_after_seconds"] = delay
+    return json.dumps(clean, sort_keys=True)
+
 def extract_text(response):
     choices = response.get("choices") or []
     if not choices:
@@ -192,7 +212,7 @@ def main():
                 counts["error"] += 1
                 if exc.code == 429:
                     counts["429"] += 1
-                msg = exc.read(1200).decode("utf-8", errors="replace")
+                msg = safe_http_error_excerpt(exc.read(1200), exc.code)
                 append_event(events, {"type": "http_error", "id": rid, "status": exc.code,
                                       "body_excerpt": msg, "model_requested": model["id"],
                                       "elapsed_s": round(time.monotonic()-last_started, 2)})
