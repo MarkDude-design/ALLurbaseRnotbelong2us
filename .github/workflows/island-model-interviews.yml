@@ -70,6 +70,8 @@ jobs:
           echo "enabled=true" >> "$GITHUB_OUTPUT"
           echo "wave=$WAVE" >> "$GITHUB_OUTPUT"
           echo "attempts=$ATTEMPTS" >> "$GITHUB_OUTPUT"
+      - name: Test model-selection guards and frozen panels without API calls
+        run: python -m unittest discover -s tests -p 'test_island_model_interviews.py' -v
       - name: Execute bounded free-only interview panel
         if: ${{ steps.choose.outputs.enabled == 'true' }}
         env:
