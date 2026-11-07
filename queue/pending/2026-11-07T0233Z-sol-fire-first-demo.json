@@ -1,0 +1,10 @@
+{
+  "brief": "PUBLIC SAFE SYNTHETIC Z DESK CHECKOUT TEST. Two agents may simultaneously want the same library card, but only one successful committed claim authorizes a review. Inspect the idea of a single-winner claim, point out how to verify it with commit receipts, and name one uncertainty when execution is not observed. This is DEMO ONLY: no provider calls, no real person, no private ledger, no operational action.",
+  "mode": "demo",
+  "agents": "both",
+  "cap": 0.25,
+  "pace": "half",
+  "records": "FIXTURE ONLY: Two simulated workers read the same fictional available card; expected accepted checkout count is exactly 1 and rejected count exactly 1. Do not claim that this fixture proves a real GitHub race was executed.",
+  "not_before": "",
+  "requested_by": "Sol/Meraki owner-directed fire-first audit"
+}
