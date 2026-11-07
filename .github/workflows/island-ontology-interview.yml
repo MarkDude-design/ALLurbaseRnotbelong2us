@@ -1,0 +1,111 @@
+name: Island — Vanilla Ontology Interview (manual, free)
+
+# One owner-click manual wave. First message has no system/developer/persona
+# instruction and no Island/notebook priming. Three turns per model max.
+# PR tests make zero OpenRouter requests. No schedule, paid fallback or retries.
+on:
+  workflow_dispatch:
+    inputs:
+      model_count:
+        description: 'Interview 1, 2, or 3 independently selected free text models (3 turns each)'
+        required: true
+        type: choice
+        options: ['1', '2', '3']
+        default: '1'
+      confirm_free:
+        description: 'Type yes to use up to 3 free-model calls per selected model'
+        required: true
+        type: string
+        default: 'no'
+  pull_request:
+    paths:
+      - 'scripts/island_ontology_interview.py'
+      - 'tests/test_island_ontology_interview.py'
+      - 'research/island-interviews/ONTOLOGY-FIRST.md'
+      - '.github/workflows/island-ontology-interview.yml'
+
+concurrency:
+  group: island-ontology-questions-${{ github.repository }}
+  cancel-in-progress: false
+
+jobs:
+  offline-tests:
+    if: ${{ github.event_name == 'pull_request' }}
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check unframed first prompt, isolated session history, free roster
+        run: python -m unittest discover -s tests -p 'test_island_ontology_interview.py' -v
+
+  interview:
+    if: ${{ github.event_name == 'workflow_dispatch' && vars.ISLAND_INTERVIEWS_STOP != 'true' }}
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Owner gate and offline sanity check
+        env:
+          CONFIRM: ${{ inputs.confirm_free }}
+          COUNT: ${{ inputs.model_count }}
+        run: |
+          set -euo pipefail
+          [ "${CONFIRM,,}" = "yes" ] || { echo "Owner did not confirm. No model calls."; exit 1; }
+          case "$COUNT" in 1|2|3) ;; *) echo "Model count is limited to 1..3"; exit 1 ;; esac
+          python -m unittest discover -s tests -p 'test_island_ontology_interview.py' -v
+      - name: Interview live-catalog zero-price models, sequentially, no retries
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          ALLOW_FREE_ONTOLOGY_INTERVIEW: 'YES'
+          COUNT: ${{ inputs.model_count }}
+        run: |
+          python scripts/island_ontology_interview.py \
+            --model-count "$COUNT" \
+            --skip-recently-limited \
+            --min-gap-seconds 8 \
+            --max-seconds 900 \
+            --outdir "ontology-runs/$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+      - name: Archive available results and errors even if the run STOPs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: island-ontology-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ontology-runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish synthetic public receipts to the bus branch
+        if: always()
+        run: |
+          set -e
+          if [ ! -d ontology-runs ] || [ -z "$(ls -A ontology-runs 2>/dev/null)" ]; then
+            echo "No run evidence; manual gate may have stopped before API."
+            exit 0
+          fi
+          cp -r ontology-runs /tmp/ontology-run-out
+          rm -rf ontology-runs
+          git config user.name 'ontology-interview-bot'
+          git config user.email 'actions@users.noreply.github.com'
+          git fetch origin bus
+          git switch bus
+          mkdir -p ontology-runs
+          cp -r /tmp/ontology-run-out/. ontology-runs/
+          git add ontology-runs
+          git diff --cached --quiet && exit 0
+          git commit -m "bus: ontology interview run ${{ github.run_id }} attempt ${{ github.run_attempt }}"
+          for i in 1 2 3; do
+            if git push origin bus; then exit 0; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          echo "BUS PUSH CONFLICT: GitHub Actions artifact still retains results"
+          exit 1
