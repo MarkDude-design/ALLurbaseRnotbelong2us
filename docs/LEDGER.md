@@ -61,6 +61,7 @@ read secondarily, implied by context.
       roadblock). Owner: Z.
 
 ## PARKED
+- [ ] **Personalized art-talk website / branching idea garden (2026-11-07): PARKED for private development.** Canonical editorial work lives in private [art-talk website index](https://github.com/MarkDude-design/art-talk/blob/main/website/README.md) and [idea index](https://github.com/MarkDude-design/art-talk/blob/main/website/IDEA-INDEX.md); existing [experimental Git branch](https://github.com/MarkDude-design/art-talk/tree/experiment/kendrick-drake-kinkade-steelman-2026-11-07) hosts offline alternate performances. User wants many personalized *visitor routes* and future independent Git branches, but not a live public site yet. Three boxes: ideas / experiments / selected. Owner: Mark; art editorial: Meraki; Z review offered, not accepted. No public deployment or paid model-call verification. Next: independently review three track models and do phone usability test; develop branches when they earn independence.
 - [ ] Bulk-cheap lane: gpt-6-luna (~300x cheaper than sol; real pricing
       in hand) — awaiting Mark's speed/cost specifics. Owner: Z.
 - [ ] Local-host variant: headless runner on own hardware (island is
