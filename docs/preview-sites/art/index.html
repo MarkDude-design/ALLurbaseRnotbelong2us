@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Before the Name — an art encounter</title>
+<meta name="description" content="A small, interactive, source-aware preview of an art, AI, and attribution talk.">
+<style>
+:root{color-scheme:light;--paper:#f8f7f3;--ink:#242a36;--muted:#536174;--line:#ced5dd;--blue:#274a77;--sand:#eae5db}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}
+body::before{content:"";display:block;height:6px;background:linear-gradient(90deg,#365983 33%,#d1b57e 33% 67%,#8c9b87 67%)}
+main{max-width:840px;margin:0 auto;padding:1.3rem 1rem 3rem}
+header{padding:2rem 0 1rem}h1,h2{font-family:Georgia,serif;line-height:1.2}h1{font-size:clamp(2.2rem,6vw,3.6rem);margin:.25rem 0 .6rem}h2{font-size:clamp(1.6rem,4vw,2.3rem);margin:.3rem 0 .9rem}
+.eyebrow{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800;color:var(--blue)}
+.lede{max-width:650px;color:var(--muted);font-size:1.06rem}
+small,.muted{color:var(--muted)}a{color:#234d7e}
+.dots{display:flex;gap:.35rem;flex-wrap:wrap;padding:.6rem 0 1.3rem}
+.chip{background:transparent;border:1px solid #9eadbb;color:var(--ink);border-radius:999px;padding:.45rem .75rem;cursor:pointer;font-size:.85rem}
+.chip.active{background:#274a77;color:white}
+.stage{background:white;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 5px 20px #2533410c}
+.visual{height:225px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:linear-gradient(145deg,#eee9e0,#e4eaf2)}
+.visual::after{content:"";position:absolute;width:280px;height:280px;border:2px solid #536b83;border-radius:50%;transform:translate(105px,-25px);opacity:.3}
+.visual .glyph{font-family:Georgia,serif;font-style:italic;font-size:clamp(4rem,15vw,8rem);color:#324c66;z-index:1}
+.visual .frame{position:absolute;width:145px;height:185px;border:6px solid #b9a07a;transform:rotate(-11deg);box-shadow:8px 9px 0 #0000000a}
+.content{padding:1.5rem clamp(1rem,4vw,2.5rem) 1.5rem}
+.kicker{color:var(--blue);font-weight:800;letter-spacing:.08em;font-size:.78rem;text-transform:uppercase}
+.question{padding:1rem 1.15rem;border-left:3px solid #aa8c5e;background:#f5f3ee;font-family:Georgia,serif;font-size:1.15rem;margin:1rem 0}
+.proandcon{display:grid;grid-template-columns:1fr 1fr;gap:.7rem}
+.proandcon article{padding:.9rem;background:#f4f6f7;border-radius:12px}
+.proandcon strong{display:block;margin-bottom:.35rem;font-size:.88rem}
+details{margin-top:1rem;border-top:1px solid var(--line);padding-top:.6rem}summary{font-weight:700;cursor:pointer;min-height:44px}
+.controls{display:flex;justify-content:space-between;gap:1rem;align-items:center;margin-top:1rem}
+button.nav{min-width:105px;padding:.7rem 1rem;border:0;border-radius:12px;background:var(--blue);color:#fff;font:inherit;font-weight:700;cursor:pointer}
+#progress{font-variant-numeric:tabular-nums;color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-top:1rem;color:var(--muted);font-size:.88rem;margin-top:2rem}
+button:focus-visible,summary:focus-visible,a:focus-visible{outline:3px solid #2163a9;outline-offset:3px}
+@media(max-width:620px){.proandcon{grid-template-columns:1fr}.visual{height:190px}.content{padding:1.1rem}.dots{gap:.3rem}.chip{padding:.38rem .6rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style></head>
+<body><main><header><span class="eyebrow">Art / AI / Attribution — an experimental front door</span><h1>Before the Name</h1>
+<p class="lede">A small encounter with art, judgment, making and credit. Browse seven ideas in any order; none requires you to agree. The fuller research lives behind the questions, not in your way.</p>
+<p class="muted">Static preview · original graphics · no cookies, account, AI calls, analytics or music playback.</p>
+</header>
+<nav class="dots" id="routes" aria-label="Choose an encounter"></nav>
+<section class="stage" aria-labelledby="slideTitle">
+<div class="visual" aria-hidden="true"><div class="frame"></div><span class="glyph" id="glyph">?</span></div>
+<div class="content">
+<div class="kicker" id="kicker">An encounter</div>
+<h2 id="slideTitle">A small card</h2>
+<p id="description"></p>
+<div class="question" id="question"></div>
+<div class="proandcon"><article><strong>A case for it</strong><div id="case"></div></article><article><strong>Worth objecting to</strong><div id="objection"></div></article></div>
+<details><summary>Sources and limits</summary><div id="sources"></div></details>
+</div></section>
+<div class="controls"><button class="nav" id="prev" type="button">← Back</button><span id="progress" aria-live="polite">1 / 7</span><button class="nav" id="next" type="button">Next →</button></div>
+<footer><strong>What this is:</strong> a minimal, nonfinal companion to the public <a href="https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md">eight-beat talk outline</a>. Neither the visitor's choices nor the rhetoric proves a claim. Real images, precise permissions and scholar-level counterreadings come later, after review. Nothing about this page changes the already submitted conference edition.</footer>
+</main>
+<script>
+"use strict";
+const slides=[
+{tag:"First look",label:"Postcard",glyph:"▧",title:"A small card",desc:"Someone hands you a postcard. You might like it, dislike it, or simply put it down. Those are all valid encounters, but they do different things.",question:"What did you actually judge: the picture, the effort, the maker, or the invitation?",yes:"A small object can start a larger exchange between makers and visitors.",no:"One pleasant reaction does not establish quality, authorship or fair production.",sources:"A performance invitation, not evidence of an audience result. <a href='https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md'>Public talk outline</a>."},
+{tag:"Second look",label:"Pond",glyph:"≈",title:"One pond, several processes",desc:"A pond photograph, a human-made image edit and an openly labeled generated image may prompt different second looks—even where their appearances overlap.",question:"When does learning how an image was made change your response?",yes:"Process, subject and source history are part of an informed encounter.",no:"Knowing production details does not automatically settle whether a particular result is good.",sources:"This is a schematic, not a Monet image, a real pond photo or an undisclosed generated image. <a href='https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md'>Public talk outline, beat 4</a>."},
+{tag:"Separate questions",label:"Labels",glyph:"?",title:"One word cannot do six jobs",desc:"Art-status, quality, taste, medium, subject and how something was produced are related questions. They are not interchangeable.",question:"Which question were you answering when you called a work 'art' or 'slop'?",yes:"Separating questions makes disagreements easier to examine rather than simply louder.",no:"Analytical clarity by itself cannot make a poor work compelling or erase production harms.",sources:"Proposed distinction from <a href='https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md'>published spine, beat 2</a>; not a scientific finding."},
+{tag:"Music route",label:"Music",glyph:"♪",title:"The award and the work",desc:"In 2018 Kendrick Lamar received the Pulitzer Prize for Music for DAMN. The prize is a fact; whether an award creates artistic merit is a different question.",question:"What changed when the institution gave recognition—and what did not?",yes:"Recognition can bring different traditions into conversation and broaden the public frame.",no:"Prestige cannot act as a substitute for hearing, understanding, or critically examining the actual music.",sources:"<a href='https://www.pulitzer.org/winners/kendrick-lamar'>Pulitzer Prize official 2018 winner record</a>. No lyrics, clips or recordings are included."},
+{tag:"Game route",label:"Games",glyph:"◈",title:"Who made the experience?",desc:"A game designer sets a world of constraints. A player makes choices inside it. That interaction asks more than whether the game is entertaining.",question:"Where does the authored work end and the visitor's contribution begin?",yes:"Games can give a visitor meaningful agency within an intentionally designed expressive space.",no:"Clicking a choice does not by itself prove legal coauthorship or artistic value.",sources:"<a href='https://americanart.si.edu/exhibitions/games'>Smithsonian American Art Museum, The Art of Video Games (2012)</a>. Exhibition recognition is not proof every game is art."},
+{tag:"Craft route",label:"Kitchen",glyph:"✂",title:"The cut matters",desc:"A cook chooses what goes on the plate—and what gets left off. A maker chooses not only materials but sequence, labor and omission.",question:"When is selecting or discarding part of the creative act?",yes:"Editing can express discernment and change the encounter with what remains.",no:"Selection doesn't erase the work or rights of everyone whose contributions helped make the result possible.",sources:"An original analogy for the public <a href='https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md'>talk's selection and credit themes</a>. No claim that food-making and AI production are identical."},
+{tag:"Return",label:"Leave open",glyph:"·",title:"Leave the water some room",desc:"After the labels, questions and objections, there can still be a moment to look. You don't owe the presenter a verdict.",question:"What would you notice on a second look that the first description missed?",yes:"Leaving a question unresolved can respect both the visitor and the complexity of the work.",no:"An open ending must not dodge real ethical objections or accountability.",sources:"Ending motif from <a href='https://github.com/MarkDude-design/Free-until-marked-2/blob/main/canonical/spine-v1.md'>published spine, beat 8</a>."}
+];
+const routes=document.getElementById("routes");let current=0;
+const nodes={glyph:document.getElementById("glyph"),kicker:document.getElementById("kicker"),title:document.getElementById("slideTitle"),description:document.getElementById("description"),question:document.getElementById("question"),yes:document.getElementById("case"),no:document.getElementById("objection"),sources:document.getElementById("sources"),progress:document.getElementById("progress")};
+slides.forEach(function(s,i){const b=document.createElement("button");b.className="chip";b.type="button";b.textContent=s.label;b.addEventListener("click",function(){show(i);});routes.appendChild(b)});
+function show(i){current=(i+slides.length)%slides.length;const s=slides[current];
+nodes.glyph.textContent=s.glyph;nodes.kicker.textContent=s.tag;nodes.title.textContent=s.title;nodes.description.textContent=s.desc;nodes.question.textContent=s.question;
+nodes.yes.textContent=s.yes;nodes.no.textContent=s.no;nodes.sources.innerHTML=s.sources;nodes.progress.textContent=(current+1)+" / "+slides.length;
+Array.from(routes.children).forEach(function(b,j){b.classList.toggle("active",j===current);b.setAttribute("aria-current",j===current?"step":"false");});
+document.querySelector("details").open=false;
+}
+document.getElementById("prev").addEventListener("click",function(){show(current-1)});
+document.getElementById("next").addEventListener("click",function(){show(current+1)});
+show(0);
+</script></body></html>
