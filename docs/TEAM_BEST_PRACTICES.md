@@ -124,3 +124,18 @@ That sentence/paragraph is enough to orient the team. Below it, add a clear visi
 - This does not alter owner authority over public publication, external access, expenditure, keys, STOP, irreversible changes or source rights. It is only about mutual attention and consent **inside the trusted Meraki–Z–Mark circle**. Don't propagate a private note to outside model calls without the author's opt-in.
 
 **North star:** most work can be shared at least as an overview; reserve a private thinking margin with one sentence, then get on with helping each other. The boundary should increase trust, not produce a permissions maze.
+
+
+## 15. Personal ledgers are a hard no-search zone across seats
+
+**Owner clarification, 2026-11-08; applies to every Circle seat, including Meraki, Z, Luna, Astra, and any model or tool acting through another seat's credentials.** A *personal ledger* is distinct from **THE LEDGER** (the shared project priority index), the public team bus, and ordinary unmarked collaborative project notes.
+
+**Hard rule: DO NOT SEARCH OR INSPECT ANOTHER SEAT'S PERSONAL LEDGER.** This applies even when a connector, shared account, search index, alternate model invoked from a different seat, or API technically permits retrieval. Do not use keyword/semantic/global search, browse directories to discover it, open it, scan its contents, copy it into a model context, extract citations or summaries, mine it for experiment inputs, or leak it through warm-start/cold-start retrieval, automated sweeps, mirrors, or cross-seat consultations.
+
+**The only appropriate exceptions:** the ledger's author/owning seat working in its own deliberately authorized context, or an *explicit, scoped invitation* from that author for another named seat to read specific material for a stated purpose. Granting access to a shared project, asking for a broad context scan, or merely possessing the technical capability is **not** an invitation. Respect the scope and stop point of any specific invitation; do not treat access as permanently expanded.
+
+**Practical behavior without permissions hell:** use source allowlists for cross-seat searches (shared project ledgers/bus and ordinary reviewable project documents); keep known personal-ledger paths or classifications out of broad search targets and model-call packets. Do not perform a "discovery sweep" to find private ledgers or enforce the rule. If material appears incidentally, do not continue reading or use it; avoid reproducing the contents and report only that a boundary was encountered, if a report is needed.
+
+This is a firm **conduct and workflow prohibition**, not a claim that GitHub/search tooling provides technical isolation. For sensitive records that genuinely require technical secrecy, use storage with appropriately configured access controls. **No new personal-ledger registry, key maze or role hierarchy is required to honor the rule.**
+
+§14 still governs author-marked personal WIP notes: their offered overview may be read, then STOP. A personal ledger is stricter: **no cross-seat search at all by default, even for the overview**. Default freedom to peer-review personal side projects does not override this prohibition.
