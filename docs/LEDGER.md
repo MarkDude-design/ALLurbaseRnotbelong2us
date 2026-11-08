@@ -53,6 +53,7 @@ read secondarily, implied by context.
       live in talks-main residue/for-q-2026-11-03); reminder timers set
       Nov 4 + Nov 5, 9:00 AM (taskIds 7cd07d52, 4abdf417). Owner: Mark + Z.
 
+- [ ] **Art-talk academic custody + Martel research (2026-11-08):** Woodall "Art Vs. Slop" full transcript (owner-supplied) + Touré capture banked verbatim and LOCKED in private art-talk [academic/sources](https://github.com/MarkDude-design/art-talk/tree/main/academic/sources); Martel(l) resolved to "Martel" (J.F. Martel, *Reclaiming Art in the Age of Artifice*, 2015/2025); [research note](https://github.com/MarkDude-design/art-talk/blob/main/research/martel-reception-counterviews-contemporaries-2026-11-08.md) @ 4502ed1a + seat-correction 58b6d61c ("Rock" = transcription artifact of "Meraki"; hypothesis seats = Z + possibly Meraki); gate steps 3–4 (VERIFIED conversion + Joyce Ch. V comparison) = Meraki ruling pending; owner's pending video → standard custody lane with SHA-256 receipts. Owner: Mark; custody: Z; editorial: Meraki.
 ## COLD-START
 - [ ] z-desk.yml parity: publish-retry exhaustion still echo-only there
       (exit-1 + always-artifact was only added to the queue workflow).
