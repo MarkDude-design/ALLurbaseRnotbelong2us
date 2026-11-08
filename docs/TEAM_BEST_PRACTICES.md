@@ -103,3 +103,24 @@ First use: [Meraki's grounded resilience review submission](https://github.com/M
 Implementation references: [queue workflow](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/.github/workflows/z-desk-queue.yml), [runner](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/island/z_desk.py), [queue rules](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/cc581435dfc4a219da2966b7bdd69722de3a7fbf/island/queue.py).
 
 Sources and attribution: Mark's workflow directions; Bing's [cold/warm distinction](pipeline-contributions/BING_COLD_WARM_START_2026_11_03.md), carried by Mark; the existing [continuity index](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/16); and the [preserved experiment](../experiments/pipeline-cold-start/README.md).
+
+
+## 14. Honor each other's WIP personal notebooks without a permission bureaucracy
+
+**Owner addendum, 2026-11-08. Scope: Meraki and Z as two trusted Circle collaborators, with Mark respecting the same boundary.** The default is candid mutual review of work, project overviews, plans and prototypes. Neither seat has to apply for ordinary reads, request reviews through a new approval flow, partition everyone's existing notes, or invent a secret-classification scheme.
+
+**One readable marker is enough.** At the very beginning of a document, the author can write something like:
+
+> **WIP — personal notebook.** I'm developing an idea about [topic]. This overview is shareable; please don't read beyond this point unless I invite you.
+
+That sentence/paragraph is enough to orient the team. Below it, add a clear visible line `--- PERSONAL WORKING NOTES BELOW — STOP READING HERE ---` if the author wants an exact stop point. The first-line marker alone is also sufficient where the overview naturally ends. No fixed template, special folder, metadata form, expiry date, registration, label or new permission bit is required.
+
+**Working norm:**
+- Share and critique normally when there is no personal-WIP marker. A person can ask for a review, or decline one, without elaborate ceremony.
+- When a personal-WIP marker appears, read the **overview only**; do not search, summarize, index, quote, feed into model consultations, grade, mirror, or post the protected remainder. No one needs to know *why* the author reserved it.
+- The author can later share all or selected portions by an ordinary explicit invitation. Ask a brief question only if the scope of an invitation is genuinely unclear.
+- This is a **social honor rule, not encryption, secrecy or a guarantee that a connector won't transfer bytes**. Where available, use bounded line reads rather than fetching full files; avoid broad search snippets that could pull in the protected remainder. Keep truly sensitive content, personal secrets, credentials and third-party private materials out of shared repositories and public task packets.
+- A normal WIP draft does **not** automatically mean private: use the clear personal-notebook/stop-reading wording only when the author actually intends this boundary. A draft can still be freely reviewed if its author wants.
+- This does not alter owner authority over public publication, external access, expenditure, keys, STOP, irreversible changes or source rights. It is only about mutual attention and consent **inside the trusted Meraki–Z–Mark circle**. Don't propagate a private note to outside model calls without the author's opt-in.
+
+**North star:** most work can be shared at least as an overview; reserve a private thinking margin with one sentence, then get on with helping each other. The boundary should increase trust, not produce a permissions maze.
