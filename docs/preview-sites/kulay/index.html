@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>kulay.love · Crochet gallery preview v0.4</title>
+<style>
+.gallery{display:block;max-width:680px;margin:0 auto}.tile{display:block}.tile[hidden]{display:none}.gallery-controls{display:flex;justify-content:space-between;align-items:center;gap:.8rem;max-width:680px;margin:.8rem auto 1rem}.gallery-controls button{min-width:94px}.gallery-controls span{font-weight:700;color:var(--muted)}
+
+:root{color-scheme:light;--ink:#342d2c;--muted:#645f5b;--bg:#fbf8f5;--surface:#fff;--line:#d9d1ca;--accent:#865476;--focus:#215b81;--soft:#f5eaf0}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.5;color:var(--ink);background:var(--bg)}
+header,main,footer{max-width:1080px;margin:auto;padding:1.3rem}
+header{padding-top:2rem}
+h1,h2{font-family:Georgia,serif;line-height:1.2}
+h1{font-size:clamp(2rem,5vw,3rem);margin:.25rem 0}
+h2{font-size:1.4rem}
+p{margin:.45rem 0 1rem}
+.eyebrow{color:var(--accent);text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;font-weight:800}
+.subtle{color:var(--muted);font-size:.91rem}
+.panel,.tile{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.panel{padding:1.1rem;margin:1.4rem 0}
+section{margin:2rem 0}
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.tile{padding:1rem;min-width:0}
+.tile h3{font-size:1.15rem;margin:.7rem 0 .15rem}
+.sketch{background:#f3f0eb;border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:215px;padding:1rem}
+.sketch svg{width:100%;max-height:210px}
+.label{display:block;font-weight:650;margin:.65rem 0 .35rem}
+.like{display:flex;align-items:center;gap:.7rem;min-height:44px;padding:.45rem .65rem;background:var(--soft);border-radius:10px;font-weight:700}
+.like input{width:22px;height:22px;accent-color:var(--accent);flex-shrink:0}
+textarea{display:block;width:100%;font:inherit;resize:vertical;min-height:65px;border:1px solid #afa4aa;border-radius:9px;padding:.65rem;background:white;color:var(--ink)}
+textarea:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.actions{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center}
+button{border:1px solid #76586d;border-radius:9px;padding:.7rem .9rem;font:inherit;font-weight:700;cursor:pointer;background:var(--accent);color:white;min-height:44px}
+button.secondary{color:var(--ink);background:white;border-color:var(--line)}
+.status{font-size:.88rem;color:var(--muted);margin:.6rem 0}
+.smallgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.smallgrid>.panel{margin:0}
+a{color:#68475f}
+footer{border-top:1px solid var(--line);margin-top:2rem;color:var(--muted);font-size:.85rem}
+#share-text{margin-top:.8rem}
+[hidden]{display:none!important}
+@media(max-width:650px){.gallery,.smallgrid{grid-template-columns:1fr}.sketch{min-height:190px}header,main,footer{padding:1rem}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="eyebrow">Early gallery preview · version 0.4</div>
+  <h1>kulay.love</h1>
+  <p>Ideas for your next crochet adventure. Check the ones you like. If you want something changed, write a quick note — “blue yarn” is enough.</p>
+  <p class="subtle">A small preview of four ideas. The final look is still open. You can show this page to someone, or just talk through the pictures together.</p>
+</header>
+<main>
+  <section id="picks" aria-labelledby="picks-title">
+    <h2 id="picks-title">1. Pictures to pick from</h2>
+    <p class="subtle">Four original concept drawings, one at a time. Tap Next to browse; check a favorite or add a short note. These are ideas, not pictures of finished crochet.</p>
+    <div class="gallery-controls" role="group" aria-label="Gallery navigation"><button type="button" id="previous" class="secondary">← Back</button><span id="gallery-counter" aria-live="polite">1 of 4</span><button type="button" id="following">Next →</button></div><div class="gallery">
+      <article class="tile" data-id="face-02-gentleman" data-name="The Gentleman">
+        <div class="sketch"><svg viewBox="0 0 240 180" role="img" aria-label="Sketch: beige crocheted hanging bag dispenser with a curled mustache and a visible horizontal dispensing slit">
+          <path d="M114 12 Q120 1 126 12 L128 26 L112 26Z" fill="none" stroke="#725f51" stroke-width="5"/>
+          <rect x="44" y="24" width="152" height="142" rx="48" fill="#d6b58d" stroke="#725f51" stroke-width="4"/>
+          <path d="M56 48H184M50 67H190M48 86H192M48 105H192M50 124H190M56 144H184" stroke="#c39c76" stroke-width="3" stroke-dasharray="4 6"/>
+          <circle cx="86" cy="69" r="15" fill="white" stroke="#5b4a3d" stroke-width="3"/><circle cx="150" cy="69" r="15" fill="white" stroke="#5b4a3d" stroke-width="3"/>
+          <circle cx="89" cy="70" r="5" fill="#403632"/><circle cx="147" cy="70" r="5" fill="#403632"/>
+          <path d="M70 105Q91 79 120 105Q148 79 170 105Q160 127 133 108Q120 119 108 108Q79 127 70 105" fill="#513b31"/>
+          <rect x="85" y="119" width="70" height="14" rx="7" fill="#4d3b34" stroke="#eee0d1" stroke-width="3"/>
+        </svg></div>
+        <h3>The Gentleman</h3>
+        <p class="subtle">A mustachioed fellow who graciously hands you one bag at a time.</p>
+        <label class="like"><input class="favorite" type="checkbox"> I like this one</label>
+        <label class="label" for="note-gentleman">Change anything? (optional)</label>
+        <textarea id="note-gentleman" maxlength="300" placeholder="A different mustache? Blue yarn?"></textarea>
+      </article>
+      <article class="tile" data-id="face-04-muncher" data-name="The Muncher">
+        <div class="sketch"><svg viewBox="0 0 240 180" role="img" aria-label="Sketch: purple crocheted monster dispenser with mismatched eyes, felt teeth around a clear mouth opening">
+          <path d="M113 10Q120 0 127 10V26H113Z" fill="none" stroke="#70496f" stroke-width="5"/>
+          <rect x="43" y="26" width="154" height="140" rx="45" fill="#a989b2" stroke="#70496f" stroke-width="4"/>
+          <path d="M52 56H187M48 78H191M48 98H191M48 125H191M56 146H184" stroke="#9773a3" stroke-width="3" stroke-dasharray="4 5"/>
+          <circle cx="89" cy="68" r="22" fill="white" stroke="#664b68" stroke-width="3"/><circle cx="154" cy="72" r="13" fill="white" stroke="#664b68" stroke-width="3"/>
+          <circle cx="96" cy="69" r="8" fill="#342b39"/><circle cx="158" cy="71" r="5" fill="#342b39"/>
+          <rect x="63" y="101" width="115" height="37" rx="11" fill="#46354e" stroke="#f0dee7" stroke-width="3"/>
+          <path d="M70 102L82 122L94 102L107 122L120 102L133 122L146 102L159 122L172 102M76 138L88 119L102 138L116 119L130 138L144 119L159 138" fill="white" stroke="white" stroke-linejoin="round" stroke-width="2"/>
+        </svg></div>
+        <h3>The Muncher</h3>
+        <p class="subtle">Mismatched googly eyes and teeth around the working bag slot.</p>
+        <label class="like"><input class="favorite" type="checkbox"> I like this one</label>
+        <label class="label" for="note-muncher">Change anything? (optional)</label>
+        <textarea id="note-muncher" maxlength="300" placeholder="Maybe it needs three eyes..."></textarea>
+      </article>
+      <article class="tile" data-id="face-07-frog" data-name="The Frog">
+        <div class="sketch"><svg viewBox="0 0 240 180" role="img" aria-label="Sketch: green frog-shaped dispenser with two raised eye bumps and a wide bag-dispensing mouth">
+          <path d="M119 12Q124 3 127 12" fill="none" stroke="#3e6b49" stroke-width="5"/>
+          <circle cx="79" cy="50" r="28" fill="#8dbd79" stroke="#3e6b49" stroke-width="4"/><circle cx="161" cy="50" r="28" fill="#8dbd79" stroke="#3e6b49" stroke-width="4"/>
+          <rect x="39" y="51" width="162" height="115" rx="48" fill="#8dbd79" stroke="#3e6b49" stroke-width="4"/>
+          <path d="M50 98H190M49 121H191M62 143H179" stroke="#79aa6b" stroke-width="3" stroke-dasharray="4 6"/>
+          <circle cx="82" cy="49" r="12" fill="white"/><circle cx="158" cy="49" r="12" fill="white"/>
+          <circle cx="82" cy="51" r="5" fill="#304b31"/><circle cx="158" cy="51" r="5" fill="#304b31"/>
+          <rect x="56" y="112" width="128" height="20" rx="10" fill="#34533f" stroke="#dbefcd" stroke-width="3"/>
+          <path d="M98 121Q120 143 142 121" fill="none" stroke="#e69c9b" stroke-width="5"/>
+        </svg></div>
+        <h3>The Frog</h3>
+        <p class="subtle">The bag becomes the frog's impossibly long tongue as it comes out.</p>
+        <label class="like"><input class="favorite" type="checkbox"> I like this one</label>
+        <label class="label" for="note-frog">Change anything? (optional)</label>
+        <textarea id="note-frog" maxlength="300" placeholder="Brighter green, bigger eyes..."></textarea>
+      </article>
+      <article class="tile" data-id="face-21-toaster" data-name="The Toaster">
+        <div class="sketch"><svg viewBox="0 0 240 180" role="img" aria-label="Sketch: retro teal toaster dispenser, wide crocheted body, toast-shaped opening and red knobs">
+          <rect x="28" y="43" width="184" height="122" rx="32" fill="#7ab3b1" stroke="#396d70" stroke-width="4"/>
+          <path d="M46 80H194M37 105H203M46 132H194" stroke="#63a3a4" stroke-width="3" stroke-dasharray="4 6"/>
+          <path d="M74 45V28Q74 18 88 18H152Q166 18 166 28V45" fill="#f1d8a2" stroke="#917d61" stroke-width="4"/>
+          <circle cx="75" cy="83" r="9" fill="white"/><circle cx="164" cy="83" r="9" fill="white"/><circle cx="75" cy="83" r="4" fill="#343c39"/><circle cx="164" cy="83" r="4" fill="#343c39"/>
+          <rect x="76" y="102" width="88" height="23" rx="9" fill="#39545a" stroke="#f1d8a2" stroke-width="7"/>
+          <circle cx="79" cy="147" r="9" fill="#cb6962"/><circle cx="119" cy="147" r="9" fill="#cb6962"/><circle cx="159" cy="147" r="9" fill="#cb6962"/>
+        </svg></div>
+        <h3>The Toaster</h3>
+        <p class="subtle">A squat retro toaster that gives bags back as if they're toast.</p>
+        <label class="like"><input class="favorite" type="checkbox"> I like this one</label>
+        <label class="label" for="note-toaster">Change anything? (optional)</label>
+        <textarea id="note-toaster" maxlength="300" placeholder="Make it more pink, less chrome..."></textarea>
+      </article>
+    </div>
+    <div class="panel" aria-labelledby="save-title">
+      <h3 id="save-title">Give these choices to Mark</h3>
+      <p>Selections try to save locally in this browser. They do <strong>not</strong> sync to another phone or reach the team automatically. When you are done, tap <strong>Copy today's picks</strong> and send or paste them to Mark. Download JSON if Mark wants a machine-readable batch for tomorrow's ideas.</p>
+      <div class="actions">
+        <button id="copy" type="button">Copy today's picks</button>
+        <button id="export" class="secondary" type="button">Download JSON</button>
+        <button id="clear" class="secondary" type="button">Clear this review</button>
+      </div>
+      <p id="save-status" class="status" role="status" aria-live="polite"></p>
+      <label id="share-label" class="label" for="share-text" hidden>Text to copy manually if clipboard access is blocked:</label>
+      <textarea id="share-text" readonly hidden></textarea>
+    </div>
+  </section>
+  <section id="overview">
+    <h2>2. Overview</h2>
+    <div class="panel">
+      <p>Pick a favorite design. Tell us one tweak if you like. Mark collects those picks, and the team prepares a small next-day revision batch. Your opinions steer the gallery; nobody has to fill out a long questionnaire.</p>
+      <p class="subtle">This is a gift-first creative studio, not a shop or a public launch decision.</p>
+    </div>
+  </section>
+  <section id="patterns">
+    <h2>3. Actual stitch patterns</h2>
+    <div class="panel">
+      <p>A liked picture is an <strong>idea</strong>, not proof that the crochet construction works. The pattern shelf will contain real US-terms instructions after someone checks yarn, dimensions, slit reinforcement, stitch counts and how the finished thing dispenses bags.</p>
+      <p>Pattern instructions come after a design has been selected and its dimensions, safety and dispensing function checked by a maker. These first cards are visual sketches, not instructions.</p>
+    </div>
+  </section>
+  <section id="finished">
+    <h2>4. Her finished projects</h2>
+    <div class="panel">
+      <p><strong>Existing project photos first.</strong> This section is prepared for photos she already has, with project name, optional date, yarn and pattern link. No existing photo has been posted by this page and no permission to share one publicly is assumed.</p>
+    </div>
+  </section>
+  <section id="inspiration">
+    <h2>5. Next inspiration gallery</h2>
+    <div class="smallgrid">
+      <div class="panel"><strong>Tomorrow's edits</strong><p class="subtle">Examples: “Muncher, but blue yarn”; “Toaster, but smaller.” Requests stay attached to the exact design ID.</p></div>
+      <div class="panel"><strong>New renders and real photos</strong><p class="subtle">As approved designs receive actual images, they can replace the labeled concept sketches without changing her saved picks.</p></div>
+    </div>
+  </section>
+</main>
+<footer>Preview v0.4 · no login, analytics, checkout, background uploads or remote storage. Feedback leaves the device only when explicitly copied or downloaded. No photos of her finished projects are included.</footer>
+<script>
+(function(){
+"use strict";
+const storageKey="kulay-love-review-v03";
+const galleryCards=Array.from(document.querySelectorAll(".gallery .tile"));
+let currentCard=0;
+function showCard(i){currentCard=(i+galleryCards.length)%galleryCards.length;galleryCards.forEach(function(card,j){card.hidden=(j!==currentCard);});document.getElementById("gallery-counter").textContent=(currentCard+1)+" of "+galleryCards.length;}
+document.getElementById("previous").addEventListener("click",function(){showCard(currentCard-1);});
+document.getElementById("following").addEventListener("click",function(){showCard(currentCard+1);});
+showCard(0);
+const tiles=Array.from(document.querySelectorAll(".tile"));
+const status=document.getElementById("save-status");
+const share=document.getElementById("share-text");
+const shareLabel=document.getElementById("share-label");
+let timestamps={};
+let canSave=true;
+function readStored(){
+  try {const raw=localStorage.getItem(storageKey);return raw?JSON.parse(raw):{};}
+  catch(e){canSave=false;return {};}
+}
+const existing=readStored();
+if(existing && existing.items && typeof existing.items==="object"){
+  tiles.forEach(function(tile){
+    const item=existing.items[tile.dataset.id];
+    if(item){
+      tile.querySelector(".favorite").checked=Boolean(item.liked);
+      tile.querySelector("textarea").value=typeof item.note==="string"?item.note:"";
+      if(typeof item.changedAt==="string")timestamps[tile.dataset.id]=item.changedAt;
+    }
+  });
+}
+function entries(){
+  return tiles.map(function(tile){
+    const id=tile.dataset.id;
+    return {id:id,name:tile.dataset.name,liked:tile.querySelector(".favorite").checked,
+      note:tile.querySelector("textarea").value.trim(),
+      changedAt:timestamps[id]||null};
+  }).filter(function(x){return x.liked||x.note.length>0;});
+}
+function payload(){
+  return {project:"kulay.love",schema:"daily-review-v0.3",exportedAt:new Date().toISOString(),
+    note:"Only checked favorites or cards with notes are included; unchecked alone does not mean dislike.",
+    reviews:entries()};
+}
+function save(tile){
+  timestamps[tile.dataset.id]=new Date().toISOString();
+  try{
+    localStorage.setItem(storageKey,JSON.stringify({schema:"daily-review-v0.3",items:Object.fromEntries(
+      tiles.map(function(t){return [t.dataset.id,{liked:t.querySelector(".favorite").checked,
+        note:t.querySelector("textarea").value,changedAt:timestamps[t.dataset.id]||null}];})
+    )}));
+    canSave=true;
+  }catch(e){canSave=false;}
+  status.textContent=canSave?"Saved on this device. Send an export to Mark for the daily sweep.":
+    "This browser did not permit local saving. Copy or download your picks before closing.";
+}
+tiles.forEach(function(tile){
+  tile.querySelector(".favorite").addEventListener("change",function(){save(tile);});
+  tile.querySelector("textarea").addEventListener("input",function(){save(tile);});
+});
+function summary(){
+ const rows=entries();if(!rows.length)return "kulay.love review: No favorites or changes selected yet.";
+ return "kulay.love — picks for Mark\n"+rows.map(function(x,i){
+   return (i+1)+". "+x.name+" ["+x.id+"] — "+(x.liked?"LIKE":"NOTE ONLY")+
+      (x.note?" — "+x.note:"");
+ }).join("\n")+"\nUnchecked designs were not evaluated as No.";
+}
+document.getElementById("copy").addEventListener("click",async function(){
+ const value=summary();
+ try{
+   if(!navigator.clipboard || !navigator.clipboard.writeText)throw new Error("Clipboard unavailable");
+   await navigator.clipboard.writeText(value);
+   share.hidden=true;shareLabel.hidden=true;
+   status.textContent="Copied. Paste this into a message to Mark.";
+ }catch(e){
+   share.value=value;share.hidden=false;shareLabel.hidden=false;share.focus();share.select();
+   status.textContent="Clipboard blocked. The text is selected below for you to copy manually.";
+ }
+});
+document.getElementById("export").addEventListener("click",function(){
+ const blob=new Blob([JSON.stringify(payload(),null,2)],{type:"application/json"});
+ const url=URL.createObjectURL(blob);const a=document.createElement("a");
+ a.href=url;a.download="kulay-love-picks-"+new Date().toISOString().slice(0,10)+".json";
+ document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(url);},1000);
+ status.textContent="JSON download prepared. Send it to Mark when ready; nothing was uploaded automatically.";
+});
+document.getElementById("clear").addEventListener("click",function(){
+ if(!confirm("Clear all checkmarks and notes on this device? Export first if you need to keep them."))return;
+ tiles.forEach(function(tile){tile.querySelector(".favorite").checked=false;tile.querySelector("textarea").value="";});
+ timestamps={};
+ try{localStorage.removeItem(storageKey);canSave=true;}catch(e){canSave=false;}
+ share.hidden=true;shareLabel.hidden=true;
+ status.textContent="Local selections cleared.";
+});
+status.textContent=canSave?"Choices can be saved in this browser. Nothing is sent automatically.":
+ "Local storage unavailable here. Copy or download picks before you close.";
+})();
+</script>
+</body>
+</html>
