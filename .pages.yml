@@ -1,0 +1,32 @@
+# SOURCE-ONLY EXPERIMENT; branch-scoped. NOT ACTIVE on GitHub Pages main.
+# Compare a human-friendly media editor with a model-direct upload route.
+# No secrets or GitHub App installed by this config.
+media:
+  - name: crochet_images
+    label: Crochet concept pictures
+    input: docs/preview-sites/kulay/images
+    output: /ALLurbaseRnotbelong2us/preview-sites/kulay/images
+    rename: safe
+    extensions: [jpg, jpeg, png, webp]
+content:
+  - name: upload_trial
+    label: One-image upload trial — experimental
+    type: file
+    path: experiments/kulay-media-tools-2026-11-08/upload-trial.json
+    format: json
+    fields:
+      - name: title
+        label: Concept title
+        type: string
+      - name: image
+        label: Image (not published until branch is intentionally deployed)
+        type: image
+        options:
+          media: crochet_images
+          extensions: [jpg, jpeg, png, webp]
+      - name: alt
+        label: Alt text
+        type: text
+      - name: stage
+        label: Provenance status
+        type: string
