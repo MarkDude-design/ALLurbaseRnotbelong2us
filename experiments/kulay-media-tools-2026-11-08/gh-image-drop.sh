@@ -50,7 +50,7 @@ encoded=$(base64 < "$SOURCE" | tr -d '\n\r')
 printf '{"message":"lab: add image %s","branch":"%s","content":"%s"}' \
   "$NAME" "$BRANCH" "$encoded" > "$bodyfile"
 unset encoded
-status=$(curl --silent --show-error --location --max-time 60 \
+status=$(curl --silent --show-error --max-time 60 \
   --request PUT "https://api.github.com/repos/$REPO/contents/$dest" \
   --header "Accept: application/vnd.github+json" \
   --header "Authorization: Bearer $GITHUB_TOKEN" \
