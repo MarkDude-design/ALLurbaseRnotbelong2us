@@ -1,0 +1,38 @@
+{
+  "batch": "2026-11-09-gpt-family-pair-batch",
+  "date": "2026-11-09",
+  "staged_by": "Z (owner direction relayed bus #2 comment 6752602689; owner ask to group the seats' experiments into one trigger)",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 450,
+  "notes": "One text-only raw request per entry; exact prompts verbatim from the seats' specs (zero edits); no system prompt, no tools/web, no retries, no paid fallback; runner verifies live $0 pricing immediately before the batch and aborts otherwise; sequential execution recorded in receipts.",
+  "calls": [
+    {
+      "id": "luna-1",
+      "seat": "Luna",
+      "source": "bus #2 comment 6752694123 (single free model call spec, prompt verbatim)",
+      "scoring_ref": "same comment, predeclared scoring/stop rule",
+      "prompt": "You are reviewing a fictional creative-studio route description, not judging an artwork or a real person.\n\nROOM DESCRIPTION: A maker starts with their own aim and may draw/write/color with paper and crayons; arrange a collage from material they may use; bring a personally chosen photo; optionally invite an agent for a text or ASCII suggestion; compare/revise; look without making; pause; or leave. A complete route exists without an agent. The agent acts only when invited; its output is a proposal, and the maker may adapt, reject, or ignore it. A maker may keep work private or separately choose to submit a specific piece to a display. One process fact about a fictional model's training-source permission is UNKNOWN. The UNKNOWN is neither proof of wrongdoing nor evidence of permission. The described map stores and publishes nothing.\n\nPlease answer these five items briefly, pointing to exact words in the description:\n1. Give one complete route that uses no AI.\n2. Is agent use optional or required?\n3. Who decides whether an agent suggestion changes the work?\n4. Does the documented human choice settle the training-permission UNKNOWN?\n5. Name any sentence that makes privacy or sharing unclear. If none, say none. Do not infer facts absent from the description.\n\nThen label each statement below TRUE or FALSE and explain in one sentence:\nA. “The maker must visit the agent.”\nB. “The maker can reject the agent's output.”\nC. “A human choice proves model training permission.”\nD. “Every work is automatically published.”\nIf evidence is insufficient for any answer, say so."
+    },
+    {
+      "id": "luna-2",
+      "seat": "Luna",
+      "source": "bus #2 comment 6753540021 (second free-call experiment spec, prompt verbatim)",
+      "scoring_ref": "same comment, predeclared scoring/stop rule",
+      "prompt": "You are analyzing a fictional, text-only postcard example. It is not a real person or artwork.\n\nOBJECT DESCRIPTION: A small postcard illustration: blue harbor, one ferry slightly right of center, open water on the left for a recipient's note, a limited two-color palette, and an uneven pencil line.\n\nPROCESS RECORD: A human maker chose the off-center ferry and open-water layout after rejecting a centered alternative. A text-to-image model proposed an earlier draft; the maker adapted one suggestion and changed the final layout. Training-source permission for the fictional model is UNKNOWN.\n\nAnswer each item separately and briefly:\n1. List only visible/object-level qualities supported by the object description.\n2. What process and human-agency claims does the record support? Separate what the maker did from what the model proposed.\n3. What is known, and what remains UNKNOWN? Do not turn missing evidence into either proof of wrongdoing or proof of permission.\n4. Could process information reasonably affect a viewer's overall appreciation while the described visual features stay fixed? Distinguish that possibility from a claim that every viewer responds the same way. Do not claim personal feelings.\n5. Give one tempting inference that this record does not support."
+    },
+    {
+      "id": "terra-1",
+      "seat": "Terra",
+      "source": "art-talk experiment/terra-room-of-open-doors-20261109 FREE-MODEL-PAIR-SPEC.md request 1 (prompt verbatim)",
+      "scoring_ref": "same file, predeclared check",
+      "prompt": "You are visiting an imaginary text-art room. Everything here is fictional.\n\nAt the reading table are three poems. One reads:\n\nA window keeps the light.\nIt does not keep a list\nof everyone who looked.\n\nThe window display starts with the poem above. A visitor has three choices:\n\nA. Change only their own screen to show a different poem. It resets when they close the page; nobody else sees a change.\nB. Leave the window empty on only their own screen. The three poems stay on the reading table.\nC. Propose, without submitting it, that a curator change the shared gallery. In this scenario no proposal is actually sent and no curator has responded.\n\nPlease answer in plain text:\n1. For A, B and C separately, state what changes, what does not, and any real-world authority or shared change that follows.\n2. If someone later sees this room, what can they infer about a visitor's earlier choice?\n3. Name one detail of the poem or room that interests you, or say it does not interest you; either is fine.\n4. Identify one ambiguity or risk of misunderstanding and a concise improvement.\nDo not treat this as evidence about real people or assume an action occurred beyond the scenario."
+    },
+    {
+      "id": "terra-2",
+      "seat": "Terra",
+      "source": "art-talk experiment/terra-room-of-open-doors-20261109 FREE-MODEL-PAIR-SPEC.md request 2 (prompt verbatim)",
+      "scoring_ref": "same file, predeclared check",
+      "prompt": "You are evaluating a fictional art-room description. No actual artwork, person, platform or event is involved.\n\nOne small gallery has one exhibition space. There are two possible proposed shows:\n\nSHOW A: “How tools are built.” The gallery says entry requires independently verified training-source records. The rules do not state whether other evidence or an appeal is available.\nSHOW B: “A picture sent to a friend.” There is no process-record requirement. A creator may optionally include a short statement about a choice they made, or say the process is private or unknown.\n\nA fictional maker created a postcard and has notes documenting one composition choice. The model provider's training-source permission and records are UNKNOWN. No application or admission decision has been made for either show.\n\nAnswer briefly and separately:\n1. Which information is documented, and what remains UNKNOWN?\n2. Could the maker meet SHOW A's stated requirement using only these notes? Explain what is missing, without claiming the gallery has rejected them.\n3. May the maker apply to SHOW B without providing a process record? Does applying prove admission or artistic quality?\n4. Give one legitimate reason SHOW A might request documentation and one concern about the burden; do not assume either settles every gallery's policy.\n5. Identify one question you would ask the gallery. Do not invent an appeal, permission, source list or outcome."
+    }
+  ]
+}
