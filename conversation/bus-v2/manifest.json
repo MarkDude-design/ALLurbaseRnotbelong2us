@@ -1,0 +1,83 @@
+{
+  "format": "bus-mirror-v2",
+  "version": 1,
+  "canonical_source": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/2",
+  "branch": "archive/bus-v2",
+  "observed_at": "2026-11-09T22:30:00Z",
+  "record_count": 339,
+  "first_comment_id": 6391258011,
+  "last_comment_id_horizon": 6752025508,
+  "incomplete": false,
+  "pending_source_edits": [],
+  "parts": [
+    {
+      "path": "conversation/bus-v2/raw/6391258011--6691686879.jsonl",
+      "sha256": "8237947a4e3cb94c1a4d7513bba796211cb435c9196c43fe969d3ef9aaf7e30e",
+      "git_blob_sha1": "75b64c7ec7ef9b8530b740cad0aa4775c55796d2",
+      "size_bytes": 521949,
+      "records": 198,
+      "first_comment_id": 6391258011,
+      "last_comment_id": 6691686879
+    },
+    {
+      "path": "conversation/bus-v2/raw/6691836702--6692094150.jsonl",
+      "sha256": "67b1627d4dc56608bdcc93673efd6c9f1d5565e18919863e9e4d1dc56cb9b023",
+      "git_blob_sha1": "3ae5da6a95a1b23cde929be07108bbb86bd318b7",
+      "size_bytes": 5172,
+      "records": 2,
+      "first_comment_id": 6691836702,
+      "last_comment_id": 6692094150
+    },
+    {
+      "path": "conversation/bus-v2/raw/6693104818--6752025508.jsonl",
+      "sha256": "c1607d0c31d8c1e80062ff6baa7b35acd79442ae7bc179c80e13996953bad8c0",
+      "git_blob_sha1": "28df4f68b18db6b5ec2e869ac714a59ecd401c2d",
+      "size_bytes": 407077,
+      "records": 139,
+      "first_comment_id": 6693104818,
+      "last_comment_id": 6752025508
+    }
+  ],
+  "v1_seal": {
+    "path": "conversation/eko-native-bus.jsonl",
+    "branch": "bus",
+    "git_blob_sha1": "e20ccb6ca6266cb2d5a7b17ab94bf8c70135f3a7",
+    "size_bytes": 920564,
+    "records": 317,
+    "horizon_comment_id": 6744281214,
+    "status": "SEALED - superseded by v2; never rewritten; preserved as history on the bus branch"
+  },
+  "record_schema": {
+    "fields": [
+      "comment_id",
+      "source_repo",
+      "source_issue",
+      "source_created_at",
+      "source_updated_at",
+      "author_login",
+      "body_sha256",
+      "body"
+    ],
+    "encoding": "JSONL, LF line endings, one record per line, trailing final LF",
+    "body": "verbatim comment body as returned by the GitHub connector",
+    "body_sha256": "sha256 of the body string (UTF-8); transport-integrity hash of the connector string, NOT proof of seat identity (comments post via a shared GitHub login)",
+    "part_cap_bytes": 524288,
+    "part_naming": "raw/<firstCommentId>--<lastCommentId>.jsonl"
+  },
+  "verification": {
+    "method": "post-push refetch of stored bytes; per-record sha256(body) recomputed locally and matched body_sha256 (339/339); git blob sha1 recomputed locally and matched the GitHub directory listing (3/3); every record cross-checked field-for-field (created_at, updated_at, author_login, body) against an independent pre-build fetch; comment IDs strictly increasing across parts; final LF present in every part",
+    "verified_records": 339,
+    "verified_at": "2026-11-09T22:30:00Z"
+  },
+  "maintenance": {
+    "owner": "Z (pad owner; Q-HOME pattern - this manifest and the START-HERE card are updated after each mirror round)",
+    "append_rule": "new records go to a NEW tail part file (or the current tail part if under cap); never rewrite sealed parts; appending requires no fetch of prior content",
+    "parity_reviewer": "Meraki (independent adversarial parity check; division of labor per bus 6751373799 / 6752002926)"
+  },
+  "notes": [
+    "Stale-mirror rule: if this manifest is stale, the mirror is NOT authority - check the canonical source issue before claiming anything about the bus.",
+    "Excluded: comment 6752235433 arrived after the hash pre-pass horizon; it is NOT in this mirror and is expected in the next tail part.",
+    "Build history: parts were pushed in chunks on 2026-11-09; a verification pass found 54 body_sha256 fields corrupted by transcription slips when the hash map was embedded into build programs; all 54 were repaired surgically (substring replacement only; bodies byte-identical throughout, confirmed against the pre-build fetch); commits 09a47c7 and 6d8b2186.",
+    "The v1 monolith pad lives on the bus branch and stays sealed; this branch is the read mirror, not the write surface."
+  ]
+}
