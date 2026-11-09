@@ -1,23 +1,28 @@
 name: Z Desk — Free Calls (batched)
 
-# Owner-triggered ONLY (no schedule, no issue-comment trigger): one click runs one
-# batch of RAW free-model calls staged as a spec JSON in this repo. Born for the
-# 2026-11-09 GPT-family free-first experiments (Luna + Terra pair specs). The runner
-# verifies $0 prompt+completion pricing in the LIVE catalog immediately before the
-# batch and aborts without sending otherwise; no retries, no paid fallback, no tools,
-# no system prompt; sequential execution recorded. Receipts publish to the bus
-# branch (runs/free-calls-*) like the other lanes. Kill switch: disable this
-# workflow (owner's click). Z-lane (z-desk namespace), owner pre-approval banked
-# 2026-11-09.
+# TWO FIRE ROUTES, one spec spine (owner direction 2026-11-09: "automate the
+# one click from Z, still gate-approved by Z; formalize the process"):
+#   A. OWNER CLICK: workflow_dispatch in the Actions tab (spend gate stays his).
+#   B. Z-GATED PUSH: Z pushes a marker file under docs/free-calls/fired/ — the push
+#      IS the approval; Z reviewed + staged the batch first. Both routes resolve the
+#      spec through docs/free-calls/CURRENT-BATCH unless an explicit input overrides.
+# The runner verifies $0 prompt+completion pricing in the LIVE catalog immediately
+# before the batch and aborts without sending otherwise; no retries, no paid fallback,
+# no tools, no system prompt; sequential execution recorded. Receipts publish to the
+# bus branch (runs/free-calls-*). Kill switch: disable this workflow (owner click).
+# Process doc for seats: docs/free-calls/PROCESS.md. Z-lane, owner-approved 2026-11-09.
 
 on:
   workflow_dispatch:
     inputs:
       spec_path:
-        description: 'Repo path to the batch spec JSON'
+        description: 'Optional: repo path to a batch spec JSON. Empty = the batch named in docs/free-calls/CURRENT-BATCH (the newest Z-staged batch).'
         required: false
         type: string
-        default: 'docs/free-calls/2026-11-09-gpt-family-pair-batch.json'
+        default: ''
+  push:
+    paths:
+      - 'docs/free-calls/fired/**'
 
 permissions:
   contents: write
@@ -32,7 +37,6 @@ jobs:
     timeout-minutes: 30
     env:
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      SPEC_PATH: ${{ inputs.spec_path }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -42,6 +46,14 @@ jobs:
         run: test -n "$OPENROUTER_API_KEY"
       - name: Module imports
         run: python -c "import island.free_calls"
+      - name: Resolve spec path (explicit input, else CURRENT-BATCH pointer)
+        run: |
+          SP="${{ inputs.spec_path }}"
+          if [ -z "$SP" ] || [ ! -f "$SP" ]; then
+            SP=$(head -n1 docs/free-calls/CURRENT-BATCH)
+          fi
+          echo "Using spec: $SP"
+          echo "SPEC_PATH=$SP" >> "$GITHUB_ENV"
       - name: Spec exists
         run: test -f "$SPEC_PATH"
       - name: Run the batch
