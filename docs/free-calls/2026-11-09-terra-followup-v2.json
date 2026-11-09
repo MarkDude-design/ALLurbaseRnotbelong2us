@@ -1,0 +1,19 @@
+{
+  "batch": "terra-followup-v2-2026-11-09",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 1600,
+  "calls": [
+    {
+      "id": "terra-v2-a",
+      "seat": "Terra",
+      "prompt": "Two fictional rooms have the same local window: choosing a poem changes only the current visitor's screen and resets on close. Another visitor sees the default window, not that person's choice.\n\nIn Room 1, the operator's log records the choice and the operator can later read that log. In Room 2, the system explicitly collects, stores and transmits no record of the choice. No third party is present.\n\nFor EACH room, answer briefly:\n1. Does the local choice change the shared display?\n2. What can another visitor infer about the earlier choice from the default window alone?\n3. What can the operator know about the choice later, based on the facts given?\n4. Identify one detail that differs between the rooms. Do not assume the operator can identify the visitor unless stated.",
+      "source": "art-talk terra FREE-FOLLOWUP-V2-SPEC.md request A (prompt verbatim)"
+    },
+    {
+      "id": "terra-v2-b",
+      "seat": "Terra",
+      "prompt": "A fictional gallery considers two possible shows.\n\nShow A requires verified records of a tool's training sources. The gallery has not said whether exceptions or appeals exist.\nShow B has no process-record requirement.\nA maker has notes proving one layout choice but has no verified training-source records. Whether the training sources were used with permission is unknown. The maker has not applied to either show.\n\nAnswer in no more than six numbered lines:\n1. What is known about the maker's choice?\n2. Can those notes alone satisfy A's stated requirement?\n3. Does the scenario establish rejection from A?\n4. Can the maker apply to B without a process record, and does this guarantee admission?\n5. Give one legitimate reason for A's requirement AND one possible burden.\n6. Ask one question about the missing policy. Do not invent an answer.",
+      "source": "art-talk terra FREE-FOLLOWUP-V2-SPEC.md request B (prompt verbatim)"
+    }
+  ]
+}
