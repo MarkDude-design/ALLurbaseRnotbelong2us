@@ -15,6 +15,18 @@ name: Z Desk — Queue (self-serve consults)
 # run the same entry twice. The checkout is DUMB — no priority logic, no
 # leases, no expiry; coordination and time windows are the circle's common
 # sense. A held entry (future not_before) never consumes a claim slot.
+#
+# SELF-REPORTING TICKS + DISPATCHER (owner-ruled "stamps + dispatcher",
+# 2026-11-05): every claim/tick commit message stamps its trigger
+# [scheduled|workflow_dispatch] — a mechanical C1/C2 detector (the bus
+# commit itself proves what fired it) — and the tick commit carries a
+# per-entry summary (name=status[ actual=$X], actual summed from the run's
+# cost_receipt events; trailing ? = at least one UNKNOWN charge, never
+# fabricated). Hold-only ticks receipt as an empty commit naming the hold:
+# holds are now bus-visible, not just Actions-log-visible. A companion
+# dispatcher (z-desk-dispatcher.yml) fires this workflow via the
+# workflow_dispatch API on a */30 schedule — the documented GITHUB_TOKEN
+# chaining exception — self-limiting on an empty shelf.
 
 on:
   schedule:
@@ -99,7 +111,7 @@ jobs:
                   for arg in (('user.name', 'island-bus'),
                               ('user.email', 'actions@users.noreply.github.com')):
                       subprocess.run(['git', '-C', wt, 'config', arg[0], arg[1]],
-                                     check=True, capture_output=True)
+                                    check=True, capture_output=True)
 
                   def exists(path):
                       return subprocess.run(['git', '-C', wt, 'cat-file', '-e',
@@ -126,7 +138,7 @@ jobs:
                           (pathlib.Path(wt) / claim).parent.mkdir(parents=True,
                                                                  exist_ok=True)
                           subprocess.run(['git', '-C', wt, 'mv', entry, claim],
-                                         check=True, capture_output=True)
+                                        check=True, capture_output=True)
                           batch.append((i, entry, spec))
                       return batch
 
@@ -134,9 +146,13 @@ jobs:
                       batch = stage_batch()
                       if not batch:
                           break
+                      # TRIGGER STAMP (owner-ruled 2026-11-05): the claim
+                      # commit names what fired this tick — [scheduled] vs
+                      # [workflow_dispatch] — mechanical C1/C2 evidence.
                       subprocess.run(['git', '-C', wt, 'commit', '-q', '-m',
                                      f'queue: claim {len(batch)} entries by tick '
-                                     f'{os.environ.get("GITHUB_RUN_ID", "local")}'],
+                                     f'{os.environ.get("GITHUB_RUN_ID", "local")} '
+                                     f'[{os.environ.get("GITHUB_EVENT_NAME", "manual")}]'],
                                     check=True, capture_output=True)
                       push = subprocess.run(['git', '-C', wt, 'push', 'origin', 'HEAD:bus'],
                                            capture_output=True, text=True)
@@ -236,6 +252,37 @@ jobs:
                           pass
                   f.write_text(json.dumps(d))
           PY
+          # SELF-REPORTING TICK (owner-ruled 2026-11-05): per-entry actual
+          # spend, summed from the run's cost_receipt events. A trailing ?
+          # marks that at least one charge came back UNKNOWN — never
+          # fabricate spend; omit the field when no receipts exist.
+          python - <<'PY'
+          import json, pathlib
+          sd = pathlib.Path('queue-status')
+          root = pathlib.Path('/tmp/bus-out')
+          out = []
+          if sd.is_dir():
+              for f in sorted(sd.glob('*.json')):
+                  d = json.loads(f.read_text())
+                  outdir = d.get('run_outdir') or ''
+                  if not outdir or not (root / outdir.removeprefix('runs/') / 'bus.jsonl').is_file():
+                      continue
+                  total, unknown = 0.0, False
+                  for line in (root / outdir.removeprefix('runs/') / 'bus.jsonl').read_text().splitlines():
+                      try:
+                          e = json.loads(line)
+                      except Exception:
+                          continue
+                      if e.get('type') != 'cost_receipt':
+                          continue
+                      c = e.get('cost_usd')
+                      if c is None:
+                          unknown = True
+                      else:
+                          total += float(c)
+                  out.append(f"{outdir} {total:.4f}{'?' if unknown else ''}")
+          pathlib.Path('/tmp/actuals.txt').write_text('\n'.join(out))
+          PY
           if [ -d runs ] && [ -n "$(ls -A runs 2>/dev/null)" ]; then
             cp -r runs /tmp/bus-out
             rm -rf runs
@@ -253,25 +300,31 @@ jobs:
             cp -r /tmp/bus-out/. runs/
             git add runs/
           fi
+          SUMMARY=""
           if [ -d queue-status ]; then
             mkdir -p queue/done
             ts=$(date -u +%Y%m%dT%H%M%SZ)
             for status in queue-status/*.json; do
               [ -e "$status" ] || continue
               name=$(basename "$status" .json)
-              set -- $(python -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('entry') or '-', d.get('status') or '-', d.get('claim') or '-')" "$status")
-              entry="$1"; st="$2"; claim="$3"
+              set -- $(python -c "import json,sys;d=json.load(open(sys.argv[1]));print(d.get('entry') or '-', d.get('status') or '-', d.get('claim') or '-', d.get('run_outdir') or '-')" "$status")
+              entry="$1"; st="$2"; claim="$3"; outdir="$4"
               [ "$entry" = "-" ] && entry=""
               [ "$st" = "-" ] && st=""
               [ "$claim" = "-" ] && claim=""
+              [ "$outdir" = "-" ] && outdir=""
               case "$st" in
                 held|claimed-elsewhere|claim-failed)
+                  # SELF-REPORTING TICK: holds and claim races ride the
+                  # tick's commit message too — bus-visible receipts.
+                  SUMMARY="${SUMMARY}${name}=${st}; "
                   echo "$st entry left as-is: $entry"
                   continue
                   ;;
                 completed|error|parse-error)
                   ;;
                 *)
+                  SUMMARY="${SUMMARY}${name}=${st:-unknown}; "
                   echo "unknown status left as-is: $st"
                   continue
                   ;;
@@ -286,10 +339,22 @@ jobs:
               fi
               cp "$status" "queue/done/${ts}-${name}.json"
               git add "queue/done/${ts}-${name}.json"
+              actual=""
+              if [ -n "$outdir" ]; then
+                actual=$(grep -m1 "^${outdir} " /tmp/actuals.txt 2>/dev/null | cut -d' ' -f2 || true)
+              fi
+              SUMMARY="${SUMMARY}${name}=${st}${actual:+ actual=$actual}; "
             done
           fi
-          if ! git diff --cached --quiet; then
-            git commit -m "bus: queue tick ${GITHUB_RUN_ID} (receipts + dequeue)"
+          if ! git diff --cached --quiet || [ -n "$SUMMARY" ]; then
+            if git diff --cached --quiet; then
+              # Hold-only tick: the message itself is the receipt.
+              git commit --allow-empty -m "bus: queue tick ${GITHUB_RUN_ID} [${GITHUB_EVENT_NAME}] (holds): ${SUMMARY}"
+            else
+              # TRIGGER STAMP (owner-ruled 2026-11-05): [scheduled] vs
+              # [workflow_dispatch] — mechanical C1/C2 evidence on the bus.
+              git commit -m "bus: queue tick ${GITHUB_RUN_ID} [${GITHUB_EVENT_NAME}] (receipts + dequeue): ${SUMMARY}"
+            fi
             pushed=false
             for i in 1 2 3; do
               if git push origin bus; then pushed=true; break; fi
@@ -313,5 +378,6 @@ jobs:
             /tmp/bus-out/
             /tmp/claimed.txt
             /tmp/queue.txt
+            /tmp/actuals.txt
           retention-days: 30
           if-no-files-found: warn

@@ -62,7 +62,7 @@ Fields:
 ## Processing
 
 - Every 10 minutes the workflow runs the full test suite first, then drains
-  up to `MAX_PER_TICK` (3) oldest `queue/pending/` entries.
+  up to MAX_PER_TICK (3) oldest `queue/pending/` entries.
 - Per entry it runs the same `island.z_desk` consult as the manual lane
   (`.github/workflows/z-desk.yml`), so receipts land in
   `runs/z-desk-queue-<run-id>-<n>/` on the bus: `bus.jsonl`, `consult.md`,
@@ -135,3 +135,32 @@ The Nov-3 SECOND-CHECK consult (run `z-desk-queue-41700028376-1`, diff ISSUES_FO
 
 1. **"Without a human click per round" (opening paragraph) — overclaim, corrected.** The scheduled tick has never once been observed executing; every completed drain to date was the owner's manual `workflow_dispatch`. The opening above is rewritten; no claim rides on the cron firing (C1/C2 stay open).
 2. **`contains_secret` docstring (island/z_desk.py) — ambiguous absolute, rewritten.** "never proof a brief is secret-free" was grammatically mangled and readable as the scan guaranteeing secrecy. It now reads: best-effort scan over known token shapes; a clean result is not proof a brief is secret-free. Docstring-only change, zero behavior delta (next tick's test suite is the mechanical check).
+
+## Dispatcher + self-reporting ticks (2026-11-05, owner-ruled)
+
+Owner ruling "stamps + dispatcher (full auto)", 2026-11-05:
+
+- **Trigger stamp (C1/C2 detector).** Every claim and tick commit message
+  now carries its trigger — `[scheduled]` or `[workflow_dispatch]`. If the
+  queue's own cron ever fires, the bus commit itself is the evidence; no
+  UI glance required. Until one does, every bus tick will read
+  `[workflow_dispatch]` — dispatcher-fired or owner-fired.
+- **Self-reporting ticks.** The tick commit message carries a per-entry
+  summary: `name=status[ actual=$X]` for terminal entries (actual spend
+  summed from the run's `cost_receipt` events; a trailing `?` marks that
+  at least one charge came back UNKNOWN — never fabricated). Hold-only
+  ticks (e.g. a `not_before` entry waiting) receipt as an empty commit
+  naming the hold — holds are now bus-visible, not Actions-log-only.
+- **Dispatcher workflow (`z-desk-dispatcher.yml`).** A scheduled workflow
+  that fires the queue via the `workflow_dispatch` API on a `*/30`
+  schedule — the documented exception that lets the default token chain
+  workflows. It self-limits: it reads the bus shelf first and exits
+  without dispatching when `queue/pending/` is empty, so the post-drain
+  queue stays quiet. **Kill switch:** disable the dispatcher's schedule
+  (owner's click); manual ticks and the queue's own schedule are
+  unaffected.
+- **What this changes about the opening claim:** the drain is now
+  automated by construction (the dispatcher lane), while C1/C2 (the
+  queue's own `*/10` cron never observed) stays open as its own finding —
+  a dispatcher-fired tick reads `[workflow_dispatch]`; only the queue's
+  own cron would ever read `[scheduled]`.

@@ -1,0 +1,40 @@
+name: Z Desk — Queue Dispatcher (auto-tick)
+
+# DISPATCHER LANE (owner-ruled "stamps + dispatcher (full auto)",
+# 2026-11-05): a scheduled workflow whose only job is firing the queue
+# tick via the workflow_dispatch API — the documented exception that
+# lets the default GITHUB_TOKEN chain workflows. SELF-LIMITING: it checks
+# the bus shelf first and exits without dispatching when queue/pending/
+# is empty, so the post-drain queue stays quiet. C1/C2 isolation test:
+# if dispatcher-fired ticks appear on the bus while the queue's own */10
+# cron never fires, the queue's cron path is the anomaly, not repo
+# scheduling generally. Kill switch: disable this schedule (owner's
+# click); manual ticks and the queue's own schedule are unaffected.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check the shelf, then fire the queue tick
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -e
+          pending=$(gh api "repos/${GITHUB_REPOSITORY}/git/trees/bus?recursive=1" --jq '[.tree[]? | select(.path | startswith("queue/pending/"))] | length' 2>/dev/null || echo 1)
+          echo "pending entries on the bus shelf: ${pending}"
+          if [ "${pending}" = "0" ]; then
+            echo "shelf empty; no dispatch fired"
+            exit 0
+          fi
+          echo "firing z-desk-queue via workflow_dispatch (ref main)"
+          gh api -X POST "repos/${GITHUB_REPOSITORY}/actions/workflows/z-desk-queue.yml/dispatches" -f ref=main
