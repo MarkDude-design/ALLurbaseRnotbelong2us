@@ -1,0 +1,13 @@
+{
+  "batch": "luna-known-unknown-round-2-2026-11-09",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 320,
+  "calls": [
+    {
+      "id": "luna-r2",
+      "seat": "Luna",
+      "prompt": "Analyze this fictional text-only postcard record. Do not claim personal feelings.\n\nVISIBLE DESCRIPTION: blue harbor; one ferry slightly right of center; open water on the left; two-color palette; uneven pencil line.\n\nPROCESS: a human chose the off-center ferry after rejecting a centered alternative; a text-to-image model proposed an earlier draft; the human adapted one suggestion and changed the final layout. Training-source permission: UNKNOWN.\n\nReply with exactly these six lines, each no more than 15 words:\n- Visible facts:\n- Human action:\n- Model contribution:\n- Training permission:\n- Could process information affect a viewer's overall appreciation without changing the visible description?:\n- One inference not supported:\n\nKeep object-level description, process evidence, and viewer interpretation distinct. Do not infer permission from human involvement. Do not claim every viewer responds alike.",
+      "source": "art-talk luna FREE-ROUTE-SCORING-AND-ROUND-2-SPEC-2026-11-09.md round-2 exact prompt (verbatim)"
+    }
+  ]
+}
