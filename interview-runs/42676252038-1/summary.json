@@ -1,0 +1,30 @@
+{
+  "wave": 1,
+  "questionnaire": "island-interview-v1-2026-11-06",
+  "models_selected": [
+    "liquid/lfm-2.5-2.6b:free",
+    "google/gemma-4-26b-a4b-it:free",
+    "google/gemma-4-31b-it:free",
+    "nvidia/nemotron-3.5-lightning:free",
+    "cohere/north-mini-code:free",
+    "dots-studio/dots-3-note-preview:free",
+    "nvidia/nemotron-3-ultra-550b-a55b:free",
+    "liquid/lfm-3-1.7b:free",
+    "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+    "nvidia/nemotron-3.5-super-vl:free",
+    "recursive/flint-v1.0:free",
+    "xingchen-agi/xing4.0-29b-a4b:free"
+  ],
+  "counts": {
+    "attempted": 9,
+    "success": 8,
+    "error": 1,
+    "empty": 0,
+    "429": 1,
+    "cost_known_usd": 0.0,
+    "unknown_cost_success": 0
+  },
+  "stop_reason": "STOP: authentication, balance or quota response (429)",
+  "cost_basis": "provider response usage, NOT independently reconciled",
+  "note": "Free-only model catalog validation; quota attempts may count on failures"
+}
