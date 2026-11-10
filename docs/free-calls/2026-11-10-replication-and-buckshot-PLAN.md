@@ -15,7 +15,7 @@ Owner directives (~10:15 PT 2026-11-10):
 | 0 | gpt-family-usage-ladder-b3-effort-sweep | docs/free-calls/2026-11-10-gpt-family-usage-ladder-b3.json | $0.50 | RECEIPTED: run free-calls-42869252253, 4/4 stop, $0.063530; banked art-talk + ledger batch 35 (~18:15Z) |
 | 1 | ladder-rep-b1 (lower 4 rungs x2) | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | RECEIPTED: run free-calls-42872468891, 8/8 stop, $0.028497; banked art-talk + ledger batch 36; zero variance (~18:25Z) |
 | 1b | ladder-rep-b1b (gpt-5.5 x2) | docs/free-calls/2026-11-10-ladder-rep-b1b.json | $0.50 | RECEIPTED: free-calls-42878682709, 2/2 stop, $0.050190, zero variance; banked + ledger 37 (~18:50Z) |
-| 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | FIRED ~18:50Z (this commit) |
+| 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | Attempt 1 ABORTED pre-call (free-calls-42878945744, worst-case $1.012944 > $1.00 ceiling, $0 spent, 0/8); abort receipt banked + ledger batch 38. REFIRED v2 ~19:10Z (max_tokens 1024, this commit) |
 | 3 | ladder-rep-b3 | docs/free-calls/2026-11-10-ladder-rep-b3.json | $0.50 | STAGED |
 | 4 | bs-f1-free | docs/free-calls/2026-11-10-buckshot-f1-free.json | $0 | STAGED |
 | 5 | bs-f2-free | docs/free-calls/2026-11-10-buckshot-f2-free.json | $0 | STAGED |
@@ -67,3 +67,4 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 - 2026-11-10 ~18:45Z: owner said keep going; main session fired ladder-rep-b1b manually (stacking satisfied: rep-b1 receipted + zero variance). Hourly wakes continue from the plan LOG.
 - 2026-11-10 ~18:50Z: rep-b1b receipted (free-calls-42878682709, 2/2 stop, $0.050190) + banked + scored (11/11 x2, ZERO variance r1/r2/b1) + ledger batch 37. Same session fired ladder-rep-b2 (upper rungs x2, $1.00 budget). Ledger next batch: 38.
 - 2026-11-10 ~18:57Z: LEDGER REPAIR — batch-37 append (built on stale sha 7a85cfb3) overwrote the 18:25Z wake's batch 36 in the live ledger; batch-36 text restored verbatim from talks-main commit 42c46c5e at its chronological position + repair note + multi-writer fresh-fetch rule added to MECHANICS. rep-b2 in flight (fired 18:50Z, 14db59dc). Ledger next batch: 38 (batch 36 restored, 37 present; do NOT renumber).
+- 2026-11-10 ~19:05-19:10Z: rep-b2 attempt 1 receipted as ABORT-PRE-CALL (free-calls-42878945744: price-check worst-case $1.012944 > $1.00 hard ceiling; 0/8 calls, $0.000000). Guard worked as designed. Abort receipt banked verbatim to art-talk (GPT-FAMILY-REPLICATION-B2-ABORT-RECEIPT) + ledger batch 38 appended (aa8309fc). Spec v2 (per-call max_tokens 4096->1024, recomputed worst-case ~$0.26) REFIRED this commit (marker v2 + CURRENT-BATCH). Ledger next batch: 39.
