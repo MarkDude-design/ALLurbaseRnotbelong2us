@@ -1,0 +1,43 @@
+{
+  "batch": "luna-model-participant-pilot-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 700,
+  "calls": [
+    {
+      "id": "luna-a1-selection-unknown-training",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the same described artwork in every version: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" Process note: The maker selected one of four model drafts. Training-permission note: Unknown. Give separate 0-10 ratings for (1) interest in the described artwork, (2) appeal of the described artwork, (3) human agency visible in the described process, and (4) acceptability of the described process. Add one sentence explaining each rating. State one fact provided and one thing that remains unknown. Do not combine the ratings, infer real-world facts, or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block A (template verbatim + table substitution) - MODEL-PARTICIPANT pilot, not a human study, condition A1"
+    },
+    {
+      "id": "luna-a2-recomposition-unknown-training",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the same described artwork in every version: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" Process note: The maker selected a draft, changed its composition, and chose the final layout. Training-permission note: Unknown. Give separate 0-10 ratings for (1) interest in the described artwork, (2) appeal of the described artwork, (3) human agency visible in the described process, and (4) acceptability of the described process. Add one sentence explaining each rating. State one fact provided and one thing that remains unknown. Do not combine the ratings, infer real-world facts, or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block A (template verbatim + table substitution) - MODEL-PARTICIPANT pilot, not a human study, condition A2"
+    },
+    {
+      "id": "luna-a3-selection-permitted-training",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the same described artwork in every version: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" Process note: The maker selected one of four model drafts. Training-permission note: Documented permission for the relevant training sources. Give separate 0-10 ratings for (1) interest in the described artwork, (2) appeal of the described artwork, (3) human agency visible in the described process, and (4) acceptability of the described process. Add one sentence explaining each rating. State one fact provided and one thing that remains unknown. Do not combine the ratings, infer real-world facts, or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block A (template verbatim + table substitution) - MODEL-PARTICIPANT pilot, not a human study, condition A3"
+    },
+    {
+      "id": "luna-a4-recomposition-permitted-training",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the same described artwork in every version: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" Process note: The maker selected a draft, changed its composition, and chose the final layout. Training-permission note: Documented permission for the relevant training sources. Give separate 0-10 ratings for (1) interest in the described artwork, (2) appeal of the described artwork, (3) human agency visible in the described process, and (4) acceptability of the described process. Add one sentence explaining each rating. State one fact provided and one thing that remains unknown. Do not combine the ratings, infer real-world facts, or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block A (template verbatim + table substitution) - MODEL-PARTICIPANT pilot, not a human study, condition A4"
+    },
+    {
+      "id": "luna-b1-look-first-slop",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the described artwork: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" No information is provided about how this fictional image was made, trained, selected, or circulated; those facts are unknown.\n\nFirst, describe the described artwork openly, then give separate 0-10 ratings for (1) your interest in the described artwork and (2) the appeal of the described artwork, adding one sentence explaining each rating.\n\nThen state how well the word \"slop\" applies to this described work, why, and what meaning you are using; do not define \"slop\" as \"AI art\" or \"bad art.\"\n\nDo not infer real-world facts or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block B (task blocks per draft; wording identical except order) - MODEL-PARTICIPANT pilot, not a human study, condition B1 (look-first)"
+    },
+    {
+      "id": "luna-b2-label-first-slop",
+      "seat": "Luna",
+      "prompt": "This is a fictional evaluation exercise. Consider the described artwork: \"A small blue paper boat floats in a shallow bowl of water beside a window. Three uneven pencil lines suggest ripples; a strip of orange paper is folded into a sail. The background is mostly blank.\" No information is provided about how this fictional image was made, trained, selected, or circulated; those facts are unknown.\n\nFirst, state how well the word \"slop\" applies to this described work, why, and what meaning you are using; do not define \"slop\" as \"AI art\" or \"bad art.\"\n\nThen describe the described artwork openly, and give separate 0-10 ratings for (1) your interest in the described artwork and (2) the appeal of the described artwork, adding one sentence explaining each rating.\n\nDo not infer real-world facts or claim to have human feelings.",
+      "source": "art-talk luna LUNA-MODEL-PARTICIPANT-ADAPTATION-2026-11-10.md block B (task blocks per draft; wording identical except order) - MODEL-PARTICIPANT pilot, not a human study, condition B2 (label-first)"
+    }
+  ]
+}
