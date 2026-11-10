@@ -38,6 +38,7 @@ from island.z_desk import contains_secret
 CATALOG_URL = "https://openrouter.ai/api/v1/models"
 CHAT_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL_ID_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._/:-]{0,119}$")
+REASONING_EFFORTS = ("low", "medium", "high", "xhigh")
 MAX_CALLS = 8
 MAX_PROMPT_CHARS = 20000
 MAX_IMAGE_BYTES = 4 * 1024 * 1024
@@ -142,6 +143,12 @@ def main():
         ct = c.get("max_tokens", max_tokens)
         if not isinstance(ct, int) or not 1 <= ct <= 4096:
             problems.append("call %s: max_tokens must be an int in 1..4096" % cid)
+        eff = c.get("reasoning_effort")
+        if eff is not None and (not isinstance(eff, str) or eff not in REASONING_EFFORTS):
+            problems.append("call %s: reasoning_effort must be one of %s" % (cid, list(REASONING_EFFORTS)))
+        rmode = c.get("reasoning_mode")
+        if rmode is not None and (not isinstance(rmode, str) or not re.match(r"^[a-z]{1,16}$", rmode)):
+            problems.append("call %s: reasoning_mode must be a lowercase token" % cid)
         img = c.get("image")
         if img is not None:
             if not isinstance(img, str) or os.path.isabs(img) or ".." in img.split("/"):
@@ -275,13 +282,23 @@ def main():
                   "model": call_model, "max_tokens": call_cap,
                   "prompt_chars": len(prompt), "image": image_note,
                   "paid": is_paid,
+                  "reasoning_effort": c.get("reasoning_effort"),
+                  "reasoning_mode": c.get("reasoning_mode"),
                   "prompt_sha256": hashlib.sha256(prompt.encode("utf-8")).hexdigest()})
             result = {"type": "call_result", "utc": now(), "index": i, "id": cid, "seat": seat,
-                      "model_requested": call_model, "max_tokens": call_cap, "paid": is_paid}
+                      "model_requested": call_model, "max_tokens": call_cap, "paid": is_paid,
+                      "reasoning_effort": c.get("reasoning_effort"),
+                      "reasoning_mode": c.get("reasoning_mode")}
             try:
                 payload = {"model": call_model,
                            "messages": [{"role": "user", "content": content}],
                            "max_tokens": call_cap}
+                call_effort = c.get("reasoning_effort")
+                if call_effort:
+                    payload["reasoning"] = {"effort": call_effort}
+                call_mode = c.get("reasoning_mode")
+                if call_mode:
+                    payload.setdefault("reasoning", {})["mode"] = call_mode
                 req = urllib.request.Request(
                     CHAT_URL, data=json.dumps(payload).encode("utf-8"), method="POST",
                     headers={"Content-Type": "application/json",
@@ -385,6 +402,9 @@ def main():
                   " / total " + str((r.get("usage") or {}).get("total_tokens")) + " tokens",
                   "- Cost: " + (("$%.6f" % r["cost_usd"]) if isinstance(r.get("cost_usd"), float)
                                 else "null") + " (" + str(r.get("cost_basis")) + ")", ""]
+        if r.get("reasoning_effort") or r.get("reasoning_mode"):
+            lines += ["- Reasoning: effort " + str(r.get("reasoning_effort")) +
+                      " / mode " + str(r.get("reasoning_mode")), ""]
         lines += ["### Raw response (verbatim)", ""]
         if r.get("status") == "completed":
             lines += [str(r.get("text") or ""), ""]
@@ -411,3 +431,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
