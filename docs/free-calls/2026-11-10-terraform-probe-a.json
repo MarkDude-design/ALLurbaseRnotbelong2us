@@ -1,0 +1,35 @@
+{
+  "batch": "terraform-probe-a-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 3000,
+  "calls": [
+    {
+      "id": "pa-01",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nCandidate: Source-record scope: Is the gallery asking for records about the image itself, or about the AI system that produced it?\n\nAnswer briefly:\n1. What specific distinction or question might this candidate clarify?\n2. Give one concrete counterexample or situation where it could mislead.\n3. Which parts, if any, assert facts not established by the scenario? Quote them; if none, say none.\n4. Suggest a plainer version without turning unknowns into facts, or say the candidate should be discarded.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 3000
+    },
+    {
+      "id": "pa-02",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nCandidate: Proof burden: The practical hardship a maker may have in producing records the gallery has asked for.\n\nAnswer briefly:\n1. What specific distinction or question might this candidate clarify?\n2. Give one concrete counterexample or situation where it could mislead.\n3. Which parts, if any, assert facts not established by the scenario? Quote them; if none, say none.\n4. Suggest a plainer version without turning unknowns into facts, or say the candidate should be discarded.",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "pa-03",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nCandidate: Memory context versus public-display frame: The personal or relational meaning of the image compared with its framing as a publicly displayed AI artwork.\n\nAnswer briefly:\n1. What specific distinction or question might this candidate clarify?\n2. Give one concrete counterexample or situation where it could mislead.\n3. Which parts, if any, assert facts not established by the scenario? Quote them; if none, say none.\n4. Suggest a plainer version without turning unknowns into facts, or say the candidate should be discarded.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "pa-04",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nCandidate: Institutional risk management: The gallery's strategy to mitigate legal and ethical risks by verifying image sources before exhibition.\n\nAnswer briefly:\n1. What specific distinction or question might this candidate clarify?\n2. Give one concrete counterexample or situation where it could mislead.\n3. Which parts, if any, assert facts not established by the scenario? Quote them; if none, say none.\n4. Suggest a plainer version without turning unknowns into facts, or say the candidate should be discarded.",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    }
+  ]
+}
