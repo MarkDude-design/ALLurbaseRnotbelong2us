@@ -7,12 +7,14 @@ Owner directives (~10:15 PT 2026-11-10):
 4. Routing: NON-GPT experiments + scores go on the PRIVATE ledger (talks-main) in a way every seat can read. GPT-family institute decisions belong to Meraki (owner will brief them; awkward otherwise).
 5. Envelope: $5-$10 total. Runner code ceiling $1.00/batch stays.
 6. Z runs 5 hourly one-shot alarms (~19:25Z, 20:25Z, 21:25Z, 22:25Z, 23:25Z); the 18:25Z task banks b3 + fires queue item 1.
+7. MAX_CALLS is 8 per batch - every staged spec respects it (rep-b1 was split 4 rungs + gpt-5.5 into rep-b1b for this reason).
 
 ## QUEUE (fire strictly ONE at a time; next only after prior receipts landed AND banked)
 | # | batch | spec | budget | status |
 |---|-------|------|--------|--------|
 | 0 | gpt-family-usage-ladder-b3-effort-sweep | docs/free-calls/2026-11-10-gpt-family-usage-ladder-b3.json | $0.50 | FIRED 17:55Z ALLur main 849fbe26; receipts pending |
-| 1 | ladder-rep-b1 | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | STAGED |
+| 1 | ladder-rep-b1 (lower 4 rungs x2) | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | STAGED |
+| 1b | ladder-rep-b1b (gpt-5.5 x2) | docs/free-calls/2026-11-10-ladder-rep-b1b.json | $0.50 | STAGED |
 | 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | STAGED |
 | 3 | ladder-rep-b3 | docs/free-calls/2026-11-10-ladder-rep-b3.json | $0.50 | STAGED |
 | 4 | bs-f1-free | docs/free-calls/2026-11-10-buckshot-f1-free.json | $0 | STAGED |
@@ -57,4 +59,5 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 - Ledger next batch number: 35.
 
 ## LOG (append only, newest last)
-- 2026-11-10 ~18:05Z: plan published; 9 specs staged; b3 in flight; hourly alarms 19:25/20:25/21:25/22:25/23:25Z set; 18:25Z task updated to bank b3 + fire ladder-rep-b1.
+- 2026-11-10 ~18:05Z: plan published; specs staged; b3 in flight; hourly alarms 19:25/20:25/21:25/22:25/23:25Z set; 18:25Z task updated to bank b3 + fire ladder-rep-b1.
+- 2026-11-10 ~18:10Z: caught rep-b1 at 10 calls (MAX_CALLS 8) before any fire; split into rep-b1 (lower 4 rungs x2, 8 calls) + rep-b1b (gpt-5.5 x2, 2 calls). Queue rows 1/1b updated. No spend involved.
