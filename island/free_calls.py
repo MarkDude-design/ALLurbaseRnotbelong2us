@@ -172,8 +172,7 @@ def main():
     def emit(event):
         events.append(event)
         with (outdir / "bus.jsonl").open("a", encoding="utf-8") as bus:
-            bus.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "
-")
+            bus.write(json.dumps(event, ensure_ascii=False, sort_keys=True) + "\n")
 
     emit({"type": "batch_start", "utc": now(), "run_id": run_id, "batch": batch,
           "trigger": trigger, "model_requested": model, "max_tokens": max_tokens,
@@ -400,9 +399,7 @@ def main():
         img = (" (image attached: " + str(c.get("image")) + ")") if c.get("image") else ""
         lines += ["### " + str(c.get("id")) + " (seat: " + str(c.get("seat")) + ")" + img, "",
                   str(c.get("prompt")), ""]
-    (outdir / "receipts.md").write_text("
-".join(lines) + "
-", encoding="utf-8")
+    (outdir / "receipts.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(json.dumps({"run_id": run_id, "reason": reason,
                       "completed": len(completed), "errored": len(errored),
                       "actual_paid_usd": round(actual_paid_so_far, 6)}, indent=2))
