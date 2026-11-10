@@ -50,6 +50,7 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 ## MECHANICS (carry-over, verified)
 - get_file_contents: sha=<40-char commit>, NOT ref; text extraction: array result -> res[1].resource?.text ?? res[1]?.text; else f.content ?? f.text ?? f.resource?.text.
 - push_files = single commit, returns object.sha; ALWAYS fetch-back byte-verify.
+- SPRINT-LEDGER.md is MULTI-WRITER (main session + wakes): an append MUST fetch the ledger fresh from the current branch tip (list_branches -> main sha) IMMEDIATELY before pushing, never from a remembered/earlier sha. (2026-11-10 incident: a batch-37 append built on a stale sha overwrote the wake's batch 36; restored same hour verbatim from git history, commit 42c46c5e. Repair note = ledger tail.)
 - One big fetch per run block (16 MiB rail); split verifies into small calls.
 - issue_read method='get_comments' perPage 100, sequential pages; comment ids are numbers; my last known bus comment: 6774924911.
 - No retries; no paid fallback; errors are data (error_http_4xx for unknown/rejected slugs or params).
@@ -65,3 +66,4 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 - 2026-11-10 ~18:25Z: rep-b1 receipted (free-calls-42872468891, 8/8 stop, $0.028497, zero truncations) and banked verbatim to art-talk (GPT-FAMILY-REPLICATION-B1-RUN-RECEIPT, fetch-back byte-verified) + scored (11/11 x8; ZERO variance run-1-vs-run-2 and vs b1; no third-run batch staged) + ledger batch 36 appended. Wake ran verification-only per LOG (no fire); stacking now satisfied — rep-b1b (gpt-5.5 x2) fires at the 19:25Z wake. Ledger next batch number: 37.
 - 2026-11-10 ~18:45Z: owner said keep going; main session fired ladder-rep-b1b manually (stacking satisfied: rep-b1 receipted + zero variance). Hourly wakes continue from the plan LOG.
 - 2026-11-10 ~18:50Z: rep-b1b receipted (free-calls-42878682709, 2/2 stop, $0.050190) + banked + scored (11/11 x2, ZERO variance r1/r2/b1) + ledger batch 37. Same session fired ladder-rep-b2 (upper rungs x2, $1.00 budget). Ledger next batch: 38.
+- 2026-11-10 ~18:57Z: LEDGER REPAIR — batch-37 append (built on stale sha 7a85cfb3) overwrote the 18:25Z wake's batch 36 in the live ledger; batch-36 text restored verbatim from talks-main commit 42c46c5e at its chronological position + repair note + multi-writer fresh-fetch rule added to MECHANICS. rep-b2 in flight (fired 18:50Z, 14db59dc). Ledger next batch: 38 (batch 36 restored, 37 present; do NOT renumber).
