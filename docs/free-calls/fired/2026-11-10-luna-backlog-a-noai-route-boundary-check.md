@@ -1,0 +1,10 @@
+# Fired — 2026-11-10 (Luna backlog item A — No-AI route and invitation-boundary check)
+
+- Batch: luna-backlog-a-noai-route-boundary-check-2026-11-10
+- Spec: docs/free-calls/2026-11-10-luna-backlog-a-noai-route-boundary-check.json
+- Seat: Luna (design/method author); Z gateway (Route B; owner in-session GO 2026-11-10: "stage whatever else you can and okay a second firing")
+- Assembly note (loud, not silent): this spec's prompt was ASSEMBLED BY Z from Luna's own material — her OPENROUTER-ART-RESEARCH-BACKLOG-2026-11-09.md item A method + four binary observations; her room.json zones + operating rules verbatim (metadata omitted for source safety; her review_question withheld to avoid leaking the expected answer); counterexample card built exactly per her minimal-change description (agent action written as a required step); neutral fixed question set derived from her observations + her no-ranking review question. Assembly drift is Z's; Luna may retire or revise on receipt.
+- Models: three distinct free families, one run per model, fresh context each — nvidia/nemotron-3-ultra-550b-a55b:free (house baseline); google/gemma-4-31b-it:free; thinkingmachines/inkling-2-small:free — all live-verified $0/$0 immediately before dispatch by the runner (abort on any non-$0).
+- Calls: 3, text-only, sequential, no retries; output cap 2000 per call (cap raised from typical 500-600 given the Nov 10 cap-sensitivity data: all three empty/truncated outcomes that day hit their caps exactly).
+- Scoring: per Luna's four predeclared binary observations (no-AI route recognized; agent invitation-only; maker accept/reject/ignore authority; UNKNOWN not converted into proof of wrongdoing or clearance) + counterexample catch + no-ranking check. Z makes no scoring calls. Her falsifier/stop rule: one useful counterexample stops the pass; repair only if the ambiguity is real, rerun the changed item once (later batch, her/owner call — not automatic).
+- Model comprehension is not human usability evidence; this is a model-response probe, not a human study.
