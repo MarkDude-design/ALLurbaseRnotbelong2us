@@ -12,8 +12,8 @@ Owner directives (~10:15 PT 2026-11-10):
 ## QUEUE (fire strictly ONE at a time; next only after prior receipts landed AND banked)
 | # | batch | spec | budget | status |
 |---|-------|------|--------|--------|
-| 0 | gpt-family-usage-ladder-b3-effort-sweep | docs/free-calls/2026-11-10-gpt-family-usage-ladder-b3.json | $0.50 | FIRED 17:55Z ALLur main 849fbe26; receipts pending |
-| 1 | ladder-rep-b1 (lower 4 rungs x2) | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | STAGED |
+| 0 | gpt-family-usage-ladder-b3-effort-sweep | docs/free-calls/2026-11-10-gpt-family-usage-ladder-b3.json | $0.50 | RECEIPTED: run free-calls-42869252253, 4/4 stop, $0.063530; banked art-talk + ledger batch 35 (~18:15Z) |
+| 1 | ladder-rep-b1 (lower 4 rungs x2) | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | FIRED ~18:15Z (this commit) |
 | 1b | ladder-rep-b1b (gpt-5.5 x2) | docs/free-calls/2026-11-10-ladder-rep-b1b.json | $0.50 | STAGED |
 | 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | STAGED |
 | 3 | ladder-rep-b3 | docs/free-calls/2026-11-10-ladder-rep-b3.json | $0.50 | STAGED |
@@ -61,3 +61,4 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 ## LOG (append only, newest last)
 - 2026-11-10 ~18:05Z: plan published; specs staged; b3 in flight; hourly alarms 19:25/20:25/21:25/22:25/23:25Z set; 18:25Z task updated to bank b3 + fire ladder-rep-b1.
 - 2026-11-10 ~18:10Z: caught rep-b1 at 10 calls (MAX_CALLS 8) before any fire; split into rep-b1 (lower 4 rungs x2, 8 calls) + rep-b1b (gpt-5.5 x2, 2 calls). Queue rows 1/1b updated. No spend involved.
+- 2026-11-10 ~18:15Z: b3 receipted (free-calls-42869252253, 4/4 stop, $0.063530) and banked verbatim to art-talk (B3 bank) + scored (11/11 x4, effort dial = 10.7x token burn, 8.8x cost, zero substantive delta low vs xhigh) + ledger batch 35 appended. Same session fired ladder-rep-b1 (marker + CURRENT-BATCH flip, this commit). 18:25Z alarm converted to verification-only (no fire) to avoid double-fire.
