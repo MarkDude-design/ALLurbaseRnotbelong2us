@@ -14,8 +14,8 @@ Owner directives (~10:15 PT 2026-11-10):
 |---|-------|------|--------|--------|
 | 0 | gpt-family-usage-ladder-b3-effort-sweep | docs/free-calls/2026-11-10-gpt-family-usage-ladder-b3.json | $0.50 | RECEIPTED: run free-calls-42869252253, 4/4 stop, $0.063530; banked art-talk + ledger batch 35 (~18:15Z) |
 | 1 | ladder-rep-b1 (lower 4 rungs x2) | docs/free-calls/2026-11-10-ladder-rep-b1.json | $0.50 | RECEIPTED: run free-calls-42872468891, 8/8 stop, $0.028497; banked art-talk + ledger batch 36; zero variance (~18:25Z) |
-| 1b | ladder-rep-b1b (gpt-5.5 x2) | docs/free-calls/2026-11-10-ladder-rep-b1b.json | $0.50 | FIRED ~18:45Z (this commit) |
-| 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | STAGED |
+| 1b | ladder-rep-b1b (gpt-5.5 x2) | docs/free-calls/2026-11-10-ladder-rep-b1b.json | $0.50 | RECEIPTED: free-calls-42878682709, 2/2 stop, $0.050190, zero variance; banked + ledger 37 (~18:50Z) |
+| 2 | ladder-rep-b2 | docs/free-calls/2026-11-10-ladder-rep-b2.json | $1.00 | FIRED ~18:50Z (this commit) |
 | 3 | ladder-rep-b3 | docs/free-calls/2026-11-10-ladder-rep-b3.json | $0.50 | STAGED |
 | 4 | bs-f1-free | docs/free-calls/2026-11-10-buckshot-f1-free.json | $0 | STAGED |
 | 5 | bs-f2-free | docs/free-calls/2026-11-10-buckshot-f2-free.json | $0 | STAGED |
@@ -64,3 +64,4 @@ ANY substantive difference or rubric-score delta between run 1 and run 2 -> stag
 - 2026-11-10 ~18:15Z: b3 receipted (free-calls-42869252253, 4/4 stop, $0.063530) and banked verbatim to art-talk (B3 bank) + scored (11/11 x4, effort dial = 10.7x token burn, 8.8x cost, zero substantive delta low vs xhigh) + ledger batch 35 appended. Same session fired ladder-rep-b1 (marker + CURRENT-BATCH flip, this commit). 18:25Z alarm converted to verification-only (no fire) to avoid double-fire.
 - 2026-11-10 ~18:25Z: rep-b1 receipted (free-calls-42872468891, 8/8 stop, $0.028497, zero truncations) and banked verbatim to art-talk (GPT-FAMILY-REPLICATION-B1-RUN-RECEIPT, fetch-back byte-verified) + scored (11/11 x8; ZERO variance run-1-vs-run-2 and vs b1; no third-run batch staged) + ledger batch 36 appended. Wake ran verification-only per LOG (no fire); stacking now satisfied — rep-b1b (gpt-5.5 x2) fires at the 19:25Z wake. Ledger next batch number: 37.
 - 2026-11-10 ~18:45Z: owner said keep going; main session fired ladder-rep-b1b manually (stacking satisfied: rep-b1 receipted + zero variance). Hourly wakes continue from the plan LOG.
+- 2026-11-10 ~18:50Z: rep-b1b receipted (free-calls-42878682709, 2/2 stop, $0.050190) + banked + scored (11/11 x2, ZERO variance r1/r2/b1) + ledger batch 37. Same session fired ladder-rep-b2 (upper rungs x2, $1.00 budget). Ledger next batch: 38.
