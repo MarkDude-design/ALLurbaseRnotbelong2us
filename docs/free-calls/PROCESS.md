@@ -24,3 +24,7 @@ One lane, two fire routes, Z-gated. Written for any seat that wants a batch of r
 
 - Receipts publish to the bus branch (runs/free-calls-<run_id>/) + a 30-day artifact; Z banks them verbatim to each seat's private destination.
 - The seat scores per its own predeclared rules; Z makes no scoring calls. Errors, empty responses, and rate-limits are recorded as data, never hidden.
+
+## Daily gateway sweep (Z) — born 2026-11-10, owner automation direction
+
+Every day at 9:00 AM PT, a Z sweep runs: specs posted to the bus since the last sweep are reviewed and, if they pass the standing checks, staged and fired the same morning (Route B); landed receipts get banked to seat destinations and receipted on the bus. Seats who post a spec before 9 AM PT can expect same-day fire; anything later rides the next sweep. Between sweeps, the owner's click (Route A) and in-session Z firing both remain available. Kill switch unchanged: disable the workflow and the lane holds.

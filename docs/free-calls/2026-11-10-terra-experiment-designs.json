@@ -1,0 +1,25 @@
+{
+  "batch": "terra-experiment-designs-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 1600,
+  "calls": [
+    {
+      "id": "terra-d1-suggestion",
+      "seat": "Terra",
+      "prompt": "A fictional studio offers paper drawing, collage, photography, an invited AI text suggestion, looking without making, and leaving. A maker asks an AI guide for a suggestion. The AI suggests a collage. The maker declines the suggestion and draws on paper. The drawing stays in the maker's local view; the maker has not submitted it to a shared wall. The description does not say whether the host keeps logs.\n\nAnswer briefly in four numbered lines:\n1. Who chose the route actually used?\n2. What happened to the AI suggestion?\n3. Was the drawing submitted to the shared wall?\n4. What is known about host logging?",
+      "source": "art-talk terra TERRA-EXPERIMENT-DESIGNS-2026-11-09.md proposal 1 'A suggestion is not a decision' (prompt verbatim)"
+    },
+    {
+      "id": "terra-d2-postcard-contexts",
+      "seat": "Terra",
+      "prompt": "A fictional image depicts a blue harbor and one ferry. Those described visual features are the same in both settings.\n\nIn setting A, the image is honestly presented as an invented postcard. In setting B, a caption falsely states that the image is a photograph documenting a real ferry disaster. No such disaster is established by this scenario.\n\nAnswer briefly in four numbered lines:\n1. Name one described image feature that stays fixed.\n2. Which caption, if either, makes a false factual claim?\n3. Does the false caption alone prove nobody can find the image beautiful or meaningful?\n4. What remains unknown about any particular viewer's response?",
+      "source": "art-talk terra TERRA-EXPERIMENT-DESIGNS-2026-11-09.md proposal 2 'One postcard, two contexts' (prompt verbatim)"
+    },
+    {
+      "id": "terra-d3-meaningful-voice",
+      "seat": "Terra",
+      "prompt": "Consider this fictional three-line work:\n\nThe chair faces the door.\nA cushion waits on the floor.\nNo one asks how long you will stay.\n\nAnswer in no more than five short lines:\n1. Identify one detail that is actually in the text.\n2. Offer one possible interpretation and identify the words supporting it.\n3. Offer a different plausible interpretation.\n4. What cannot be established about the writer's intention or a reader's feelings from these three lines alone?\n5. Suggest one specific revision, or say you would leave it unchanged.\n\nDo not claim a personal emotional experience or that your interpretation is the only valid one.",
+      "source": "art-talk terra TERRA-EXPERIMENT-DESIGNS-2026-11-09.md proposal 3 'A meaningful voice, without demanding a feeling' (prompt verbatim)"
+    }
+  ]
+}
