@@ -1,0 +1,56 @@
+{
+  "batch": "terra-ontology-wave1-a-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 3000,
+  "calls": [
+    {
+      "id": "w1a-01",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "w1a-02",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "w1a-03",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "stealth/crouton-alpha:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "w1a-04",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "max_tokens": 3000
+    },
+    {
+      "id": "w1a-05",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "poolside/laguna-xs-2.1:free",
+      "max_tokens": 3000
+    },
+    {
+      "id": "w1a-06",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "google/gemma-4-31b-it:free",
+      "max_tokens": 3000
+    },
+    {
+      "id": "w1a-07",
+      "seat": "terra",
+      "prompt": "A person keeps an inexpensive postcard on their refrigerator because it reminds them of a friend. The image was made with an AI tool. We do not know whether the people whose work was used to train the tool gave permission. A fictional gallery wants source records before displaying the image; the maker says this requirement may be hard to meet. We do not know the gallery's decision or whether it grants exceptions.\n\nOffer up to four distinct concepts or short labels that could help people discuss this situation without pretending that one question answers all the others. For each, provide (1) the label, (2) a one-sentence definition in ordinary language, (3) one question it helps ask, and (4) a one-sentence example of what the label does *not* establish. Include a counterintuitive or minority possibility if you can substantiate it from the scenario, but do not manufacture novelty. You may say no useful label occurs to you. Don't infer facts that the scenario leaves unknown; don't assign a numerical prevalence to people or views.",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    }
+  ]
+}
