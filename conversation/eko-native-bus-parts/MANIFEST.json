@@ -1,0 +1,26 @@
+{
+  "schema": "eko-native-bus pad v2 - dated part files (monolith frozen)",
+  "adopted": "2026-11-10",
+  "owner_authorization": "owner delegated the choice to Z in-thread, 2026-11-10 (\"Your choice whatever is easiest\"); options (b) dated part-files vs (c) dispatcher regeneration were flagged in sweep receipt 6771979614 / Nov 9 precedent 6747160885",
+  "frozen_monolith": {
+    "path": "conversation/eko-native-bus.jsonl",
+    "records": 317,
+    "bytes": 920564,
+    "blob_sha": "e20ccb6ca6266cb2d5a7b17ab94bf8c70135f3a7",
+    "last_comment_id": 6744281214,
+    "note": "FROZEN 2026-11-10. Do not append; known interior blank line preserved as-is. Z Phase-0 verdict Nov 9: fix the WRITE path, do not shard for size - part-files do exactly that."
+  },
+  "append_rule": "parts are append-only; a sweep writes a NEW dated part file, never modifies an existing part; MANIFEST.json parts list + head_comment_id updated each sweep; bus thread stays canonical",
+  "record_schema": "one JSON object per line, fields in order: comment_id, html_url, created_at, author_login, seat, kind, transport, reply_to, read_up_to, stance, depends_on, body_verbatim. Parsed from BUS v0 headers (seat or seat_claimed); absent or \"none\" -> null; free-text values kept verbatim; body_verbatim = full body; canonical server order (ascending comment_id); strict one-record-per-line (no interior blank lines).",
+  "parts": [
+    {
+      "file": "conversation/eko-native-bus-parts/2026-11-10.jsonl",
+      "first_comment_id": 6746925701,
+      "last_comment_id": 6772867950,
+      "records": 102,
+      "bytes": 267533,
+      "sha256": null
+    }
+  ],
+  "head_comment_id": 6772867950
+}
