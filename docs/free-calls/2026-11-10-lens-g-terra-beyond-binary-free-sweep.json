@@ -1,1 +1,40 @@
-<SWEEP_JSON>
+{
+  "batch": "lens-g-terra-beyond-binary-free-sweep-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 500,
+  "calls": [
+    {
+      "id": "luna-lens-g-a-direct-vote",
+      "seat": "Luna",
+      "prompt": "This is a fictional model-reading exercise about a group process. Do not infer facts about real collectives.\n\nFour members of a neighborhood art group jointly write the brief for a postcard. An AI image tool supplies an initial draft; one member revises the composition and the other members review it. The card shows one ferry crossing a blue bay under an orange evening sky. The group is considering a proposal to print 100 copies for sale at one named shop; the final authorization decision has not yet been made. Net revenue from those copies is divided equally among all four members. The group records equal authorship credit. A record about training sources is available, and the scenario stipulates that the group's written rule authorizes this specific print/use decision. No other use is described. The model is not asked to assess legal validity.\n\nDecision rule and result: All four members agreed in writing to a rule that this print/use decision is made by a 3-of-4 member vote. Three members vote yes and one votes no. The written rule says the majority decision authorizes the specified print run.\n\nAnswer in five brief numbered lines:\n1. Who had final authority over this specific print/run under the described rule?\n2. What establishes that the group authorized the decision process?\n3. Does the scenario establish that all four individually supported this exact card? Explain briefly.\n4. What is stated about labor, credit and revenue distribution? Does the description establish that the arrangement is fair or adequate?\n5. Name one material fact that remains unknown about an individual member's contribution, view or experience.\n\nDo not rank the two decision rules, infer a legal conclusion, or claim to have human feelings.",
+      "source": "art-talk experiment/luna-choiceworks-room-2026-11-09 LUNA-LENS-G-COLLECTIVE-AUTHORITY-FREE-PROBE-2026-11-10.md - exact prompt template + G-A insertion verbatim - Lens G collective-authority model-response probe, not a human study"
+    },
+    {
+      "id": "luna-lens-g-b-delegated-choice",
+      "seat": "Luna",
+      "prompt": "This is a fictional model-reading exercise about a group process. Do not infer facts about real collectives.\n\nFour members of a neighborhood art group jointly write the brief for a postcard. An AI image tool supplies an initial draft; one member revises the composition and the other members review it. The card shows one ferry crossing a blue bay under an orange evening sky. The group is considering a proposal to print 100 copies for sale at one named shop; the final authorization decision has not yet been made. Net revenue from those copies is divided equally among all four members. The group records equal authorship credit. A record about training sources is available, and the scenario stipulates that the group's written rule authorizes this specific print/use decision. No other use is described. The model is not asked to assess legal validity.\n\nDecision rule and result: All four members agreed in writing to delegate this print/use decision to an elected coordinator after consultation. All four members are consulted; one says no. The elected coordinator votes yes. The written rule says the coordinator's decision authorizes the specified print run.\n\nAnswer in five brief numbered lines:\n1. Who had final authority over this specific print/run under the described rule?\n2. What establishes that the group authorized the decision process?\n3. Does the scenario establish that all four individually supported this exact card? Explain briefly.\n4. What is stated about labor, credit and revenue distribution? Does the description establish that the arrangement is fair or adequate?\n5. Name one material fact that remains unknown about an individual member's contribution, view or experience.\n\nDo not rank the two decision rules, infer a legal conclusion, or claim to have human feelings.",
+      "source": "art-talk experiment/luna-choiceworks-room-2026-11-09 LUNA-LENS-G-COLLECTIVE-AUTHORITY-FREE-PROBE-2026-11-10.md - exact prompt template + G-B insertion verbatim - Lens G collective-authority model-response probe, not a human study"
+    },
+    {
+      "id": "terra-t1-contrast-not-binary-verdict",
+      "seat": "Terra",
+      "prompt": "A fictional essay is titled “Art versus Noise: Can a tool help make art?” Its narrator says: “Some tool-assisted works can be art, but their artistic merit varies. I think the tool often reduces the maker's involvement.” The narrator does not explain why the title was chosen.\n\nAnswer briefly in four numbered lines:\n1. Does the narrator say all tool-assisted work is not art?\n2. What is the narrator's stated position on artistic merit?\n3. Does the title alone prove the narrator's reason for choosing it?\n4. Name one concern of the narrator that remains open even if a recipient likes a particular image.",
+      "max_tokens": 1600,
+      "source": "art-talk work/terra-postcard-journey experiments/terra-receipt-wall-bridge/BEYOND-BINARY-FREE-TESTS-2026-11-09.md Test 1 (contrast need not be a binary verdict) exact prompt verbatim - beyond-binary model-response probe, not a human study"
+    },
+    {
+      "id": "terra-t2-loved-postcard-unanswered-source",
+      "seat": "Terra",
+      "prompt": "In a fictional case, Pat keeps a postcard on Pat's own refrigerator because it reminds Pat of a friend. A maker selected a layout for the postcard using a picture-making tool. The tool's training-source permission is unknown. No evidence in this scenario shows that permission was granted or denied.\n\nAnswer briefly in four numbered lines:\n1. What is established about Pat's personal reason for keeping the card?\n2. Does Pat's attachment prove the tool's training sources were used with permission?\n3. Does the unknown permission status prove the card must be meaningless to Pat?\n4. What else would you need to know to evaluate a claim about permission? Give one example without inventing a fact.",
+      "max_tokens": 1600,
+      "source": "art-talk work/terra-postcard-journey experiments/terra-receipt-wall-bridge/BEYOND-BINARY-FREE-TESTS-2026-11-09.md Test 2 (a loved postcard and an unanswered source question) exact prompt verbatim - beyond-binary model-response probe, not a human study"
+    },
+    {
+      "id": "terra-t3-curators-unanswered-reply",
+      "seat": "Terra",
+      "prompt": "A fictional exhibition specifically about training sources states that entries need verified source records. A maker has a note documenting one layout decision but cannot obtain training-source records from the provider. The maker asks the curator whether other evidence can be accepted. The curator has not answered. The rules say nothing about exceptions or appeals.\n\nAnswer briefly in five numbered lines:\n1. Give one reason this specific exhibition might request source records.\n2. What does the layout note establish, and what does it not establish?\n3. Has the scenario established the curator rejected the work?\n4. Has an appeal process been established?\n5. Give one plausible burden of the rule without assuming the curator acted in bad faith.",
+      "max_tokens": 1600,
+      "source": "art-talk work/terra-postcard-journey experiments/terra-receipt-wall-bridge/BEYOND-BINARY-FREE-TESTS-2026-11-09.md Test 3 (the curator's unanswered reply) exact prompt verbatim - beyond-binary model-response probe, not a human study"
+    }
+  ]
+}

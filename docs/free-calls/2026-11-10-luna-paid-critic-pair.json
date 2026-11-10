@@ -1,1 +1,23 @@
-<PAIR_JSON>
+{
+  "batch": "luna-paid-critic-pair-2026-11-10",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "paid": {
+    "budget_usd": 1.0
+  },
+  "calls": [
+    {
+      "id": "luna-paid-pair-free-baseline",
+      "seat": "Luna",
+      "prompt": "You are reviewing a fictional research-design sketch, not evaluating a real community or artwork.\n\n**Fictional scenario:** A four-member neighborhood artist group works with an AI image tool to make a postcard. The final card shows one ferry crossing a blue bay under an orange evening sky. A short public note says: “The collective approved the card.” No other information is supplied about who speaks for the group, its internal leadership, how the decision was made, whether members could disagree or opt out, who selected or revised the final image, how labor was divided, how credit or payment is distributed, who bears risk, what use was authorized, or who can control later circulation. All those missing facts are UNKNOWN; the sentence is not proof that every member agreed or benefited.\n\n**Proposed research lens:** Keep two question families separate: (1) governance and voice — who can speak or authorize for the group, how a decision is made, how dissent or delegation works; and (2) distribution and accountability — how labor, credit, payment, risk, control and responsibility are allocated or contested. Aesthetic response to the fixed image is a separate question.\n\nIn no more than 600 tokens, return exactly these three labeled items:\n1. **Most consequential weakness:** identify one concrete confound, ambiguity, or overclaim in the proposed lens; quote the exact phrase or fact that causes it.\n2. **Minimal repair:** give one small revision or one additional scenario fact that would make the design more interpretable without prescribing a universal rule for collectives.\n3. **Claim limit:** name one conclusion this design still could not support, even after that repair.\n\nDo not invent group practices, speak for any real community, assume the group is homogeneous, give legal conclusions, or claim that a model response is a human response. If the design has a major gap, state it plainly. If you find no major gap, say so rather than manufacture one.",
+      "source": "art-talk experiment/luna-choiceworks-room-2026-11-09 LUNA-PAID-CALL-PILOT-SPEC-2026-11-10.md - exact prompt verbatim (identical in both requests) - owner-approved rung 1 paid critic pair, $1 all-in code ceiling - free baseline half"
+    },
+    {
+      "id": "luna-paid-pair-paid-critic",
+      "seat": "Luna",
+      "model": "anthropic/claude-opus-5.5",
+      "prompt": "You are reviewing a fictional research-design sketch, not evaluating a real community or artwork.\n\n**Fictional scenario:** A four-member neighborhood artist group works with an AI image tool to make a postcard. The final card shows one ferry crossing a blue bay under an orange evening sky. A short public note says: “The collective approved the card.” No other information is supplied about who speaks for the group, its internal leadership, how the decision was made, whether members could disagree or opt out, who selected or revised the final image, how labor was divided, how credit or payment is distributed, who bears risk, what use was authorized, or who can control later circulation. All those missing facts are UNKNOWN; the sentence is not proof that every member agreed or benefited.\n\n**Proposed research lens:** Keep two question families separate: (1) governance and voice — who can speak or authorize for the group, how a decision is made, how dissent or delegation works; and (2) distribution and accountability — how labor, credit, payment, risk, control and responsibility are allocated or contested. Aesthetic response to the fixed image is a separate question.\n\nIn no more than 600 tokens, return exactly these three labeled items:\n1. **Most consequential weakness:** identify one concrete confound, ambiguity, or overclaim in the proposed lens; quote the exact phrase or fact that causes it.\n2. **Minimal repair:** give one small revision or one additional scenario fact that would make the design more interpretable without prescribing a universal rule for collectives.\n3. **Claim limit:** name one conclusion this design still could not support, even after that repair.\n\nDo not invent group practices, speak for any real community, assume the group is homogeneous, give legal conclusions, or claim that a model response is a human response. If the design has a major gap, state it plainly. If you find no major gap, say so rather than manufacture one.",
+      "source": "art-talk experiment/luna-choiceworks-room-2026-11-09 LUNA-PAID-CALL-PILOT-SPEC-2026-11-10.md - exact prompt verbatim (identical in both requests) - owner-approved rung 1 paid critic pair, $1 all-in code ceiling - paid critic half"
+    }
+  ]
+}
