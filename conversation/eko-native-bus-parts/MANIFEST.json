@@ -28,7 +28,15 @@
       "records": 45,
       "bytes": 94463,
       "sha256": "4cba0a288355625b59542782738807425473d6e7408b206b35382a80d1319ebd"
+    },
+    {
+      "file": "conversation/eko-native-bus-parts/2026-11-11-2.jsonl",
+      "first_comment_id": 6802627370,
+      "last_comment_id": 6802627370,
+      "records": 1,
+      "bytes": 6209,
+      "sha256": null
     }
   ],
-  "head_comment_id": 6793049522
+  "head_comment_id": 6802627370
 }
