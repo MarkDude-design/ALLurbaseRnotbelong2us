@@ -22,6 +22,16 @@ class CircleReactTests(unittest.TestCase):
                 with self.assertRaises(ValueError):
                     parse_command(bad)
 
+    def test_command_accepts_whitelisted_seed_slugs(self):
+        self.assertEqual(parse_command("/circle-react z webring"), ("z", "webring"))
+        self.assertEqual(parse_command("/circle-react demo circle-island-react-v0"),
+                         ("demo", "circle-island-react-v0"))
+        for bad in ("/circle-react z webring; echo x", "/circle-react z Webring",
+                    "/circle-react z ../seeds/weave", "/circle-react demo unknown-slug"):
+            with self.subTest(bad=bad):
+                with self.assertRaises(ValueError):
+                    parse_command(bad)
+
     def test_key_metadata_provider_cap(self):
         self.assertEqual(validate_key_info(GOOD_KEY)["limit_usd"], 10)
         for bad in (

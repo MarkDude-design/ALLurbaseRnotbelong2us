@@ -59,16 +59,19 @@ jobs:
           python -m unittest discover -s tests -p 'test_circle_react.py' -v
           python - <<'PY'
           import os
-          from island.circle_react import parse_command, SEED_FILE
+          from island.circle_react import parse_command
           from pathlib import Path
           route, seed = parse_command(os.environ["COMMENT_BODY"])
-          if not Path(SEED_FILE).is_file(): raise SystemExit("Missing seed")
+          seed_file = "docs/seeds/" + seed + ".md"
+          if not Path(seed_file).is_file(): raise SystemExit("Missing seed")
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
               f.write("route=" + route + "\nseed=" + seed + "\n")
           PY
 
       - name: Durable claim before expenditure
         id: claim
+        env:
+          SEED_SLUG: ${{ steps.parse.outputs.seed }}
         run: |
           set -euo pipefail
           git config user.name circle-react-bot
@@ -89,7 +92,7 @@ jobs:
                           "requestor_github_login":os.environ["REQUESTOR"],
                           "route":os.environ["COMMENT_BODY"].split()[1],
                           "trigger":os.environ["EVENT"],
-                          "seed":"circle-island-react-v0",
+                          "seed":os.environ["SEED_SLUG"],
                           "state":"claimed-before-call"},
                          sort_keys=True, indent=2)+"\n", encoding="utf-8")
           PY
@@ -119,19 +122,19 @@ jobs:
 
       - name: Demo — zero paid calls
         if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'demo'
-        run: python -m island.circle_react --route demo --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+        run: python -m island.circle_react --route demo --comment-id "$COMMENT_ID" --seed-id "${{ steps.parse.outputs.seed }}" --outdir "runs/circle-react-$COMMENT_ID"
 
       - name: Meraki-card consultant
         if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'meraki'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_MERAKI }}
-        run: python -m island.circle_react --route meraki --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+        run: python -m island.circle_react --route meraki --comment-id "$COMMENT_ID" --seed-id "${{ steps.parse.outputs.seed }}" --outdir "runs/circle-react-$COMMENT_ID"
 
       - name: Z-card consultant
         if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'z'
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_Z }}
-        run: python -m island.circle_react --route z --comment-id "$COMMENT_ID" --outdir "runs/circle-react-$COMMENT_ID"
+        run: python -m island.circle_react --route z --comment-id "$COMMENT_ID" --seed-id "${{ steps.parse.outputs.seed }}" --outdir "runs/circle-react-$COMMENT_ID"
 
       - name: Publish receipts to bus
         if: always() && steps.claim.outputs.status == 'claimed'

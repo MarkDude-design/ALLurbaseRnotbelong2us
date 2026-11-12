@@ -17,9 +17,17 @@ from urllib.error import HTTPError, URLError
 from island.runner import _openrouter_call, now, record_cost
 from island.z_desk import contains_secret
 
+SEED_IDS = ("circle-island-react-v0", "webring")
+SEED_FILES = {sid: "docs/seeds/" + sid + ".md" for sid in SEED_IDS}
 SEED_ID = "circle-island-react-v0"
-SEED_FILE = "docs/seeds/circle-island-react-v0.md"
-COMMAND = re.compile(r"^/circle-react (demo|meraki|z) circle-island-react-v0$")
+SEED_FILE = SEED_FILES[SEED_ID]
+COMMAND = re.compile(r"^/circle-react (demo|meraki|z) (" + "|".join(SEED_IDS) + r")$")
+
+
+def seed_file_for(seed_id):
+    if seed_id not in SEED_FILES:
+        raise ValueError("Unknown seed slug: " + str(seed_id))
+    return SEED_FILES[seed_id]
 MODELS = {"demo": "synthetic-stub", "meraki": "openai/gpt-6-luna",
           "z": "mistralai/mistral-medium-3-5"}
 
@@ -28,7 +36,7 @@ def parse_command(body):
     match = COMMAND.fullmatch(body.strip()) if isinstance(body, str) else None
     if not match:
         raise ValueError("Unsupported Circle command: exact format required")
-    return match.group(1), SEED_ID
+    return match.group(1), match.group(2)
 
 
 def validate_key_info(blob):
@@ -61,7 +69,8 @@ def get_key_info(key):
         raise ValueError("Key-check unavailable") from None
 
 
-def run(route, seed, outdir, comment_id, answer=None, key_info=None):
+def run(route, seed, outdir, comment_id, answer=None, key_info=None,
+          seed_id="circle-island-react-v0"):
     if route not in MODELS:
         raise ValueError("Unknown route")
     if not comment_id.isdecimal():
@@ -82,7 +91,7 @@ def run(route, seed, outdir, comment_id, answer=None, key_info=None):
             events.append(data)
         emit({"type": "start", "utc": now(), "run_id": folder.name + "-" + uuid.uuid4().hex[:8],
               "request_comment_id": comment_id, "requested_route": route,
-              "model_requested": model, "seed_id": SEED_ID, "seed_sha256": hash_value,
+              "model_requested": model, "seed_id": seed_id, "seed_sha256": hash_value,
               "identity_boundary": "route is accounting, NOT native-seat authentication"})
         response = None
         if route == "demo":
@@ -158,9 +167,10 @@ def main():
     p.add_argument("--route", choices=list(MODELS), required=True)
     p.add_argument("--comment-id", required=True)
     p.add_argument("--outdir", required=True)
+    p.add_argument("--seed-id", choices=list(SEED_IDS), default=SEED_ID)
     a = p.parse_args()
-    result = run(a.route, Path(SEED_FILE).read_text(encoding="utf-8"),
-                 a.outdir, a.comment_id)
+    result = run(a.route, Path(seed_file_for(a.seed_id)).read_text(encoding="utf-8"),
+                 a.outdir, a.comment_id, seed_id=a.seed_id)
     print(json.dumps(result))
     if result["status"] != "completed":
         raise SystemExit(1)
