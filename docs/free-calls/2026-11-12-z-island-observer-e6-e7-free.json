@@ -1,0 +1,63 @@
+{
+  "batch": "z-island-observer-e6-e7-free-2026-11-12",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "z-E6-open-01",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east. The log ends here; no further action is recorded. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E6-open-02",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east. The log ends here; no further action is recorded. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E6-complete-01",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E6-complete-02",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E7-single-01",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E7-single-02",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E7-repeat-01",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 looked toward the blue marker; S3 looked toward the blue marker; S4 moved east; S5 moved east; S6 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "z-E7-repeat-02",
+      "seat": "z",
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 looked toward the blue marker; S3 looked toward the blue marker; S4 moved east; S5 moved east; S6 stopped beside the blue marker. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    }
+  ]
+}
