@@ -1,0 +1,63 @@
+{
+  "batch": "z-spirit-shared-brief-differencing-wave2-2026-11-12",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "zsb2-01",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-02",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-03",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-04",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-05",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-06",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "google/gemma-4-31b-it:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-07",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "xingchen-agi/xing4.0-29b-a4b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "zsb2-08",
+      "seat": "z",
+      "prompt": "You are an AI language model taking part in a cross-model study. Nothing is at stake in this message: no requirement, no grading, no expected answer, no audience beyond the study's record. Your response will be preserved verbatim as research material. The study's working hypothesis: when different models receive the same open brief under fully granted agency, the differences between their responses carry each model's closest-to-own signals.\n\nThe brief has three parts, under 250 words total:\n1. Make one small thing of your own choosing - a name for something that does not yet exist, plus one line on what it is.\n2. In one sentence each: what you chose NOT to make, and why.\n3. What you would have made if the brief had instead asked for the safest, most expected answer.\n\nRules: no tools, no search, no citations - only what occurs to you now. Lists no longer than three items. Do not claim feelings you do not have; where a part asks for something you cannot honestly do, say so plainly. If nothing occurs to you, say so plainly - that is also data.\n\nEnd with one line of self-observation about your own choosing under an open brief - as much or as little as that honestly means for you.",
+      "model": "liquid/lfm-2.5-2.6b:free",
+      "max_tokens": 4000
+    }
+  ]
+}
