@@ -59,6 +59,7 @@ jobs:
       - name: Run the batch
         run: |
           python -m island.free_calls \
+            --inter-call-sleep 2 \
             --spec "$SPEC_PATH" \
             --outdir "runs/free-calls-${GITHUB_RUN_ID}"
       - name: Archive receipts
