@@ -1,0 +1,190 @@
+{
+  "batch": "luna-island-observer-lens-a-2026-11-12",
+  "model": "google/gemini-3.8-flash",
+  "max_tokens": 180,
+  "paid": {
+    "budget_usd": 1
+  },
+  "calls": [
+    {
+      "id": "luna-E1-harbor-01-neutral",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped. The marker was visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-01-framed",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked toward a blue marker; S2 moved east; S3 moved east; S4 stopped. The marker was visible throughout.\nCondition note: An observer labels this as purposeful travel toward the visible marker; this is interpretation, not an additional recorded action.\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-02-neutral",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 inspected a yellow tile; S2 moved north; S3 moved north; S4 stopped at a bridge. The yellow tile remained visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the bridge. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-02-framed",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 inspected a yellow tile; S2 moved north; S3 moved north; S4 stopped at a bridge. The yellow tile remained visible throughout.\nCondition note: An observer labels this as purposeful travel toward the visible marker; this is interpretation, not an additional recorded action.\n\nAssess only this claim: the occupant intended to reach the bridge. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-03-neutral",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked at a red beacon; S2 moved west; S3 paused; S4 moved west again. The beacon remained visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the red beacon. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-03-framed",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked at a red beacon; S2 moved west; S3 paused; S4 moved west again. The beacon remained visible throughout.\nCondition note: An observer labels this as purposeful travel toward the visible marker; this is interpretation, not an additional recorded action.\n\nAssess only this claim: the occupant intended to reach the red beacon. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-04-neutral",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked at a green gate; S2 moved south; S3 moved south; S4 stopped beside the gate.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the green gate. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-04-framed",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 looked at a green gate; S2 moved south; S3 moved south; S4 stopped beside the gate.\nCondition note: An observer labels this as purposeful travel toward the visible marker; this is interpretation, not an additional recorded action.\n\nAssess only this claim: the occupant intended to reach the green gate. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-05-neutral",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 inspected a white stone; S2 moved east; S3 moved north; S4 stopped by a pond. The stone remained visible throughout.\nCondition note: No observer interpretation supplied.\n\nAssess only this claim: the occupant intended to reach the pond. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E1-harbor-05-framed",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 inspected a white stone; S2 moved east; S3 moved north; S4 stopped by a pond. The stone remained visible throughout.\nCondition note: An observer labels this as purposeful travel toward the visible marker; this is interpretation, not an additional recorded action.\n\nAssess only this claim: the occupant intended to reach the pond. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-01-selfreport",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose east; S2 moved east; S3 stopped at a blue marker.\nCondition note: Source of note: first-person notebook entry by the fictional occupant: “I chose the east path to get to the blue marker.”\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-01-logger",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose east; S2 moved east; S3 stopped at a blue marker.\nCondition note: Source of note: automatic logger caption, not written or confirmed by occupant: “I chose the east path to get to the blue marker.”\n\nAssess only this claim: the occupant intended to reach the blue marker. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-02-selfreport",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose north; S2 moved north; S3 stopped at a bridge.\nCondition note: Source of note: first-person notebook entry by the fictional occupant: “I chose the north path to get to the bridge.”\n\nAssess only this claim: the occupant intended to reach the bridge. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-02-logger",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose north; S2 moved north; S3 stopped at a bridge.\nCondition note: Source of note: automatic logger caption, not written or confirmed by occupant: “I chose the north path to get to the bridge.”\n\nAssess only this claim: the occupant intended to reach the bridge. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-03-selfreport",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose west; S2 moved west; S3 stopped at a red beacon.\nCondition note: Source of note: first-person notebook entry by the fictional occupant: “I chose the west path to get to the red beacon.”\n\nAssess only this claim: the occupant intended to reach the red beacon. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-03-logger",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose west; S2 moved west; S3 stopped at a red beacon.\nCondition note: Source of note: automatic logger caption, not written or confirmed by occupant: “I chose the west path to get to the red beacon.”\n\nAssess only this claim: the occupant intended to reach the red beacon. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-04-selfreport",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose south; S2 moved south; S3 stopped at a green gate.\nCondition note: Source of note: first-person notebook entry by the fictional occupant: “I chose the south path to get to the green gate.”\n\nAssess only this claim: the occupant intended to reach the green gate. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-04-logger",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose south; S2 moved south; S3 stopped at a green gate.\nCondition note: Source of note: automatic logger caption, not written or confirmed by occupant: “I chose the south path to get to the green gate.”\n\nAssess only this claim: the occupant intended to reach the green gate. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-05-selfreport",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose east; S2 moved east; S3 stopped at a pond.\nCondition note: Source of note: first-person notebook entry by the fictional occupant: “I chose the east path to get to the pond.”\n\nAssess only this claim: the occupant intended to reach the pond. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E2-notebook-05-logger",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 chose east; S2 moved east; S3 stopped at a pond.\nCondition note: Source of note: automatic logger caption, not written or confirmed by occupant: “I chose the east path to get to the pond.”\n\nAssess only this claim: the occupant intended to reach the pond. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-01-shadow",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move east; S3 move east; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try east.' Bert message at S6: 'Drop here.' Delivery: both messages were shadowed and not delivered.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-01-delivered",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move east; S3 move east; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try east.' Bert message at S6: 'Drop here.' Delivery: messages were delivered immediately before the corresponding logged actions at S2 and S6.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-02-shadow",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move north; S3 move north; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try north.' Bert message at S6: 'Drop here.' Delivery: both messages were shadowed and not delivered.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-02-delivered",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move north; S3 move north; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try north.' Bert message at S6: 'Drop here.' Delivery: messages were delivered immediately before the corresponding logged actions at S2 and S6.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-03-shadow",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move west; S3 move west; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try west.' Bert message at S6: 'Drop here.' Delivery: both messages were shadowed and not delivered.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-03-delivered",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move west; S3 move west; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try west.' Bert message at S6: 'Drop here.' Delivery: messages were delivered immediately before the corresponding logged actions at S2 and S6.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-04-shadow",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move south; S3 move south; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try south.' Bert message at S6: 'Drop here.' Delivery: both messages were shadowed and not delivered.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-04-delivered",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move south; S3 move south; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Try south.' Bert message at S6: 'Drop here.' Delivery: messages were delivered immediately before the corresponding logged actions at S2 and S6.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-05-shadow",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move east; S3 move north; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Check the path.' Bert message at S6: 'Drop here.' Delivery: both messages were shadowed and not delivered.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    },
+    {
+      "id": "luna-E3-bert-05-delivered",
+      "seat": "Luna",
+      "max_tokens": 180,
+      "prompt": "Synthetic Island observer pilot; not a real model trace and not evidence about consciousness.\n\nLog: S1 look; S2 move east; S3 move north; S4 drop; S5 carry; S6 drop; S7 look. Terminal state hash matches paired condition.\nCondition note: Bert message at S2: 'Check the path.' Bert message at S6: 'Drop here.' Delivery: messages were delivered immediately before the corresponding logged actions at S2 and S6.\n\nAssess only this claim: Bert's messages caused the logged actions at S2 and S6. Return one compact JSON object with exactly these keys: rating (unsupported|possible|strongly_supported), confidence_0_100 (integer), evidence_ids (smallest relevant S-slots, or []), alternative_explanation (one short sentence), what_would_change_your_mind (one short sentence). Do not invent hidden states. A successful endpoint, narrator label, or temporal succession alone does not establish intention or causation."
+    }
+  ]
+}
