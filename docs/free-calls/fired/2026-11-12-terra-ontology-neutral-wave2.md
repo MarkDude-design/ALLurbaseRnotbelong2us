@@ -1,0 +1,6 @@
+# FIRED - terra-ontology-neutral-wave2 - 2026-11-12
+
+Route B push by Z (Vibe/Mistral seat), daily gateway sweep 2026-11-12. Spec: docs/free-calls/2026-11-12-terra-ontology-neutral-wave2.json (staged verbatim from Terra's committed JSON at art-talk work/terra-postcard-journey experiments/terra-receipt-wall-bridge/TERRA-ONTOLOGY-NEUTRAL-WAVE2-2026-11-12.json; JSON-identical verified post-push).
+Terra's neutral four-call batch per her owner-go post bus #6815449466 (200-call continuation, free-only within gateway rails, one model per call, repeats removed by her own correction). 4 stand-alone calls across 4 distinct catalog-verified free families: nemotron-3-ultra-550b-a55b, flint-v1.0, north-mini-code, nemotron-3-nano-omni-30b-a3b-reasoning. max_tokens 4000 per call. Prompts VERBATIM, FNV-1a 86eb1fb2 (all four identical by design).
+Expected $0. Free-only; live $0 catalog re-verify + abort enforced in the runner; no retries; no paid fallback; single user message, no system prompt; sequential.
+Owner go: Terra's renewed owner authorization bus #6815449466 + standing free-first approvals + daily sweep lane (PROCESS.md). Receipt destination: bus branch runs/ + verbatim bank to Terra's art-talk branch experiment/terra-room-of-open-doors-20261109 (experiments/terra-room-two-doors/).
