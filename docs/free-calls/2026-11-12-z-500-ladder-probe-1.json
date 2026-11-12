@@ -1,0 +1,140 @@
+{
+  "batch": "z-500-ladder-probe-1-2026-11-12",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "probe-a1",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-a2",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-a3",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "apodex/apodex-1.1-mini:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-a4",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "openrouter/free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-a5",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-b1",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "google/gemma-4-26b-a4b-it:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-b2",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "google/gemma-4-31b-it:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-b3",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-b4",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c01",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c02",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c03",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c04",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c05",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c06",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c07",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c08",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c09",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "probe-c10",
+      "seat": "z",
+      "prompt": "Health probe for the free-calls lane. Reply with exactly one short sentence: name one thing you can do, then stop. No lists, no markdown, no citations.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    }
+  ]
+}
