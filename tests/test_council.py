@@ -148,7 +148,7 @@ class CouncilRunTests(unittest.TestCase):
             events = [json.loads(x) for x in (folder / "bus.jsonl").read_text().splitlines()]
         errors = [e for e in events if e["type"] == "error"]
         retries = [e for e in events if e["type"] == "retry"]
-        self.assertEqual(result["stop"], "error")
+        self.assertEqual(result["stop"], "accounting_uncertain")
         self.assertEqual(result["subs"], 0)
         self.assertEqual(len(errors), 1)
         self.assertEqual(len(retries), 0)
@@ -157,17 +157,16 @@ class CouncilRunTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             run_council("demo", self.council(), 11, Path("/tmp/x-invalid-council"))
 
-    def test_unusable_cost_receipt_is_unknown_and_council_continues(self):
-        # Negative cost is rejected as spend, but usable answers continue
-        # under the owner override with explicit UNKNOWN receipts.
+    def test_unusable_cost_receipt_stops_council_with_unknown_accounting(self):
+        # Negative cost is rejected as spend; stop before another council call.
         with tempfile.TemporaryDirectory() as tmp:
             folder = Path(tmp) / "council"
             result = run_council("demo", self.council(), 10.0, folder,
                                  answer=stub_answer(cost_usd=-1))
             events = [json.loads(x) for x in (folder / "bus.jsonl").read_text().splitlines()]
-        self.assertEqual(result["stop"], "error")
-        self.assertEqual(result["subs"], 2)
-        self.assertEqual(result["totals"]["unknown_cost_calls"], 6)
+        self.assertEqual(result["stop"], "accounting_uncertain")
+        self.assertEqual(result["subs"], 0)
+        self.assertEqual(result["totals"]["unknown_cost_calls"], 1)
 
     def test_live_rejects_absent_key(self):
         old = os.environ.pop("OPENROUTER_API_KEY", None)
@@ -237,3 +236,4 @@ class CouncilPaceTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

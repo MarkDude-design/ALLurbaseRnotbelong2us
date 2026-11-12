@@ -94,8 +94,10 @@ class ZDeskDemoRun(unittest.TestCase):
             if key is not None:
                 os.environ["OPENROUTER_API_KEY"] = key
 
-    def test_agent_failure_is_receipted_not_fatal_to_peers(self):
+    def test_agent_terminal_failure_is_receipted_and_stops_before_peer(self):
+        called = []
         def flaky(agent, model, messages, provider):
+            called.append(agent)
             if agent == "diff":
                 raise RuntimeError("OpenRouter HTTP 429")
             return z_desk.demo_consult(agent, model, messages, provider)
@@ -106,13 +108,13 @@ class ZDeskDemoRun(unittest.TestCase):
                                 {"diff": "dmodel", "man": "mmodel"},
                                 BRIEF, 1.0, outdir, answer=flaky)
             lines = [json.loads(x) for x in (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
-            self.assertEqual(result["stop"], "error")
+            self.assertEqual(result["stop"], "accounting_uncertain")
             self.assertEqual(result["totals"]["unknown_cost_calls"], 5)
             self.assertEqual(len([e for e in lines if e["type"] == "error"]), 1)
             self.assertEqual(len([e for e in lines if e["type"] == "retry"]), 4)
             consults = [e for e in lines if e["type"] == "consult"]
-            self.assertEqual([e["agent"] for e in consults], ["man"])
-            self.assertEqual(consults[0]["verdict"]["verdict"], "CLEAN")
+            self.assertEqual(consults, [])
+            self.assertEqual(called, ["diff"] * 5)
 
     def test_parse_verdict(self):
         self.assertEqual(z_desk.parse_verdict("no json at all")["verdict"], "UNPARSEABLE")
@@ -245,8 +247,8 @@ class ZDeskPreflightTests(unittest.TestCase):
                                     BRIEF, 1.0, outdir, answer=answer)
                 lines = [json.loads(x) for x in
                          (outdir / "bus.jsonl").read_text(encoding="utf-8").splitlines()]
-            self.assertEqual(result["stop"], "error")
-            self.assertEqual(len([e for e in lines if e["type"] == "consult"]), 1)
+            self.assertEqual(result["stop"], "accounting_uncertain")
+            self.assertEqual(len([e for e in lines if e["type"] == "consult"]), 0)
             self.assertEqual(result["totals"]["unknown_cost_calls"], 1)
 
     def test_shell_metacharacter_model_ids_refused(self):
@@ -402,3 +404,4 @@ class VerdictExtractionRepairTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

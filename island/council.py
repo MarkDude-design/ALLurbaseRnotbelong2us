@@ -8,13 +8,13 @@ library only.
 
 Budget is a SOFT, post-call stop: spend is checked between calls, so total
 with complete receipts spend may exceed --max-cost-usd by at most one call's cost.
-Unknown charges are excluded from the known subtotal and require reconciliation. A hard ceiling
+Unknown charges stop the council and are excluded from the known subtotal.
+A hard ceiling
 requires a provider-side bound or pre-call reservation (not implemented).
 
 Dialing doctrine (Mark, GAS order Oct 25 2026): pace "half" (default) waits
 the previous call's duration before the next call — 50% syscall speed cut.
 """
-import argparse
 import json
 import os
 import time
@@ -22,7 +22,8 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from island.runner import (record_cost, now, openrouter_answer, retryable_failure,
+from island.runner import (RunArgumentParser, completion_failure, failure_detail, result_exit_code,
+                           record_cost, now, openrouter_answer, retryable_failure,
                            retry_wait_s, pace_wait_s, RETRY_MAX, PACE_DEFAULT)
 
 DEMO_TEXT = "SYNTHETIC DEMO: council turn."
@@ -154,8 +155,9 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
-    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0,
-              "total_tokens": 0}
+    totals = {"accounting_status": "KNOWN", "total_cost_usd": 0.0,
+              "unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0,
+              "completion_tokens": 0, "total_tokens": 0}
     stopped = "completed"
     sub_answers, critiques = [], []
     synthesis, verdict = "", ""
@@ -187,7 +189,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
                         wait = retry_wait_s(exc, attempt)
                         emit({"type": "retry", "utc": now(), "phase": phase,
                               "speaker": who, "attempt": attempt + 1,
-                              "wait_s": wait, "reason": str(exc)[:160]})
+                              "wait_s": wait, "reason": failure_detail(exc)})
                         time.sleep(wait)
                     else:
                         break
@@ -197,19 +199,17 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
                 stopped = "error"
                 emit({"type": "error", "utc": now(), "phase": phase,
                       "speaker": who,
-                      "error": str(failure)[:160] if failure else "Invalid completion"})
+                      "error": failure_detail(failure) if failure else "Invalid completion"})
                 return None
             clock["last_s"] = time.monotonic() - call_started
             usage = record_cost(response, totals, emit, phase=phase, speaker=who, model_requested=model, attempt=attempt + 1)
-            raw_text = response.get("text") if isinstance(response, dict) else None
-            text = raw_text.strip() if isinstance(raw_text, str) else ""
-            if not text:
-                stopped = "error"
-                fr = response.get("finish_reason") if isinstance(response, dict) else None
+            invalid = completion_failure(response, usage, totals)
+            if invalid:
+                stopped, detail = invalid
                 emit({"type": "error", "utc": now(), "phase": phase, "speaker": who,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
-                               + (f" [finish_reason: {fr}]" if fr else "")})
+                      "error": detail})
                 return None
+            text = response["text"].strip()
             emit({"type": "turn", "utc": now(), "phase": phase, "speaker": who,
                   "text": text, "model_requested": model,
                   "model_returned": response.get("model_returned"),
@@ -253,8 +253,8 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
         if stopped == "completed":
             verdict = step("verdict", "chair", council["chair_model"],
                            verdict_messages(council, synthesis, critiques)) or ""
-        if totals["unknown_cost_calls"] and stopped != "error":
-            stopped = "error" if stopped == "completed" else stopped + "+error"
+        if totals["unknown_cost_calls"]:
+            stopped = "accounting_uncertain"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "subs": len(sub_answers), "synthesis": bool(synthesis),
               "critiques": len(critiques), "verdict": bool(verdict),
@@ -274,6 +274,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
               f"Subs answered: {len(sub_answers)}/{len(subs)}",
               f"Stop: {stopped}",
               f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Accounting: {totals['accounting_status']} (cost_usd is the known subtotal; total_cost_usd is null when UNKNOWN)",
               f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Reported tokens: {totals['total_tokens']}", "",
               "Subs are instruments, not seats; verdicts are priors, not proof.",
@@ -284,7 +285,7 @@ def run_council(mode, council, max_cost_usd, outdir, answer=None, pace=PACE_DEFA
 
 
 def main():
-    p = argparse.ArgumentParser()
+    p = RunArgumentParser()
     p.add_argument("--mode", choices=["demo", "live"], default="demo")
     p.add_argument("--council-file", required=True)
     p.add_argument("--max-cost-usd", type=float, default=10.0)
@@ -295,9 +296,9 @@ def main():
     result = run_council(a.mode, load_council(a.council_file), a.max_cost_usd, a.outdir,
                          pace=a.pace)
     print(json.dumps(result, indent=2))
-    if "error" in result["stop"]:
-        raise SystemExit(1)
+    raise SystemExit(result_exit_code(result))
 
 
 if __name__ == "__main__":
     main()
+

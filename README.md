@@ -57,10 +57,27 @@ API is invoked automatically. A missing response ID can require matching by time
 and model. A zero known subtotal with unknown attempts does not mean no spend.
 
 Usable answers with unknown charges continue with a visible stderr warning. Empty
-answers are failed completions; any valid returned charge is still counted. Z Desk
-continues to its peer after a failed completion, subject to the existing local
-soft cap. Council and baseline conversation retain their completion-failure stops.
-Local soft caps compare the known subtotal only and cannot bound unknown spend.
-Runs with unresolved charge attempts report an error at completion (without an
-early cost-only halt); matrix execution still attempts all nine stems and exits
-nonzero if any stem failed. Archive/publish steps remain `if: always()`.
+or unusable answers are failed completions; any valid returned charge is still
+counted, and the failed charge is receipted once with no automatic paid retry or
+length repurchase. Z Desk stops before its peer after a terminal completion
+failure. When charge status cannot be established locally, callers stop rather
+than continue: cost_usd stays the known subtotal, total_cost_usd is null while
+UNKNOWN attempts exist, and the council matrix exits with status 2, skipping all
+stems after the uncertain one. Council and baseline conversation retain their
+completion-failure stops. Local soft caps compare the known subtotal only and
+cannot bound unknown spend. Archive/publish steps remain `if: always()`.
+
+### Six verified repairs merged (2026-11-12)
+
+The DaBus six-fix repair package was merged to main on 2026-11-12 (repair commit
+from codex/dabus-verified-fixes, owner GO): council matrix YAML step name,
+aggregate matrix ordinary-failure exit, raw provider cost validation,
+charged-but-empty explicit failure, Z Desk stop-before-peer on terminal failure,
+and accounting-uncertain stop with matrix exit 2. Offline test parity was
+verified by Z on the merged tree (182/182 OK, 2026-11-12); the archived repair
+log records 181/181. Balance and budget accounting fields are intentionally
+left unrefined for now; that reconciliation work is parked, not forgotten.
+Review points: Z reviews this merge by Thanksgiving (2026-11-26); Meraki
+reviews it by Christmas (2026-12-25). Live-workflow testing of the merged
+behavior remains the last open gate.
+

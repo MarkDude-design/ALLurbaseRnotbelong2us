@@ -9,14 +9,14 @@ skeptic — the falsification lane (helper preliminaries, owner-go 2026-11-03);
            split that added up. Audit shape, not the seat.
 
 Funded per Mark's GAS standing order (Oct 2026). Standard library only.
-Reuses the island runner's OpenRouter discipline (retry/backoff, receipts,
-explicit UNKNOWN charge receipts under the owner's Mercurial override). Briefs are PUBLIC on this bus: anything secret-shaped
+Reuses the island runner's OpenRouter discipline (retry/backoff and receipts).
+Terminal failures and UNKNOWN accounting stop the desk before another agent.
+Briefs are PUBLIC on this bus: anything secret-shaped
 is refused before any API call — the red-line from the billing-lane review.
 
 Dialing doctrine (Mark, Oct 25 2026): pace "half" (default) waits the
 previous consult's duration before the next call — 50% syscall speed cut.
 """
-import argparse
 import hashlib
 import json
 import math
@@ -27,7 +27,8 @@ import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 
-from island.runner import (record_cost, PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
+from island.runner import (RunArgumentParser, completion_failure, failure_detail, result_exit_code,
+                           record_cost, PACE_DEFAULT, RETRY_MAX, now, openrouter_answer,
                            pace_wait_s, retry_wait_s, retryable_failure)
 
 CAP_CEILING_USD = 20.0
@@ -211,7 +212,9 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
     outdir = Path(outdir)
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
-    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    totals = {"accounting_status": "KNOWN", "total_cost_usd": 0.0,
+              "unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0,
+              "completion_tokens": 0, "total_tokens": 0}
     reasons = set()
     events = []
     last_call_s = 0.0
@@ -260,7 +263,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
                         wait = retry_wait_s(exc, attempt)
                         emit({"type": "retry", "utc": now(), "agent": agent,
                               "attempt": attempt + 1, "wait_s": wait,
-                              "reason": str(exc)[:160]})
+                              "reason": failure_detail(exc)})
                         time.sleep(wait)
                     else:
                         break
@@ -269,19 +272,18 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
                     record_cost(None, totals, emit, agent=agent, model_requested=models[agent], attempt=attempt + 1)
                 reasons.add("error")
                 emit({"type": "error", "utc": now(), "agent": agent,
-                      "error": str(failure)[:160] if failure else "Invalid completion"})
-                continue
+                      "error": failure_detail(failure) if failure else "Invalid completion"})
+                break
             last_call_s = time.monotonic() - call_started
             usage = record_cost(response, totals, emit, agent=agent, model_requested=models[agent], attempt=attempt + 1)
-            raw_text = response.get("text") if isinstance(response, dict) else None
-            text = raw_text.strip() if isinstance(raw_text, str) else ""
-            if not text:
-                reasons.add("error")
-                fr = response.get("finish_reason") if isinstance(response, dict) else None
+            invalid = completion_failure(response, usage, totals)
+            if invalid:
+                reason, detail = invalid
+                reasons.add(reason)
                 emit({"type": "error", "utc": now(), "agent": agent,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
-                               + (f" [finish_reason: {fr}]" if fr else "")})
-                continue
+                      "error": detail})
+                break
+            text = response["text"].strip()
             emit({"type": "consult", "utc": now(), "agent": agent, "text": text,
                   "model_requested": models[agent],
                   "model_returned": response.get("model_returned"),
@@ -289,7 +291,8 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
                   "response_id": response.get("response_id"), "usage": usage,
                   "verdict": parse_verdict(text)})
         if totals["unknown_cost_calls"]:
-            reasons.add("error")
+            reasons.discard("error")
+            reasons.add("accounting_uncertain")
         stopped = "+".join(sorted(reasons)) if reasons else "completed"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "turns": len([e for e in events if e.get("type") == "consult"]),
@@ -311,6 +314,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
     report = [f"# Report: {run_id}", "", f"Mode: {mode}",
               "Agents: " + ", ".join(f"{a} ({models[a]})" for a in agents),
               f"Stop: {stopped}", f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Accounting: {totals['accounting_status']} (cost_usd is the known subtotal; total_cost_usd is null when UNKNOWN)",
               f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Cap: {max_cost_usd:g} USD (caller-declared soft post-call stop; "
               "provider key cap governs)",
@@ -322,7 +326,7 @@ def run(mode, agents, models, brief, max_cost_usd, outdir, answer=None,
 
 
 def main():
-    parser = argparse.ArgumentParser()
+    parser = RunArgumentParser()
     parser.add_argument("--mode", choices=["demo", "live"], default="demo")
     parser.add_argument("--agents", default="diff,man",
                         help="comma list from: diff,man,skeptic — or both/all")
@@ -357,9 +361,9 @@ def main():
     result = run(args.mode, agents, models, brief, args.max_cost_usd, args.outdir,
                  pace=args.pace, records=records)
     print(json.dumps(result, indent=2))
-    if "error" in result["stop"]:
-        raise SystemExit(1)
+    raise SystemExit(result_exit_code(result))
 
 
 if __name__ == "__main__":
     main()
+

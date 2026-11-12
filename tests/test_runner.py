@@ -99,8 +99,8 @@ class RetryTests(unittest.TestCase):
                 result = run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
         retries = [x for x in events if x["type"] == "retry"]
-        self.assertEqual(result["turns"], 2)
-        self.assertEqual(result["stop"], "error")  # retry charge requires reconciliation
+        self.assertEqual(result["turns"], 0)
+        self.assertEqual(result["stop"], "accounting_uncertain")  # retry charge requires reconciliation
         self.assertEqual(len(retries), 1)
         self.assertEqual(retries[0]["wait_s"], runner_mod.RETRY_WAIT_S)
         self.assertIn("429", retries[0]["reason"])
@@ -116,7 +116,7 @@ class RetryTests(unittest.TestCase):
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
         retries = [x for x in events if x["type"] == "retry"]
         errors = [x for x in events if x["type"] == "error"]
-        self.assertEqual(result["stop"], "error")
+        self.assertEqual(result["stop"], "accounting_uncertain")
         self.assertEqual(result["turns"], 0)
         self.assertEqual(len(retries), runner_mod.RETRY_MAX)
         self.assertEqual(len(errors), 1)
@@ -144,7 +144,7 @@ class RetryTests(unittest.TestCase):
             result = run("demo", "", "", "", "", "T", 2, 10.0, Path(tmp) / "test", answer=stub)
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
         retries = [x for x in events if x["type"] == "retry"]
-        self.assertEqual(result["stop"], "error")
+        self.assertEqual(result["stop"], "accounting_uncertain")
         self.assertEqual(len(retries), 0)
 
     def test_retry_after_hint_is_honored(self):
@@ -258,18 +258,18 @@ class PaceTests(unittest.TestCase):
 
 class MeteringTests(unittest.TestCase):
     """Returned costs must be usable as spend receipts (Meraki preflight
-    class-fix: invalid charges become UNKNOWN, without halting usable answers)."""
+    class-fix: invalid charges become UNKNOWN and stop further calls)."""
 
-    def test_unusable_cost_receipt_is_unknown_and_run_continues(self):
+    def test_unusable_cost_receipt_stops_run_with_unknown_accounting(self):
         def stub(*args):
             return {"text": "ok", "model_returned": None, "response_id": None,
                     "usage": {"cost_usd": -0.5, "total_tokens": 2}}
         with tempfile.TemporaryDirectory() as tmp:
             result = run("demo", "", "", "", "", "T", 3, 10.0, Path(tmp) / "test", answer=stub)
             events = [json.loads(x) for x in (Path(tmp) / "test" / "bus.jsonl").read_text().splitlines()]
-        self.assertEqual(result["stop"], "error")
-        self.assertEqual(result["turns"], 3)
-        self.assertEqual(result["totals"]["unknown_cost_calls"], 3)
+        self.assertEqual(result["stop"], "accounting_uncertain")
+        self.assertEqual(result["turns"], 0)
+        self.assertEqual(result["totals"]["unknown_cost_calls"], 1)
 
 
 class TopicFileTests(unittest.TestCase):
@@ -286,3 +286,4 @@ class TopicFileTests(unittest.TestCase):
     def test_topic_falls_back_to_default(self):
         self.assertEqual(load_topic(""), TOPIC)
         self.assertEqual(load_topic("direct topic", ""), "direct topic")
+

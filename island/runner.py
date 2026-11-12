@@ -27,10 +27,54 @@ PACE_DEFAULT = "half"
 PACE_MIN_S = 0.05
 
 
+class RunArgumentParser(argparse.ArgumentParser):
+    """Reserve exit 2 for uncertain spend; invalid CLI arguments are ordinary failures."""
+    def error(self, message):
+        self.print_usage(sys.stderr)
+        self.exit(1, f"{self.prog}: error: {message}\n")
+
+
 def retryable_failure(exc):
     msg = str(exc)
-    return ("OpenRouter HTTP 429" in msg or "OpenRouter HTTP 5" in msg
+    return (re.fullmatch(r"OpenRouter HTTP (?:429|5[0-9]{2})"
+                         r"(?: retry-after [0-9]{1,6})?", msg) is not None
             or msg == "OpenRouter network error")
+
+
+def failure_detail(exc):
+    """Only fixed diagnostics and validated numeric hints may enter error receipts."""
+    msg = str(exc)
+    if re.fullmatch(r"OpenRouter HTTP [0-9]{3}(?: retry-after [0-9]{1,6})?", msg):
+        return msg
+    if msg in ("OpenRouter network error", "Missing OPENROUTER_API_KEY"):
+        return msg
+    return "Completion failed; no usable cost receipt"
+
+
+def finish_reason(value):
+    """Allow fixed provider labels, never arbitrary remote text in diagnostics."""
+    return value if isinstance(value, str) and value in (
+        "stop", "length", "tool_calls", "function_call", "content_filter", "error"
+    ) else None
+
+
+def completion_failure(response, usage, totals):
+    """An explicit failure signal, also validating injected answer functions."""
+    if totals["unknown_cost_calls"] or usage["cost_usd"] is None:
+        return "accounting_uncertain", "Cost UNKNOWN; known subtotal is incomplete"
+    text = response.get("text") if isinstance(response, dict) else None
+    if not isinstance(text, str) or not text.strip():
+        fr = finish_reason(response.get("finish_reason")) if isinstance(response, dict) else None
+        return "error", ("No usable text response; see cost_receipt for known charge"
+                         + (f" [finish_reason: {fr}]" if fr else ""))
+    return None
+
+
+def result_exit_code(result):
+    """0 = completed/soft stop, 1 = ordinary failure, 2 = incomplete accounting."""
+    if result["totals"]["unknown_cost_calls"]:
+        return 2
+    return int("error" in result["stop"])
 
 
 def retry_wait_s(exc, attempt):
@@ -103,32 +147,12 @@ def openrouter_answer(who, model, messages, provider):
     # text, ~$0.031 each). diff's reasoning distribution runs ~4k tokens on
     # those briefs — 4096 sat on the tail. 8192 gives it headroom; the
     # finish_reason receipt stays the diagnosis if the tail ever reaches here.
-    # LENGTH-RETRY LANE (owner-approved "do all the things", 2026-11-02):
-    # if content is STILL starved at the cap, retry ONCE with the budget
-    # doubled, and sum both attempts' charges into the returned usage — the
-    # wasted spend rides the same receipt, never invisible. Bounded: one
-    # retry; a second starve returns the honest empty-text result.
+    # Empty or unmetered completions are terminal structured failures. Do not
+    # automatically buy another completion, including on finish_reason=length.
     result = _openrouter_call(model, messages, provider, 8192)
     result["attempts"] = 1
-    if not result["text"] and result["finish_reason"] == "length":
-        second = _openrouter_call(model, messages, provider, 16384)
-        costs = [result["usage"]["cost_usd"], second["usage"]["cost_usd"]]
-        tokens = {}
-        for field in ("prompt_tokens", "completion_tokens", "total_tokens"):
-            values = [r["usage"].get(field) for r in (result, second)]
-            values = [v for v in values if isinstance(v, int)
-                      and not isinstance(v, bool)]
-            tokens[field] = sum(values) if len(values) == 2 else None
-        known = all(isinstance(c, (int, float)) and not isinstance(c, bool)
-                    for c in costs)
-        second["usage"] = {"prompt_tokens": tokens["prompt_tokens"],
-                           "completion_tokens": tokens["completion_tokens"],
-                           "total_tokens": tokens["total_tokens"],
-                           "cost_usd": sum(costs) if known else None}
-        second["attempts"] = 2
-        second["length_retry"] = True
-        second["first_attempt_cost_usd"] = result["usage"]["cost_usd"]
-        return second
+    failure = completion_failure(result, result["usage"], {"unknown_cost_calls": 0})
+    result["failure"] = failure[0] if failure else None
     return result
 
 
@@ -158,7 +182,7 @@ def _openrouter_call(model, messages, provider, max_tokens):
         except Exception:
             retry_after = None
         detail = f"OpenRouter HTTP {exc.code}"
-        if retry_after:
+        if isinstance(retry_after, str) and re.fullmatch(r"[0-9]{1,6}", retry_after):
             detail += f" retry-after {retry_after}"
         raise RuntimeError(detail) from None
     except URLError:
@@ -168,7 +192,7 @@ def _openrouter_call(model, messages, provider, max_tokens):
     choices = data.get("choices")
     choice = choices[0] if isinstance(choices, list) and choices else {}
     choice = choice if isinstance(choice, dict) else {}
-    finish_reason = choice.get("finish_reason")
+    finish = finish_reason(choice.get("finish_reason"))
     message = choice.get("message")
     content = message.get("content", "") if isinstance(message, dict) else ""
     if isinstance(content, list):
@@ -180,7 +204,7 @@ def _openrouter_call(model, messages, provider, max_tokens):
     metadata = data.get("openrouter_metadata")
     metadata = metadata if isinstance(metadata, dict) else {}
     return {"text": content.strip() if isinstance(content, str) else "",
-            "finish_reason": finish_reason,
+            "finish_reason": finish,
             "response_id": data.get("id"), "model_returned": data.get("model"),
             "provider_returned": metadata.get("provider_name") or metadata.get("provider"),
             "usage": {"prompt_tokens": usage.get("prompt_tokens"),
@@ -206,10 +230,11 @@ def record_cost(response, totals, emit, **context):
     if cost is None:
         totals["unknown_cost_calls"] += 1
         print("WARNING: cost UNKNOWN; known subtotal is incomplete. "
-              "Continuing authorized work under the externally configured provider cap; "
-              "reconcile against the billing ledger.", file=sys.stderr)
+              "Reconcile against the billing ledger.", file=sys.stderr)
     else:
         totals["cost_usd"] += cost
+    totals["accounting_status"] = "UNKNOWN" if totals["unknown_cost_calls"] else "KNOWN"
+    totals["total_cost_usd"] = None if totals["unknown_cost_calls"] else totals["cost_usd"]
     for key in ("prompt_tokens", "completion_tokens", "total_tokens"):
         value = usage.get(key)
         if isinstance(value, int) and not isinstance(value, bool) and value >= 0:
@@ -218,7 +243,10 @@ def record_cost(response, totals, emit, **context):
           "response_id": response.get("response_id") if isinstance(response, dict) else None,
           "cost_status": "KNOWN" if cost is not None else "UNKNOWN", "cost_usd": cost})
     # Do not persist NaN, infinity, booleans or strings as spend in turn receipts.
-    return {**usage, "cost_usd": cost}
+    return {key: cost if key == "cost_usd" else (
+        usage.get(key) if isinstance(usage.get(key), int)
+        and not isinstance(usage.get(key), bool) and usage[key] >= 0 else None
+    ) for key in ("cost_usd", "prompt_tokens", "completion_tokens", "total_tokens")}
 
 
 def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_usd, outdir, first="A", history_chars=28000, answer=None, pace=PACE_DEFAULT):
@@ -242,7 +270,9 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
     outdir.mkdir(parents=True, exist_ok=False)
     run_id = outdir.name + "-" + uuid.uuid4().hex[:8]
     history = []
-    totals = {"unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0, "completion_tokens": 0, "total_tokens": 0}
+    totals = {"accounting_status": "KNOWN", "total_cost_usd": 0.0,
+              "unknown_cost_calls": 0, "cost_usd": 0.0, "prompt_tokens": 0,
+              "completion_tokens": 0, "total_tokens": 0}
     stopped = "completed"
     last_call_s = 0.0
     with (outdir / "bus.jsonl").open("w", encoding="utf-8") as bus:
@@ -279,7 +309,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                         wait = retry_wait_s(exc, attempt)
                         emit({"type": "retry", "utc": now(), "seq": n + 1,
                               "speaker": who, "attempt": attempt + 1,
-                              "wait_s": wait, "reason": str(exc)[:160]})
+                              "wait_s": wait, "reason": failure_detail(exc)})
                         time.sleep(wait)
                     else:
                         break
@@ -290,19 +320,17 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
                 # Do not persist raw remote HTTP error bodies, credentials or request prompts.
                 emit({"type": "error", "utc": now(), "seq": n + 1,
                       "speaker": who,
-                      "error": str(failure)[:160] if failure else "Invalid completion"})
+                      "error": failure_detail(failure) if failure else "Invalid completion"})
                 break
             last_call_s = time.monotonic() - call_started
             usage = record_cost(response, totals, emit, seq=n + 1, speaker=who, model_requested=models[who], attempt=attempt + 1)
-            raw_text = response.get("text") if isinstance(response, dict) else None
-            text = raw_text.strip() if isinstance(raw_text, str) else ""
-            if not text:
-                stopped = "error"
-                fr = response.get("finish_reason") if isinstance(response, dict) else None
+            invalid = completion_failure(response, usage, totals)
+            if invalid:
+                stopped, detail = invalid
                 emit({"type": "error", "utc": now(), "seq": n + 1, "speaker": who,
-                      "error": "No usable text response; see cost_receipt for known or UNKNOWN charge"
-                               + (f" [finish_reason: {fr}]" if fr else "")})
+                      "error": detail})
                 break
+            text = response["text"].strip()
             history.append({"speaker": who, "text": text})
             emit({"type": "turn", "utc": now(), "seq": n + 1, "speaker": who,
                   "text": text, "model_requested": models[who],
@@ -313,8 +341,8 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
             if totals["cost_usd"] >= max_cost_usd:
                 stopped = "local_budget_reached"
                 break
-        if totals["unknown_cost_calls"] and stopped != "error":
-            stopped = "error" if stopped == "completed" else stopped + "+error"
+        if totals["unknown_cost_calls"]:
+            stopped = "accounting_uncertain"
         emit({"type": "stop", "utc": now(), "reason": stopped,
               "turns": len(history), "totals": totals})
     transcript = ["# Conversation — " + run_id, "", "**Mode: " + mode.upper() + "**",
@@ -324,6 +352,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
     (outdir / "transcript.md").write_text("\n".join(transcript) + "\n", encoding="utf-8")
     report = [f"# Report: {run_id}", "", f"Mode: {mode}", f"Turns: {len(history)}/{turns}",
               f"Stop: {stopped}", f"Known reported cost: USD {totals['cost_usd']:.6f}",
+              f"Accounting: {totals['accounting_status']} (cost_usd is the known subtotal; total_cost_usd is null when UNKNOWN)",
               f"Unknown charge attempts: {totals['unknown_cost_calls']} (reconcile with provider ledger)",
               f"Reported tokens: {totals['total_tokens']}", "",
               "This is conversational evidence, not proof of consciousness or emergence.",
@@ -333,7 +362,7 @@ def run(mode, model_a, model_b, provider_a, provider_b, topic, turns, max_cost_u
 
 
 def main():
-    p = argparse.ArgumentParser()
+    p = RunArgumentParser()
     p.add_argument("--mode", choices=["demo", "live"], default="demo")
     p.add_argument("--model-a", default="")
     p.add_argument("--model-b", default="")
@@ -353,9 +382,9 @@ def main():
                  load_topic(a.topic, a.topic_file), a.turns, a.max_cost_usd, a.outdir,
                  first=a.first, history_chars=a.history_chars, pace=a.pace)
     print(json.dumps(result, indent=2))
-    if "error" in result["stop"]:
-        raise SystemExit(1)
+    raise SystemExit(result_exit_code(result))
 
 
 if __name__ == "__main__":
     main()
+

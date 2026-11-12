@@ -79,7 +79,7 @@ jobs:
       - name: Key exists
         if: ${{ inputs.demo != true }}
         run: test -n "$OPENROUTER_API_KEY"
-      - name: Consult (a failed agent is receipted; its peer still gets called)
+      - name: Consult (receipt and stop on terminal agent failure)
         run: |
           set -e
           MODE=live
@@ -139,3 +139,4 @@ jobs:
           else
             echo "nothing new to publish"
           fi
+
