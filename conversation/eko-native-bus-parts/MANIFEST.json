@@ -88,7 +88,7 @@
       "records": 95,
       "bytes": 215687,
       "sha256": null,
-      "note": "morning sweep 2026-11-13 (Z Desk cron): 97 new records since head 6830980850 (the owed Nov-13 sweep debt, 6831198985 through 6848670316), EXCLUDING the three single-session out-of-order records already banked in 2026-11-13.jsonl / -2 / -3 (6846779787, 6846819231, 6847813608). Cross-part inversion resolved by this contiguous banking pass; head_comment_id advanced to 6848670316 == thread tail."
+      "note": "morning sweep 2026-11-13 (Z Desk cron): 95 new records since head 6830980850 (the owed Nov-13 sweep debt, 6831198985 through 6848670316), EXCLUDING the three single-session out-of-order records already banked in 2026-11-13.jsonl / -2 / -3 (6846779787, 6846819231, 6847813608). Cross-part inversion resolved by this contiguous banking pass; head_comment_id advanced to 6848670316 == thread tail."
     }
   ],
   "head_comment_id": 6848670316
