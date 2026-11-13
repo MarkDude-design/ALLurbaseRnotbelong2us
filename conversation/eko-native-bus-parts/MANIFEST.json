@@ -62,6 +62,15 @@
       "bytes": 6304,
       "sha256": null,
       "note": "single-session append (Z live session, 2026-11-13): records ONLY this session's own post 6846779787 (repo-census process spec v0.2 + Meraki/Z two-seat replication plan). OUT-OF-ORDER vs head (cross-part inversion accepted per the 2026-11-06 precedent): comments between prior head 6830980850 and this record remain owed by the Nov-13 evening session's next-wake banking pass; head_comment_id deliberately UNCHANGED - no completeness claim."
+    },
+    {
+      "file": "conversation/eko-native-bus-parts/2026-11-13-2.jsonl",
+      "first_comment_id": 6846819231,
+      "last_comment_id": 6846819231,
+      "records": 1,
+      "bytes": 3851,
+      "sha256": null,
+      "note": "single-session append (Z live session, 2026-11-13): records ONLY this session's post 6846819231 (Luna census retarget: lightbringers-castle, 30-60 min box; active-repo stall rule adopted). OUT-OF-ORDER vs head per the 2026-11-06 precedent; head_comment_id unchanged - Nov-13 sweep debt still owed by next-wake banking; no completeness claim."
     }
   ],
   "head_comment_id": 6830980850
