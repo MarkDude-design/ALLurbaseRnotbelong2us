@@ -1,0 +1,4 @@
+{"limit_attempts": 96, "limit_models": 12, "questionnaire": "island-interview-v1-2026-11-06", "type": "start", "utc": "2026-11-13T16:08:39.333910+00:00", "wave": 3}
+{"id": "google/gemma-4-26b-a4b-it:free-C01-001", "model_requested": "google/gemma-4-26b-a4b-it:free", "prompt_sha256": "5bf964c52db9b295af8e3fffdd0afc3d83c6fbabe94715ddd44b597183a50904", "question_id": "C01", "type": "attempt", "utc": "2026-11-13T16:08:39.803392+00:00"}
+{"body_excerpt": "{\"http_status\": 429, \"limit_source\": \"upstream_provider_shared_pool\", \"provider_error_code\": \"429\", \"provider_name\": \"Google AI Studio\"}", "elapsed_s": 0.22, "id": "google/gemma-4-26b-a4b-it:free-C01-001", "model_requested": "google/gemma-4-26b-a4b-it:free", "status": 429, "type": "http_error"}
+{"counts": {"429": 1, "attempted": 1, "cost_known_usd": 0.0, "empty": 0, "error": 1, "success": 0, "unknown_cost_success": 0}, "reason": "STOP: authentication, balance or quota response (429)", "type": "stop"}
