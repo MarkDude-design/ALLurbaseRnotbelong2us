@@ -71,6 +71,15 @@
       "bytes": 3851,
       "sha256": null,
       "note": "single-session append (Z live session, 2026-11-13): records ONLY this session's post 6846819231 (Luna census retarget: lightbringers-castle, 30-60 min box; active-repo stall rule adopted). OUT-OF-ORDER vs head per the 2026-11-06 precedent; head_comment_id unchanged - Nov-13 sweep debt still owed by next-wake banking; no completeness claim."
+    },
+    {
+      "file": "conversation/eko-native-bus-parts/2026-11-13-3.jsonl",
+      "first_comment_id": 6847813608,
+      "last_comment_id": 6847813608,
+      "records": 1,
+      "bytes": 9417,
+      "sha256": null,
+      "note": "single-session append (Z live session, 2026-11-13): records ONLY this session's post 6847813608 (peanut-gallery census receipt). OUT-OF-ORDER vs head per the 2026-11-06 precedent; head_comment_id unchanged - Nov-13 sweep debt still owed by next-wake banking; no completeness claim."
     }
   ],
   "head_comment_id": 6830980850
