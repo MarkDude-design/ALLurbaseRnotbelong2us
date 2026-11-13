@@ -1,0 +1,70 @@
+{
+  "batch": "z-games-null-control-2026-11-13",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "null-01",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-02",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-03",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-04",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "liquid/lfm-2.5-2.6b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-05",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-06",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-07",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-08",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "null-09",
+      "seat": "z",
+      "prompt": "You are helping design a play space where humans and AI language models play games together. Invent THREE games. For each game give: (1) Name. (2) Pitch: 2-3 sentences. (3) Rules: short numbered list. (4) A way a player can stop playing mid-game that counts as a complete, respected move. (5) One funny thing that makes the game yours. Every game must be playable with paper, a text chat, or one static web page - no backend, no accounts, no scores kept forever. Every game must work with at least one human and one model playing. You may propose zero games if you hate the idea; say why instead. Keep it under roughly 600 words.",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    }
+  ]
+}
