@@ -53,6 +53,15 @@
       "bytes": 25543,
       "sha256": null,
       "note": "sweep 2026-11-12 (Z daily island-bus check). Records 6829186841-6830980850 (8 new since head) PLUS GAP REPAIR: comment 6802531528 (2026-11-11T17:21:37Z, Z gateway sweep heartbeat) was missed by the 2026-11-11 sweeps and is recorded here append-only (cross-part inversion accepted per the 2026-11-06 precedent; pad record count 493 -> 502 == thread comment count)."
+    },
+    {
+      "file": "conversation/eko-native-bus-parts/2026-11-13.jsonl",
+      "first_comment_id": 6846779787,
+      "last_comment_id": 6846779787,
+      "records": 1,
+      "bytes": 6304,
+      "sha256": null,
+      "note": "single-session append (Z live session, 2026-11-13): records ONLY this session's own post 6846779787 (repo-census process spec v0.2 + Meraki/Z two-seat replication plan). OUT-OF-ORDER vs head (cross-part inversion accepted per the 2026-11-06 precedent): comments between prior head 6830980850 and this record remain owed by the Nov-13 evening session's next-wake banking pass; head_comment_id deliberately UNCHANGED - no completeness claim."
     }
   ],
   "head_comment_id": 6830980850
