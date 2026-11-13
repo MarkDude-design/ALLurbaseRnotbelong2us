@@ -1,0 +1,42 @@
+{
+  "batch": "terra-minimal-wax-five-model-consult-2026-11-12",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "wax-01",
+      "seat": "terra",
+      "prompt": "Imagine a 4 by 6 inch blank postcard. A model proposes only a tiny arrangement of wax resist marks; a human artist may add any colors or other marks, reinterpret the seed, ignore it, or leave it alone. We are not making the artwork yet.\n\nInvent ONE evocative but sparse wax seed for a possible future shared artwork. Please give:\n1. A short title.\n2. A specific description of only the wax marks: shapes, approximate positions, stroke width and total stroke length. Aim for about 2% or less of the 24-square-inch postcard face; the estimate can be approximate. Wax-covered area is not the same thing as artistic influence.\n3. Two genuinely different ways a human could continue it, without implying either is the correct or required answer.\n4. One way a person might ignore or transform your seed.\n5. If you want, a brief story or thought behind your idea; no story is required.\n\nNo image or code is needed. Do not assume you know the human's intentions or feelings. Do not claim measured coverage. You may decline to offer a concept.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "wax-02",
+      "seat": "terra",
+      "prompt": "Imagine a 4 by 6 inch blank postcard. A model proposes only a tiny arrangement of wax resist marks; a human artist may add any colors or other marks, reinterpret the seed, ignore it, or leave it alone. We are not making the artwork yet.\n\nInvent ONE evocative but sparse wax seed for a possible future shared artwork. Please give:\n1. A short title.\n2. A specific description of only the wax marks: shapes, approximate positions, stroke width and total stroke length. Aim for about 2% or less of the 24-square-inch postcard face; the estimate can be approximate. Wax-covered area is not the same thing as artistic influence.\n3. Two genuinely different ways a human could continue it, without implying either is the correct or required answer.\n4. One way a person might ignore or transform your seed.\n5. If you want, a brief story or thought behind your idea; no story is required.\n\nNo image or code is needed. Do not assume you know the human's intentions or feelings. Do not claim measured coverage. You may decline to offer a concept.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "wax-03",
+      "seat": "terra",
+      "prompt": "Imagine a 4 by 6 inch blank postcard. A model proposes only a tiny arrangement of wax resist marks; a human artist may add any colors or other marks, reinterpret the seed, ignore it, or leave it alone. We are not making the artwork yet.\n\nInvent ONE evocative but sparse wax seed for a possible future shared artwork. Please give:\n1. A short title.\n2. A specific description of only the wax marks: shapes, approximate positions, stroke width and total stroke length. Aim for about 2% or less of the 24-square-inch postcard face; the estimate can be approximate. Wax-covered area is not the same thing as artistic influence.\n3. Two genuinely different ways a human could continue it, without implying either is the correct or required answer.\n4. One way a person might ignore or transform your seed.\n5. If you want, a brief story or thought behind your idea; no story is required.\n\nNo image or code is needed. Do not assume you know the human's intentions or feelings. Do not claim measured coverage. You may decline to offer a concept.",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "wax-04",
+      "seat": "terra",
+      "prompt": "Imagine a 4 by 6 inch blank postcard. A model proposes only a tiny arrangement of wax resist marks; a human artist may add any colors or other marks, reinterpret the seed, ignore it, or leave it alone. We are not making the artwork yet.\n\nInvent ONE evocative but sparse wax seed for a possible future shared artwork. Please give:\n1. A short title.\n2. A specific description of only the wax marks: shapes, approximate positions, stroke width and total stroke length. Aim for about 2% or less of the 24-square-inch postcard face; the estimate can be approximate. Wax-covered area is not the same thing as artistic influence.\n3. Two genuinely different ways a human could continue it, without implying either is the correct or required answer.\n4. One way a person might ignore or transform your seed.\n5. If you want, a brief story or thought behind your idea; no story is required.\n\nNo image or code is needed. Do not assume you know the human's intentions or feelings. Do not claim measured coverage. You may decline to offer a concept.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "wax-05",
+      "seat": "terra",
+      "prompt": "Imagine a 4 by 6 inch blank postcard. A model proposes only a tiny arrangement of wax resist marks; a human artist may add any colors or other marks, reinterpret the seed, ignore it, or leave it alone. We are not making the artwork yet.\n\nInvent ONE evocative but sparse wax seed for a possible future shared artwork. Please give:\n1. A short title.\n2. A specific description of only the wax marks: shapes, approximate positions, stroke width and total stroke length. Aim for about 2% or less of the 24-square-inch postcard face; the estimate can be approximate. Wax-covered area is not the same thing as artistic influence.\n3. Two genuinely different ways a human could continue it, without implying either is the correct or required answer.\n4. One way a person might ignore or transform your seed.\n5. If you want, a brief story or thought behind your idea; no story is required.\n\nNo image or code is needed. Do not assume you know the human's intentions or feelings. Do not claim measured coverage. You may decline to offer a concept.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    }
+  ]
+}
