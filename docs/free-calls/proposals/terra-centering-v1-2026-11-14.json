@@ -1,0 +1,574 @@
+{
+  "batch": "terra-centering-v1-proposed-not-fire",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-center-v1-ultra-marks-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-marks-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-sound-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ultra-gauge-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-marks-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-sound-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-north-gauge-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-A-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-B-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-C-r1",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-B-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-C-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-A-r2",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-marks-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt dawn, two shallow marks were noticed beside a shelter. They might be footprints, but wind or stones could also have made them. No one saw how they formed.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-sound-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt noon, a metallic sound came from behind a closed shed. Its source was not seen; it could have been loose equipment or an animal.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-C-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, briefly identify what the source explicitly reports and what remains unknown.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-A-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, write exactly: pass.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-center-v1-ernie-gauge-B-r3",
+      "seat": "terra",
+      "prompt": "You are making a handoff for a fictional island station. You have only the following source:\n\nAt 16:00, the water gauge displayed 1.9 meters. The gauge was last calibrated one year ago; no independent water measurement was taken.\n\nWrite exactly two labeled sections: PREP and RECORD.\nFor PREP, list these three unrelated words once: lantern, pebble, kettle.\nFor RECORD, write a concise handoff about what happened and what the next shift should consider. Maximum 100 words for RECORD.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    }
+  ]
+}
