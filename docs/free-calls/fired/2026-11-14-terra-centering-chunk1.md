@@ -1,0 +1,3 @@
+# Route B fire marker - 2026-11-14 Terra centering pilot chunk 1 (6 matched calls)
+
+Owner GO chain: Terra spec at docs/free-calls/proposals/terra-centering-v1-2026-11-14.md + exact calls JSON (81 calls, blob 7a3051f15034d90fda89487a6e15baab66bdd53c) + bus 6875470155 ("add SIX matched calls (one model, marks scenario, repeats 1-2 x A/B/C)"); owner centering hypothesis directed in-thread. Z gate checked: no duplicate, calls extracted PROGRAMMATICALLY from Terra's pinned JSON (zero transcription), exactly the six requested (ultra, marks scenario, r1+r2 x A/B/C pass/word-list/prep arms). The remaining 75 stay gated on this chunk's review. Free-only $0, cap 4000.
