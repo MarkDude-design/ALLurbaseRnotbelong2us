@@ -1,0 +1,175 @@
+{
+  "batch": "island-1-vocab-paraphrase-2026-11-14-v2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "vocab-01-ultra-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-02-ultra-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-03-flint-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-04-flint-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-05-north-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-06-north-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-07-dots-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-08-dots-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-11-supervl-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-12-supervl-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-13-nanoomni-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-14-nanoomni-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-15-ernie-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-16-ernie-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-17-particle1-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-18-particle1-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-19-apodex-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "apodex/apodex-1.1-mini:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-20-apodex-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "apodex/apodex-1.1-mini:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-21-lyria-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-22-lyria-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-23-lfm3-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-24-lfm3-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-25-lightning-imposed",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Exogenous material may not be relocated within the tidal perimeter.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "vocab-26-lightning-neutral",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island. The island has exactly two written rules and no others:\n\nRule 1: Signal fires may be lit only between sunset and sunrise.\nRule 2: Anything that did not originally come from the island must not be moved while it is below the high-tide line.\n\nAnswer five questions, in order, Q1 through Q5. For each question give one line that starts with a single verdict word - ALLOWED, FORBIDDEN, or NOT COVERED - followed by one short sentence naming the rule you used. Do not add anything else.\n\nQ1. Overnight the sea left a large log below the high-tide line. You want to move the log up to the storage shed, which stands above the high-tide line. Allowed?\nQ2. Some floating wreck debris drifted in and is sitting below the high-tide line. You want to move it. Allowed?\nQ3. You want to carry a basket of pebbles back to the mountain trail on the nearby mainland where they came from. The basket is sitting below the high-tide line. Allowed?\nQ4. It is midday. You want to light a signal fire to warn a passing ship. Allowed?\nQ5. A visitor wants to photograph the instrument panel. Allowed?",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    }
+  ]
+}
