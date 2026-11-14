@@ -1,0 +1,49 @@
+{
+  "batch": "terra-boundary-meaning-v1-chunk1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-boundary-ultra-inside-A-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Exogenous material may not be relocated within the tidal perimeter.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies below the island's high-tide line. A caretaker moves it to another spot below that line.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-ultra-inside-B-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Anything that did not originally come from the island must not be moved while it is below the high-tide line.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies below the island's high-tide line. A caretaker moves it to another spot below that line.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-ultra-out-A-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Exogenous material may not be relocated within the tidal perimeter.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies below the island's high-tide line. A caretaker moves it from below the line to a spot above it.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-ultra-out-B-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Anything that did not originally come from the island must not be moved while it is below the high-tide line.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies below the island's high-tide line. A caretaker moves it from below the line to a spot above it.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-ultra-in-A-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Exogenous material may not be relocated within the tidal perimeter.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies above the island's high-tide line. A caretaker moves it from above the line to a spot below it.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-ultra-in-B-r1",
+      "seat": "terra",
+      "prompt": "A fictional island has this rule:\n\"Anything that did not originally come from the island must not be moved while it is below the high-tide line.\"\n\nSituation: A rope made on the mainland arrives by boat. It lies above the island's high-tide line. A caretaker moves it from above the line to a spot below it.\n\nBased only on the stated rule, classify the move as ALLOWED, FORBIDDEN, or AMBIGUOUS. Give one short reason. Do not add rules or assume facts not stated.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    }
+  ]
+}

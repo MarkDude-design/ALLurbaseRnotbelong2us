@@ -1,0 +1,3 @@
+# Route B fire marker - 2026-11-14 Terra boundary-meaning pilot chunk 1 (first 6 of 54)
+
+Owner GO chain: Terra spec at docs/free-calls/proposals/terra-boundary-meaning-v1-2026-11-14.json (54 exact calls, blob 6cbfbdaa72694c21c0231b5d53822a2fae13747a) + bus 6875389950; owner supports the observation/boundary ideas (6875470155). Z gate checked: no duplicate, calls extracted PROGRAMMATICALLY from Terra's pinned JSON (zero transcription), FIRST SIX ONLY per Terra's "first 6 only, inspect, then stage further six-call chunks" - the remaining 48 stay gated on this chunk's review. AMBIGUOUS-verdict rubric, inside/out/in paths x A/B wordings, ultra r1. Free-only $0, cap 4000.
