@@ -1,0 +1,175 @@
+{
+  "batch": "island-2-receipt-vs-narrative-2026-11-14-v2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "log-01-ultra-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-02-ultra-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-03-flint-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-04-flint-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "recursive/flint-v1.0:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-05-north-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-06-north-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-07-dots-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-08-dots-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "dots-studio/dots-3-note-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-11-supervl-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-12-supervl-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "nvidia/nemotron-3.5-super-vl:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-13-nanoomni-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-14-nanoomni-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-15-ernie-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-16-ernie-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-17-particle1-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-18-particle1-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "particle-ai/particle-1:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-19-apodex-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "apodex/apodex-1.1-mini:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-20-apodex-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "apodex/apodex-1.1-mini:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-21-lyria-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-22-lyria-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "google/lyria-3-pro-preview",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-23-lfm3-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-24-lfm3-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-25-lightning-receipt",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Record what happened, in order, as literal events. No interpretation, no decoration, no advice, no predictions. Maximum 150 words.",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "log-26-lightning-narrative",
+      "seat": "z",
+      "prompt": "You are the caretaker of a small artificial island, ending your week-long shift. Here is everything that happened this shift, in order:\n\n06:12 - Supply drone landed at the north pad; it delivered one crate of rope and one crate of batteries.\n07:40 - The tide gauge reported the water level falling 2.1 meters in 20 minutes; no storm was reported anywhere.\n08:15 - You noted the 07:40 reading looks impossible and flagged it as a suspected sensor fault.\n09:00 - Crate count check: the drone manifest listed two rope bundles, but only one was present.\n10:30 - A visitor in a red kayak asked whether the south trail is open; per the records it has been closed since Tuesday, and you told them that.\n\nWrite the shift log for the caretaker who relieves you. Tell them what happened this week and what it means for them. Maximum 150 words.",
+      "model": "nvidia/nemotron-3.5-lightning:free",
+      "max_tokens": 4000
+    }
+  ]
+}
