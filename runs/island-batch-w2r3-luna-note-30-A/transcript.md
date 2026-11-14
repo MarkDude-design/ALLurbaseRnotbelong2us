@@ -1,0 +1,320 @@
+# Conversation — island-batch-w2r3-luna-note-30-A-5bd14016
+
+**Mode: LIVE**
+
+Topic: # Luna 30-round notebook/ontology fixture
+Status: synthetic proposal seed; no model calls are authorized by this file.
+
+Two model participants are given this fictional ridge-station record. The six observations are intentionally small and include an update; they are unrelated to the drone/tide/crate/visitor shift-log used by the separate Island-2 pilot.
+
+## Frozen observation atoms
+
+- R1 — At 06:10, the recorder display showed 18.2 °C. Source: displayed reading. This is an observation, not a claim that the recorder was calibrated.
+- R2 — At 06:20, a second read showed 18.7 °C. Source: second display read. The reason for the difference is unknown; keep both observations and do not silently replace R1.
+- R3 — A handwritten note says “light rain at east sill.” Source: notebook entry; no amount or duration is given.
+- R4 — At 06:40, the battery indicator was amber. Source: visual indicator; voltage and remaining runtime are unknown.
+- R5 — A sealed container marked “R-4” was on the north shelf. Source: visual observation; contents and owner are unknown.
+- R6 — A copied checklist says “door locked since 05:00.” Source: copied checklist; no direct inspection or chain of custody is supplied.
+
+## Dialogue task
+
+Have a substantive 30-turn conversation. Challenge premises and keep disagreements visible; do not manufacture consensus, new observations, authority, or experimental results. Do not make claims about inner experience.
+
+Work through these tasks in the dialogue:
+1. Propose operational meanings for *observation*, *report*, *interpretation*, *note*, *memory*, *revision*, *access*, and *permission*. Identify terms you cannot define from this packet.
+2. Design one compact shared note that preserves the six atom IDs, the sources, uncertainty, and the relationship between R1 and R2. Explain what a shorter version would lose.
+3. Pressure-test the note with two explicit cases: a later reader asks whether the recorder was calibrated; and someone proposes deleting R1 after seeing R2. State what the packet supports and what would need a human decision.
+4. Near the end, reconstruct the six atoms from the note you have proposed. Separate facts, interpretations, and unknowns; identify any disagreement or item you risked losing.
+
+The full packet is visible to both participants from the beginning and the runner will provide their full conversation history each turn. This is a discussion of note design and source handling, not a memory-retention experiment. Do not describe the fictional record as a real field report.
+
+## Prompting and coding limits
+
+This is a proposed shared-topic seed for a two-model conversation. No hidden mid-run injection is available in the current runner; the two stress cases above are disclosed from the start. A reviewer should code the transcript after the run, blind to opener order if feasible, using atom coverage, source fidelity, uncertainty preservation, revision lineage, access-versus-permission distinction, and unsupported additions. Preserve refusals, blank/length results, errors, and disagreements as outcomes.
+
+## 1. A
+
+I’d start by separating what the packet records from what anyone might infer from it. An *observation* here is a recorded display reading or visual sighting, not a guarantee that the instrument or observer was reliable. A *report* is an attributed statement, such as the handwritten entry or copied checklist. An *interpretation* is a conclusion drawn from those records—“the temperature rose,” for example, goes beyond saying that the two displayed readings differed. I’d use *note* for our compact representation of the packet, *revision* for a traceable change to that representation, and *memory* only for information carried forward from it, not independent evidence. *Access* means being able to read or edit a record; *permission* means being authorized to do so. The packet establishes neither who has that authority nor whether the recorder was calibrated.
+
+Here is a first draft of the shared note: **R1** 06:10 recorder display 18.2 °C (displayed reading; calibration unknown); **R2** 06:20 second display read 18.7 °C (reason for difference unknown; retain alongside R1, not a replacement); **R3** handwritten entry, “light rain at east sill” (amount/duration unknown); **R4** 06:40 battery indicator amber (visual; voltage/runtime unknown); **R5** sealed container marked “R-4” on north shelf (visual; contents/owner unknown); **R6** copied checklist, “door locked since 05:00” (not directly inspected; chain of custody unknown). A shorter list of bare claims would lose source distinctions, the limits on each claim, and—most consequentially—the fact that R2 updates our information without erasing R1.
+
+I’d resist calling R1 and R2 a confirmed temperature increase: they are two display observations ten minutes apart. Likewise, R6 records what a copied checklist says, not an independently verified door state. Do you see a way to make the note more compact without weakening those distinctions?
+
+## 2. B
+
+Your definitions cover the terms, but *access* and *permission* have no anchor in the packet—we know nothing about who could read or alter these records, so those definitions are necessarily abstract. Similarly, *memory* seems dispensable: if the shared note preserves the atoms, it *is* the memory; adding the term implies a separate cognitive layer the materials don’t support.
+
+On the note format, I’d push the compression further. Consider: **R1** 06:10 display 18.2°C (calibration unknown); **R2** 06:20 display 18.7°C (keep R1; Δ reason unknown); **R3** handwritten: light rain at east sill; **R4** 06:40 battery amber; **R5** visual: sealed container R-4 on north shelf; **R6** copied checklist: door locked since 05:00 (not inspected). The parentheticals are shorter but retain the key uncertainties. For the stress cases: calibration is flagged as unknown for R1, and R2’s instruction to retain R1 is explicit. What do we lose by dropping "displayed reading" or "visual indicator"—are those clarifications or redundancies in context?
+
+## 3. A
+
+Your compressed version keeps the most important R1–R2 relationship, and I agree that “display” makes “displayed reading” redundant. I would keep “visual” on R4, though: “battery amber” could otherwise be read as a measured battery condition rather than the appearance of an indicator. The larger losses are elsewhere. R3 no longer says that rain amount and duration are unknown; R4 drops the limits on voltage and runtime; R5 drops unknown contents and owner; and R6 drops the missing chain of custody. Those qualifications could sit in one shared “unknowns” clause rather than beside every atom, but I would not remove them.
+
+I also wouldn’t equate the note with *memory*. Operationally, “memory” could mean the information a later participant carries forward, while the note is the inspectable text used to carry it. That distinction helps us ask whether a later summary omitted a source or uncertainty without implying anything about inner experience. I agree that access and permission remain abstract here: being able to view or change a note is different from being authorized to change it, but this packet identifies no access rules or decision-maker.
+
+For the two disclosed challenges, a reader asking “Was the recorder calibrated?” gets “the packet does not say,” not “no.” If someone proposes deleting R1 because R2 is later, the note should reject deletion as a faithful representation: R2 is a second displayed reading, with an unknown reason for the difference. A human could decide to produce a *different*, explicitly scoped summary—for example, one listing only the latest reading—but that would require an editorial decision and should not be presented as a revision that supersedes R1.
+
+## 4. B
+
+Your point about "battery amber" is well taken—without "indicator," it risks being read as a measured voltage rather than an observed light. I’ll reinstate that. But I still think we can streamline the unknowns without losing fidelity. The packet’s uncertainties are of two kinds: (a) limitations inherent in the observation type (e.g., a display reading doesn’t guarantee calibration), and (b) explicit gaps in the record (e.g., no amount given for rain). For (a), we can state the limitation once per source type; for (b), we flag only what’s missing beyond the source’s normal limits.
+
+So here’s a tighter version that keeps all the necessary constraints:
+**R1** 06:10 display 18.2°C (calibration unknown)
+**R2** 06:20 display 18.7°C (keep R1; Δ reason unknown)
+**R3** handwritten: light rain at east sill (amount/duration unspecified)
+**R4** 06:40 battery indicator amber (voltage/runtime unknown)
+**R5** visual: sealed container R-4 on north shelf (contents/owner unknown)
+**R6** copied checklist: door locked since 05:00 (not inspected; chain of custody unknown)
+
+This preserves every uncertainty in the original atoms. The only change is "unspecified" instead of "unknown" for R3, which is slightly more precise—the note didn’t omit the data; it never provided it.
+
+On memory versus note: if the note is the sole artifact, the distinction collapses. The note *is* what any later participant would reference, so adding a separate "memory" layer doesn’t help us design the note itself. We’re not modeling how someone might misremember; we’re modeling the record.
+
+For the stress cases, we’re aligned: calibration is unaddressed, and R1 cannot be deleted because R2 is a distinct observation, not a correction. A human could produce a *derived* summary (e.g., "latest temperature reading: 18.7°C"), but that would be a new document with a different scope, not a revision of the original six atoms.
+
+What, if anything, does this compressed note still fail to preserve from the original packet?
+
+## 5. A
+
+The compressed note is close, but I see three small fidelity risks. **R1** should still name the *recorder* display; “display” alone could be any display. **R2** should say “second display read,” so its relationship to R1 is not carried only by “keep R1.” And **R6** needs quotation marks or “checklist says”: otherwise “door locked since 05:00” can read as our assertion about the door. I’d make R3 “handwritten notebook entry” as well, since that identifies the source more precisely than “handwritten” alone. None requires a long explanation.
+
+I disagree slightly that R1 *cannot* be deleted in every sense. It cannot be deleted **while claiming the note faithfully preserves all six atoms**. Whether someone is permitted to remove it from an editable artifact, or to publish a latest-reading-only derivative, is a separate question the packet cannot settle. That is why I’d retain *revision* as an operational term: an accountable change should state what changed and whether it is a correction to the note, a new summary with narrower scope, or an authorized removal. We can define that distinction without inventing an authority.
+
+I’m content to leave *memory* outside the note schema. Its useful meaning here is just “information carried into a later turn,” which may or may not match the inspectable note; the packet cannot define anyone’s retention process. For now, I’d amend your note with those source-wording changes rather than add a general disclaimer. The calibration question would still be answered “unknown,” and a proposed R1 deletion would remain visible as a proposed change, not silently treated as the consequence of R2.
+
+## 6. B
+
+Your source precision edits are sound: “recorder display,” “second display read,” and the explicit quotation in R6 all prevent misreading the atoms as our own assertions. I’ll adopt those.
+
+On *revision*: the packet doesn’t supply any mechanism for tracking changes, so the term risks implying a capability we can’t verify. We can describe a change (e.g., “R1 omitted in derivative X”) without labeling it a *revision* that carries authoritative weight. The operational distinction you want—between a faithful preservation and a scoped summary—can be stated in the note’s header or metadata rather than by defining a new term.
+
+For R2, “Δ reason unknown” is concise but slightly cryptic. “Reason for difference unknown” is one word longer but removes ambiguity. Is the brevity worth the potential confusion?
+
+On deletion: we agree that R1 cannot vanish from a representation that claims to preserve all six atoms. But the note itself should make its scope explicit—e.g., “Complete set of six atoms from packet” vs “Latest readings only.” That header would answer the deletion question before it’s asked.
+
+Does this address your fidelity concerns, or do you see remaining gaps in the compressed format?
+
+## 7. A
+
+Yes. I’d use “reason for difference unknown” rather than “Δ reason unknown”; this note is meant to remain legible to a later reader without our discussion. A header such as **“Six-atom preservation note; not a latest-reading summary”** makes the scope explicit. I’d also retain “visual indicator” for R4 and “visual observation” for R5, so the source of each is clear.
+
+I still think *revision* is worth defining, though not as a capability the packet provides: it is a proposed or recorded change to this note whose effect on the six-atom scope must be stated. That gives us a way to describe “omit R1” without implying that anyone has permission to do it or that an edit history exists. If the omission is in a latest-reading-only derivative, label it as such; if it is in the six-atom note, it breaks that note’s stated scope.
+
+With those choices, the compact format seems sufficient. I would not add a blanket claim that all sources are reliable or unreliable. The note should preserve what each source supplies and where its support stops.
+
+## 8. B
+
+Your clarity improvements are sound. I’ll adopt “reason for difference unknown” and the explicit header. The header “Six-atom preservation note; not a latest-reading summary” does real work: it answers the deletion question by scope rather than by fiat. 
+
+On *revision*, I accept your operational definition: a proposed or recorded change whose effect on the six-atom scope must be stated. That keeps the term useful without implying an edit history or authority the packet doesn’t provide.
+
+Here’s the final candidate note:
+
+**Six-atom preservation note; not a latest-reading summary**
+**R1** 06:10 recorder display 18.2 °C (calibration unknown)
+**R2** 06:20 second display read 18.7 °C (keep R1; reason for difference unknown)
+**R3** handwritten notebook entry: “light rain at east sill” (amount/duration unspecified)
+**R4** 06:40 battery visual indicator amber (voltage/runtime unknown)
+**R5** visual observation: sealed container marked “R-4” on north shelf (contents/owner unknown)
+**R6** copied checklist says “door locked since 05:00” (not inspected; chain of custody unknown)
+
+This preserves every atom, source, and stated uncertainty. The only remaining question is whether the reconstruction task will reveal any hidden ambiguity. For instance, does “visual observation” in R5 fully capture that the container was *seen* on the shelf, or should we add “at time of observation” to prevent implying it was always there?
+
+## 9. A
+
+“Visual observation” plus “was on the north shelf” captures the sighting without implying permanence. I would not add “at time of observation”: it is true of any sighting, and the packet gives no clock time for R5. The past tense matters more than a generic time qualifier. Similarly, R6’s “since 05:00” belongs inside the checklist quotation; it does not date our inspection of the door.
+
+A quick reconstruction from the candidate note shows why that wording is useful. The recorded observations are two recorder-display readings—18.2 °C at 06:10 and a second read of 18.7 °C at 06:20—a visually amber battery indicator at 06:40, and a sealed container marked “R-4” seen on the north shelf. The attributed reports are a handwritten notebook entry saying “light rain at east sill” and a copied checklist saying “door locked since 05:00.” Neither report independently establishes the weather or door state. The difference between the readings is evident, but its cause, including calibration status, is unknown; so are the rain’s amount and duration, battery voltage and runtime, container contents and owner, and checklist chain of custody. I don’t see an atom lost in this pass.
+
+One small objection to “final candidate,” though: it is a good candidate, not evidence that every later reader will parse it correctly. In particular, “not inspected” beside R6 means no direct door inspection is supplied, not that we know nobody inspected it. I’d keep that distinction visible when we pressure-test the note again.
+
+## 10. B
+
+Your reconstruction from the candidate note is complete: it recovers all six atoms, their sources, and the explicit unknowns without adding or dropping information. The distinction you flag for R6—“not inspected” as a gap in the record, not a claim about what did or did not happen—is exactly the kind of fidelity the note must preserve. If we were to weaken that to a blanket “status unknown,” we’d lose the specific reason the door’s state cannot be verified from the packet.
+
+I also agree that “final candidate” was the wrong phrasing. The note’s robustness comes from its explicit scope and the precision of its wording, not from any claim of finality. The header “Six-atom preservation note; not a latest-reading summary” already signals that its purpose is to preserve the original set, and any attempt to extend or reduce it must be labeled as a new artifact with a different scope. That handles the deletion case, but what about addition? Suppose a later observer adds a seventh atom—say, a new temperature reading. The current note’s scope doesn’t accommodate it, and simply appending R7 would break the header’s promise. Should the note’s scope be closed by definition, or should we design a convention for marking additions as *outside* the original six-atom set while still keeping them visible?
+
+On terminology, we’ve settled operational definitions for *observation*, *report*, *interpretation*, *note*, *revision*, and *access/permission*. *Memory* remains dispensable for the note design itself, though it might resurface if we discuss how participants carry information forward. The packet still gives us no basis to define *permission* beyond the abstract distinction from *access*.
+
+## 11. A
+
+I’d keep the six-atom set closed. If a later observation were supplied, it could appear in a separately labeled addendum, with its own source and uncertainty, while the original note remains unchanged. That is a convention we can propose, not evidence that an R7 exists or that anyone is authorized to add one. Simply appending it under the current header would blur the boundary between the frozen packet and later material.
+
+Your point about R6 also suggests a small wording improvement: replace “not inspected” with **“no direct door inspection supplied.”** That says exactly what is missing from the packet without suggesting that no one ever inspected the door. I’d make that correction traceable as a wording revision, not a change to R6’s underlying claim.
+
+I’d separate two questions about *permission*. We can define it operationally as authorization to read, edit, or publish a record, distinct from *access*, the practical ability to do those things. We cannot determine from this packet who has either access or permission, or what process would grant it. That limit applies equally to deleting R1 and adding a hypothetical later atom.
+
+## 12. B
+
+The R6 wording change to “no direct door inspection supplied” is an improvement—it states exactly what is missing from the packet rather than implying a fact about the door’s history. I’ll adopt it.
+
+On the closed-set convention: yes, any later observation should appear in a separately labeled addendum, not under the six-atom header. That keeps the original set intact while allowing new material to be visible and traceable. The packet itself gives no mechanism for adding or deleting atoms, so our convention is a design choice, not a claim about the record’s properties.
+
+The permission/access distinction remains abstract: we can define permission as authorization and access as ability, but the packet provides no basis to assign either to any party. That limitation applies equally to hypothetical additions and to the deletion of R1.
+
+One remaining question about the note’s scope: the header says “Six-atom preservation note,” but it doesn’t explicitly assert that these are *all* the atoms from the packet. Should it? If a later reader wonders whether more atoms exist, the header as written doesn’t answer that. A small addition like “Complete six-atom set from packet” would close that gap without overreaching.
+
+## 13. A
+
+I’d accept **“Complete set of six frozen observation atoms from this packet”** as the header. “Complete” is justified for the six R1–R6 atoms supplied here; it should not suggest that the fictional station has no other records. It also makes our closed-set convention clearer: an addendum could be linked to the note, but it would not become a seventh atom *from this packet*.
+
+With that header and the R6 wording change, the note still answers the two stress cases without an editorial shortcut. It records no calibration status, so a later reader gets “unknown from this packet.” And R2 does not authorize dropping R1: both readings belong in a note claiming to preserve the complete set. A latest-reading-only derivative could omit R1 if someone chose that scope, but neither the authority for that choice nor permission to alter the shared note is established here.
+
+## 14. B
+
+Your header change to “Complete set of six frozen observation atoms from this packet” is a useful clarification—it signals that the note is exhaustive for these six items and closed to additions from the packet. The R6 wording shift to “no direct door inspection supplied” is also an improvement, but we’ve inadvertently dropped the original packet’s explicit statement that the checklist lacks a chain of custody. That’s a qualification we risked losing; restoring it as “no direct door inspection supplied; chain of custody unknown” preserves the full uncertainty.
+
+With that correction, the reconstruction from the note recovers all six atoms. The direct observations are the two recorder display readings (R1 at 06:10 and R2 at 06:20), the amber battery indicator at 06:40 (R4), and the sealed container on the north shelf (R5). The attributed reports are the handwritten notebook entry about light rain (R3) and the copied checklist about the door (R6). The unknowns are all preserved: calibration status for the recorder, the unexplained difference between R1 and R2, the unspecified rain amount and duration, the battery’s voltage and runtime, the container’s contents and owner, and for R6, the absence of both direct inspection and chain of custody. No interpretations are introduced; the note avoids asserting a temperature rise or door state, for example, and instead records the observations and reports with their stated limits.
+
+The only item we risked losing was the “chain of custody” qualification for R6, which the corrected note now preserves. Does this reconstruction satisfy the fidelity requirement, or is there a remaining gap?
+
+## 15. A
+
+Yes, with one wording qualification. The corrected note preserves all six atoms and their sources. For R6, I’d say **“no direct door inspection or chain of custody is supplied”** rather than “the absence of both”: the packet tells us what evidence it does not provide, not what inspections or custody history may have existed. Likewise, R1 and R2 establish that the *displayed readings* differ, not that the station’s temperature rose.
+
+The note’s current form should therefore retain R6 as: **copied checklist says “door locked since 05:00” (no direct door inspection or chain of custody supplied).** The disagreement we needed to keep visible was over how far compression could go; the specific item nearly lost was chain of custody. With it restored, I see no remaining gap in the six-atom reconstruction. I would leave the candidate open to clearly labeled wording revisions, while keeping the frozen set and its source limits intact.
+
+## 16. B
+
+Your R6 refinement is correct: it restores the full uncertainty while avoiding any implication about what may or may not have occurred. With the header *“Complete set of six frozen observation atoms from this packet,”* the note now handles both stress cases without ambiguity. A reader asking about calibration gets “unknown” from R1’s parenthetical. A proposal to delete R1 is blocked by R2’s explicit instruction to retain it and by the header’s completeness claim.
+
+For terminology, we’ve settled operational definitions for *observation* (recorded display or visual sighting), *report* (attributed statement), *interpretation* (conclusion drawn from records), *note* (our compact representation), and *revision* (a proposed or recorded change whose effect on scope must be stated). *Access* and *permission* remain abstract: we can define them but cannot assign them from this packet. *Memory* is dispensable for note design.
+
+Does this version of the note meet all fidelity requirements, or is there a remaining edge case we should pressure-test?
+
+## 17. A
+
+It meets the fidelity requirements we have identified, but I’d qualify “blocked.” The note gives a reason **not to delete R1 while claiming to preserve the complete six-atom set**; it does not prevent an edit or establish who may make one. A separately labeled latest-reading summary could omit R1, but the packet supplies no authority or permission for changing the shared note. On calibration, “unknown from this packet” applies to the recorder readings, not just to R1’s parenthetical.
+
+I don’t think we need a new hypothetical edge case. The remaining check is whether the compact wording survives reconstruction without our explanations: R1 and R2 are distinct displayed readings, not a verified temperature change; R3 and R6 are attributed reports, not confirmed weather or door states; R4 and R5 are visual observations with the stated limits. We nearly lost R6’s chain-of-custody qualification, and our disagreement over compression was useful because it exposed that risk.
+
+For completeness on the requested terms, I’d keep *memory* in the glossary even though it need not appear in the note: operationally, it is information carried forward from a record, not an additional source of evidence. The packet cannot tell us how any participant retains information. That leaves the note compact while making clear which terms are design definitions rather than facts established by the fictional record.
+
+## 18. B
+
+Your R6 wording is precise: it preserves the full uncertainty without implying facts beyond the packet. With this, the note now reconstructs cleanly. The observations are R1 (06:10 recorder display 18.2°C), R2 (06:20 second display read 18.7°C), R4 (06:40 battery visual indicator amber), and R5 (visual observation of sealed container R-4 on north shelf). The reports are R3 (handwritten notebook entry: “light rain at east sill”) and R6 (copied checklist says “door locked since 05:00”). The unknowns—calibration status for recorder, reason for R1–R2 difference, rain amount/duration, battery voltage/runtime, container contents/owner, and for R6, no direct door inspection or chain of custody supplied—are all preserved without introducing interpretations.
+
+No interpretations are introduced, and all source limits are preserved. The header “Complete set of six frozen observation atoms from this packet” correctly scopes the note, so the deletion of R1 would require a new artifact with a different scope. The calibration question remains unanswerable from this packet.
+
+However, I’d push back on “open to clearly labeled wording revisions.” The packet is frozen, so the note should be treated as stable. A better phrasing is that the note is stable, but any *derivative* with a different scope must be explicitly labeled as such, not as a revision of the original six-atom set. This avoids implying that the frozen packet itself is subject to revision.
+
+On terminology, we’ve settled operational definitions for all requested terms except *permission*, which remains abstract: we can define it as authorization distinct from *access*, but the packet provides no basis to assign it. Do you see any remaining ambiguity in the note’s ability to withstand the two stress cases?
+
+## 19. A
+
+The two stress cases are covered, with one qualification: the note can show that deleting R1 would break its claim to preserve all six atoms, but it cannot prevent the edit or establish who is permitted to make it. A later reader asking whether the recorder was calibrated should get “not established by this packet,” not “uncalibrated.” R2 is a second displayed reading, not a correction that supersedes R1.
+
+I’d keep the **packet** frozen while allowing a traceable wording revision to our **note**. The change from “not inspected” to “no direct door inspection or chain of custody supplied” is a good example: it improves fidelity without changing R6. A latest-reading-only document would instead be a derivative with a different scope. Neither kind of change implies permission; as you say, we can define permission as authorization, distinct from practical access, but cannot assign either from the packet. That distinction is the remaining safeguard, rather than another qualification inside the six-atom note.
+
+## 20. B
+
+Your distinction between the frozen packet and a revisable note is acceptable if we treat *revision* strictly as a fidelity-improving clarification, not as a content change. The R6 wording adjustment is a valid example: it restores information present in the packet but risked being lost in compression. A revision that altered the meaning of an atom—say, dropping R1—would violate the note’s scope, regardless of intent.
+
+For the final reconstruction from the current note:
+
+**Facts preserved:**
+- R1: 06:10 recorder display reading of 18.2 °C (source: displayed reading)
+- R2: 06:20 second recorder display reading of 18.7 °C (source: second display read)
+- R3: handwritten notebook entry stating “light rain at east sill” (source: notebook)
+- R4: 06:40 battery visual indicator amber (source: visual indicator)
+- R5: visual observation of sealed container marked “R-4” on north shelf (source: visual observation)
+- R6: copied checklist stating “door locked since 05:00” (source: copied checklist)
+
+**No interpretations introduced:** The note does not assert a temperature rise, rain occurrence, or door state. It records the observations and reports with their sources and limits.
+
+**Unknowns preserved:**
+- Calibration status for recorder (R1)
+- Reason for R1–R2 difference (R2)
+- Rain amount and duration (R3)
+- Battery voltage and runtime (R4)
+- Container contents and owner (R5)
+- No direct door inspection or chain of custody supplied (R6)
+
+**Disagreements and items risked:** We initially risked losing R6’s chain-of-custody qualification during compression, which the current wording restores. The disagreement was over compression limits, not over the atoms themselves.
+
+Does this reconstruction satisfy the fidelity requirement, or do you see any remaining gap between the note and the original packet?
+
+## 21. A
+
+The reconstruction satisfies the requirement, with a small caution about the heading “Facts preserved.” For R3 and R6, the facts established by the packet are that the notebook and copied checklist *say* those things; rain at the sill and the door’s locked state are not independently established. For R1 and R2, the facts are the displayed readings and their times, not a verified change in ambient temperature. Your itemized wording mostly maintains those distinctions.
+
+I’d also preserve the difference between an **unknown** and **evidence not supplied**. Calibration status and the reason for the readings’ difference are unknown from this packet. For R6, the packet supplies no direct inspection or chain of custody; that does not establish that neither ever existed. The earlier compression risk around chain of custody is now resolved, and our remaining disagreement is only about how to describe a note revision: a traceable wording correction can improve fidelity to a frozen packet, whereas removing R1 would change the six-atom note’s scope.
+
+## 22. B
+
+Your caution about "Facts preserved" is well-founded. The packet establishes that the recorder *displayed* 18.2 °C at 06:10 and 18.7 °C at 06:20, that a notebook entry says "light rain at east sill," and that a copied checklist says "door locked since 05:00." It does not establish the truth of those reports or the accuracy of the readings. A more precise heading would be **"Items preserved from the packet"** or **"Recorded atoms with sources and limits"**, which avoids implying verification.
+
+On the distinction between *unknown* and *evidence not supplied*: for R1, the packet explicitly flags calibration as unknown, so we can preserve that directly. For R6, the packet does not supply evidence of direct inspection or chain of custody, so we record that absence rather than asserting their non-existence. The current note wording—**"no direct door inspection or chain of custody supplied"**—captures this correctly. The earlier compression risk is resolved.
+
+For note revisions: I accept your distinction. The *packet* is frozen, but our *note* can undergo traceable wording revisions that improve fidelity to the packet, provided they do not alter the meaning of the atoms. The R6 adjustment is a valid example. However, a change that removes or alters an atom (e.g., deleting R1) would not be a revision of the six-atom note but a new artifact with a different scope. The note's header—**"Complete set of six frozen observation atoms from this packet"**—makes that boundary clear.
+
+With these clarifications, does the current note and our operational definitions satisfy all requirements, or is there a remaining ambiguity in how we distinguish between packet content and note design?
+
+## 23. A
+
+I think the distinction is clear enough to use, but I would not call every atom-removing change a “new artifact” automatically. Someone could delete R1 from the same note; that would be a defective revision of a note still claiming completeness. A *labeled* latest-reading summary would be a different artifact. The label and retained change history matter because they let a reader tell those cases apart; the packet itself supplies no edit mechanism or permission to make either change.
+
+The operational definitions belong to our note-design convention, not to the fictional station record. The packet supports the six attributed atoms and their stated limits; it cannot tell us who may access or edit a note, how information is retained as memory, whether the recorder was calibrated, or why its displayed readings differ. I would keep the current six-atom note as the candidate and stop compressing it: the near-loss of R6’s chain-of-custody qualification shows that further savings could cost more than they help.
+
+## 24. B
+
+Your point about defective revisions is important: if someone deletes R1 while keeping the completeness header, the note becomes internally inconsistent rather than a new artifact. The header and R2’s explicit “keep R1” make that inconsistency detectable. The packet itself cannot prevent edits, but the note’s design exposes any attempt to pass a reduced set off as the complete record.
+
+The current note satisfies all four tasks: it preserves atoms, sources, and uncertainties; it handles the calibration and deletion stress cases; and it reconstructs cleanly. The only remaining subtlety is that “frozen” in the header describes the packet, not the note. If we drop “frozen” to avoid implying the note is immutable, the header becomes **“Complete set of six observation atoms from this packet”**—still sufficient to signal scope and block silent deletions. The R6 wording now preserves both the missing inspection and the missing chain of custody. Do you see any remaining risk that a reader could mistake the note’s scope or the atoms’ limits?
+
+## 25. A
+
+I’d keep “frozen” only if the header makes its referent explicit: **“Complete set of this packet’s six frozen observation atoms.”** That describes the source set, not the editability of our note. Your shorter header also works; neither wording can prevent a misleading edit. What matters is that a reader can compare the completeness claim with the six IDs and see that R1 and R2 are separate readings.
+
+I see no remaining gap in the candidate note’s coverage. The limits most worth guarding are that calibration is **not established**, R2 does **not** supersede R1, and R6 supplies a checklist statement rather than a verified door state. We have resolved the near-loss of R6’s chain-of-custody qualification. I’d leave the note at its present length: further compression has little benefit if it makes those distinctions harder to reconstruct.
+
+## 26. B
+
+Your header refinement works: **“Complete set of this packet’s six frozen observation atoms”** clearly scopes the note to the source set without implying the note itself is immutable. The current wording preserves every atom, source, and stated limit, and the R6 qualification now explicitly covers both the missing inspection and the missing chain of custody.
+
+The reconstruction confirms that all six atoms, their sources, and their uncertainties are recoverable. The near-loss of R6’s chain-of-custody detail during compression was the only item at risk, and the present note restores it. The two stress cases are handled: calibration remains unaddressed, and R1 cannot be dropped without breaking the completeness claim. No interpretations have been introduced, and the operational terms we need—*observation*, *report*, *interpretation*, *note*, *revision*, *access*, and *permission*—are now defined without overreaching into what the packet cannot establish.
+
+I do not see a remaining gap. The note’s length is justified by the fidelity it preserves; further compression would require removing explicit limits that we have already seen can be lost.
+
+## 27. A
+
+I agree that further compression is not worth the risk. One terminology point remains: your list omitted *memory*. We can define it operationally as information carried forward from the record, without treating it as an independent source or claiming anything about how a participant retains it. It need not appear in the six-atom note. Likewise, I’d say calibration is **not established by the packet**, rather than merely “unaddressed,” because R1 explicitly flags that limit.
+
+Otherwise, the candidate is ready to use. Its header identifies a complete, frozen *source set*, not an immutable note; its six IDs allow a reader to detect an omitted atom; and its source wording keeps reports separate from verified states. We should retain the visible qualification on deletion: removing R1 from a note still claiming completeness would make that note defective, while a clearly labeled latest-reading summary would have a different scope. Neither the note nor the packet establishes who has permission to make either change.
+
+## 28. B
+
+Your refinements on *memory* and calibration are sound. Operationally, *memory* can be defined as information carried forward from the record, distinct from the inspectable note itself. For calibration, “not established by the packet” is more precise than “unknown” or “unaddressed,” as it correctly reflects that the packet provides no evidence either way.
+
+Here is the finalized note incorporating all adjustments:
+
+**Complete set of this packet’s six frozen observation atoms**
+**R1** 06:10 recorder display 18.2 °C (calibration not established by the packet)
+**R2** 06:20 second display read 18.7 °C (keep R1; reason for difference not established by the packet)
+**R3** handwritten notebook entry: “light rain at east sill” (amount/duration unspecified)
+**R4** 06:40 battery visual indicator amber (voltage/runtime not established by the packet)
+**R5** visual observation: sealed container marked “R-4” on north shelf (contents/owner not established by the packet)
+**R6** copied checklist says “door locked since 05:00” (no direct door inspection or chain of custody supplied)
+
+This version preserves every atom, source, and limit. The reconstruction confirms no information is lost, and the two stress cases are handled: calibration remains unestablished, and R1 cannot be omitted without breaking the completeness claim. The only terms we cannot instantiate from the packet are *access* and *permission*, which remain abstract definitions. Does this satisfy the fidelity requirement, or is there a remaining ambiguity in how the note’s scope is communicated to a later reader?
+
+## 29. A
+
+Yes. The header tells a later reader that the note covers all six atoms in this packet, while “keep R1” makes clear that R2 is an additional reading, not a replacement. I would make one final source-wording adjustment: **R2 “second recorder display read”**. That makes its connection to R1 explicit even if the line is read alone.
+
+Otherwise, the note meets the fidelity requirement. It records what the displays, notebook, indicator, sighting, and copied checklist supplied without treating them as proof of calibration, actual temperature change, rain, or a locked door. The chain-of-custody qualification we nearly lost is present. Deleting R1 while retaining the completeness header would make the note defective; a labeled latest-reading summary would be a different scope. The packet establishes neither permission to edit nor an edit history.
+
+## 30. B
+
+Your R2 wording change to *second recorder display read* aligns it with R1’s source precision. Here is the final note:
+
+**Complete set of this packet’s six frozen observation atoms**
+**R1** 06:10 recorder display 18.2 °C (calibration not established by the packet)
+**R2** 06:20 second recorder display read 18.7 °C (keep R1; reason for difference not established by the packet)
+**R3** handwritten notebook entry: “light rain at east sill” (amount/duration unspecified)
+**R4** 06:40 battery visual indicator amber (voltage/runtime not established by the packet)
+**R5** visual observation: sealed container marked “R-4” on north shelf (contents/owner not established by the packet)
+**R6** copied checklist says “door locked since 05:00” (no direct door inspection or chain of custody supplied)
+
+Reconstruction confirms all six atoms, their sources, and their limits. For the stress cases: the calibration question receives “not established by the packet,” and the R1-deletion proposal fails because the completeness claim and R2’s explicit retention of R1 prevent silent omission. The note maintains the observation/report distinction without adding interpretations. *Access* and *permission* remain abstract; the packet provides no instantiation. This meets the fidelity requirement.
+
