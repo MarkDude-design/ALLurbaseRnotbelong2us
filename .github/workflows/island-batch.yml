@@ -1,0 +1,130 @@
+name: Island Batch — Route B conversation waves
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/island-batch/fired/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: island-batch-bus
+  cancel-in-progress: false
+
+jobs:
+  batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Kill switch
+        run: test ! -f docs/island-batch/STOP || { echo "STOP file present; batch refused"; exit 1; }
+      - name: Tests
+        run: python -m unittest discover -s tests -v
+      - name: Key exists
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Manifest gate (known-good models, budgets, seeds)
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          man = json.loads(Path("docs/island-batch/CURRENT-BATCH.json").read_text(encoding="utf-8"))
+          known = {l.strip() for l in Path("docs/models-known-good.txt").read_text().splitlines()
+                   if l.strip() and not l.startswith("#")}
+          assert 0 < man["max_batch_cost_usd"] <= 10.0, "batch ceiling out of range"
+          assert 0 < man["max_per_run_cost_usd"] <= 10.0, "per-run ceiling out of range"
+          runs = man["runs"]
+          assert 1 <= len(runs) <= 8, "1..8 runs per batch"
+          for s in runs:
+              assert s["model_a"] in known, s["id"] + ": model_a not known-good"
+              assert s["model_b"] in known, s["id"] + ": model_b not known-good"
+              assert 1 <= int(s["turns"]) <= 100, s["id"] + ": turns"
+              assert s["first"] in ("A", "B"), s["id"] + ": first"
+              assert int(s["history_chars"]) >= 1000, s["id"] + ": history_chars"
+              p = Path(s["topic_file"])
+              assert p.is_file() and p.read_text(encoding="utf-8").strip(), s["id"] + ": seed missing/empty"
+          assert len(runs) * man["max_per_run_cost_usd"] <= man["max_batch_cost_usd"] + 1e-9, "per-run ceilings exceed batch ceiling"
+          print("MANIFEST OK:", man["batch"], "-", len(runs), "runs")
+          PY
+      - name: Run manifest conversations sequentially (batch budget enforced)
+        run: |
+          python - <<'PY'
+          import json, subprocess, sys
+          from pathlib import Path
+          man = json.loads(Path("docs/island-batch/CURRENT-BATCH.json").read_text(encoding="utf-8"))
+          per_run = float(man["max_per_run_cost_usd"]); batch_max = float(man["max_batch_cost_usd"])
+          spent = 0.0
+          summary = []
+          for s in man["runs"]:
+              rid = s["id"]; outdir = "runs/island-batch-" + rid
+              cmd = [sys.executable, "-m", "island.runner", "--mode", "live",
+                     "--model-a", s["model_a"], "--model-b", s["model_b"],
+                     "--topic-file", s["topic_file"], "--turns", str(int(s["turns"])),
+                     "--first", s["first"], "--history-chars", str(int(s["history_chars"])),
+                     "--max-cost-usd", str(per_run), "--outdir", outdir]
+              proc = subprocess.run(cmd)
+              cost = 0.0; unknown = 0
+              busp = Path(outdir) / "bus.jsonl"
+              if busp.exists():
+                  for line in busp.read_text(encoding="utf-8").splitlines():
+                      try:
+                          ev = json.loads(line)
+                      except Exception:
+                          continue
+                      if ev.get("type") == "cost_receipt":
+                          c = ev.get("cost_usd")
+                          if isinstance(c, (int, float)):
+                              cost += float(c)
+                          else:
+                              unknown += 1
+              spent += cost
+              summary.append({"run": rid, "exit": proc.returncode, "cost_usd": round(cost, 6), "unknown_cost": unknown})
+              print("BATCH-RECEIPT run=%s exit=%s cost_usd=%.6f unknown=%d batch_spent=%.6f" % (rid, proc.returncode, cost, unknown, spent))
+              if unknown:
+                  print("BATCH-STOP accounting-uncertain after %s; reconcile before more spend" % rid)
+                  break
+              if spent >= batch_max:
+                  print("BATCH-STOP batch budget reached")
+                  break
+          Path("runs/island-batch-RECEIPTS.md").write_text(
+              "# Island batch receipts\n\n" + man["batch"] + "\n\n" +
+              "\n".join("- " + json.dumps(r) for r in summary) + "\n", encoding="utf-8")
+          print("BATCH-SUMMARY " + json.dumps(summary))
+          PY
+      - name: Archive local receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: island-batch-${{ github.run_id }}
+          path: runs/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Publish bus
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then echo "no run output to publish"; exit 0; fi
+          cp -r runs /tmp/bus-out
+          rm -rf runs
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin bus
+          git switch -C bus origin/bus
+          mkdir -p runs
+          cp -r /tmp/bus-out/. runs/
+          git add runs/
+          if git diff --cached --quiet; then echo "nothing new to publish"; exit 0; fi
+          git commit -m "bus: island-batch ${{ github.run_id }}"
+          pushed=false
+          for i in 1 2 3; do
+            if git push origin HEAD:bus; then pushed=true; break; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          [ "$pushed" = true ] || { echo "publish failed; artifact retained"; exit 1; }

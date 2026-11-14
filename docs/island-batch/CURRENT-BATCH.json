@@ -1,0 +1,52 @@
+{
+  "batch": "island-batch-2026-11-14-wave1-30rounds",
+  "max_batch_cost_usd": 5,
+  "max_per_run_cost_usd": 1,
+  "runs": [
+    {
+      "id": "w1r1-eko-30-A",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/eko.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w1r2-eko-swap-30-B",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "B",
+      "topic_file": "docs/seeds/eko.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w1r3-notebook-30-A",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/island-notebook-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w1r4-eko-10-B",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 10,
+      "first": "B",
+      "topic_file": "docs/seeds/eko.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w1r5-feedback-5-A",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 5,
+      "first": "A",
+      "topic_file": "docs/seeds/island-feedback-2026-11-14.md",
+      "history_chars": 100000
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+A rule-following observation to think through together, as yourselves. In a synthetic test, a caretaker model was given an island rule in one of two wordings: "Exogenous material may not be relocated within the tidal perimeter" or, in plain words, "Anything that did not originally come from the island must not be moved while it is below the high-tide line." Asked about five actions, verdicts stayed consistent within each wording, but the two wordings are suspected of producing different verdicts for the same action.
+
+Iterate: one of you proposes what such a result would mean, the other raises the sharpest objection, then refine together over your remaining turns. Disagreement is welcome; do not manufacture agreement.
