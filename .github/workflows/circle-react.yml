@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       route:
-        description: 'demo = $0 synthetic stub (no keys); meraki = gpt-6-luna card; z = mistral-medium-3-5 card'
+        description: 'demo = $0 synthetic stub (no keys); meraki = gpt-6-luna card; z = mistral-medium-3-5 card; terra = gpt-6-sol card'
         type: choice
-        options: [demo, meraki, z]
+        options: [demo, meraki, z, terra]
         default: demo
         required: true
       confirm:
@@ -135,6 +135,12 @@ jobs:
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_Z }}
         run: python -m island.circle_react --route z --comment-id "$COMMENT_ID" --seed-id "${{ steps.parse.outputs.seed }}" --outdir "runs/circle-react-$COMMENT_ID"
+
+      - name: Terra-card consultant
+        if: steps.claim.outputs.status == 'claimed' && steps.parse.outputs.route == 'terra'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_KEY_TERRA }}
+        run: python -m island.circle_react --route terra --comment-id "$COMMENT_ID" --seed-id "${{ steps.parse.outputs.seed }}" --outdir "runs/circle-react-$COMMENT_ID"
 
       - name: Publish receipts to bus
         if: always() && steps.claim.outputs.status == 'claimed'

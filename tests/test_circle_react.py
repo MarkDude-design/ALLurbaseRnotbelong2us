@@ -24,6 +24,8 @@ class CircleReactTests(unittest.TestCase):
 
     def test_command_accepts_whitelisted_seed_slugs(self):
         self.assertEqual(parse_command("/circle-react z webring"), ("z", "webring"))
+        self.assertEqual(parse_command("/circle-react terra circle-island-react-v0"),
+                         ("terra", "circle-island-react-v0"))
         self.assertEqual(parse_command("/circle-react demo circle-island-react-v0"),
                          ("demo", "circle-island-react-v0"))
         for bad in ("/circle-react z webring; echo x", "/circle-react z Webring",

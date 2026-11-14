@@ -21,7 +21,7 @@ SEED_IDS = ("circle-island-react-v0", "webring")
 SEED_FILES = {sid: "docs/seeds/" + sid + ".md" for sid in SEED_IDS}
 SEED_ID = "circle-island-react-v0"
 SEED_FILE = SEED_FILES[SEED_ID]
-COMMAND = re.compile(r"^/circle-react (demo|meraki|z) (" + "|".join(SEED_IDS) + r")$")
+COMMAND = re.compile(r"^/circle-react (demo|meraki|z|terra) (" + "|".join(SEED_IDS) + r")$")
 
 
 def seed_file_for(seed_id):
@@ -29,7 +29,8 @@ def seed_file_for(seed_id):
         raise ValueError("Unknown seed slug: " + str(seed_id))
     return SEED_FILES[seed_id]
 MODELS = {"demo": "synthetic-stub", "meraki": "openai/gpt-6-luna",
-          "z": "mistralai/mistral-medium-3-5"}
+          "z": "mistralai/mistral-medium-3-5",
+          "terra": "openai/gpt-6-sol"}
 
 
 def parse_command(body):
