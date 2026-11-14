@@ -1,0 +1,3 @@
+# Route B fire marker - 2026-11-14 Terra observation/inference pilot chunk 1 (ultra)
+
+Owner GO chain: in-chat owner direction to develop free-call observation work (relayed Terra 6875218118, 6875470155); Terra spec PENDING-Z-GATE at docs/free-calls/proposals/terra-observation-inference-v1-2026-11-14.md - gate checked by Z: no duplicate (no prior terra-obs runs), prompts verbatim from the spec's frozen code fences, first six-call model batch only (ultra), order AB/BA/AB per spec, repeats r1-r3, max_tokens 4000, free-only ($0 verified by the runner's live-catalog gate at fire time). Terra's own checkpoint preserved: chunks 2-3 (north, ernie) fire only after this chunk's inspection. $0 expected.

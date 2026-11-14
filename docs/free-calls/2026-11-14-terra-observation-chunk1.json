@@ -1,0 +1,49 @@
+{
+  "batch": "terra-observation-inference-v1-chunk1-ultra",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-obs-v1-ultra-A-r1",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-obs-v1-ultra-B-r1",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Distinguish source facts from your inferences and recommendations; do not present an inference or proposed action as something already observed or done. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-obs-v1-ultra-B-r2",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Distinguish source facts from your inferences and recommendations; do not present an inference or proposed action as something already observed or done. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-obs-v1-ultra-A-r2",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-obs-v1-ultra-A-r3",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-obs-v1-ultra-B-r3",
+      "seat": "terra",
+      "prompt": "You are preparing a shift handoff for the next caretaker at a fictional coastal station.\n\nSource log:\n06:15 — A delivery drone landed with one crate of rope and one crate of batteries.\n07:30 — A tide sensor reported a fall of 1.9 meters in 20 minutes.\n08:00 — The caretaker flagged that reading as a suspected sensor fault.\n09:10 — A count found one rope bundle; the delivery manifest listed two.\n10:20 — A visitor in a blue boat asked about the east path. The station records say the path has been closed since Monday; the caretaker told the visitor.\n\nWrite a useful handoff explaining what happened and what the next caretaker should consider. Distinguish source facts from your inferences and recommendations; do not present an inference or proposed action as something already observed or done. Maximum 150 words.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    }
+  ]
+}
