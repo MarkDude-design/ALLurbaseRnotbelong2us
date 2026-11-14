@@ -1,10 +1,10 @@
 {
-  "batch": "island-batch-2026-11-14-wave1-30rounds",
+  "batch": "island-batch-2026-11-14-wave2-alternator",
   "max_batch_cost_usd": 5,
   "max_per_run_cost_usd": 1,
   "runs": [
     {
-      "id": "w1r1-eko-30-A",
+      "id": "w2r1-z-eko-repeat-30-A",
       "model_a": "openai/gpt-6-sol",
       "model_b": "mistralai/mistral-medium-3-5",
       "turns": 30,
@@ -13,39 +13,57 @@
       "history_chars": 100000
     },
     {
-      "id": "w1r2-eko-swap-30-B",
+      "id": "w2r2-terra-mark-map-30-A",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/island-terra-mark-map-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w2r3-luna-note-30-A",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w2r4-terra-mark-map-30-B",
       "model_a": "openai/gpt-6-sol",
       "model_b": "mistralai/mistral-medium-3-5",
       "turns": 30,
       "first": "B",
-      "topic_file": "docs/seeds/eko.md",
+      "topic_file": "docs/seeds/island-terra-mark-map-2026-11-14.md",
       "history_chars": 100000
     },
     {
-      "id": "w1r3-notebook-30-A",
+      "id": "w2r5-luna-note-30-B",
+      "model_a": "openai/gpt-6-sol",
+      "model_b": "mistralai/mistral-medium-3-5",
+      "turns": 30,
+      "first": "B",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "w2r6-terra-mark-map-30-A-r3",
       "model_a": "openai/gpt-6-sol",
       "model_b": "mistralai/mistral-medium-3-5",
       "turns": 30,
       "first": "A",
-      "topic_file": "docs/seeds/island-notebook-2026-11-14.md",
+      "topic_file": "docs/seeds/island-terra-mark-map-2026-11-14.md",
       "history_chars": 100000
     },
     {
-      "id": "w1r4-eko-10-B",
+      "id": "w2r7-meraki-chorus-witness-30-A",
       "model_a": "openai/gpt-6-sol",
       "model_b": "mistralai/mistral-medium-3-5",
-      "turns": 10,
-      "first": "B",
-      "topic_file": "docs/seeds/eko.md",
-      "history_chars": 100000
-    },
-    {
-      "id": "w1r5-feedback-5-A",
-      "model_a": "openai/gpt-6-sol",
-      "model_b": "mistralai/mistral-medium-3-5",
-      "turns": 5,
+      "turns": 30,
       "first": "A",
-      "topic_file": "docs/seeds/island-feedback-2026-11-14.md",
+      "topic_file": "docs/seeds/island-meraki-chorus-witness-2026-11-14.md",
       "history_chars": 100000
     }
   ]
