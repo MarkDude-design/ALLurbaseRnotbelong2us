@@ -1,0 +1,88 @@
+name: Island key probe — paid-route HTTP receipts
+
+on:
+  push:
+    branches: [main]
+    paths: ['docs/island-batch/probes/**']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: island-key-probe
+  cancel-in-progress: false
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Kill switch
+        run: test ! -f docs/island-batch/STOP || { echo "STOP file present; probe refused"; exit 1; }
+      - name: Key exists
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Probe paid routes + free control (1 token each; expected cost <= $0.001, $0 if refused)
+        run: |
+          python - <<'PY'
+          import json, os, pathlib, urllib.request, urllib.error, datetime
+          KEY = os.environ["OPENROUTER_API_KEY"]
+          MODELS = [
+              ("openai/gpt-6-sol", "paid pair A"),
+              ("mistralai/mistral-medium-3-5", "paid pair B"),
+              ("nvidia/nemotron-3-ultra-550b-a55b:free", "free control"),
+          ]
+          def probe(model):
+              req = urllib.request.Request(
+                  "https://openrouter.ai/api/v1/chat/completions",
+                  data=json.dumps({"model": model, "max_tokens": 1,
+                                   "messages": [{"role": "user", "content": "Reply with the single word OK."}]}).encode(),
+                  headers={"Authorization": "Bearer " + KEY, "Content-Type": "application/json"},
+                  method="POST")
+              try:
+                  with urllib.request.urlopen(req, timeout=60) as r:
+                      return r.status, r.read().decode("utf-8", "replace")[:800]
+              except urllib.error.HTTPError as e:
+                  return e.code, e.read().decode("utf-8", "replace")[:800]
+              except Exception as e:
+                  return -1, "EXC: " + str(e)[:400]
+          lines = ["# Key probe receipt", "",
+                   "UTC: " + datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                   "Key: OPENROUTER_API_KEY secret (value never logged). Probes: 1 token each.", ""]
+          for model, label in MODELS:
+              status, body = probe(model)
+              body = body.replace(KEY, "[REDACTED]") if KEY in body else body
+              lines.append(f"## {model} ({label})")
+              lines.append(f"- HTTP status: {status}")
+              lines.append(f"- Response head: {body}")
+              lines.append("")
+              print(f"PROBE {model} -> {status}")
+          out = pathlib.Path("runs/key-probe-" + datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ"))
+          out.mkdir(parents=True, exist_ok=True)
+          (out / "receipt.md").write_text("\n".join(lines), encoding="utf-8")
+          PY
+      - name: Publish bus
+        if: always()
+        run: |
+          set -e
+          if [ ! -d runs ] || [ -z "$(ls -A runs 2>/dev/null)" ]; then echo "no probe output"; exit 0; fi
+          cp -r runs /tmp/bus-out
+          rm -rf runs
+          git config user.name "island-bus"
+          git config user.email "actions@users.noreply.github.com"
+          git fetch origin bus
+          git switch -C bus origin/bus
+          mkdir -p runs
+          cp -r /tmp/bus-out/. runs/
+          git add runs/
+          if git diff --cached --quiet; then echo "nothing new to publish"; exit 0; fi
+          git commit -m "bus: island key probe ${{ github.run_id }}"
+          pushed=false
+          for i in 1 2 3; do
+            if git push origin HEAD:bus; then pushed=true; break; fi
+            git fetch origin bus
+            git rebase origin/bus || break
+          done
+          [ "$pushed" = true ] || { echo "publish failed; artifact retained"; exit 1; }
