@@ -1,0 +1,8 @@
+{
+  "comment_id": "6885052554",
+  "requestor_github_login": "MarkDude-design",
+  "route": "terra",
+  "seed": "circle-island-react-v0",
+  "state": "claimed-before-call",
+  "trigger": "issue_comment"
+}
