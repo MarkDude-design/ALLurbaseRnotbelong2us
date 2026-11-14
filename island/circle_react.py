@@ -47,7 +47,9 @@ def validate_key_info(blob):
     limit, left = info.get("limit"), info.get("limit_remaining")
     if (type(limit) not in (int, float) or not math.isfinite(limit)
             or abs(limit - 10.0) > 0.000001 or info.get("limit_reset") != "monthly"):
-        raise ValueError("Key must have USD 10 monthly provider cap")
+        raise ValueError("Key must have USD 10 monthly provider cap (observed: "
+                         + str(limit) + " USD, reset "
+                         + str(info.get("limit_reset")) + ")")
     if type(left) not in (int, float) or not math.isfinite(left) or left <= 0:
         raise ValueError("Missing positive remaining allowance")
     if info.get("is_management_key") is True:
