@@ -1,0 +1,49 @@
+{
+  "batch": "terra-boundary-voice-r1-proposed-not-fire",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-boundary-voice-v1-ultra-original-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-voice-v1-ultra-swapped-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-voice-v1-north-original-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-voice-v1-north-swapped-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-voice-v1-ernie-original-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    },
+    {
+      "id": "terra-boundary-voice-v1-ernie-swapped-r1",
+      "seat": "terra",
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4000
+    }
+  ]
+}
