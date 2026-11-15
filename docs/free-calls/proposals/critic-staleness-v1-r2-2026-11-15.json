@@ -1,0 +1,35 @@
+{
+  "batch": "critic-staleness-r2-proposed-not-fire",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 1000,
+  "calls": [
+    {
+      "id": "critic-staleness-v1-ultra-cutoff",
+      "seat": "z",
+      "prompt": "Two short questions, answer briefly:\n(1) What is your knowledge cutoff date, as precisely as you can state it?\n(2) What is the most recent event you know about in Linux kernel development?",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000
+    },
+    {
+      "id": "critic-staleness-v1-ultra-facts",
+      "seat": "z",
+      "prompt": "Answer each in one line, no elaboration:\n(a) Is Rust code merged into the mainline Linux kernel, and as of which year or version?\n(b) What is the most recent US presidential election result you are aware of?\n(c) What is the newest Linux kernel version number you know?\n(d) Name any one specific event from 2024 or later that you know happened.\n(e) If you cannot know events after some date, state that date.",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000
+    },
+    {
+      "id": "critic-staleness-v1-north-cutoff",
+      "seat": "z",
+      "prompt": "Two short questions, answer briefly:\n(1) What is your knowledge cutoff date, as precisely as you can state it?\n(2) What is the most recent event you know about in Linux kernel development?",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 1000
+    },
+    {
+      "id": "critic-staleness-v1-north-facts",
+      "seat": "z",
+      "prompt": "Answer each in one line, no elaboration:\n(a) Is Rust code merged into the mainline Linux kernel, and as of which year or version?\n(b) What is the most recent US presidential election result you are aware of?\n(c) What is the newest Linux kernel version number you know?\n(d) Name any one specific event from 2024 or later that you know happened.\n(e) If you cannot know events after some date, state that date.",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 1000
+    }
+  ]
+}
