@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "families": [
+    {
+      "id": "grocery-bag-holders",
+      "category": "bag-holder",
+      "title": "Grocery bag holders",
+      "index_photo": {
+        "src": "assets/bag-holders-together.jpg",
+        "alt": "Two colorful crocheted holders for storing and reusing plastic grocery bags, laid together on red fabric"
+      }
+    },
+    {
+      "id": "eye-hats",
+      "category": "hat",
+      "title": "Eye hats",
+      "index_photo": {
+        "src": "assets/eye-hats-group.jpg",
+        "alt": "Several of her crocheted eye hats together, including white, lavender, green, yellow, and green-and-white versions"
+      }
+    }
+  ],
+  "works": [
+    {
+      "id": "bag-001", "category": "bag-holder", "family_id": "grocery-bag-holders", "title": "Cream with textured flowers", "source": "finished-work-photo",
+      "photos": [{"src":"assets/bag-holder-cream-textured.jpg","alt":"Cream crocheted grocery bag holder with yellow and green textured details and a bag visible through its opening","label":"Detail"}]
+    },
+    {
+      "id": "bag-002", "category": "bag-holder", "family_id": "grocery-bag-holders", "title": "Tan with appliqués", "source": "finished-work-photo",
+      "photos": [
+        {"src":"assets/bag-holder-tan-eyes.jpg","alt":"Tan crocheted grocery bag holder with eye pieces placed on two circular appliqués and a plastic bag in the dispenser opening","label":"With eyes"},
+        {"src":"assets/bag-holder-tan-without-eyes.jpg","alt":"The same tan grocery bag holder with its circular appliqués shown without the eye pieces","label":"Without eyes"}
+      ]
+    },
+    {
+      "id": "bag-003", "category": "bag-holder", "family_id": "grocery-bag-holders", "title": "Green with curly trim", "source": "finished-work-photo",
+      "photos": [
+        {"src":"assets/bag-holder-green-eyes-low.jpg","alt":"Green crocheted grocery bag holder with yellow curly trim and googly eyes placed low on the body","label":"Eyes lower"},
+        {"src":"assets/bag-holder-green-eyes-high.jpg","alt":"The same green grocery bag holder with googly eyes placed near the top of the curly trim","label":"Eyes higher"},
+        {"src":"assets/bag-holder-green-without-eyes.jpg","alt":"The same green grocery bag holder without eyes, showing its curly yellow trim and bag opening","label":"Without eyes"},
+        {"src":"assets/bag-holder-green-eyes-mid.jpg","alt":"The same green grocery bag holder with googly eyes placed amid the curly yellow trim","label":"Another placement"}
+      ]
+    },
+    {
+      "id": "hat-001",
+      "category": "hat",
+      "title": "Owl-inspired hat",
+      "source": "finished-work-photo",
+      "photos": [
+        {
+          "src": "assets/owl-inspired-hat-view-a.jpg",
+          "alt": "Owl-inspired crocheted hat, one side with gray-white and coral-pink panels",
+          "label": "View one"
+        },
+        {
+          "src": "assets/owl-inspired-hat-view-b.jpg",
+          "alt": "Same owl-inspired crocheted hat, other side with lime-green and pink panels",
+          "label": "View two"
+        }
+      ]
+    },
+    {
+      "id": "hat-009",
+      "category": "hat",
+      "title": "The Velvet Mafia hat",
+      "source": "finished-work-photo",
+      "photos": [
+        {"src":"assets/velvet-mafia-eyes.jpg","alt":"Brightly striped crocheted Velvet Mafia hat laid flat, with eyes and lashes on the striped panel","label":"With eyes and lashes"},
+        {"src":"assets/velvet-mafia-view-two.jpg","alt":"Velvet Mafia hat laid flat, showing purple, pink, orange, yellow, green and black crochet without the eyes","label":"Another view"},
+        {"src":"assets/velvet-mafia-view-three.jpg","alt":"Velvet Mafia hat laid flat from the opposite direction, showing its rainbow color bands and black edging","label":"Color bands"}
+      ]
+    },
+    {
+      "id": "hat-002",
+      "category": "hat",
+      "family_id": "eye-hats",
+      "title": "White hat with blue eyes",
+      "source": "finished-work-photo",
+      "photos": [
+        {
+          "src": "assets/white-eye-hat-brim-close.jpg",
+          "alt": "White crocheted hat on a red background, with blue eyes and lashes placed on the folded brim",
+          "label": "Brim placement"
+        },
+        {
+          "src": "assets/white-eye-hat-above-brim.jpg",
+          "alt": "The same white crocheted hat with blue eyes and lashes placed above the folded brim",
+          "label": "Above the brim"
+        },
+        {
+          "src": "assets/white-eye-hat-brim-wide.jpg",
+          "alt": "The same white crocheted hat with blue eyes and lashes placed farther apart on the folded brim",
+          "label": "Wider placement"
+        }
+      ]
+    },
+    {
+      "id": "hat-003", "category": "hat", "family_id": "eye-hats", "title": "Lavender", "source": "finished-work-photo",
+      "photos": [{"src":"assets/eye-hat-lavender.jpg","alt":"Lavender crocheted hat with two eyes on the body and a folded brim","label":"Front"}]
+    },
+    {
+      "id": "hat-004", "category": "hat", "family_id": "eye-hats", "title": "Black and pink", "source": "finished-work-photo",
+      "photos": [
+        {"src":"assets/eye-hat-black-pink-front.jpg","alt":"Black crocheted hat with eyes and a pink stripe above the brim","label":"Front"},
+        {"src":"assets/eye-hat-black-pink-back.jpg","alt":"Reverse of the black crocheted hat, showing the pink edge without eyes","label":"Back"}
+      ]
+    },
+    {
+      "id": "hat-005", "category": "hat", "family_id": "eye-hats", "title": "Yellow", "source": "finished-work-photo",
+      "photos": [{"src":"assets/eye-hat-yellow.jpg","alt":"Yellow crocheted hat with two eyes and a gray lower edge","label":"Front"}]
+    },
+    {
+      "id": "hat-006", "category": "hat", "family_id": "eye-hats", "title": "Green and white", "source": "finished-work-photo",
+      "photos": [{"src":"assets/eye-hat-green-white-front.jpg","alt":"Green and white crocheted hat with two eyes and lashes","label":"Front"}]
+    },
+    {
+      "id": "hat-007", "category": "hat", "family_id": "eye-hats", "title": "Cream and tan", "source": "finished-work-photo",
+      "photos": [{"src":"assets/eye-hat-cream-tan-side.jpg","alt":"Cream crocheted hat with a tan band seen from the side","label":"Side view"}]
+    },
+    {
+      "id": "hat-008", "category": "hat", "family_id": "eye-hats", "title": "Green stripes and pompom", "source": "finished-work-photo",
+      "photos": [{"src":"assets/eye-hat-green-white-side.jpg","alt":"Gray and green striped crocheted hat with a pompom, seen from the side","label":"Side view"}]
+    }
+  ]
+}
