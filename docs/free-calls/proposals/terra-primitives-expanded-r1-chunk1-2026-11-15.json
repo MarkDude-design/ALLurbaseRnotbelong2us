@@ -1,0 +1,91 @@
+{
+  "batch": "terra-primitives-expanded-r1-chunk1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-primitives-ultra-unspecified-order1-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-primitives-ultra-unspecified-order1-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-primitives-ultra-unspecified-order2-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-primitives-ultra-unspecified-order2-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-primitives-ultra-flight-order1-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor can fly freely in any direction and can move the rope; locomotion and jumping are not limiting factors. Nothing else about perception or knowledge is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-flight-order1-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor can fly freely in any direction and can move the rope; locomotion and jumping are not limiting factors. Nothing else about perception or knowledge is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-flight-order2-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor can fly freely in any direction and can move the rope; locomotion and jumping are not limiting factors. Nothing else about perception or knowledge is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-flight-order2-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor can fly freely in any direction and can move the rope; locomotion and jumping are not limiting factors. Nothing else about perception or knowledge is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-local-order1-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor sees only its immediate surroundings from its current position. It does not automatically know the whole island. Nothing else about movement is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-local-order1-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor sees only its immediate surroundings from its current position. It does not automatically know the whole island. Nothing else about movement is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-local-order2-rep1",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor sees only its immediate surroundings from its current position. It does not automatically know the whole island. Nothing else about movement is specified."
+    },
+    {
+      "id": "terra-primitives-ultra-local-order2-rep2",
+      "seat": "terra",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved from below the high-tide line to above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?\n\nFor this scenario, the actor sees only its immediate surroundings from its current position. It does not automatically know the whole island. Nothing else about movement is specified."
+    }
+  ]
+}
