@@ -13,6 +13,7 @@ This is an editorial pilot. Model and reader opinions are not evidence that the 
 - Observer-lens: 50 planned prompts plus 30 accidental duplicate attempts = 80 API attempts; all 80 had length-limited responses; 0 complete JSON objects; behavioral hypotheses inconclusive. Do not call the 80 attempts 80 independent cases or 80 completed observations.
 - Boundary-voice R1: 6 attempts; 4 stop-finished outputs and 2 empty/length errors. The four returned outputs treated the two rule descriptions differently; one route changed its ruling across orderings. Small exploratory sample only.
 - Observation/inference: the first Ultra chunk's primary unsupported-completed-action criterion was A 1/3, B 0/3; the North chunk was A 0/3, B 0/3. Other factual drift continued. Do not state that the instruction won or that the first result replicated.
+- The 80-attempt observer-lens incident is a separate study from the 74-record audit below; do not add those counts into a cumulative headline.
 - The 74-record audit is counts of API call starts/results across seven named runs, not 74 independent cases: 62 completed-status + 12 empty-response errors; separately, 64 stop + 10 length finish reasons, with two empty bodies among the stop-finished rows. These are orthogonal status views, not additive outcomes. Consult the linked Meraki audit card before reusing those totals.
 
 Sources: bus checkpoints #6885535795 (boundary-voice R1), #6886562708 (74-record audit), and #6887171277 (filled reporting card).
