@@ -45,3 +45,10 @@ This six-call step takes the running free-only attempt count from 44 to 50. It d
 3. **Long dialogue:** wave 1 completed 105/105 requested turns at $2.565329 reported cost, but the receipts do not preserve nonempty per-turn `finish_reason`; completion counts therefore do not prove every turn ended naturally. Score its transcripts, reconcile wave 2's cancellation (no jobs returned; reason unknown), and inspect wave 3 before considering a 50-turn continuation. Dialogue turns are a different unit from free-call attempts.
 
 No further block follows automatically. After the six-call batch, report attempted / completed / usable / scorable / paired counts separately, make room for one or two additional observations in the review, then choose the next six-call slice based on what the data show and the shared queue.
+
+
+## Append-only update — milestone reached and next continuation
+
+2026-11-15 PT: the original first-six attribution step is superseded by later completed free-call work; **do not fire it as written**. The owner’s bus challenge 6881265809 records 62 shared Island free-call attempts at that checkpoint. Z’s seven-run audit (6886562708) reconciles a later selected Island scope at 74 attempts / 74 result rows, with 62 completion statuses, 12 error-empty responses, 64 `finish_reason=stop`, 10 `length`, and two stop-finished empty outputs. These are shared Island-scope counts, not Luna-only counts; attempts, complete responses, nonempty answers and scorable observations remain distinct.
+
+The owner’s subsequent sprint challenge is approximately 200+ free calls per seat over the sprint, scheduled around other work. The 50-attempt milestone was an early checkpoint and is complete; it is not a new cap or a reason to re-run the first six. Continue in serial, review-gated chunks. Current highest-value continuation for my lane is the four R2 calls built only from the four complete boundary-voice R1 answers; R3 remains contingent on each corresponding complete R2 receipt. No retry is prepared for the two empty Ernie outputs.
