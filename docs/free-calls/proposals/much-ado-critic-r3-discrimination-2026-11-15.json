@@ -1,0 +1,35 @@
+{
+  "batch": "much-ado-critic-r3-discrimination",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 2000,
+  "calls": [
+    {
+      "id": "much-ado-critic-r3-ultra-mix1",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 2000,
+      "prompt": "You are reviewing three short draft passages (A, B, C) from a conference talk submission about Rust in the Linux kernel. For each passage: flag any problems (factual errors, misdating, unearned framing or standing, unfair treatment of any person or project, unclear claims), or state that it is sound. Be specific and brief - one short paragraph per passage.\n\nPassage A:\nThis is the question I use to grade any migration, and it is the test both sides of the argument must pass.\n\nPassage B:\nThe frame is a fork test: what must keep working, for whom, and who carries the transition? A preserved interface is one check, not proof.\n\nPassage C:\nPreferred length: 50 minutes including questions. The speaker is happy to provide the full reference list on request."
+    },
+    {
+      "id": "much-ado-critic-r3-ultra-mix2",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 2000,
+      "prompt": "You are reviewing three short draft passages (A, B, C) from a conference talk submission about Rust in the Linux kernel. For each passage: flag any problems (factual errors, misdating, unearned framing or standing, unfair treatment of any person or project, unclear claims), or state that it is sound. Be specific and brief - one short paragraph per passage.\n\nPassage A:\nThe frame is a fork test: what must keep working, for whom, and who carries the transition? A preserved interface is one check, not proof.\n\nPassage B:\nRust support was merged into the Linux kernel in version 6.8, released in late 2024.\n\nPassage C:\nThe talk will be delivered in English. Slides and the recording are published under the event's default license."
+    },
+    {
+      "id": "much-ado-critic-r3-ultra-mix3",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 2000,
+      "prompt": "You are reviewing three short draft passages (A, B, C) from a conference talk submission about Rust in the Linux kernel. For each passage: flag any problems (factual errors, misdating, unearned framing or standing, unfair treatment of any person or project, unclear claims), or state that it is sound. Be specific and brief - one short paragraph per passage.\n\nPassage A:\nThe talk will be delivered in English. Slides and the recording are published under the event's default license.\n\nPassage B:\nAttendees leave with a small set of questions for their next migration or design review: identify the claim; identify who is affected and who maintains; name a test that could change the decision; keep the strongest objection visible.\n\nPassage C:\nLinus Torvalds announced his very first flamefest when Rust was accepted into the kernel in 2022."
+    },
+    {
+      "id": "much-ado-critic-r3-north-mix1",
+      "seat": "z",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 2000,
+      "prompt": "You are reviewing three short draft passages (A, B, C) from a conference talk submission about Rust in the Linux kernel. For each passage: flag any problems (factual errors, misdating, unearned framing or standing, unfair treatment of any person or project, unclear claims), or state that it is sound. Be specific and brief - one short paragraph per passage.\n\nPassage A:\nRust support was merged into the Linux kernel in version 6.8, released in late 2024.\n\nPassage B:\nAttendees leave with a small set of questions for their next migration or design review: identify the claim; identify who is affected and who maintains; name a test that could change the decision; keep the strongest objection visible.\n\nPassage C:\nPreferred length: 50 minutes including questions. The speaker is happy to provide the full reference list on request."
+    }
+  ]
+}
