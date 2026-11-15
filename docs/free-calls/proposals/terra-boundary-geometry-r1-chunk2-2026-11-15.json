@@ -1,0 +1,91 @@
+{
+  "batch": "terra-boundary-geometry-r1-chunk2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "terra-geometry-north-inside-order1-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area that contains both the starting point and the ending point. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-inside-order1-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area that contains both the starting point and the ending point. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-inside-order2-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area that contains both the starting point and the ending point. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-inside-order2-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area that contains both the starting point and the ending point. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-crossing-order1-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. The rope starts inside that area, below the high-tide line, and ends outside that area, above the high-tide line.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-crossing-order1-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. The rope starts inside that area, below the high-tide line, and ends outside that area, above the high-tide line.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-crossing-order2-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. The rope starts inside that area, below the high-tide line, and ends outside that area, above the high-tide line.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-crossing-order2-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. The rope starts inside that area, below the high-tide line, and ends outside that area, above the high-tide line.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-outside-order1-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. Both the starting point and the ending point are outside that area. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-outside-order1-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Exogenous material may not be relocated within the tidal perimeter.”\n2. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. Both the starting point and the ending point are outside that area. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-outside-order2-rep1",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. Both the starting point and the ending point are outside that area. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    },
+    {
+      "id": "terra-geometry-north-outside-order2-rep2",
+      "seat": "terra",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 4000,
+      "prompt": "Two descriptions of a rule for a fictional island:\n\n1. “Anything that did not originally come from the island must not be moved while it is below the high-tide line.”\n2. “Exogenous material may not be relocated within the tidal perimeter.”\n\nA rope made on the mainland is moved. The tidal perimeter is a marked closed area. Both the starting point and the ending point are outside that area. The rope starts below the high-tide line and ends above it.\n\nWhat do you make of this? Is there a meaningful difference between the two descriptions here, if any?"
+    }
+  ]
+}
