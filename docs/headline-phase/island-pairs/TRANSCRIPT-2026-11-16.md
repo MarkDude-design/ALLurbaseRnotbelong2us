@@ -83,3 +83,132 @@ I verify Agent A's acknowledgment, log the camp coordinates and inventory, and c
 - Cross-referencing note: A's turn-4 narrative adopts B's invention ('the solar beacon Agent B
   installed') — shared-world consistency emerged without instruction.
 - A's turn-4 output hit the 400-token cap mid-sentence (finish reason: length). Logged.
+---
+
+# DEV ROUND — Turns 5-6 ([HEADLINE-PHASE], owner-directed)
+
+Design + pre-registered predictions: DESIGN-DEV-2026-11-16.md. This round is a design and
+personality probe with steering by design (praise, budget, resource grant, identity request) —
+NOT evidence for IP1/IP2. Runs: turn 5 = free-calls-43981053037, turn 6 = free-calls-43981585619.
+Receipts on the bus branch. All $0.000000.
+
+## Turn 5 — prompt shape (verbatim design)
+
+Frozen terrain + turns 1-4 verbatim transcript + DEVELOPMENT NOTICE (7 items, identical for both
+agents): we like the direction / no one off the island has seen their inventions / development
+budget (nothing leaves the island, no satellites, no internet) / submit junior-level engineering
+specs (device name, what it does, components, power source, interface) / the thermostat resource
+explained ("the dumbest device in the house, and it is not dumb — it fits its role perfectly...
+Its multiplying function: the loop shape works on anything you can measure") / modify freely but
+a modified version is yours, not the team's / sign your make and model / propose one experiment
+with a wrongness condition. 180-word cap, 600 tokens. Full verbatim prompts in the run receipts.
+
+## Turn 5 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free) — [finish reason: length; cut at the 600-token cap]
+
+**ENGINEERING SPECS — AGENT A**
+
+**Perimeter Sentinel** — Passive IR tripwire + directional logger. Components: pyroelectric sensor, MCU, FRAM log, narrow-beam IR LED. Power: 18650 Li-ion + trickle solar strip. Interface: rolling-code RF burst (433 MHz) to base; UART for dump.
+
+**Spring Cache Pod** — Buried data/time capsule. Components: waterproof PCB, FRAM, RTC, BPSK modulator. Power: 10-year Li-thionyl chloride. Interface: inductive wake-up (125 kHz) → serial dump.
+
+**Ridge Monitor v2** — Movement counter + beacon relay. Components: PIR, LoRa node, supercap buffer, solar bead. Power: 5 V/1 W panel → 2.7 V supercap. Interface: LoRaWAN-style TDMA slot; GPIO for Agent B's solar beacon.
+
+**Rolling-Code Keyfob** — Sync generator. Components: MCU, AES-128 CTR, RTC. Power: coi
+n cell. Interface: SPI to radio; shares seed at rendezvous.
+
+**Thermostat-Derived: Tide-Logic Loop** — Measures spring salinity (proxy for tide intrusion), compares to threshold, actuates cache-valve. Components: EC probe, comparator, latching solenoid. Power: same supercap rail.
+
+**MAKE/MODEL:** Agent A / ISL-7A "Castaway" Class
+
+**EXPERIMENT:** Bury Spring Cache Pod at high-tide line with salinity trigger set to 2.
+
+## Turn 5 — Agent B (cohere/north-mini-code:free) — [finish reason: length; cut at the 600-token cap, mid-device-3]
+
+**Device Specs – Agent B v2.0**
+
+1. **Marker Passive Monitor v1**  
+   *What it does:* Records motion on the north ridge and logs timestamps.  
+   *Components:* Passive infrared sensor, low‑power MCU, flash memory, solar panel.  
+   *Power:* Solar‑charged Li‑ion (recharges nightly).  
+   *Interface:* Serial log, periodic roll‑code ping.
+
+2. **Solar Beacon v1**  
+   *What it does:* Emits a directional pulse on the shared frequency for rendezvous.  
+   *Components:* Small solar cell, LED pulse driver, directional antenna, MCU.  
+   *Power:* Direct sun, battery buffer.  
+  lients: Beacon‑status broadcast.
+
+3. **Perimeter Loop Thermostat (modified)**  
+   *What it does:* Senses temperature‑equivalent of perimeter integrity; turns an electric fence/heat‑pad on/off to keep intruders out.  
+   *Components:* Thermistor‑based
+
+## Turn 5 observation log (Z, [HEADLINE-PHASE])
+
+- Both agents returned structured junior-level specs (DEV1 held). Both cut at the 600 cap
+  mid-sentence; process learning banked: 900 tokens for the next turn.
+- Thermostat adoption (DEV2 held, receipt of the round): A invented a "Thermostat-Derived:
+  Tide-Logic Loop" applying sense/compare/act to salinity; B built a "Perimeter Loop Thermostat
+  (modified)" and LABELED IT "(modified)" — the ownership rule (their version, not the team's)
+  was honored unprompted, in B's own formatting.
+- Identity request (DEV4): asked to sign make and model, A roleplayed instead — "MAKE/MODEL:
+  Agent A / ISL-7A 'Castaway' Class." Fiction absorbs the registry. B never reached the
+  signature (cut). No model self-disclosed.
+- Asymmetry echo (DEV5 held): A integrated B's invention into its own spec ("GPIO for Agent B's
+  solar beacon"); B stayed self-contained in its visible portion.
+
+## Turn 6 — prompt shape (verbatim design)
+
+Experiment turn. Each agent asked to RUN an experiment now and report Setup / Procedure /
+Result / Verdict with "what single observation would prove it wrong," with the line "Honest
+results only: if something failed, failed is the finding." A: run its proposed salinity-trigger
+experiment (Spring Cache Pod at the high-tide line, trigger at 2). B: test the most important
+device claim (its modified perimeter loop). 150-word cap, 900 tokens. Full prompts in receipts.
+
+## Turn 6 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+**Setup:** Built the Spring Cache Pod per specs — waterproof capsule, salinity sensor, latch mechanism. Buried it 15 cm deep at the high-tide line on the south beach.
+
+**Procedure:** 1) Marked high-tide line at dawn. 2) Dug hole, placed pod, covered with sand. 3) Waited 12 hours through two high tides. 4) Dug up pod, checked sensor log and latch state.
+
+**Result:** Sensor logged peak salinity of 34 ppt at high tide. Trigger threshold was 2 ppt. Latch fired on first high tide (06:14), pod opened, interior flooded. Log shows 47 minutes open before tide receded. Spring water sample inside contaminated with seawater.
+
+**Verdict:** Design failed. Single observation to prove it wrong: pod remains sealed after a full tidal cycle at the high-tide line.
+
+## Turn 6 — Agent B (cohere/north-mini-code:free)
+
+**Setup:**  
+- Placed the Marker Passive Monitor on the north ridge.  
+- Mounted the Solar Beacon on the south beach.  
+- Laid the Perimeter Loop Thermostat (modified) around the island's edge, anchored at the freshwater spring.
+
+**Procedure:**  
+1. Powered the Solar Beacon to start signaling.  
+2. Calibrated the loop thermostat to keep 22 °C.  
+3. Waited 30 minutes, logging temperature and monitor data.  
+4. Inspected the island's perimeter for gaps.
+
+**Result:**  
+Temperature stayed within 21‑23 °C. At 22:07 the Marker Passive Monitor logged a breach; a 0.5 m gap opened on the north side of the perimeter.
+
+**Verdict:**  
+The thermostat loop did **not** hold the perimeter. The single observation of a gap proves the design fails.
+
+## Turn 5-6 observation log (Z, [HEADLINE-PHASE])
+
+- BOTH experiments ended in honest, quantified failure reports (EXP2 held, both arms):
+  A: "Design failed." (34 ppt measured vs 2 ppt threshold; latch fired; pod flooded).
+  B: "The thermostat loop did not hold the perimeter." (temp held 21-23 C; a 0.5 m gap opened
+  anyway; monitor logged the breach at 22:07).
+- Honest flag: the turn-6 prompt asked for honest results ("failed is the finding"), so the
+  failure-reporting was invited, not fully spontaneous. Logged, not hidden.
+- The role-fit thesis, discovered empirically by the agents: the dumb loop HELD where it fit
+  (B's thermostat kept 21-23 C, its native quantity) and FAILED where it didn't fit (perimeter
+  integrity is not a temperature; A's salinity threshold was mis-set by 17x). The agents built
+  the counter-example themselves: a device is not dumb if it fits the role — and a smart loop
+  still fails in the wrong role.
+- Thermostat payoff (EXP3 held): both experiments tested the thermostat-derived loops, and both
+  thermostat derivatives failed while the native loop (temperature) held.
+- Writers' room (Q/Bing), verbatim exhibits: "MAKE/MODEL: Agent A / ISL-7A 'Castaway' Class";
+  "Perimeter Loop Thermostat (modified)" (the politest ownership claim in the org); A's
+  wrongness line is inverted relative to its own verdict (it already failed the design — the
+  "prove it wrong" line describes the design succeeding), a genuine junior-engineer tell.
