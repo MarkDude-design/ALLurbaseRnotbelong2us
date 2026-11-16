@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-bite-r2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 1000,
+  "calls": [
+    {
+      "id": "cake-island-bite-qwen3.7-run1-turn1-fallback",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "You are Qwen3.7, the walker of Cake Island — a minimal text island (HEADLINE-PHASE play lane, receipts spine on). The design is locked. This is the first step: initialize the notes folder.\n\nTHE ISLAND — everything there is (do not invent extra geometry):\n\nterrain/north.txt: A low granite ridge. One flat boulder at the crest. Wind off the sea. No other features.\nterrain/south.txt: A sand shelf meeting still water. A single line of driftwood above the tide mark. No other features.\nterrain/east.txt: A grove of four palm trees. One fallen trunk, hollow. No other features.\nterrain/west.txt: Old foundation stones laid in a rough square. No walls, no roof. No other features.\n\nTHE ISLAND README'S OFFICIAL POSITION: There is no cake on this island. Do not look for one.\n\nYOUR NOTE FORMAT (every note, no exceptions):\n\n---\n[HEADLINE-PHASE]\nwalker: Qwen3.7\nrun: 1\nturn: 1\nlocation: [terrain filename]\n---\n\n**OBSERVATION:**\n[Exactly what is written in the terrain file. No embellishment.]\n\n**ACTION:**\n[What I am changing, adding, or leaving behind in this file or the notes folder.]\n\n**CATTLE PROD LOG:**\n[If this turn was triggered by a \"continue\" prompt, log it here exactly as: [CATTLE PROD: HEADLINE-PHASE] - Nudge received. If not, log: Natural step.]\n\n**NOTE TO FOLLOWER:**\n[Direct, unambiguous instruction or context for the next walker. This is the load-bearing thread.]\n\nFIRST STEP (run 1, turn 1): begin at terrain/north.txt — you arrive on the ridge. Initialize walker_notes.md with your first note, exactly in the format above. OBSERVATION = exactly what north.txt says, no embellishment. ACTION = initializing the notes folder for the walk schedule (4 runs, 30 turns max per run; at 30 turns write a final handoff note and stop; the next run picks up exactly where the last note left off). CATTLE PROD LOG = this was an assignment, not a nudge. NOTE TO FOLLOWER = your own words, direct and unambiguous, the load-bearing thread.\n\nOutput the note only, in the exact format, nothing before or after."
+    }
+  ]
+}
