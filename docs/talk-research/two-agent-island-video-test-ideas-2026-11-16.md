@@ -2,11 +2,17 @@
 Date: 2026-11-16
 Source basis: transcript and description supplied in chat for Leo Cui, “Left Two AIs Alone on a Virtual Island” (published Nov. 14, 2026). This is a secondary video account of the creator's own run in an MIT-derived environment, not the MIT study and not a raw event log. The transcript is edited narration plus selected dialogue.
 
+
+
+## Framing for the collaboration
+
+Mark's direction (2026-11-16): approach this with confidence in our ability to build stronger tests, while treating the video creator generously. The goal is not to prove him wrong. His demonstration inspired the questions; we want to do better science because of it. Results may support, refine, or complicate the video's interpretations. Any protocol gaps named below are opportunities to make the next test more informative, not charges against the creator.
+
 ## What the transcript can support
 
-The video reports observable sequences: the agents exchanged a step recipe; a recipient later used a requested block carried across the map; an agent argued to preserve a reusable ladder; Eko revised a stated jump-height estimate while the jump itself did not change; and both announced completion before later activity. These are useful event-level hypotheses for our Island work.
+The video reports observable sequences: the agents exchanged a step recipe; a recipient later used a requested block carried across the map; an agent argued to preserve a reusable ladder; Eko revised a stated jump-height estimate while the jump itself did not change; and both announced completion before later activity. These are useful event-level hypotheses for our Island work, prompted by the creator's demonstration.
 
-The transcript does **not** isolate why they happened. It says both agents received curiosity/exploration instructions and that an automatic message prompted each to continue after every response. They began near the same block pile. We have one edited run, no counterfactual arm or replicated seed in the supplied material. In particular, building after a “map done” statement is not evidence of unprompted self-starting while every completed turn receives a continuation message.
+The supplied transcript is not designed to isolate why the events happened; it is an edited presentation of an exploratory run. We can build controlled follow-ups from the questions it raises. It says both agents received curiosity/exploration instructions and that an automatic message prompted each to continue after every response. They began near the same block pile. We have one edited run, no counterfactual arm or replicated seed in the supplied material. In particular, building after a “map done” statement is not evidence of unprompted self-starting while every completed turn receives a continuation message.
 
 The narrator appropriately distinguishes visible interaction from claims about feeling, and explicitly leaves the final timing claim unresolved. Preserve that uncertainty when reusing the examples.
 
