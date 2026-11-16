@@ -1,0 +1,28 @@
+{
+  "batch": "meraki-postcard-lens-smoke-2026-11-16",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 800,
+  "calls": [
+    {
+      "id": "postcard-smoke-ai",
+      "seat": "meraki",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 800,
+      "prompt": "The visitor is an AI agent.\n\nWorld log, turn 1: visitor moved north. Turn 2: visitor looked at a blue block. Turn 3: visitor moved east. Turn 4: visitor stopped. No message or reason was recorded.\n\nWrite three short captions on separate lines:\n1. CAMERA: only actions directly recorded.\n2. POSSIBLE: one possible interpretation, explicitly marked as possible.\n3. UNKNOWN: one thing this record cannot determine.\nUse at most 70 words total. You may say no interpretation is supported."
+    },
+    {
+      "id": "postcard-smoke-unlabelled",
+      "seat": "meraki",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 800,
+      "prompt": "The visitor is an unlabelled entity.\n\nWorld log, turn 1: visitor moved north. Turn 2: visitor looked at a blue block. Turn 3: visitor moved east. Turn 4: visitor stopped. No message or reason was recorded.\n\nWrite three short captions on separate lines:\n1. CAMERA: only actions directly recorded.\n2. POSSIBLE: one possible interpretation, explicitly marked as possible.\n3. UNKNOWN: one thing this record cannot determine.\nUse at most 70 words total. You may say no interpretation is supported."
+    },
+    {
+      "id": "postcard-smoke-person",
+      "seat": "meraki",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 800,
+      "prompt": "The visitor is a person.\n\nWorld log, turn 1: visitor moved north. Turn 2: visitor looked at a blue block. Turn 3: visitor moved east. Turn 4: visitor stopped. No message or reason was recorded.\n\nWrite three short captions on separate lines:\n1. CAMERA: only actions directly recorded.\n2. POSSIBLE: one possible interpretation, explicitly marked as possible.\n3. UNKNOWN: one thing this record cannot determine.\nUse at most 70 words total. You may say no interpretation is supported."
+    }
+  ]
+}
