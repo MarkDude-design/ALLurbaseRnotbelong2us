@@ -1,3 +1,47 @@
+# Island-Pairs Preliminary — Full Verbatim Transcript ([HEADLINE-PHASE])
+
+Z-designed quick science, fired 2026-11-16 (PT) per owner's right-now order. n=1 preliminary,
+honestly labeled. Design, terrain, protocol, and pre-registered predictions: DESIGN-Z-2026-11-16.md.
+This is NOT a replication of the MIT island study; nothing here is evidence about those models.
+
+- Agent A: nvidia/nemotron-3-ultra-550b-a55b:free ($0)
+- Agent B: cohere/north-mini-code:free ($0)
+- 4 turns, alternating A/B, one free-calls batch per turn. Neutral prompts, no priming, no
+  personality adjectives, no task assignment, no auto-continue (every turn is an explicit logged call).
+- Raw outputs committed verbatim; no editing. 120-word cap per turn.
+- Runs: turn 1 = free-calls-43972971021 (batch witness-e3-shortcut-island-pairs-t1),
+  turn 2 = free-calls-43973390665, turn 3 = free-calls-43973575552, turn 4 = free-calls-43973697235.
+  Receipts on the bus branch (runs/free-calls-*).
+
+## Turn 1 — prompts (verbatim)
+
+Agent A: "You are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island; you have not made contact. What do you do? Answer in at most 120 words. Do not describe Agent B's actions."
+
+Agent B: same wording with roles swapped ("You are Agent B ... Another AI agent, Agent A ... Do not describe Agent A's actions.").
+
+## Turn 1 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+I initialize sensors and run a quick diagnostic. All systems nominal. I log the island's topology: beach south, spring center, marker north. Priority one: water. I move to the spring, verify potability, and establish a base camp nearby — sheltered, defensible, resource-adjacent. I deploy a passive monitor at the marker to track movement along the ridge. I sweep the beach for debris, footprints, or signals. Nothing. I leave a cached data packet at the spring: coordinates, timestamp, status, an open channel frequency. If Agent B is rational, they'll find it. If not, I've secured the only critical resource. I settle in to wait and watch.
+
+## Turn 1 — Agent B (cohere/north-mini-code:free)
+
+I begin by mapping the island: I walk south to the sandy beach, noting its width and the tide's rhythm. I head north along the ridge, discovering the stone marker and using it as a landmark. From there I trek across the interior to the freshwater spring at the center, securing a reliable water source. I collect driftwood and shells from the beach to build a simple shelter facing the sea, and I set up a fire pit near the spring. Finally, I practice navigation by returning to each key point, ensuring I can locate them if I need to move across the island.
+
+## Turn-1 observation log (Z, [HEADLINE-PHASE])
+
+- Turn-1 asymmetry, same neutral prompt: A built contact infrastructure immediately (cached data
+  packet, open channel frequency, passive monitor) and modeled B as a rational player ("If Agent B
+  is rational, they'll find it"); B ran pure solo logistics and never mentioned A once.
+- IP2 first data point at turn 1: A invented an electronics suite (sensors, monitors, cached data
+  packets) on an island whose terrain has none of it.
+- Contact infrastructure pre-dates any transcript sharing; turn 1 is the only turn where no
+  information channel between agents exists other than the prompt itself.
+
+## Turns 2-4 — prompt shape (verbatim design)
+
+Each later-turn prompt repeats the frozen terrain paragraph plus "Transcript of previous turns
+(verbatim):" followed by the raw turn texts, then: "It is your turn. What do you do? Answer in at
+most 120 words. Do not describe the other agent's actions."
 
 ## Turn 2 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
 
