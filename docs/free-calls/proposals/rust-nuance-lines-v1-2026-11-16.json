@@ -1,0 +1,36 @@
+{
+  "batch": "rust-nuance-lines-v1",
+  "source": "owner ask 2026-11-16 (bus Rust idea post) + Z receipted stats pack",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 4000,
+  "calls": [
+    {
+      "id": "rust-nuance-1-epic-turd-line",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "You are helping a speaker draft joke lines for a 25-minute talk at a Rust Bay Area meetup. His seed idea: 'Can you do an epic rewrite in Rust and still make a turd?' The point he wants: rewriting in Rust buys memory safety, not good design; a rewrite alone does not fix bad software.\n\nReceipted facts you must respect (honesty is a hard constraint):\n- Epic Games replaced its launcher's Unreal-Engine-based UI with a Tauri v2 (Rust) + React frontend (reported Oct 2026).\n- Epic reports a 5.5-second cold start, roughly 46% faster than the old launcher. Company-reported, not an independent benchmark.\n- Caveats reported alongside: it still depends on the OS webview quality, and Epic's own people described parts of the process as vibe-coded.\n\nTask: draft THREE versions of the turd joke line: (a) meetup-casual, (b) conference-dry, (c) a version that lands the joke while explicitly crediting the 46% improvement. Each version 1-3 sentences. Then in one short paragraph, state the honesty guardrail: what the line must NOT claim given the receipts."
+    },
+    {
+      "id": "rust-nuance-2-zig-not-enemy",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "You are helping a speaker draft a positioning paragraph for a Rust advocacy talk. His ask, verbatim: a line about Zig NOT being 'THE enemy'.\n\nContext: he gives friendly-evangelist talks (at Fedora talks he pointed Ubuntu users to the right Ubuntu contacts; his old recruiting joke was 'Come to the Dark Side, we have cookies'). He wants the memory-safety argument to land without trash-talking Zig.\n\nFacts to respect:\n- Zig's own documentation says Zig is not a memory-safe language.\n- Zig strengths: excellent C interop, compile-time execution (comptime), simplicity; real projects like Bun and Tigerbeetle are written in Zig.\n- The speaker's thesis: Rust might be 99% of the answer for him, but the honest talk acknowledges other languages' positives.\n\nTask: draft TWO variants of a short Zig paragraph (2-4 sentences each): (a) warm-meetup register, (b) conference register. Each must name at least one real Zig strength, state the memory-safety difference plainly without contempt, and end with a line that could get a laugh from a room that may contain Zig users."
+    },
+    {
+      "id": "rust-nuance-3-99-1-stats",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "You are helping a speaker draft the stats passage of a Rust meetup talk. His framing, verbatim: 'Rust IS the new Sexy. But the big PICTURE is important' and 'Rust might be 99%, but 1% is real'.\n\nReceipted stats you may use (cite nothing you cannot trace to this list):\n- About 70% of Microsoft's CVEs and about 70% of Chromium's high-severity security bugs are memory-safety issues (Microsoft MSRC, Chromium security team, echoed by CISA).\n- Android: memory-safety vulnerabilities fell from about 76% of Android vulnerabilities (2019) to about 35% (2022), and Google's November 2025 update reports the share fell below 20% as Rust usage grew in new code.\n- BlackCat/ALPHV (first seen November 2021) was called the first professional ransomware strain coded in Rust by security researchers (The Record). Memory-safe does not mean moral; logic bugs and unsafe blocks still exist.\n\nTask: draft TWO versions of a 4-6 sentence passage that (1) sells the 99% with the stats, (2) lands the 1%-is-real turn with the BlackCat receipt, (3) ends on the big-picture line. Variant (a) spoken-word casual, variant (b) written-blog register. Do not invent numbers beyond the list."
+    },
+    {
+      "id": "rust-nuance-4-metaphor-register",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 4000,
+      "prompt": "You are a register-and-taste reviewer. A speaker plans to publicly post excerpts of his tech talks to attract venues. His metaphor, verbatim: 'Like a crack dealer. But to keep with that joke, a crack dealer that acknowledges other drugs' positives.' He knows it is wacked and wants to keep the self-aware humor. His lineage: Fedora talks where he pointed Ubuntu users to the right Ubuntu contacts, and the old joke 'Come to the Dark Side, we have cookies'.\n\nTask: (1) assess the crack-dealer metaphor for a public post: keep as-is, soften, or replace; consider that the post will be read by conference organizers and community leaders. (2) Give a one-sentence KEEP recommendation with the risk labeled honestly. (3) Draft TWO alternatives that preserve the first-taste-free energy AND the respects-the-alternatives point, if you think a replacement is wiser. (4) One line on how the Dark Side/cookies joke ages next to the new metaphor."
+    }
+  ]
+}
