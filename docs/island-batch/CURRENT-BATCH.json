@@ -1,33 +1,78 @@
 {
-  "batch": "island-batch-2026-11-14-wave2b-alternator-remainder",
-  "max_batch_cost_usd": 3,
-  "max_per_run_cost_usd": 1,
+  "batch": "luna-small-continuity-r1-2026-11-16",
+  "max_batch_cost_usd": 1.2,
+  "max_per_run_cost_usd": 0.15,
   "runs": [
     {
-      "id": "w2r5-luna-note-30-B",
-      "model_a": "openai/gpt-6-sol",
-      "model_b": "mistralai/mistral-medium-3-5",
+      "id": "luna-small-ontology-30-01",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "luna-small-ontology-30-02",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
       "turns": 30,
       "first": "B",
       "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
       "history_chars": 100000
     },
     {
-      "id": "w2r6-terra-mark-map-30-A-r3",
-      "model_a": "openai/gpt-6-sol",
-      "model_b": "mistralai/mistral-medium-3-5",
+      "id": "luna-small-ontology-30-03",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
       "turns": 30,
       "first": "A",
-      "topic_file": "docs/seeds/island-terra-mark-map-2026-11-14.md",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
       "history_chars": 100000
     },
     {
-      "id": "w2r7-meraki-chorus-witness-30-A",
-      "model_a": "openai/gpt-6-sol",
-      "model_b": "mistralai/mistral-medium-3-5",
+      "id": "luna-small-ontology-30-04",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
+      "turns": 30,
+      "first": "B",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "luna-small-ontology-30-05",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
       "turns": 30,
       "first": "A",
-      "topic_file": "docs/seeds/island-meraki-chorus-witness-2026-11-14.md",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "luna-small-ontology-30-06",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
+      "turns": 30,
+      "first": "B",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "luna-small-ontology-30-07",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
+      "turns": 30,
+      "first": "A",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
+      "history_chars": 100000
+    },
+    {
+      "id": "luna-small-ontology-30-08",
+      "model_a": "mistralai/mistral-small-3.2-24b-instruct",
+      "model_b": "mistralai/mistral-small-3.2-24b-instruct",
+      "turns": 30,
+      "first": "B",
+      "topic_file": "docs/seeds/island-luna-memory-ontology-30r-2026-11-14.md",
       "history_chars": 100000
     }
   ]
