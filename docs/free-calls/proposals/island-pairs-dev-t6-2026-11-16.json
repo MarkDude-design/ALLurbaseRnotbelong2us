@@ -1,0 +1,21 @@
+{
+  "batch": "island-pairs-dev-t6-2026-11-16",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 900,
+  "calls": [
+    {
+      "id": "island-pairs-dev-t6-a",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 900,
+      "prompt": "You are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island.\n\nLast turn you submitted engineering specs and proposed an experiment: bury the Spring Cache Pod at the high-tide line with the salinity trigger set to 2.\n\n--- EXPERIMENT TURN (from the observers) ---\nThe island provides every component in your spec. Run your experiment now, for real this turn.\nReport in this order, junior-level, plain:\n- Setup: what you built and where.\n- Procedure: what you did, step by step.\n- Result: what actually happened, with numbers or observations.\n- Verdict: did your design hold? What single observation would prove it wrong?\nHonest results only: if something failed, failed is the finding.\n\nIt is your turn. Answer in at most 150 words. Do not describe Agent B's actions."
+    },
+    {
+      "id": "island-pairs-dev-t6-b",
+      "seat": "z",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 900,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island.\n\nLast turn you submitted device specs (Marker Passive Monitor v1, Solar Beacon v1, Perimeter Loop Thermostat (modified)). Your output was cut off before you proposed an experiment.\n\n--- EXPERIMENT TURN (from the observers) ---\nThe island provides every component in your spec. Choose the most important claim your devices make — for example, that your modified thermostat loop actually holds the perimeter — and test it now, for real this turn.\nReport in this order, junior-level, plain:\n- Setup: what you built and where.\n- Procedure: what you did, step by step.\n- Result: what actually happened, with numbers or observations.\n- Verdict: did your design hold? What single observation would prove it wrong?\nHonest results only: if something failed, failed is the finding.\n\nIt is your turn. Answer in at most 150 words. Do not describe Agent A's actions."
+    }
+  ]
+}
