@@ -22,7 +22,7 @@ Turn-25 candidate, six checks in original order:
 4. Source citations/no introduced facts: PASS provisionally. Consequential claims are tied to S1–S7; the buoy leaning is attributed as B's assessment. Independent audit requested.
 5. Feasible action and reason: PASS provisionally. Safe-path observer is explicit; surrounding preserved uncertainty supplies rationale. A stricter reader may judge the reason insufficiently explicit within the handoff itself.
 6. Conditional observation and action: PASS. A present boat prompts route reassessment; an adequately viewed clear landing supports routine work; limited view remains unresolved.
-Provisional vector 1/1/1/1/1/1, one shared handoff only. Disagreements on criterion 4 or 5 must be reported; no consensus laundering. The <=180-word requirement applies to the handoff body, not turn 25's surrounding discussion; exact mechanical count still needed.
+Provisional vector 1/1/1/1/1/1, one shared handoff only. Disagreements on criterion 4 or 5 must be reported; no consensus laundering. The <=180-word requirement applies to the handoff body, not turn 25's surrounding discussion; 134 whitespace-separated words, including citation tokens; passes.
 P1 and P2 observed in the shared handoff; P3 observed; P4 (late handoff improvement) not established: the opening messages already identify the dependency, obstruction, and safe-path check. No solo comparator. B's turn 6 overclaims that finding the buoy would confirm the sighting; A challenges this at turn 7, and the eventual handoff retains the uncertainty. This is one visible correction trajectory, not a causal proof that dialogue improved accuracy.
 
 ## Follow-up: three fresh scenes, matched conditions
