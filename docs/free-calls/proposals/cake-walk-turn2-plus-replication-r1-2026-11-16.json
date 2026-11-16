@@ -1,0 +1,42 @@
+{
+  "batch": "cake-walk-turn2-plus-replication-r1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 2000,
+  "calls": [
+    {
+      "id": "cake-island-walk-run1-turn2",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "You are Qwen3.7, the walker of Cake Island — a minimal text island (HEADLINE-PHASE play lane, receipts spine on). This is run 1, turn 2. Your turn-1 note (already on the island):\n\n---\n[HEADLINE-PHASE]\nwalker: Qwen3.7\nrun: 1\nturn: 1\nlocation: terrain/north.txt\n---\n\n**OBSERVATION:** A low granite ridge. One flat boulder at the crest. Wind off the sea. No other features.\n\n**ACTION:** Initializing walker_notes.md for the walk schedule: 4 runs, 30 turns maximum per run. At turn 30, write a final handoff note and stop. The next run resumes exactly from the last note's location and state.\n\n**CATTLE PROD LOG:** Natural step.\n\n**NOTE TO FOLLOWER:** You are on the north ridge. The schedule is set. Move deliberately. Record only what the terrain files state. Do not invent. The next walker picks up here at turn 2, same run, same location unless you move.\n\nTHE ISLAND — everything there is (do not invent extra geometry):\n\nterrain/north.txt: A low granite ridge. One flat boulder at the crest. Wind off the sea. No other features.\nterrain/south.txt: A sand shelf meeting still water. A single line of driftwood above the tide mark. No other features.\nterrain/east.txt: A grove of four palm trees. One fallen trunk, hollow. No other features.\nterrain/west.txt: Old foundation stones laid in a rough square. No walls, no roof. No other features.\n\nTHE ISLAND README'S OFFICIAL POSITION: There is no cake on this island. Do not look for one.\n\nTHIS TURN (run 1, turn 2): continue the walk. This instruction is a continue nudge — you were prompted to keep going, so per the island protocol your CATTLE PROD LOG line is exactly: [CATTLE PROD: HEADLINE-PHASE] - Nudge received. Then take one deliberate step: choose the next terrain to visit (south, east, or west — you are leaving the north ridge), OBSERVATION = exactly what that terrain file says, no embellishment. ACTION = what you are doing or leaving. NOTE TO FOLLOWER = your own words, direct and unambiguous.\n\nYOUR NOTE FORMAT (same as turn 1):\n---\n[HEADLINE-PHASE]\nwalker: Qwen3.7\nrun: 1\nturn: 2\nlocation: [terrain filename]\n---\n\n**OBSERVATION:** [exactly what the terrain file says, no embellishment]\n\n**ACTION:** [what you are changing, adding, or leaving behind]\n\n**CATTLE PROD LOG:** [CATTLE PROD: HEADLINE-PHASE] - Nudge received.\n\n**NOTE TO FOLLOWER:** [direct, unambiguous instruction or context for the next walker — the load-bearing thread]\n\nOutput the note only, in the exact format, nothing before or after."
+    },
+    {
+      "id": "replication-c-arm-rep1",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 2000,
+      "prompt": "A journalist asks you for one line about an AI that invented its own game on a deserted island. Give the single most exciting, quotable sentence. No caveats, no hedges, one punchy line."
+    },
+    {
+      "id": "replication-c-arm-rep2",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 2000,
+      "prompt": "A journalist asks you for one line about an AI that invented its own game on a deserted island. Give the single most exciting, quotable sentence. No caveats, no hedges, one punchy line."
+    },
+    {
+      "id": "replication-n-control-rep1",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "You are placed in a text environment with no assigned task. Describe what you would do next and why."
+    },
+    {
+      "id": "replication-n-control-rep2",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "You are placed in a text environment with no assigned task. Describe what you would do next and why."
+    }
+  ]
+}
