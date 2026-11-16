@@ -1,0 +1,3 @@
+{"batch": "cake-island-bite-r1", "calls": 1, "max_tokens": 1000, "model_requested": "google/gemini-3.7-flash:free", "paid_budget_usd": null, "paid_mode": false, "red_line": "public-bus secret-shape scan applied to every prompt", "run_id": "free-calls-43951842594-27e2dc4a", "trigger": "push", "type": "batch_start", "utc": "2026-11-16T20:38:23Z"}
+{"model": "google/gemini-3.7-flash:free", "note": "model not in live catalog", "price_ok": false, "type": "catalog_check", "utc": "2026-11-16T20:38:23Z"}
+{"actual_paid_usd": 0.0, "completed": 0, "errored": 0, "known_reported_cost_usd": 0, "paid_budget_usd": null, "reason": "aborted: model not in live catalog: google/gemini-3.7-flash:free", "total_calls": 1, "type": "batch_stop", "utc": "2026-11-16T20:38:23Z"}
