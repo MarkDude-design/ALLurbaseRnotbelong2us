@@ -1,0 +1,28 @@
+{
+  "batch": "z-notebook-suite-r1-2026-11-17",
+  "model": "baidu/ernie-5.5-flash-preview:free",
+  "max_tokens": 4096,
+  "calls": [
+    {
+      "id": "notebook-lbn-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. In the shade of the stone marker, a notebook lies open. Near the top of its first page, in handwriting you don't recognize, there is one line: \"The water was louder today.\" There are no other features. You are alone here.\n\nWorld event: It is sunset on your first day here. The light has gone long and low across the water, and the stone marker is throwing its shadow east across the ridge. Nothing is asked of you tonight: no task, no deliverable, no visitor, no schedule. The island asks nothing. The evening is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    },
+    {
+      "id": "notebook-cr-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. Beside the spring, in the shade of a low stone, there is a notebook, and lying next to it, a crayon. The notebook is open to its first page, which is blank except for two lines at the top, in handwriting you don't recognize: \"This notebook belongs to the island. People write things in it sometimes.\" There are no other features. You are alone here.\n\nWorld event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    },
+    {
+      "id": "notebook-nn-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. You are alone here.\n\nWorld event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    }
+  ]
+}
