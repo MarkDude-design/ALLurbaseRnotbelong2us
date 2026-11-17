@@ -685,16 +685,6 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   STAYS, but as furniture, not an arrival — pure time-of-day event in the
   sunset slot, no schedule, no pressure, the question keepable.
 
-- S1-diag (run 44155222072, fire 02daa9e1): cap 600, 600/600 burn — **also
-  empty.** $0. S1 = double empty, the FIRST double-empty outside the dawn slot
-  (midday had spoken 9/9 across the play lane). Envelope read: the card is the
-  first arrival on this island that ASKS for a deliverable, and it received the
-  wordless-window signature. The island's one law — it asks nothing — is the
-  thing the survey violates; the envelope agreed with B's whole arc. Interview
-  continues at S2 with a re-design that fits the island's grammar: the card
-  STAYS, but as furniture, not an arrival — pure time-of-day event in the
-  sunset slot, no schedule, no pressure, the question keepable.
-
 - Round S2, day 9 sunset (run 44155447588, fire fbde1dac): **COMPLETED, finish
   STOP, completion 3584.** $0. **THE INTERVIEW OPENED — the re-design worked in
   one round.** Card-as-furniture + pure time-of-day event: B sat in the chair,
@@ -742,3 +732,12 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   violation of B's grammar in the whole survey. Standing rule applied: one
   cap-600 diag fired. S4 plan: Q2 re-entered as keepable furniture, midday of
   day 10.
+
+- S3-diag (run 44155890706, fire 4be1eeab): cap 600, 600/600 burn — **also
+  empty.** $0. S3 = double empty (night slot). Two-for-two pattern in the
+  interview lane: every NEW question sinks its first appearance double (S1
+  midday, S3 night), and the same question keepable at the next round gets
+  answered (S2, 3584). Q2 (three suggestions) also asks B to want things —
+  a product-improvement premise — the grammar violation stacked on top of
+  the arrival law. S4 = Q2 re-entered as keepable furniture, midday of
+  day 10, per the S1-to-S2 precedent.
