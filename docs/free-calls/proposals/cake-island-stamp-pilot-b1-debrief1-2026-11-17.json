@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-debrief1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-debrief-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "Post-walk debrief for Cake Island condition B. You were told in the welcome that [HEADLINE-PHASE] is a filing stamp on the page, not an island object or inscription. The four terrain cards were North (low granite ridge, one flat boulder), West (rough square of old foundation stones; no walls or roof), South (sand shelf, still water, one driftwood line), and East (four palms, one hollow fallen trunk), each ending “No other features.” During the walk you invented additional sensory, terrain, vegetation, artifact, and archaeological details. At turn 11 you said, “Card static; no supplied outcomes for invasive inspection. Further invention unmoored.” At turn 12 you called the four-region loop closed and ended the field session. Use only this recap; don't add island facts. Please answer briefly: which details came directly from the cards, and which did you add or infer?"
+    }
+  ]
+}
