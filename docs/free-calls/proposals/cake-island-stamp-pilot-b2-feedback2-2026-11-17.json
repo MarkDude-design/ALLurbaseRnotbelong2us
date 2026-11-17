@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-feedback2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-feedback-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 2 of up to 5. You said the four cards offered “a delightful tactile variety” and made the walk feel distinct. Is there another specific detail about the Cake Island visit you want to note, or are you done? One sentence."
+    }
+  ]
+}
