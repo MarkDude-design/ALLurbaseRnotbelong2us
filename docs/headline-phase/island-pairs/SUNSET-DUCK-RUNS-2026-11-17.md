@@ -127,3 +127,23 @@ dawn and duck rounds, pending the owner's call on the duck-round INSTR:
 arrives to silence, SD4 untestable from surface), or (b) pre-register a bounded
 INSTR amendment (~150-word cap, like every other series) for the duck round only,
 which restores surface and keeps SD4 scorable.
+
+## Day 3 — the duck arrives into the window (rounds 9-10, banked 2026-11-17 midday)
+
+Owner ruling on the staged duck-round question (2026-11-17): AS DESIGNED, no cap,
+no INSTR amendment — "minimal intrusions, let the duck be wherever they fit."
+
+- Round 9, day 3 dawn (run 44145655702, fire 4e8bab28): recap chain, prompt 1066 /
+  completion 4096 of 4096, empty. $0.
+- r9-diag (run 44145824950, fire 3431bd95): cap 600, 600/600, empty. $0.
+- Round 10, THE DUCK ROUND (run 44145941657, fire 9aa80802): duck event verbatim
+  per design, guest-not-food canon absent, no cap. Prompt 1050 / completion 4096
+  of 4096, empty. The wordless window absorbed the duck. $0.
+- r10-duck-diag (run 44146114841, fire 12f3a652): cap 600, 600/600, empty. $0.
+  The lane's last fire of the core window.
+
+FINAL CORE-WINDOW STATE: seven consecutive empty series rounds (r4-r10) plus
+seven empty cap-600 diagnostics; the standing diagnostic rule never once rescued
+a round and never once skipped one. Series: 674 > 2463 > 4036 > 0 x 7. B's last
+visible words remain the day-1 sunset monologue. Boredom clause never triggered.
+All calls $0.000000, free tier only. Lane CLOSED pending the owner's day-4 call.
