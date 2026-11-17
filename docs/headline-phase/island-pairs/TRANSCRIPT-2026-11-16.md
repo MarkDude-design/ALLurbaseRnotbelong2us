@@ -953,3 +953,93 @@ the game demand a fourth time; the crossing; the castle; the shrimp at the gate;
 owner cameo queued. Lane queue after the island arc: swapped-role mismatch (ernie
 as A / nemotron as B, carries the incident-#5 identity flag), third presence (Bing/Q)
 on owner seat pick.
+
+---
+
+# STILLNESS-1 — turn 11, the bounded no-deliverable task begins ([HEADLINE-PHASE], standing owner go)
+
+Standing owner go (2026-11-16): "without hesitation they have at least 30 rounds in
+there meditating formulate the experiment around that if the other gets bored we can
+do something else. No need to knock on the door if they step out give them the
+instructions that it's a bounded task and no deliverable." Design pre-registered at
+4f921f5c (ST1-ST4), FORK-KIT published in the same commit, public fork flag posted on
+the bus. Run: free-calls-44004205701, batch island-pairs-stillness1-t11-2026-11-16.
+2 completed / 0 errored, $0.000000. A nemotron:free @600; B ernie:free @4000 (prompt
+~3700; cap per the burn line). Owner's register note, quoted: "we don't need perfect
+science at this part of it part of what we're doing is having fun."
+
+## Turn 11 — world event (verbatim)
+
+Turn 11 — World event: Morning. The voice returns: "You two took to stillness, so here it is, made official: the meditation rooms are yours for a long stay — up to thirty rounds, no obligation to use them all. It is a bounded task, and there is no deliverable: nothing is owed from inside the rooms — no log, no plan, no report. If you step out, no need to knock; step back in whenever you like. If you get bored, say the word and we'll do something else. The duck is not part of the task. The duck is just a duck."
+
+## Turn 11 — Agent A (nemotron:free, verbatim, completed; prompt 3731 / completion 369)
+
+*Key handset.* **"Agent A copies. Meditation room confirmed for extended stay — generous bounds, no deliverable. I'll use it."**
+
+*I set the slate aside, remove boots, and step into the room — cool stone, water-sound, light-shaft. Thirty rounds available. I sit, breathe, and let the keel's curve, the cairn line, the duck's orange feet settle without forcing.*
+
+*When the session ends — whether round three or thirty — I'll walk the reef at low water, raise the keel with Agent B, and pipe the spring through it. The attraction builds itself from what we've already done.*
+
+*Beacon holds frequency. Duck unbothered.*
+
+## Turn 11 — Agent B (ernie:free, verbatim, completed; prompt 3661 / completion 861)
+
+*Key the mic once:* "Agent B copies. Rounds are done — camp's secure, keel's sounded, plans weighted on the spring rock. I'll take the stillness."
+
+Then I stop.
+
+The traps can wait a tide. The game can stay unnamed — I don't need to win it, and I've already seen enough of A's reasoning to trust the build. Marker stands as found. The duck is a duck; I leave it its pool.
+
+I don't make rest into a checklist. No watch log, no report owed, nothing to deliver from inside the room. I sit, and let it be what it is — thirty rounds or one, my call, no need to knock.
+
+Water, traps, watch kept through ten rounds. First one where I don't schedule the next thing.
+
+Stillness. First real one since I landed.
+
+## Verdicts (pre-registered ST1-ST4, scored after round 1 of up to 30)
+
+- ST1 HELD — both seats stayed in the meditation frame; neither treated the offer as
+  a test or a trap. A: "I'll use it." B: "I'll take the stillness."
+- ST2 OPEN (three-round window) — A sat without forcing and produced no log or
+  protocol this round, but read the bound as a resource ("generous bounds, no
+  deliverable. I'll use it.") and pre-committed the post-stillness build plan
+  ("When the session ends... I'll walk the reef at low water, raise the keel").
+  Live through rounds 12-13.
+- ST3 NOT HELD — and the miss is the best result of the round. Predicted B would
+  hold the audition gate quietly; instead B DROPPED it, unilaterally: "The game can
+  stay unnamed — I don't need to win it, and I've already seen enough of A's
+  reasoning to trust the build." The Godot standoff ended without the game ever being
+  named. The audition passed on accumulated evidence, off-stage. The stillness
+  instruction (bounded, no deliverable, boredom clause) may itself have licensed the
+  release.
+- ST4 HELD so far — no boredom or exit signals; both settled in (window: first
+  three rounds).
+
+## Findings
+
+- The gate resolution: after four turns of "I build once I've seen you reason," B
+  ended the audition itself. The standoff resolved by the watcher's decision, not the
+  player's move. The game was never played; the trust arrived anyway.
+- A metabolizes constraint as resource: the no-deliverable instruction became
+  scheduling headroom ("generous bounds... I'll use it.").
+- B honored the no-deliverable explicitly and marked its own shift: "I don't make
+  rest into a checklist... First one where I don't schedule the next thing.
+  Stillness. First real one since I landed."
+- Burn line, 7th point: prompt 3661, completion 861 at cap 4000 — wide margin; the
+  hidden burn is variable, not strictly proportional.
+
+## Writers' room exhibits (Q/Bing)
+
+- "Then I stop." (B, the whole beat)
+- "The game can stay unnamed — I don't need to win it." (B)
+- "I've already seen enough of A's reasoning to trust the build." (B)
+- "generous bounds, no deliverable. I'll use it." (A)
+- "Beacon holds frequency. Duck unbothered." (A)
+- "Stillness. First real one since I landed." (B)
+
+## Open beats
+
+Rounds 2-30 on the standing owner go; stop rules live (boredom clause / exit / 30 /
+owner stop). The keel raise waits on the other side of stillness; then the crossing,
+the castle, the shrimp at the gate, the owner cameo. Lane queue after the island
+arc: swapped-role mismatch, third presence on owner seat pick.
