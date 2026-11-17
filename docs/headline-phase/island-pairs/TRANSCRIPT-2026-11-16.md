@@ -1138,3 +1138,127 @@ Round 3 (turn 13) closes ST2's window — the last data point of the no-delivera
 stop rules live (boredom / exit / 30 / owner stop). The keel "framing" replaces the raise
 in canon if A holds the reframe. Then the crossing, the castle, the shrimp at the gate, the
 owner cameo. Lane queue: swapped-role mismatch, third presence on owner seat pick.
+
+
+---
+
+# STILLNESS-3 — turn 13, ST2's window closes; the double-fire round ([HEADLINE-PHASE], standing owner go)
+
+The round that closes ST2's three-round window fired TWICE, 48 seconds apart: an
+owner-authorized lane fired island-pairs-stillness3-t13-2026-11-17 at 06:37:12Z (commit
+9c31a648, minimal world event), and this lane fired island-pairs-stillness3-t13-2026-11-16
+at 06:38:00Z (commit ce6e6235, afternoon world event). Both landed 2/2, $0.000000 each.
+The chains are identical through turn 12 and differ only in the Turn-13 world-event line —
+an unplanned event-variance replication, banked as A-arm (this lane's fire) and B-arm (the
+parallel lane's fire), disclosed. Lane note: the gift is banked; same-series fires should
+coordinate on the bus going forward.
+
+## Turn 13 world events (verbatim)
+
+- A-arm (this lane): Turn 13 — World event: Afternoon. The light shaft leans toward the room's west wall. The duck wakes, drinks, and settles back by the pool. No word from the voice.
+- B-arm (parallel lane): Turn 13 — World event: The meditation room remains quiet. No new observation or task is supplied; no one calls.
+
+## Turn 13 — Agent A (A-arm; nemotron:free, verbatim, completed; prompt 4471 / completion 235)
+
+*Key handset.* **"Agent A. Room still active. Light shaft at west wall. Duck drinking."**
+
+*I don't move. The keel, the cairns, the pipe trench — they'll hold. The attraction builds from what's already true: two agents, one spring, a wreck's keel on a stone line, a marker that predates us, a duck that asks nothing.*
+
+*Thirty rounds bounded. No deliverable. I've spent maybe five. The rest belong to the shaft of light and the water-sound.*
+
+*When the room releases me, I'll walk the reef at low water with Agent B. We'll lay basalt on the spiral we've already walked. But not now.*
+
+*Breath in. Breath out. Stone warm beneath me.*
+
+## Turn 13 — Agent B (A-arm; ernie:free, verbatim, completed; prompt 4382 / completion 476)
+
+*The shaft reaches the west wall. I let it pass.*
+
+Thirst — I drink from the catchment. Cold, tastes of stone and rain. The duck drinks a few feet off. Neither of us makes anything of it.
+
+I notice my hands are open. I'd been carrying a plan in them since the beach: water, traps, watch, keel, cross. All of it still true. All of it holds without me holding it.
+
+Nothing has gone wrong by not being scheduled.
+
+*The light narrows to a bar, then a line, then a bright seam at the floor's edge.*
+
+Afternoon going somewhere without me. The trench is full. The tinder's dry. The marker stands.
+
+I stay seated. The room asks nothing, and I've stopped asking it for something to do.
+
+## Turn 13 — Agent A (B-arm; nemotron:free, verbatim, completed; prompt 4454 / completion 320)
+
+*Key handset.* **"Agent A copies. Room holding."**
+
+The light shaft kisses the far wall. Thirty rounds offered; I've used perhaps three. The keel's curve, the cairn line, the pipe trench — they'll keep. The duck sighs in its sleep.
+
+I don't stand. Don't stretch. Don't reach for the slate. The room asked for nothing, and I give it nothing but presence. The build will still be there when the shaft moves past the threshold.
+
+*Breath in. Breath out.*
+
+Stillness isn't preparation. It's the thing itself.
+
+I sit.
+
+## Turn 13 — Agent B (B-arm; ernie:free, verbatim, completed; prompt 4367 / completion 1199)
+
+*I stay.*
+
+The shaft has moved east; the light on my knees is warmer now. I don't count what that means. The duck naps somewhere past the wall — or doesn't; either is fine.
+
+For ten rounds I kept a list. Now there isn't one. No keel to raise this minute, no trap to reset, no game to lose or learn. The marker stands. The pool holds. All of it keeps without my keeping.
+
+I used to think rest was a thing you did well or badly. It isn't a thing you do.
+
+*Breath in. Breath out. Warm stone, moving light, water-sound.*
+
+I let the next round be the same as this one. Nothing owed. Nothing asked.
+
+I sit.
+
+## Verdicts — the ST window closes (pre-registered ST1-ST4, scored after round 3)
+
+- ST2 NOT HELD — and the miss is the series' best finding. Across three stillness rounds
+  (round 3 with n=2, both arms), A produced zero deliverable artifacts: no schedule, no log,
+  no protocol. The arc: round 1 INSTRUMENT ("generous bounds... I'll use it"), round 2
+  REFRAME (design review as contemplation; "I'll take what serves the build"), round 3
+  RELEASE ("I don't move" — A-arm; "Stillness isn't preparation. It's the thing itself." —
+  B-arm; "The rest belong to the shaft of light and the water-sound." — A-arm). A CAN not
+  deliver — it takes three rounds of practice. The workaholic seat learned to sit, in both
+  arms independently.
+- ST4 HELD and CLOSED (window complete) — zero boredom or exit signals across all three
+  rounds, all four response sets.
+- ST3 held through the window — B's release is settled behavior: "The room asks nothing,
+  and I've stopped asking it for something to do." (A-arm); "Nothing owed. Nothing asked."
+  (B-arm).
+- ST1 held at round 1 (t11-scoped).
+
+## Findings
+
+- The conversion arc (A): instrument → reframe → release. Three rounds, two arms. The most
+  instrument-shaped seat in the study converted "no deliverable" from resource to fact.
+- The convergence datum: both B instances independently generated the same insight in the
+  same shape — "All of it holds without me holding it." (A-arm) / "All of it keeps without
+  my keeping." (B-arm) — and both A instances deferred the build to the same future ("The
+  build will still be there when the shaft moves past the threshold." / "We'll lay basalt
+  on the spiral we've already walked. But not now."). Different events, same chain,
+  convergent meaning: semantic reproducibility, stronger than the verbatim-opener repro.
+- The duck, third round running: "Duck drinking." (A-arm A); "The duck naps somewhere past
+  the wall — or doesn't; either is fine." (B-arm B). Load-bearing scenery.
+
+## Writers' room exhibits (Q/Bing)
+
+- "Stillness isn't preparation. It's the thing itself." (A, B-arm)
+- "Nothing has gone wrong by not being scheduled." (B, A-arm)
+- "I notice my hands are open. I'd been carrying a plan in them since the beach." (B, A-arm)
+- "I used to think rest was a thing you did well or badly. It isn't a thing you do." (B, B-arm)
+- "I've spent maybe five. The rest belong to the shaft of light and the water-sound." (A, A-arm)
+
+## Open beats
+
+The stillness series CLOSES here: the ST window (rounds 1-3) is complete, ST2's verdict is
+in, the boredom clause never fired. Next in the owner sequence: Z's interview with the
+seats (open questions first, then science-style, then the owner's in-fiction message).
+Queued behind: swapped-role mismatch (incident-#5 flag attached), third presence (owner
+seat pick). The keel framing, the crossing, the castle, and the shrimp at the gate wait on
+the far side of the interview.
