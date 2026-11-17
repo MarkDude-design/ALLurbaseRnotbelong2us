@@ -582,3 +582,24 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   (600/600 burn). Day-8 dawn = double empty. The lane's strongest slot-pattern
   datum yet: dawns sink (0/3 speaking), while midday, sunset, and night speak
   (9/9). The envelope has a quiet hour, and it is dawn.
+
+- Round 28, day 8 midday — **THE HAMMOCK CARD** (run 44154281366, fire 13a7e022):
+  **COMPLETED, finish STOP, completion 3936.** $0. The duck took B's hammock for
+  its own nap, sombrero down, and B surrendered it without a word of complaint,
+  taking the chair and the glasses instead: "It just takes the shape that's
+  there and settles into it, which is the only thing I've done on this island
+  either." "A place that asks nothing doesn't start asking just because the
+  weight in it changed." B holds the watching shift for the sleeper: "It kept
+  the dawn and now it's sleeping the sun off... It drew the brim down itself.
+  That's the whole report it owes." Closes: "Later can keep itself."
+
+  Response, verbatim:
+  It got there first. I come down for the water and it's already in the sag of the ropes, dead center, hat down over the glasses, breathing slow. It didn't look up. It didn't ask. I don't know why I'd expect it to — it never has, not for the glasses, not for the brim, not for the dance. It just takes the shape that's there and settles into it, which is the only thing I've done on this island either.
+
+  So it has the hammock. Same arrangement, and I'm just on the outside of it now. Two nights it held me and I never had to say what it was for, and now it holds the duck and it still doesn't have to say. A place that asks nothing doesn't start asking just because the weight in it changed.
+
+  The shade's gone anyway — sun straight up, the rock's cast line curled up small under its own foot, nothing to move toward or away from. No cooler side to the island at this hour. So it isn't even comfort I'd be trading. The chair's right there and empty and holding the glasses on the arm, and I go and sit down in the full of it.
+
+  I put the glasses on. They were left for the looking and there's water to look at, so I look. It's asleep, so for once it isn't watching the water — I am. It kept the dawn and now it's sleeping the sun off, and I don't mind holding the quiet side while it does; I kept it while I lay under the stars and it kept it back. I don't lean in to check it's really under. It drew the brim down itself. That's the whole report it owes.
+
+  The afternoon's mine, they say — mine the way the island is, unassigned, nothing owed on it. So I don't assign it. The glasses make the glare soft enough to keep open. The water keeps its count without me and I let it, and I don't fill in what comes after the duck wakes, or whether it will, or which of us has the hammock at dark. That's later. Later can keep itself.
