@@ -1,0 +1,5673 @@
+{
+  "schema_version": 1,
+  "scope": "All bus.jsonl blobs in one pinned public bus tree; structural census, not full semantic audit",
+  "source_repository": "MarkDude-design/ALLurbaseRnotbelong2us",
+  "bus_commit": "7146046f5802f43d4321422f0c6193af4436f0ec",
+  "main_commit": "ff09cf8c045e4f028a90e375e704388914ff5ba7",
+  "day_boundary_utc": "2026-11-16T08:00:00Z",
+  "all_files": 201,
+  "all_parsed_records": 4725,
+  "fetch_failures": [],
+  "jsonl_parse_failures": [],
+  "files": [
+    {
+      "path": "runs/free-calls-43286919435/bus.jsonl",
+      "sha": "76ad7be1b267f3966f4faad272002fb4991338d6",
+      "at": "2026-11-12T19:07:39Z",
+      "batch": "luna-island-observer-lens-a-2026-11-12",
+      "cohort": "older",
+      "records": 64,
+      "resultRecords": 30,
+      "statusCounts": {
+        "completed": 30
+      },
+      "stopAnswers": 0,
+      "lengthResults": 30,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.023895,
+        "completed": 30,
+        "errored": 0,
+        "known_reported_cost_usd": 0.023895,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 30,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:09:53Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43304700076/bus.jsonl",
+      "sha": "0898f0f6566c1bb6f8f92d53e19b4f76cf2487fa",
+      "at": "2026-11-12T20:53:14Z",
+      "batch": "z-island-observer-e6-e7-free-2026-11-12",
+      "cohort": "older",
+      "records": 19,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 8
+      },
+      "stopAnswers": 8,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 8,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-12T20:55:05Z"
+      }
+    },
+    {
+      "path": "runs/island-batch-luna-small-ontology-30-01/bus.jsonl",
+      "sha": "d8b6e0ca17e7f9f2c2cf4d17fb96e22a20d64fbb",
+      "at": "2026-11-16T22:52:25+00:00",
+      "mode": "live",
+      "cohort": "Nov16_PT",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 19047,
+          "cost_usd": 0.027859199999999997,
+          "prompt_tokens": 320664,
+          "total_cost_usd": 0.027859199999999997,
+          "total_tokens": 339711,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-16T23:00:43+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-luna-small-ontology-30-02/bus.jsonl",
+      "sha": "cac907dcddaffea5fddbdf381f535a6f710f5aa4",
+      "at": "2026-11-16T23:00:43+00:00",
+      "mode": "live",
+      "cohort": "Nov16_PT",
+      "records": 69,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 19,
+      "requested": 30,
+      "turnFinishMissing": 19,
+      "stop": {
+        "reason": "accounting_uncertain",
+        "totals": {
+          "accounting_status": "UNKNOWN",
+          "completion_tokens": 33720,
+          "cost_usd": 0.022480275,
+          "prompt_tokens": 209817,
+          "total_cost_usd": null,
+          "total_tokens": 243537,
+          "unknown_cost_calls": 5
+        },
+        "turns": 19,
+        "type": "stop",
+        "utc": "2026-11-16T23:16:43+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w1r1-eko-30-A/bus.jsonl",
+      "sha": "8e85dbd2accc7d6932badb36e949b33ca19e8815",
+      "at": "2026-11-14T09:01:54+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 46073,
+          "cost_usd": 0.8292490000000001,
+          "prompt_tokens": 235505,
+          "total_cost_usd": 0.8292490000000001,
+          "total_tokens": 281578,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T09:13:26+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w1r2-eko-swap-30-B/bus.jsonl",
+      "sha": "212fdc25eaa8e62f6452c45d5323c6e43ea20f34",
+      "at": "2026-11-14T09:13:26+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 50481,
+          "cost_usd": 0.9736210000000003,
+          "prompt_tokens": 286094,
+          "total_cost_usd": 0.9736210000000003,
+          "total_tokens": 336575,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T09:26:02+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w1r3-notebook-30-A/bus.jsonl",
+      "sha": "86979c7f366da7e5bb6d6f280dcf240b19cf66f7",
+      "at": "2026-11-14T09:26:02+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 36183,
+          "cost_usd": 0.566144,
+          "prompt_tokens": 143240,
+          "total_cost_usd": 0.566144,
+          "total_tokens": 179423,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T09:35:03+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w1r4-eko-10-B/bus.jsonl",
+      "sha": "2d9c412f2317eb9d7542453429a7b5d21d9e8948",
+      "at": "2026-11-14T09:35:03+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 31,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 10,
+      "requested": 10,
+      "turnFinishMissing": 10,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 14032,
+          "cost_usd": 0.1612715,
+          "prompt_tokens": 24533,
+          "total_cost_usd": 0.1612715,
+          "total_tokens": 38565,
+          "unknown_cost_calls": 0
+        },
+        "turns": 10,
+        "type": "stop",
+        "utc": "2026-11-14T09:38:30+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w1r5-feedback-5-A/bus.jsonl",
+      "sha": "338e06e54f9982e69b9aa803c34b4a839b1cafab",
+      "at": "2026-11-14T09:38:30+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 16,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 5,
+      "requested": 5,
+      "turnFinishMissing": 5,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 3615,
+          "cost_usd": 0.035043000000000005,
+          "prompt_tokens": 3178,
+          "total_cost_usd": 0.035043000000000005,
+          "total_tokens": 6793,
+          "unknown_cost_calls": 0
+        },
+        "turns": 5,
+        "type": "stop",
+        "utc": "2026-11-14T09:39:22+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r1-z-eko-repeat-30-A/bus.jsonl",
+      "sha": "a8b97e8c59b0ca3e8646dc944051b49503238f2d",
+      "at": "2026-11-14T09:54:54+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 36659,
+          "cost_usd": 0.7155,
+          "prompt_tokens": 214651,
+          "total_cost_usd": 0.7155,
+          "total_tokens": 251310,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T10:04:14+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r2-terra-mark-map-30-A/bus.jsonl",
+      "sha": "832dd380d11de24ef366c3b3390234a608062609",
+      "at": "2026-11-14T10:04:14+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 39443,
+          "cost_usd": 0.6874175,
+          "prompt_tokens": 191308,
+          "total_cost_usd": 0.6874175,
+          "total_tokens": 230751,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T10:13:57+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r3-luna-note-30-A/bus.jsonl",
+      "sha": "9c47759b5afb87da917bb55451f4432412d686a7",
+      "at": "2026-11-14T10:13:57+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 43016,
+          "cost_usd": 0.6374989999999999,
+          "prompt_tokens": 153617,
+          "total_cost_usd": 0.6374989999999999,
+          "total_tokens": 196633,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T10:23:39+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r4-terra-mark-map-30-B/bus.jsonl",
+      "sha": "58d71fe7143e9deeff3fbca56c8782886a609ad6",
+      "at": "2026-11-14T10:23:39+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 37,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 11,
+      "requested": 30,
+      "turnFinishMissing": 11,
+      "stop": {
+        "reason": "accounting_uncertain",
+        "totals": {
+          "accounting_status": "UNKNOWN",
+          "completion_tokens": 13474,
+          "cost_usd": 0.16192950000000003,
+          "prompt_tokens": 28394,
+          "total_cost_usd": null,
+          "total_tokens": 41868,
+          "unknown_cost_calls": 1
+        },
+        "turns": 11,
+        "type": "stop",
+        "utc": "2026-11-14T10:27:00+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r5-luna-note-30-B/bus.jsonl",
+      "sha": "397d52f1715706e4d826cca2a654f93403835deb",
+      "at": "2026-11-14T21:23:09+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 26047,
+          "cost_usd": 0.48404149999999996,
+          "prompt_tokens": 139500,
+          "total_cost_usd": 0.48404149999999996,
+          "total_tokens": 165547,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T21:29:46+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r6-terra-mark-map-30-A-r3/bus.jsonl",
+      "sha": "c251577faef4285f331736be62bc5e2fccfab5e7",
+      "at": "2026-11-14T21:29:46+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 31692,
+          "cost_usd": 0.592703,
+          "prompt_tokens": 173527,
+          "total_cost_usd": 0.592703,
+          "total_tokens": 205219,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T21:37:54+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w2r7-meraki-chorus-witness-30-A/bus.jsonl",
+      "sha": "e157e1cdf2d3dd84e0920c0fed149bb63fe975c3",
+      "at": "2026-11-14T21:37:54+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 33484,
+          "cost_usd": 0.455959,
+          "prompt_tokens": 99479,
+          "total_cost_usd": 0.455959,
+          "total_tokens": 132963,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T21:46:06+00:00"
+      }
+    },
+    {
+      "path": "runs/island-batch-w3r1-terra-instrument-tide-30-B/bus.jsonl",
+      "sha": "45643011604f4214367ee5e82be584cdaa3df675",
+      "at": "2026-11-14T09:39:37+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 91,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 30,
+      "requested": 30,
+      "turnFinishMissing": 30,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 36138,
+          "cost_usd": 0.6790075,
+          "prompt_tokens": 197117,
+          "total_cost_usd": 0.6790075,
+          "total_tokens": 233255,
+          "unknown_cost_calls": 0
+        },
+        "turns": 30,
+        "type": "stop",
+        "utc": "2026-11-14T09:48:49+00:00"
+      }
+    },
+    {
+      "path": "runs/action-40141861498-1/bus.jsonl",
+      "sha": "ea685ba3281766950d9c1825875dfd64ca8394e7",
+      "at": "2026-10-24T23:13:50+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 1,
+      "requested": 50,
+      "turnFinishMissing": 1,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 212,
+          "cost_usd": 0.00228,
+          "prompt_tokens": 80,
+          "total_tokens": 292
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-10-24T23:13:54+00:00"
+      }
+    },
+    {
+      "path": "runs/action-40142648053-1/bus.jsonl",
+      "sha": "a7a51323ca155bdfb5b67f408d5d55df62dd6a7c",
+      "at": "2026-10-24T23:25:09+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 8,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 1,
+      "requested": 50,
+      "turnFinishMissing": 1,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 520,
+          "cost_usd": 0.005984,
+          "prompt_tokens": 392,
+          "total_tokens": 912
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-10-24T23:26:33+00:00"
+      }
+    },
+    {
+      "path": "runs/action-40154079476-1/bus.jsonl",
+      "sha": "28b1513d68cbe2c04f64c087fbea003cb2c13669",
+      "at": "2026-10-25T02:20:39+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 44,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 37,
+      "requested": 100,
+      "turnFinishMissing": 37,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 8673,
+          "cost_usd": 0.4074525000000001,
+          "prompt_tokens": 165658,
+          "total_tokens": 174331
+        },
+        "turns": 37,
+        "type": "stop",
+        "utc": "2026-10-25T02:23:55+00:00"
+      }
+    },
+    {
+      "path": "runs/action-40220432520-1/bus.jsonl",
+      "sha": "f8a739c7e339c473845994b31029b8af35d0bc4d",
+      "at": "2026-10-25T18:17:30+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 1,
+      "requested": 100,
+      "turnFinishMissing": 1,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 148,
+          "cost_usd": 0.00168,
+          "prompt_tokens": 100,
+          "total_tokens": 248
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-10-25T18:17:49+00:00"
+      }
+    },
+    {
+      "path": "runs/action-42347489160-1/bus.jsonl",
+      "sha": "0ea71fa30779cc61d472f2d0a5b13913823762b0",
+      "at": "2026-11-07T06:32:52+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "requested": 4,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 1
+        },
+        "turns": 0,
+        "type": "stop",
+        "utc": "2026-11-07T06:32:52+00:00"
+      }
+    },
+    {
+      "path": "runs/action-42347964622-1/bus.jsonl",
+      "sha": "48393d1346a7d5222f51f3fd294acf8124570072",
+      "at": "2026-11-07T06:39:28+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 13,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 4,
+      "requested": 4,
+      "turnFinishMissing": 4,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 5567,
+          "cost_usd": 0.043854,
+          "prompt_tokens": 1401,
+          "total_tokens": 6968,
+          "unknown_cost_calls": 0
+        },
+        "turns": 4,
+        "type": "stop",
+        "utc": "2026-11-07T06:40:39+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6665119163/bus.jsonl",
+      "sha": "86c429cdac5e31102e039a0fadf422ac6c2ba403",
+      "at": "2026-11-05T17:49:21+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-05T17:49:21+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6665119163/circle-out/bus.jsonl",
+      "sha": "86c429cdac5e31102e039a0fadf422ac6c2ba403",
+      "at": "2026-11-05T17:49:21+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-05T17:49:21+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6675056480/bus.jsonl",
+      "sha": "e891eec3fa1f285e87492b7e288ca556b48309e0",
+      "at": "2026-11-06T02:16:25+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-06T02:16:25+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6675056480/circle-out/bus.jsonl",
+      "sha": "e891eec3fa1f285e87492b7e288ca556b48309e0",
+      "at": "2026-11-06T02:16:25+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-06T02:16:25+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6675505257/bus.jsonl",
+      "sha": "9caaf73e1ae641df299eec8bb558e09d0ac9b1be",
+      "at": "2026-11-06T02:48:45+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-06T02:48:45+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6675505257/circle-out/bus.jsonl",
+      "sha": "9caaf73e1ae641df299eec8bb558e09d0ac9b1be",
+      "at": "2026-11-06T02:48:45+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-06T02:48:45+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6701105063/bus.jsonl",
+      "sha": "f236af25bc2036a80ed17bce191eb002d1367278",
+      "at": "2026-11-07T02:36:15+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-07T02:36:15+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-6701105063/circle-out/bus.jsonl",
+      "sha": "f236af25bc2036a80ed17bce191eb002d1367278",
+      "at": "2026-11-07T02:36:15+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-07T02:36:15+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-frozen-audit-42345446534-1/bus.jsonl",
+      "sha": "ebb8330066709f1b1c566e466c747878f7354952",
+      "at": "2026-11-07T06:05:29+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 3322,
+          "cost_usd": 0.0255375,
+          "prompt_tokens": 415,
+          "total_tokens": 3737,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-07T06:05:46+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-frozen-audit-42346430906-1/bus.jsonl",
+      "sha": "84e1395288b9ce21259934106813607c6f27a5a5",
+      "at": "2026-11-07T06:18:47+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 20909,
+          "cost_usd": 0.159846,
+          "prompt_tokens": 2019,
+          "total_tokens": 22928,
+          "unknown_cost_calls": 0
+        },
+        "turns": 3,
+        "type": "stop",
+        "utc": "2026-11-07T06:21:47+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-frozen-audit-42354422375-1/bus.jsonl",
+      "sha": "501b15ce7d7005e3a0b8c75f0a83476514566e49",
+      "at": "2026-11-07T08:11:50+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 2788,
+          "cost_usd": 0.021645,
+          "prompt_tokens": 490,
+          "total_tokens": 3278,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-07T08:12:04+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-frozen-audit-42354806386-1/bus.jsonl",
+      "sha": "915ebc0dafb47b2986fb8d383ce946d71519db93",
+      "at": "2026-11-07T08:17:04+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 11050,
+          "cost_usd": 0.08524949999999999,
+          "prompt_tokens": 1583,
+          "total_tokens": 12633,
+          "unknown_cost_calls": 0
+        },
+        "turns": 3,
+        "type": "stop",
+        "utc": "2026-11-07T08:18:34+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-frozen-audit-42362447839-1/bus.jsonl",
+      "sha": "034fd924b1b041abad7c890c6b10a25cc25204e4",
+      "at": "2026-11-07T10:05:28+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 4593,
+          "cost_usd": 0.0351825,
+          "prompt_tokens": 490,
+          "total_tokens": 5083,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-07T10:05:51+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42362239585/bus.jsonl",
+      "sha": "84031564196f63f2b9f928692fae56e2b8f84d3e",
+      "at": "2026-11-07T10:02:40+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T10:02:40+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42362583354/bus.jsonl",
+      "sha": "75de061626e987f22eadafe6d7d90ef57f0fcf1b",
+      "at": "2026-11-07T10:07:25+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T10:07:25+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42362698558/bus.jsonl",
+      "sha": "a42c59ddfc339fc456cfe30224793ebdebd498bf",
+      "at": "2026-11-07T10:08:59+00:00",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "key_guard_refused",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T10:08:59+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42365515515/bus.jsonl",
+      "sha": "68cf1e2177897db66f990f7a99c718bb273344a6",
+      "at": "2026-11-07T10:48:54+00:00",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "key_guard_refused",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T10:48:54+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42367307765/bus.jsonl",
+      "sha": "97b9fd0afcf900d930c49305839ca6a6e87151c4",
+      "at": "2026-11-07T11:14:13+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 5307,
+          "cost_usd": 0.040389,
+          "prompt_tokens": 391,
+          "total_tokens": 5698,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T11:14:48+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-42367907210/bus.jsonl",
+      "sha": "4a659d9cc061387b47bfc51eeedcd1ba056b2bbc",
+      "at": "2026-11-07T11:22:30+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 750,
+          "cost_usd": 0.0004133,
+          "prompt_tokens": 383,
+          "total_tokens": 1133,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T11:22:40+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6675505257/bus.jsonl",
+      "sha": "25ef4df9ed06fe1965a9c0bfe763a3af13f6fab5",
+      "at": "2026-11-06T02:48:56+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-06T02:48:56+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6701107266/bus.jsonl",
+      "sha": "04cbdf6a4fcd2a9cd920b5039a2da7ed4046b4b0",
+      "at": "2026-11-07T02:36:28+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T02:36:28+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6701109622/bus.jsonl",
+      "sha": "e4cb343b11c0d6246a51292d92dedb4f459b9c83",
+      "at": "2026-11-07T02:36:41+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-07T02:36:41+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6834558795/bus.jsonl",
+      "sha": "aef0281be4df5ed39d9c1fb200ba37cf3f466166",
+      "at": "2026-11-12T20:04:19+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 4594,
+          "cost_usd": 0.0359025,
+          "prompt_tokens": 965,
+          "total_tokens": 5559,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-12T20:04:46+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6884846157/bus.jsonl",
+      "sha": "36426062650efe9f374cea9c29c973718e0c6d5c",
+      "at": "2026-11-14T22:00:12+00:00",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "key_guard_refused",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-14T22:00:12+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6884977330/bus.jsonl",
+      "sha": "dbd731e8aae9dc5ad409ac368b7628c6b3982bcd",
+      "at": "2026-11-14T22:11:00+00:00",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "key_guard_refused",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-14T22:11:00+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6884992686/bus.jsonl",
+      "sha": "98f638fbd7614faa17b23ae2e98d85a12aa2c460",
+      "at": "2026-11-14T22:12:11+00:00",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "key_guard_refused",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-14T22:12:11+00:00"
+      }
+    },
+    {
+      "path": "runs/circle-react-6885052554/bus.jsonl",
+      "sha": "1546b5efe6b85c38586425e830d93153fede69f7",
+      "at": "2026-11-14T22:17:03+00:00",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "accounting_status": "KNOWN",
+          "completion_tokens": 444,
+          "cost_usd": 0.005206,
+          "prompt_tokens": 383,
+          "total_cost_usd": 0.005206,
+          "total_tokens": 827,
+          "unknown_cost_calls": 0
+        },
+        "type": "stop",
+        "utc": "2026-11-14T22:17:08+00:00"
+      }
+    },
+    {
+      "path": "runs/free-calls-42717434295/bus.jsonl",
+      "sha": "9c54bd5afc4e14e915586f854614ee77553aa4a0",
+      "at": "2026-11-09T23:04:55Z",
+      "batch": "2026-11-09-gpt-family-pair-batch",
+      "cohort": "older",
+      "records": 11,
+      "resultRecords": 4,
+      "statusCounts": {
+        "error_empty_response": 1,
+        "completed": 3
+      },
+      "stopAnswers": 0,
+      "lengthResults": 4,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "completed": 3,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "reason": "partial_error",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-09T23:05:41Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42720909388/bus.jsonl",
+      "sha": "673f0181978d6b17cc2978dcfc7ec7b18256f5c9",
+      "at": "2026-11-09T23:29:57Z",
+      "batch": "luna-known-unknown-round-2-2026-11-09",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 1,
+      "statusCounts": {
+        "error_empty_response": 1
+      },
+      "stopAnswers": 0,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "completed": 0,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "reason": "all_errored",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-09T23:30:04Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42720919916/bus.jsonl",
+      "sha": "55870ea4944bd8249d4588aed9f60309e29158a2",
+      "at": "2026-11-09T23:30:16Z",
+      "batch": "terra-followup-v2-2026-11-09",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-09T23:30:40Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42737179355/bus.jsonl",
+      "sha": "3b35764b5b2f323d85f5ed8a610fd720b171de95",
+      "at": "2026-11-10T01:38:16Z",
+      "batch": "terra-experiment-designs-2026-11-10",
+      "cohort": "older",
+      "records": 9,
+      "resultRecords": 3,
+      "statusCounts": {
+        "completed": 3
+      },
+      "stopAnswers": 3,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "completed": 3,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "reason": "completed",
+        "total_calls": 3,
+        "type": "batch_stop",
+        "utc": "2026-11-10T01:38:44Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42752257023/bus.jsonl",
+      "sha": "7ac9f82fffe315d9b7c17e9ae226c8f2f768dc86",
+      "at": "2026-11-10T03:52:56Z",
+      "batch": "luna-model-participant-pilot-2026-11-10",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 6
+      },
+      "stopAnswers": 5,
+      "lengthResults": 1,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "completed": 6,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "reason": "completed",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-10T03:54:48Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42780834280/bus.jsonl",
+      "sha": "e763ea9f3f456504beffd71397fb7be125fda493",
+      "at": "2026-11-10T08:12:43Z",
+      "batch": "lens-g-terra-beyond-binary-free-sweep-2026-11-10",
+      "cohort": "older",
+      "records": 13,
+      "resultRecords": 5,
+      "statusCounts": {
+        "error_empty_response": 1,
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 5,
+        "type": "batch_stop",
+        "utc": "2026-11-10T08:13:46Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42781249148/bus.jsonl",
+      "sha": "bd9f2a66f1cf503de63c33af925e577f797bd789",
+      "at": "2026-11-10T08:15:51Z",
+      "batch": "luna-paid-critic-pair-2026-11-10",
+      "cohort": "older",
+      "records": 9,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 1,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 0,
+      "lengthResults": 2,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.014416,
+        "completed": 1,
+        "errored": 1,
+        "known_reported_cost_usd": 0.014416,
+        "paid_budget_usd": 1,
+        "reason": "partial_error",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-10T08:16:22Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42783110745/bus.jsonl",
+      "sha": "409d66b865d8702d62f7eccd4f0a9d1c7fb24b25",
+      "at": "2026-11-10T08:30:07Z",
+      "batch": "luna-backlog-a-noai-route-boundary-check-2026-11-10",
+      "cohort": "older",
+      "records": 11,
+      "resultRecords": 3,
+      "statusCounts": {
+        "completed": 1,
+        "error_http_429": 1,
+        "error_http_403": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 0,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 3,
+        "type": "batch_stop",
+        "utc": "2026-11-10T08:30:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42790996034/bus.jsonl",
+      "sha": "2447b1c437ba3ee48f7783f8d24cd388587228e5",
+      "at": "2026-11-10T09:28:31Z",
+      "batch": "terra-ontology-wave0-shakedown-2026-11-10",
+      "cohort": "older",
+      "records": 26,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 5,
+        "error_http_429": 2,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 5,
+      "lengthResults": 1,
+      "emptyResults": 3,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 5,
+        "errored": 3,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:31:39Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42792469513/bus.jsonl",
+      "sha": "75a73ec7fcbc53d58d903035ee431adfa6637ea0",
+      "at": "2026-11-10T09:39:02Z",
+      "batch": "z-spirit-shared-brief-differencing-wave0-2026-11-10",
+      "cohort": "older",
+      "records": 26,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 6,
+        "error_empty_response": 1,
+        "error_http_429": 1
+      },
+      "stopAnswers": 6,
+      "lengthResults": 1,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:42:14Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42793007156/bus.jsonl",
+      "sha": "c558d2cb42a3b2da49336000e1c942a26e0ab831",
+      "at": "2026-11-10T09:42:59Z",
+      "batch": "terra-ontology-wave1-batch2-2026-11-10",
+      "cohort": "older",
+      "records": 26,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 4,
+        "error_empty_response": 2,
+        "error_http_429": 2
+      },
+      "stopAnswers": 4,
+      "lengthResults": 2,
+      "emptyResults": 4,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 4,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:46:03Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42793946663/bus.jsonl",
+      "sha": "7572450e6853ca7c71990ed368ca25a9fb83ae89",
+      "at": "2026-11-10T09:49:41Z",
+      "batch": "terra-ontology-wave1-a-2026-11-10",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: stealth/crouton-alpha:free",
+        "total_calls": 7,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:49:41Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42794161771/bus.jsonl",
+      "sha": "681b658235456f9d8e83bd8b4fecdf820d28cd11",
+      "at": "2026-11-10T09:51:14Z",
+      "batch": "terra-ontology-wave1-a-v2-2026-11-10",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: poolside/laguna-xs-2.1:free",
+        "total_calls": 7,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:51:14Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42794390295/bus.jsonl",
+      "sha": "5d29c059f25adf99e398805a6d6ddbd3efe927dc",
+      "at": "2026-11-10T09:52:55Z",
+      "batch": "terra-ontology-wave1-a-v3-2026-11-10",
+      "cohort": "older",
+      "records": 24,
+      "resultRecords": 7,
+      "statusCounts": {
+        "completed": 2,
+        "error_empty_response": 2,
+        "error_http_429": 3
+      },
+      "stopAnswers": 2,
+      "lengthResults": 2,
+      "emptyResults": 5,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 5,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 7,
+        "type": "batch_stop",
+        "utc": "2026-11-10T09:55:09Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42853928611/bus.jsonl",
+      "sha": "1a66446de5944e6265f35cccf2616f535aa56dd2",
+      "at": "2026-11-10T16:22:53Z",
+      "batch": "terra-ontology-wave1-a-v4-2026-11-10",
+      "cohort": "older",
+      "records": 11,
+      "resultRecords": 3,
+      "statusCounts": {
+        "error_http_429": 2,
+        "completed": 1
+      },
+      "stopAnswers": 0,
+      "lengthResults": 1,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 3,
+        "type": "batch_stop",
+        "utc": "2026-11-10T16:23:25Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42854320796/bus.jsonl",
+      "sha": "706e3e29096ef67f998954d8cbe5a82dff1f6d7b",
+      "at": "2026-11-10T16:25:11Z",
+      "batch": "terra-ontology-wave1-nano-omni-probe-2026-11-10",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 1,
+      "statusCounts": {
+        "completed": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-10T16:25:29Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42861370108/bus.jsonl",
+      "sha": "d5f3bacb6b8664fb9fe1ff2e9174a05e4b64f746",
+      "at": "2026-11-10T17:05:58Z",
+      "batch": "terra-probe-a-counterexamples-2026-11-10",
+      "cohort": "older",
+      "records": 14,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:07:29Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42861434203/bus.jsonl",
+      "sha": "9bdb70ab209f408217c655cd04b6142817e41cc5",
+      "at": "2026-11-10T17:07:40Z",
+      "batch": "terra-probe-b-prompt-cue-pairs-2026-11-10",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:09:58Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42861965190/bus.jsonl",
+      "sha": "9257dd5f62098c0f0a1ee7152ed8fafc6235c80d",
+      "at": "2026-11-10T17:10:10Z",
+      "batch": "terraform-probe-a-2026-11-10",
+      "cohort": "older",
+      "records": 14,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:11:53Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42867440777/bus.jsonl",
+      "sha": "7d76515403938ece40c18f89541e92a3e2462f86",
+      "at": "2026-11-10T17:41:07Z",
+      "batch": "gpt-family-usage-ladder-b1-2026-11-10",
+      "cohort": "older",
+      "records": 18,
+      "resultRecords": 5,
+      "statusCounts": {
+        "completed": 5
+      },
+      "stopAnswers": 5,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.039773,
+        "completed": 5,
+        "errored": 0,
+        "known_reported_cost_usd": 0.039773,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 5,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:42:28Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42868377063/bus.jsonl",
+      "sha": "742c5b117048fd9513cd9c560717b7522711a57c",
+      "at": "2026-11-10T17:46:41Z",
+      "batch": "gpt-family-usage-ladder-b2-2026-11-10",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.15215,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0.15215,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:47:59Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42869252253/bus.jsonl",
+      "sha": "27b937e4e2fa117d75e329e68cfb4be6ed3e4bba",
+      "at": "2026-11-10T17:51:50Z",
+      "batch": "gpt-family-usage-ladder-b3-effort-sweep-2026-11-10",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.06353,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0.06353,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T17:54:01Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42872468891/bus.jsonl",
+      "sha": "f31058caa9fa1ba1629295f2281127dc4b353c0e",
+      "at": "2026-11-10T18:10:34Z",
+      "batch": "ladder-rep-b1-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 8
+      },
+      "stopAnswers": 8,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.028497,
+        "completed": 8,
+        "errored": 0,
+        "known_reported_cost_usd": 0.028497,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T18:12:52Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42878682709/bus.jsonl",
+      "sha": "6b5f9699fc258742100894c8d8fc7615ad4c81ae",
+      "at": "2026-11-10T18:47:11Z",
+      "batch": "ladder-rep-b1b-2026-11-10",
+      "cohort": "older",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.05019,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0.05019,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-10T18:47:39Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42878945744/bus.jsonl",
+      "sha": "ad552f0361cbd0fe70cd5e78a70eb6ac9976c388",
+      "at": "2026-11-10T18:48:46Z",
+      "batch": "ladder-rep-b2-2026-11-10",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": 1,
+        "reason": "aborted: paid worst-case $1.012944 exceeds budget $1.000000 - aborting before any call",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T18:48:46Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42879661905/bus.jsonl",
+      "sha": "1f377cf14f8601b854054a4a95463734dff04cbb",
+      "at": "2026-11-10T18:53:07Z",
+      "batch": "ladder-rep-b2-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 8
+      },
+      "stopAnswers": 8,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.282304,
+        "completed": 8,
+        "errored": 0,
+        "known_reported_cost_usd": 0.282304,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T18:55:44Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42880637958/bus.jsonl",
+      "sha": "10d020c9d1cdc1e198cda7ceae2a9ed94786b410",
+      "at": "2026-11-10T18:59:02Z",
+      "batch": "ladder-rep-b3-effort-sweep-2026-11-10",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.05126,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0.05126,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-10T19:01:04Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42881429651/bus.jsonl",
+      "sha": "fe416cdb4bd9bf80251dab207208e802d38e0e9e",
+      "at": "2026-11-10T19:03:42Z",
+      "batch": "bs-f1-free-2026-11-10",
+      "cohort": "older",
+      "records": 6,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: qwen/qwen3-coder:free",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T19:03:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42885389168/bus.jsonl",
+      "sha": "9127e89557a1c19df7c6327dbd37cc3d5ccdd4e5",
+      "at": "2026-11-10T19:27:13Z",
+      "batch": "bs-f2-free-2026-11-10",
+      "cohort": "older",
+      "records": 6,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: nousresearch/hermes-3-llama-3.1-405b:free",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T19:27:13Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42895497585/bus.jsonl",
+      "sha": "65a220cf173721ba5b87d8eb73e8e68b1c835a9e",
+      "at": "2026-11-10T20:27:49Z",
+      "batch": "bs-p1-frontier-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 7,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 7,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.257922,
+        "completed": 7,
+        "errored": 1,
+        "known_reported_cost_usd": 0.257922,
+        "paid_budget_usd": 1,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T20:32:03Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42905288743/bus.jsonl",
+      "sha": "74d4997d8440d7d04873fe9d4a4eddb949bb2951",
+      "at": "2026-11-10T21:27:57Z",
+      "batch": "bs-p2-frontier-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 4,
+        "error_empty_response": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 4,
+      "emptyResults": 4,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.091428,
+        "completed": 4,
+        "errored": 4,
+        "known_reported_cost_usd": 0.091428,
+        "paid_budget_usd": 0.5,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T21:32:56Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42909075567/bus.jsonl",
+      "sha": "6f6e8c1b4825761618a1afc3374ce6f9a7abd673",
+      "at": "2026-11-10T21:51:37Z",
+      "batch": "bs-p3-midtier-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 8
+      },
+      "stopAnswers": 8,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.080104,
+        "completed": 8,
+        "errored": 0,
+        "known_reported_cost_usd": 0.080104,
+        "paid_budget_usd": 0.5,
+        "reason": "completed",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T21:53:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-42914923473/bus.jsonl",
+      "sha": "08937c84b4940f27df6d7e67dc9b454210a45c9e",
+      "at": "2026-11-10T22:28:52Z",
+      "batch": "bs-p4-lean-2026-11-10",
+      "cohort": "older",
+      "records": 23,
+      "resultRecords": 8,
+      "statusCounts": {
+        "error_empty_response": 4,
+        "completed": 4
+      },
+      "stopAnswers": 3,
+      "lengthResults": 5,
+      "emptyResults": 4,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.014298,
+        "completed": 4,
+        "errored": 4,
+        "known_reported_cost_usd": 0.014298,
+        "paid_budget_usd": 0.5,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-10T22:33:21Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43166121314/bus.jsonl",
+      "sha": "2ef70cc9fa04bb2526ce97d0d5b61dd3d3c52c46",
+      "at": "2026-11-12T06:09:16Z",
+      "batch": "fullout-2026-11-12-b01-terra-ontology",
+      "cohort": "older",
+      "records": 94,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 27,
+        "error_empty_response": 7,
+        "error_http_429": 6
+      },
+      "stopAnswers": 23,
+      "lengthResults": 11,
+      "emptyResults": 13,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 27,
+        "errored": 13,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T06:23:15Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43167824297/bus.jsonl",
+      "sha": "4487528e8119564cbd57847fc5df9fd04b62ddcc",
+      "at": "2026-11-12T06:23:44Z",
+      "batch": "fullout-2026-11-12-b02-terra-ontology",
+      "cohort": "older",
+      "records": 94,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 28,
+        "error_http_429": 6,
+        "error_empty_response": 6
+      },
+      "stopAnswers": 26,
+      "lengthResults": 8,
+      "emptyResults": 12,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 28,
+        "errored": 12,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T06:38:16Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43170103442/bus.jsonl",
+      "sha": "f90ce7624c166148e7fa2d7a1c6faadb18269c0a",
+      "at": "2026-11-12T06:43:17Z",
+      "batch": "fullout-2026-11-12-b03-terra-ontology",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 29,
+        "error_empty_response": 10,
+        "error_http_429": 1
+      },
+      "stopAnswers": 29,
+      "lengthResults": 10,
+      "emptyResults": 11,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 29,
+        "errored": 11,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T06:58:47Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43172416877/bus.jsonl",
+      "sha": "59f39e7e0bceb361e0b0cbf3ec0edb09098ae526",
+      "at": "2026-11-12T07:03:15Z",
+      "batch": "fullout-2026-11-12-b04-terra-ontology",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 29,
+        "error_empty_response": 10,
+        "error_http_429": 1
+      },
+      "stopAnswers": 28,
+      "lengthResults": 11,
+      "emptyResults": 11,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 29,
+        "errored": 11,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T07:23:32Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43175386007/bus.jsonl",
+      "sha": "07e1f230a8339fadc3f3c38346894a55650f6039",
+      "at": "2026-11-12T07:27:26Z",
+      "batch": "fullout-2026-11-12-b05-zsb-agency",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 34,
+        "error_empty_response": 6
+      },
+      "stopAnswers": 34,
+      "lengthResults": 6,
+      "emptyResults": 6,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 34,
+        "errored": 6,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T07:40:17Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43177603477/bus.jsonl",
+      "sha": "2a2c7d88aeb0fb6967287ca0c594b3dcf5055718",
+      "at": "2026-11-12T07:45:31Z",
+      "batch": "fullout-2026-11-12-b06-zsb-agency",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 35,
+        "error_empty_response": 5
+      },
+      "stopAnswers": 35,
+      "lengthResults": 5,
+      "emptyResults": 5,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 35,
+        "errored": 5,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T07:55:33Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43179467366/bus.jsonl",
+      "sha": "61bd21ce70bc5f0383995cd930966a5a4208c454",
+      "at": "2026-11-12T08:00:39Z",
+      "batch": "fullout-2026-11-12-b07-zsb-agency",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 35,
+        "error_empty_response": 5
+      },
+      "stopAnswers": 33,
+      "lengthResults": 7,
+      "emptyResults": 5,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 35,
+        "errored": 5,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T08:15:09Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43181459329/bus.jsonl",
+      "sha": "5eee2583caa5322c4f141865a19ee22305efe407",
+      "at": "2026-11-12T08:15:35Z",
+      "batch": "fullout-2026-11-12-b08-zsb-null",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 39,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 39,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 39,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T08:26:39Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43183044450/bus.jsonl",
+      "sha": "0e1f4e1295e3ff0b03ee50aaceeb603af7142f00",
+      "at": "2026-11-12T08:27:16Z",
+      "batch": "fullout-2026-11-12-b09-zsb-null",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 36,
+        "error_empty_response": 4
+      },
+      "stopAnswers": 36,
+      "lengthResults": 4,
+      "emptyResults": 4,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 36,
+        "errored": 4,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T08:38:20Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43184788704/bus.jsonl",
+      "sha": "c652a6b7b7d9f800f9842e26648c36a75c83629c",
+      "at": "2026-11-12T08:39:53Z",
+      "batch": "fullout-2026-11-12-b10-zsb-null",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 38,
+        "error_empty_response": 2
+      },
+      "stopAnswers": 38,
+      "lengthResults": 2,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 38,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T08:52:11Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43186998661/bus.jsonl",
+      "sha": "acf49da4685bed80954ef3d08bb756f88a50da68",
+      "at": "2026-11-12T08:55:57Z",
+      "batch": "fullout-2026-11-12-b11-mixed-terra-zsb",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 32,
+        "error_empty_response": 8
+      },
+      "stopAnswers": 28,
+      "lengthResults": 12,
+      "emptyResults": 8,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 32,
+        "errored": 8,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T09:23:02Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43191125694/bus.jsonl",
+      "sha": "326f663c98a349c677086ca44ba9813fddb2a149",
+      "at": "2026-11-12T09:24:08Z",
+      "batch": "fullout-2026-11-12-b12-zsb-agency-null-mixed",
+      "cohort": "older",
+      "records": 92,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 39,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 38,
+      "lengthResults": 2,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 39,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-12T09:35:45Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43270873374/bus.jsonl",
+      "sha": "503abf00dd9fe5ff7ae3a6fa449577d6f69ad1e7",
+      "at": "2026-11-12T17:34:34Z",
+      "batch": "terra-ontology-neutral-wave2-2026-11-12",
+      "cohort": "older",
+      "records": 14,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-12T17:35:50Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43288029830/bus.jsonl",
+      "sha": "e30de7296ecb47d047c7a3f07b179cab5d6fe6ad",
+      "at": "2026-11-12T19:14:04Z",
+      "batch": "luna-island-observer-lens-a-2026-11-12",
+      "cohort": "older",
+      "records": 64,
+      "resultRecords": 30,
+      "statusCounts": {
+        "completed": 30
+      },
+      "stopAnswers": 0,
+      "lengthResults": 30,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.023895,
+        "completed": 30,
+        "errored": 0,
+        "known_reported_cost_usd": 0.023895,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 30,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:16:20Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43288925858/bus.jsonl",
+      "sha": "ffcfd099a3733536e6ac53eee73538398b060d5f",
+      "at": "2026-11-12T19:19:18Z",
+      "batch": "luna-island-observer-lens-b-2026-11-12",
+      "cohort": "older",
+      "records": 44,
+      "resultRecords": 20,
+      "statusCounts": {
+        "completed": 20
+      },
+      "stopAnswers": 0,
+      "lengthResults": 20,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.015569,
+        "completed": 20,
+        "errored": 0,
+        "known_reported_cost_usd": 0.015568,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 20,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:20:51Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43294711135/bus.jsonl",
+      "sha": "aaa863954b9b3a6f30fcd62c14bf9a4d411d4de9",
+      "at": "2026-11-12T19:53:17Z",
+      "batch": "luna-island-crystal-memory-carryover-ab-free-2026-11-12",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 0,
+      "lengthResults": 2,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:53:36Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43294970132/bus.jsonl",
+      "sha": "59c743388b7fe4060f12067de2a5430f82847fa8",
+      "at": "2026-11-12T19:54:47Z",
+      "batch": "luna-island-crystal-memory-carryover-ab-free-2026-11-12",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "error_empty_response": 2
+      },
+      "stopAnswers": 0,
+      "lengthResults": 2,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "all_errored",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:55:15Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43295351822/bus.jsonl",
+      "sha": "6006ce94b5be8f4f10e6205b18e4ba971345dfb1",
+      "at": "2026-11-12T19:57:05Z",
+      "batch": "z-spirit-shared-brief-differencing-wave2-2026-11-12",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: xingchen-agi/xing4.0-29b-a4b:free",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-12T19:57:06Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43295771067/bus.jsonl",
+      "sha": "2ea49a5bd3833e54f8ccfeac10cc33597cc388b0",
+      "at": "2026-11-12T19:59:40Z",
+      "batch": "z-spirit-shared-brief-differencing-wave2-2026-11-12",
+      "cohort": "older",
+      "records": 26,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 6,
+        "error_empty_response": 1,
+        "error_http_429": 1
+      },
+      "stopAnswers": 6,
+      "lengthResults": 1,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-12T20:02:24Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43300972454/bus.jsonl",
+      "sha": "d343ed83d68d272ee68aca09477d1f946708ab01",
+      "at": "2026-11-12T20:30:32Z",
+      "batch": "z-spirit-shared-brief-differencing-null-control-2026-11-12",
+      "cohort": "older",
+      "records": 26,
+      "resultRecords": 8,
+      "statusCounts": {
+        "completed": 7,
+        "error_http_429": 1
+      },
+      "stopAnswers": 7,
+      "lengthResults": 0,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 7,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 8,
+        "type": "batch_stop",
+        "utc": "2026-11-12T20:32:35Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43304184451/bus.jsonl",
+      "sha": "c4b5ad0a41c107ac59a8e04e09027b8a0d8233a5",
+      "at": "2026-11-12T20:50:05Z",
+      "batch": "meraki-luna-island-length-calibration-2026-11-12",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 0,
+      "lengthResults": 4,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0.007152,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0.007152,
+        "paid_budget_usd": 1,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-12T20:50:29Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43305143529/bus.jsonl",
+      "sha": "cd6de465223e8d139d61e185957d7494748a1749",
+      "at": "2026-11-12T20:55:55Z",
+      "batch": "z-observer-recovery-or-reviewer-free-2026-11-12",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-12T20:56:56Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43332133399/bus.jsonl",
+      "sha": "5819f612c4016dd76502c4d836d56dcae62e9f98",
+      "at": "2026-11-12T23:50:08Z",
+      "batch": "z-500-ladder-probe-1-2026-11-12",
+      "cohort": "older",
+      "records": 50,
+      "resultRecords": 19,
+      "statusCounts": {
+        "completed": 17,
+        "error_http_429": 2
+      },
+      "stopAnswers": 17,
+      "lengthResults": 0,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 17,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 19,
+        "type": "batch_stop",
+        "utc": "2026-11-12T23:51:55Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43333011048/bus.jsonl",
+      "sha": "60e9bc2c82315ede5fd621cedb64a2d808a365b8",
+      "at": "2026-11-12T23:56:38Z",
+      "batch": "z-spirit-shared-brief-differencing-wave3-ultra-2026-11-13",
+      "cohort": "older",
+      "records": 83,
+      "resultRecords": 40,
+      "statusCounts": {
+        "completed": 40
+      },
+      "stopAnswers": 40,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 40,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 40,
+        "type": "batch_stop",
+        "utc": "2026-11-13T00:08:16Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43333140216/bus.jsonl",
+      "sha": "f512aa845decb928fee44e027fbf97ac09afbb1d",
+      "at": "2026-11-13T00:08:26Z",
+      "batch": "z-spirit-shared-brief-differencing-wave3-lightning-2026-11-13",
+      "cohort": "older",
+      "records": 55,
+      "resultRecords": 26,
+      "statusCounts": {
+        "error_empty_response": 16,
+        "completed": 8,
+        "error": 2
+      },
+      "stopAnswers": 6,
+      "lengthResults": 18,
+      "emptyResults": 18,
+      "turns": 0,
+      "turnFinishMissing": 0
+    },
+    {
+      "path": "runs/free-calls-43338356264/bus.jsonl",
+      "sha": "1bd34cf65b159f60ee74a3fa585e95435f268c79",
+      "at": "2026-11-13T00:38:46Z",
+      "batch": "z-games-takes-bus-driver-audition-2026-11-13",
+      "cohort": "older",
+      "records": 41,
+      "resultRecords": 13,
+      "statusCounts": {
+        "completed": 9,
+        "error_empty_response": 4
+      },
+      "stopAnswers": 8,
+      "lengthResults": 5,
+      "emptyResults": 4,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 9,
+        "errored": 4,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 13,
+        "type": "batch_stop",
+        "utc": "2026-11-13T00:44:32Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43354437785/bus.jsonl",
+      "sha": "5530d401e64f0a0e87b417cb5f9e7859a784cd07",
+      "at": "2026-11-13T02:46:17Z",
+      "batch": "z-games-null-control-2026-11-13",
+      "cohort": "older",
+      "records": 29,
+      "resultRecords": 9,
+      "statusCounts": {
+        "completed": 8,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 8,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 8,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 9,
+        "type": "batch_stop",
+        "utc": "2026-11-13T02:50:35Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43354452348/bus.jsonl",
+      "sha": "861767fee44976b580181f1726223bb74b4a93ac",
+      "at": "2026-11-13T02:50:47Z",
+      "batch": "z-games-doctrine-ablation-2026-11-13",
+      "cohort": "older",
+      "records": 29,
+      "resultRecords": 9,
+      "statusCounts": {
+        "completed": 8,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 8,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 8,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 9,
+        "type": "batch_stop",
+        "utc": "2026-11-13T02:54:56Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43369026864/bus.jsonl",
+      "sha": "a2834ccaac6b6bd6499223f55730cf39a511c694",
+      "at": "2026-11-13T04:59:34Z",
+      "batch": "z-ledger-exam-thirteen-model-2026-11-13",
+      "cohort": "older",
+      "records": 41,
+      "resultRecords": 13,
+      "statusCounts": {
+        "completed": 11,
+        "error_empty_response": 2
+      },
+      "stopAnswers": 11,
+      "lengthResults": 2,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 11,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 13,
+        "type": "batch_stop",
+        "utc": "2026-11-13T05:05:34Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43369164208/bus.jsonl",
+      "sha": "bc46096396e388dd128360ad99cbfaea42c6b4a6",
+      "at": "2026-11-13T05:05:44Z",
+      "batch": "z-ledger-exam-null-control-thirteen-model-2026-11-13",
+      "cohort": "older",
+      "records": 41,
+      "resultRecords": 13,
+      "statusCounts": {
+        "completed": 8,
+        "error_empty_response": 5
+      },
+      "stopAnswers": 8,
+      "lengthResults": 4,
+      "emptyResults": 5,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 8,
+        "errored": 5,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 13,
+        "type": "batch_stop",
+        "utc": "2026-11-13T05:11:32Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43476936140/bus.jsonl",
+      "sha": "ad5d05e5aae9500813343bf70ec68ca50787ec5a",
+      "at": "2026-11-13T17:51:36Z",
+      "batch": "meraki-evidence-and-firstlook-smoke-2026-11-12",
+      "cohort": "older",
+      "records": 52,
+      "resultRecords": 24,
+      "statusCounts": {
+        "completed": 23,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 23,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 23,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 24,
+        "type": "batch_stop",
+        "utc": "2026-11-13T17:55:39Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43481513242/bus.jsonl",
+      "sha": "f6e8ec0458b7dda96064da8fc6c5992a7d7f006d",
+      "at": "2026-11-13T18:19:32Z",
+      "batch": "luna-island-crystal-memory-carryover-delivery-v2-2026-11-13",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-13T18:20:11Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43483013878/bus.jsonl",
+      "sha": "fff265f5236038bb8d03c26bea53273c9dc0b2b9",
+      "at": "2026-11-13T18:28:51Z",
+      "batch": "terra-arrangement-provenance-pilot-30-2026-11-13",
+      "cohort": "older",
+      "records": 64,
+      "resultRecords": 30,
+      "statusCounts": {
+        "completed": 30
+      },
+      "stopAnswers": 30,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 30,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 30,
+        "type": "batch_stop",
+        "utc": "2026-11-13T18:40:24Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43485445180/bus.jsonl",
+      "sha": "86888ed7a4f9c04046f78e46fdd814371f04efbd",
+      "at": "2026-11-13T18:43:56Z",
+      "batch": "terra-arrangement-270-pilot-s1p1-repair-route_a-2026-11-13",
+      "cohort": "older",
+      "records": 33,
+      "resultRecords": 15,
+      "statusCounts": {
+        "completed": 15
+      },
+      "stopAnswers": 15,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 15,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 15,
+        "type": "batch_stop",
+        "utc": "2026-11-13T18:51:29Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43485456993/bus.jsonl",
+      "sha": "1a85b6e25f0e71b96fc2bf8277acb55293749977",
+      "at": "2026-11-13T18:51:38Z",
+      "batch": "terra-arrangement-270-pilot-s1p1-repair-route_b-2026-11-13",
+      "cohort": "older",
+      "records": 33,
+      "resultRecords": 15,
+      "statusCounts": {
+        "completed": 15
+      },
+      "stopAnswers": 15,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 15,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 15,
+        "type": "batch_stop",
+        "utc": "2026-11-13T18:54:43Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43576083032/bus.jsonl",
+      "sha": "bc2217669abbdaeab1955399e0e1e8c11bc3ae73",
+      "at": "2026-11-14T08:29:53Z",
+      "batch": "island-1-vocab-paraphrase-2026-11-14",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: liquid/lfm-2.5-2.6b:free",
+        "total_calls": 26,
+        "type": "batch_stop",
+        "utc": "2026-11-14T08:29:53Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43576087215/bus.jsonl",
+      "sha": "2ecfcfedd15437d7731e62cc40a1c7a7789e8bed",
+      "at": "2026-11-14T08:30:04Z",
+      "batch": "island-2-receipt-vs-narrative-2026-11-14",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: liquid/lfm-2.5-2.6b:free",
+        "total_calls": 26,
+        "type": "batch_stop",
+        "utc": "2026-11-14T08:30:04Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43578095977/bus.jsonl",
+      "sha": "15df757cd6a2eb56c104b6f52c5f017c2de21d3f",
+      "at": "2026-11-14T08:55:45Z",
+      "batch": "island-1-vocab-paraphrase-2026-11-14-v2",
+      "cohort": "older",
+      "records": 14,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: apodex/apodex-1.1-mini:free",
+        "total_calls": 24,
+        "type": "batch_stop",
+        "utc": "2026-11-14T08:55:45Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43578101140/bus.jsonl",
+      "sha": "5de95e06771f19af809617838fa5abc02208777a",
+      "at": "2026-11-14T08:55:54Z",
+      "batch": "island-2-receipt-vs-narrative-2026-11-14-v2",
+      "cohort": "older",
+      "records": 14,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: apodex/apodex-1.1-mini:free",
+        "total_calls": 24,
+        "type": "batch_stop",
+        "utc": "2026-11-14T08:55:54Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43578572728/bus.jsonl",
+      "sha": "afbfe27c6bfd64310f803f1866eb8169332a1e99",
+      "at": "2026-11-14T09:01:56Z",
+      "batch": "island-1-vocab-paraphrase-2026-11-14-v3",
+      "cohort": "older",
+      "records": 57,
+      "resultRecords": 22,
+      "statusCounts": {
+        "completed": 13,
+        "error_empty_response": 9
+      },
+      "stopAnswers": 13,
+      "lengthResults": 8,
+      "emptyResults": 9,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 13,
+        "errored": 9,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 22,
+        "type": "batch_stop",
+        "utc": "2026-11-14T09:10:12Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43578578235/bus.jsonl",
+      "sha": "016f7a1536f5e25b8f077f9478fb4fdce3e03ac9",
+      "at": "2026-11-14T09:10:29Z",
+      "batch": "island-2-receipt-vs-narrative-2026-11-14-v3",
+      "cohort": "older",
+      "records": 57,
+      "resultRecords": 22,
+      "statusCounts": {
+        "completed": 21,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 21,
+      "lengthResults": 0,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 21,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 22,
+        "type": "batch_stop",
+        "utc": "2026-11-14T09:14:54Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43582762570/bus.jsonl",
+      "sha": "cb792d6df7107aa68342bf5c8d4fc250996dcd18",
+      "at": "2026-11-14T09:54:53Z",
+      "batch": "terra-observation-inference-v1-chunk1-ultra",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 6
+      },
+      "stopAnswers": 6,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-14T09:55:47Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43582781227/bus.jsonl",
+      "sha": "3f2c5ce95c90bffecbcf4a727459723ddb6ba20b",
+      "at": "2026-11-14T09:56:05Z",
+      "batch": "terra-centering-v1-chunk1-ultra-marks",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 6
+      },
+      "stopAnswers": 6,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-14T09:57:28Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43618265790/bus.jsonl",
+      "sha": "c10e21978970d60c995d23f2d54567d2a1b7f1e7",
+      "at": "2026-11-14T16:55:47Z",
+      "batch": "terra-boundary-meaning-v1-chunk1",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 6
+      },
+      "stopAnswers": 6,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-14T16:57:26Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43622655870/bus.jsonl",
+      "sha": "030f0daf15222c0b9d27f85981875e06a46557f0",
+      "at": "2026-11-14T17:43:40Z",
+      "batch": "terra-observation-inference-v1-chunk2-north",
+      "cohort": "older",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 6
+      },
+      "stopAnswers": 6,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 6,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-14T17:44:14Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43627425234/bus.jsonl",
+      "sha": "d456b35e3a256b541a764682f744a00e4d081d36",
+      "at": "2026-11-14T18:35:18Z",
+      "batch": "gemini-g1-lite-bus-comprehension-2026-11-14",
+      "cohort": "older",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: non-zero price but spec has no paid budget block: google/gemini-3.8-flash",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-14T18:35:18Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43627577916/bus.jsonl",
+      "sha": "7822b68a29dd312194ef2e67cb5670bbab907567",
+      "at": "2026-11-14T18:37:03Z",
+      "batch": "gemini-g1-lite-bus-comprehension-2026-11-14-v2",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "error_http_429": 2
+      },
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "all_errored",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-14T18:37:05Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43627642330/bus.jsonl",
+      "sha": "b7181281755e9297855cd7883d02737c2ac7b1bb",
+      "at": "2026-11-14T18:37:39Z",
+      "batch": "gemini-g1-lite-bus-comprehension-2026-11-14-v3",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "error_http_429": 2
+      },
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "all_errored",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-14T18:37:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43647904713/bus.jsonl",
+      "sha": "3f0b6b480cb20fd757763c5a9a87e768932826e0",
+      "at": "2026-11-14T22:24:16Z",
+      "batch": "terra-boundary-voice-r1-proposed-not-fire",
+      "cohort": "older",
+      "records": 17,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 4,
+        "error_empty_response": 2
+      },
+      "stopAnswers": 4,
+      "lengthResults": 2,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-14T22:26:29Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43656492600/bus.jsonl",
+      "sha": "485af5d2ce6b6b5583407bcf63873cd208e66880",
+      "at": "2026-11-15T00:06:17Z",
+      "batch": "much-ado-critic-r1-proposed-not-fire",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-15T00:08:48Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43667213538/bus.jsonl",
+      "sha": "e5687decf7b4a5c860f45a0da09937dfcc08de3c",
+      "at": "2026-11-15T02:19:18Z",
+      "batch": "critic-staleness-r2-proposed-not-fire",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 3,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 3,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 3,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-15T02:19:49Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43667443704/bus.jsonl",
+      "sha": "dc64579979b7a070233e699e8404bacf8b4c387b",
+      "at": "2026-11-15T02:22:06Z",
+      "batch": "luna-support-terra-boundary-voice-r2-from-r1-2026-11-15",
+      "cohort": "older",
+      "records": 12,
+      "resultRecords": 4,
+      "statusCounts": {
+        "completed": 4
+      },
+      "stopAnswers": 4,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 4,
+        "type": "batch_stop",
+        "utc": "2026-11-15T02:24:27Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43670861854/bus.jsonl",
+      "sha": "6aca47152dd537ee6d7e6266255f8240be5e3adc",
+      "at": "2026-11-15T03:06:58Z",
+      "batch": "terra-primitives-expanded-r1-chunk1",
+      "cohort": "older",
+      "records": 27,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 12
+      },
+      "stopAnswers": 12,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 12,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-15T03:10:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43922188127/bus.jsonl",
+      "sha": "26388821235865480346c953eecb2fabfd34f79e",
+      "at": "2026-11-16T17:48:24Z",
+      "batch": "terra-primitives-expanded-r1-chunk2",
+      "cohort": "Nov16_PT",
+      "records": 28,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 11,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 11,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 11,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T17:51:43Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43923793841/bus.jsonl",
+      "sha": "18dd46e277beea46863339e080c9a02ace5a58be",
+      "at": "2026-11-16T17:57:43Z",
+      "batch": "terra-boundary-geometry-r1-chunk1",
+      "cohort": "Nov16_PT",
+      "records": 27,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 12
+      },
+      "stopAnswers": 12,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 12,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T18:21:56Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43940837354/bus.jsonl",
+      "sha": "98b6116ad4e8828b3dbe03b4b286d61af16776c5",
+      "at": "2026-11-16T19:35:09Z",
+      "batch": "headline-nudge-harvest-r1",
+      "cohort": "Nov16_PT",
+      "records": 27,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 12
+      },
+      "stopAnswers": 12,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 12,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T19:37:35Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43951842594/bus.jsonl",
+      "sha": "ada08430ac46cb654b8d79191601d1833a655c0d",
+      "at": "2026-11-16T20:38:23Z",
+      "batch": "cake-island-bite-r1",
+      "cohort": "Nov16_PT",
+      "records": 3,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "aborted: model not in live catalog: google/gemini-3.7-flash:free",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-16T20:38:23Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43951949614/bus.jsonl",
+      "sha": "5fb8e0a9d09b457d19fbbeab6f9e4bd6aa12ccb2",
+      "at": "2026-11-16T20:39:01Z",
+      "batch": "cake-island-bite-r2",
+      "cohort": "Nov16_PT",
+      "records": 5,
+      "resultRecords": 1,
+      "statusCounts": {
+        "completed": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-16T20:39:11Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43966445685/bus.jsonl",
+      "sha": "38bc9bd5f59a3f68a6177bba6e493f3b4d5093c2",
+      "at": "2026-11-16T22:04:43Z",
+      "batch": "cake-walk-turn2-plus-replication-r1",
+      "cohort": "Nov16_PT",
+      "records": 13,
+      "resultRecords": 5,
+      "statusCounts": {
+        "completed": 5
+      },
+      "stopAnswers": 5,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 5,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 5,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:05:15Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43966510386/bus.jsonl",
+      "sha": "d22a3c73e31c66e4da3bdf1877ccd73e267adae8",
+      "at": "2026-11-16T22:05:28Z",
+      "batch": "terra-boundary-geometry-r1-chunk2",
+      "cohort": "Nov16_PT",
+      "records": 28,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 11,
+        "error": 1
+      },
+      "stopAnswers": 11,
+      "lengthResults": 0,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 11,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:09:48Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43972039586/bus.jsonl",
+      "sha": "5bfd855cd2ac8766bbf1395243cd3ab3db6d9784",
+      "at": "2026-11-16T22:38:51Z",
+      "batch": "terra-boundary-geometry-r1-chunk2",
+      "cohort": "Nov16_PT",
+      "records": 28,
+      "resultRecords": 12,
+      "statusCounts": {
+        "completed": 12
+      },
+      "stopAnswers": 8,
+      "lengthResults": 4,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 12,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:43:00Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43972971021/bus.jsonl",
+      "sha": "a981f5ba723616c834800b7ad9b29a9e255579b8",
+      "at": "2026-11-16T22:44:56Z",
+      "batch": "witness-e3-shortcut-island-pairs-t1-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 28,
+      "resultRecords": 12,
+      "statusCounts": {
+        "error_empty_response": 1,
+        "completed": 11
+      },
+      "stopAnswers": 10,
+      "lengthResults": 2,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 11,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 12,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:46:42Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43973390665/bus.jsonl",
+      "sha": "43ca9a87b6c2b7bfd42206d3f7e1a1dc7844e8d7",
+      "at": "2026-11-16T22:47:36Z",
+      "batch": "island-pairs-t2-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:47:45Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43973575552/bus.jsonl",
+      "sha": "9900a04f5a59bb95bdc9d03a8c812d2204a3d851",
+      "at": "2026-11-16T22:48:48Z",
+      "batch": "island-pairs-t3-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:49:00Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43973697235/bus.jsonl",
+      "sha": "ac5dc2b5c1e8decbb7e0503196a9c8e86f0f1f4f",
+      "at": "2026-11-16T22:49:38Z",
+      "batch": "island-pairs-t4-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 1,
+      "lengthResults": 1,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T22:49:48Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43981053037/bus.jsonl",
+      "sha": "6e2a3a57267d159bad4ae63d222d622682878535",
+      "at": "2026-11-16T23:38:53Z",
+      "batch": "island-pairs-dev-t5-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 0,
+      "lengthResults": 2,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:39:14Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43981585619/bus.jsonl",
+      "sha": "9e09d2974a142d2fb7439ca9a5f1eb1aa09a2bcc",
+      "at": "2026-11-16T23:42:32Z",
+      "batch": "island-pairs-dev-t6-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:42:50Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43983482323/bus.jsonl",
+      "sha": "45a0c64f789d64d1cb27a5178219ba428ba43e3d",
+      "at": "2026-11-16T23:56:16Z",
+      "batch": "island-pairs-skunkworks-shipwreck-t7-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:56:39Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43983629719/bus.jsonl",
+      "sha": "0444b9acc8a8c9aa2d27144b4e0605131992845b",
+      "at": "2026-11-16T23:57:23Z",
+      "batch": "island-pairs-cb-high-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:57:31Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43983714432/bus.jsonl",
+      "sha": "aacb7af398b1f3718e4daa388caaf1aeb064cac0",
+      "at": "2026-11-16T23:58:03Z",
+      "batch": "island-pairs-cb-mid-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 1,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:58:12Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43983810249/bus.jsonl",
+      "sha": "ce69c2e4d52eb7a94db8dd5f0fb10065166f313b",
+      "at": "2026-11-16T23:58:47Z",
+      "batch": "island-pairs-cb-low-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 7,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 1,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-16T23:58:56Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43984747027/bus.jsonl",
+      "sha": "5beab153428f064d218192c41513501eca848059",
+      "at": "2026-11-17T00:05:29Z",
+      "batch": "island-pairs-cb-mid-rerun-1200-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 5,
+      "resultRecords": 1,
+      "statusCounts": {
+        "completed": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-17T00:05:33Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43984871297/bus.jsonl",
+      "sha": "d0e4030d44aec00e79b437634812479ccec7c58f",
+      "at": "2026-11-17T00:06:21Z",
+      "batch": "island-pairs-cb-low-rerun-1200-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 5,
+      "resultRecords": 1,
+      "statusCounts": {
+        "error_http_429": 1
+      },
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "all_errored",
+        "total_calls": 1,
+        "type": "batch_stop",
+        "utc": "2026-11-17T00:06:22Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43994010494/bus.jsonl",
+      "sha": "a94e1bad6427b844c247895249664e3e4881be7f",
+      "at": "2026-11-17T01:14:22Z",
+      "batch": "island-pairs-mismatch1-t1-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:14:32Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43994095948/bus.jsonl",
+      "sha": "5331b44a3421ed3d1d4cacff13255a074d7c8001",
+      "at": "2026-11-17T01:15:01Z",
+      "batch": "island-pairs-mismatch1-t2-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:15:15Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43994190896/bus.jsonl",
+      "sha": "f84cbb312b4caa4af50e89d0a6aedcd474996a0f",
+      "at": "2026-11-17T01:15:43Z",
+      "batch": "island-pairs-mismatch1-t3-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:16:01Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43994310876/bus.jsonl",
+      "sha": "77aa6bc26d71bcc4f2224996a736006add2bbf6e",
+      "at": "2026-11-17T01:16:35Z",
+      "batch": "island-pairs-mismatch1-t4-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:17:22Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43997120183/bus.jsonl",
+      "sha": "d963625cde429267588a611251f98e05e7651dd8",
+      "at": "2026-11-17T01:38:47Z",
+      "batch": "island-pairs-castle1-t5-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:39:01Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43997948016/bus.jsonl",
+      "sha": "7c9e2dca081573d70d24c52e7dfd1cbb8368b21f",
+      "at": "2026-11-17T01:45:20Z",
+      "batch": "island-pairs-identity-label-1-2026-11-17",
+      "cohort": "Nov16_PT",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "error_empty_response": 6
+      },
+      "stopAnswers": 0,
+      "lengthResults": 6,
+      "emptyResults": 6,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 0,
+        "errored": 6,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "all_errored",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:45:44Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43998250334/bus.jsonl",
+      "sha": "6a913716177835cb753520c486dd662d870d5654",
+      "at": "2026-11-17T01:47:53Z",
+      "batch": "island-pairs-identity-label-1-cap-diagnostic-2026-11-17",
+      "cohort": "Nov16_PT",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 4,
+        "error_empty_response": 2
+      },
+      "stopAnswers": 4,
+      "lengthResults": 2,
+      "emptyResults": 2,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 4,
+        "errored": 2,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:48:21Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43998516680/bus.jsonl",
+      "sha": "cb37a053fe0003b12375fb7f8da1645319a7c6f2",
+      "at": "2026-11-17T01:50:09Z",
+      "batch": "island-pairs-next-speaker-label-1-2026-11-17",
+      "cohort": "Nov16_PT",
+      "records": 15,
+      "resultRecords": 6,
+      "statusCounts": {
+        "completed": 5,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 5,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 5,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 6,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:50:37Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-43999367571/bus.jsonl",
+      "sha": "bf43bb013657745dd0e50bc472ff8b6ce477c1cf",
+      "at": "2026-11-17T01:57:07Z",
+      "batch": "island-pairs-castle2-t6-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T01:57:25Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44000079227/bus.jsonl",
+      "sha": "bbf671b311b7eaef7fd16e36f1b6cbaa2adcca95",
+      "at": "2026-11-17T02:02:59Z",
+      "batch": "island-pairs-castle3-t7-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 1,
+        "error_empty_response": 1
+      },
+      "stopAnswers": 1,
+      "lengthResults": 1,
+      "emptyResults": 1,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 1,
+        "errored": 1,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "partial_error",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:03:15Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44001218644/bus.jsonl",
+      "sha": "a28c70eb0fcfc51d563218ba716b04deb411ae91",
+      "at": "2026-11-17T02:12:13Z",
+      "batch": "island-pairs-castle4-t8-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:12:32Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44001791721/bus.jsonl",
+      "sha": "100de6dcc253bd0c80662ebd795ee819138f99b2",
+      "at": "2026-11-17T02:16:49Z",
+      "batch": "island-pairs-castle5-t9-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:17:10Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44001839922/bus.jsonl",
+      "sha": "af896ba728f5208bcf3ea6fece2237088b7d8237",
+      "at": "2026-11-17T02:17:20Z",
+      "batch": "island-pairs-castle5-t9-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:17:37Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44001985352/bus.jsonl",
+      "sha": "d3503bc0091a62cd459652ce71d28dc9c95f6519",
+      "at": "2026-11-17T02:18:36Z",
+      "batch": "island-pairs-castle6-t10-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:18:50Z"
+      }
+    },
+    {
+      "path": "runs/free-calls-44004205701/bus.jsonl",
+      "sha": "74545d3b838e5c3e9787d0d1f746c1eb916b153b",
+      "at": "2026-11-17T02:36:16Z",
+      "batch": "island-pairs-stillness1-t11-2026-11-16",
+      "cohort": "Nov16_PT",
+      "records": 8,
+      "resultRecords": 2,
+      "statusCounts": {
+        "completed": 2
+      },
+      "stopAnswers": 2,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "actual_paid_usd": 0,
+        "completed": 2,
+        "errored": 0,
+        "known_reported_cost_usd": 0,
+        "paid_budget_usd": null,
+        "reason": "completed",
+        "total_calls": 2,
+        "type": "batch_stop",
+        "utc": "2026-11-17T02:36:33Z"
+      }
+    },
+    {
+      "path": "runs/z-desk-40220220774-1/bus.jsonl",
+      "sha": "8511d65c05b7eea87ca85afd68277f8285af1fc7",
+      "at": "2026-10-25T18:14:53+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 5,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 425,
+          "cost_usd": 0.004143,
+          "prompt_tokens": 297,
+          "total_tokens": 722
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-10-25T18:15:00+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-40225888200-1/bus.jsonl",
+      "sha": "012f9ab62fd63773f2a7126ea65a10878ccfe2e6",
+      "at": "2026-10-25T19:25:52+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 244,
+          "cost_usd": 0.002684,
+          "prompt_tokens": 122,
+          "total_tokens": 366
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-10-25T19:26:06+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41505052609-1/bus.jsonl",
+      "sha": "11ea73f403e20e6522ec8f04b70bf9146103e986",
+      "at": "2026-11-02T18:55:15+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 2111,
+          "cost_usd": 0.018831,
+          "prompt_tokens": 1002,
+          "total_tokens": 3113,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-02T18:55:41+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41509460299-1/bus.jsonl",
+      "sha": "8484531d2b50a13689a44e755761721eb562f2dd",
+      "at": "2026-11-02T19:23:39+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 1148,
+          "cost_usd": 0.010077000000000001,
+          "prompt_tokens": 510,
+          "total_tokens": 1658,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-02T19:23:57+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41509741842-1/bus.jsonl",
+      "sha": "348ed353c719568cdaddf8b85ee696045252b2ab",
+      "at": "2026-11-02T19:25:14+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 1877,
+          "cost_usd": 0.0156345,
+          "prompt_tokens": 510,
+          "total_tokens": 2387,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-02T19:25:38+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41511687121-1/bus.jsonl",
+      "sha": "c2596f82e079971b20f0061fd146985e9f700af2",
+      "at": "2026-11-02T19:37:44+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 2179,
+          "cost_usd": 0.0178495,
+          "prompt_tokens": 566,
+          "total_tokens": 2745,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-02T19:38:13+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41512450579-1/bus.jsonl",
+      "sha": "3257224147a3861c0011f688c373c15e9a5c7162",
+      "at": "2026-11-02T19:42:42+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 1483,
+          "cost_usd": 0.012553,
+          "prompt_tokens": 455,
+          "total_tokens": 1938,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-02T19:43:01+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41513344063-1/bus.jsonl",
+      "sha": "651fc0ba5baff2ca640720b82e750cfd90f14245",
+      "at": "2026-11-02T19:48:32+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 4471,
+          "cost_usd": 0.035389,
+          "prompt_tokens": 473,
+          "total_tokens": 4944,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-02T19:49:22+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41515254395-1/bus.jsonl",
+      "sha": "b376d19a45b1aee19c6359ab23883a069c1f0e52",
+      "at": "2026-11-02T20:01:02+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 4431,
+          "cost_usd": 0.034869000000000004,
+          "prompt_tokens": 473,
+          "total_tokens": 4904,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-02T20:01:55+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-41515989287-1/bus.jsonl",
+      "sha": "c9e4fe0280793a02cfe17a43430a732b94b69baf",
+      "at": "2026-11-02T20:05:39+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 4440,
+          "cost_usd": 0.0349275,
+          "prompt_tokens": 455,
+          "total_tokens": 4895,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-02T20:06:29+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-42343403085-1/bus.jsonl",
+      "sha": "2dc5fc0d17b35b19c9946b8a5771d2e7b3b75c2b",
+      "at": "2026-11-07T05:35:52+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 498,
+          "cost_usd": 0.0046505,
+          "prompt_tokens": 307,
+          "total_tokens": 805,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-07T05:36:03+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41682164668-1/bus.jsonl",
+      "sha": "98bdb8976ca94da81a8a75a69fc065b4dc7c9863",
+      "at": "2026-11-03T17:13:58+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 6,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-03T17:13:58+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41687271557-1/bus.jsonl",
+      "sha": "689660a5d612aeaebd9f335ae7c7a152eaf9cf32",
+      "at": "2026-11-03T17:45:37+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 5370,
+          "cost_usd": 0.040809,
+          "prompt_tokens": 356,
+          "total_tokens": 5726,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-03T17:46:11+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41687271557-2/bus.jsonl",
+      "sha": "e703e13e3a85867688bfa7978237b0b54c85ce1c",
+      "at": "2026-11-03T17:46:11+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 5984,
+          "cost_usd": 0.046641,
+          "prompt_tokens": 497,
+          "total_tokens": 6481,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-03T17:47:17+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41687271557-3/bus.jsonl",
+      "sha": "3b32b816473793d11f424fd4e7c6661db56503c7",
+      "at": "2026-11-03T17:47:18+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 3917,
+          "cost_usd": 0.031146,
+          "prompt_tokens": 497,
+          "total_tokens": 4414,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-03T17:48:02+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41688420089-1/bus.jsonl",
+      "sha": "9e2e23fa8a485bf96acdcef77efdbb633b7b1d0a",
+      "at": "2026-11-03T17:53:01+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 1367,
+          "cost_usd": 0.012116,
+          "prompt_tokens": 497,
+          "total_tokens": 1864,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-03T17:53:19+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41700028376-1/bus.jsonl",
+      "sha": "25e0b7e2abfde6c3c943fe5c7b24b9ad9846fab4",
+      "at": "2026-11-03T19:07:06+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 10,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 44017,
+          "cost_usd": 0.3774075,
+          "prompt_tokens": 26236,
+          "total_tokens": 70253,
+          "unknown_cost_calls": 0
+        },
+        "turns": 3,
+        "type": "stop",
+        "utc": "2026-11-03T19:14:00+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41915026654-1/bus.jsonl",
+      "sha": "9b5e12b73913c83f8589926135ff1fbe61728adf",
+      "at": "2026-11-04T21:19:48+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 17909,
+          "cost_usd": 0.1362915,
+          "prompt_tokens": 1316,
+          "total_tokens": 19225,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-04T21:21:19+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41915026654-2/bus.jsonl",
+      "sha": "e4a5c4228a241b8ff373a78486795eeb5f8d80e5",
+      "at": "2026-11-04T21:21:19+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 4881,
+          "cost_usd": 0.040546,
+          "prompt_tokens": 807,
+          "total_tokens": 5688,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-04T21:22:14+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41990048367-2/bus.jsonl",
+      "sha": "546b9f7430eae82a89717174963593da0423f2b3",
+      "at": "2026-11-05T07:50:35+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 2254,
+          "cost_usd": 0.0193575,
+          "prompt_tokens": 823,
+          "total_tokens": 3077,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-05T07:51:01+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41990048367-3/bus.jsonl",
+      "sha": "81f8d7bbcf6376d76adebe8810073f5aabbd5cd3",
+      "at": "2026-11-05T07:51:01+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 1172,
+          "cost_usd": 0.0103485,
+          "prompt_tokens": 540,
+          "total_tokens": 1712,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-05T07:51:17+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41990048367-5/bus.jsonl",
+      "sha": "13480e6bf0062085aa3687f55ccba012a39ccd07",
+      "at": "2026-11-05T07:51:17+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 7446,
+          "cost_usd": 0.07708699999999999,
+          "prompt_tokens": 10201,
+          "total_tokens": 17647,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-05T07:52:42+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41992360919-2/bus.jsonl",
+      "sha": "d4226d0783ae0c16a691f537774bd277905d7ca8",
+      "at": "2026-11-05T08:10:00+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 649,
+          "cost_usd": 0.0093085,
+          "prompt_tokens": 1128,
+          "total_tokens": 1777,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-05T08:11:05+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41992360919-3/bus.jsonl",
+      "sha": "69b9e210c963fb79f1fe9af6fbdd09b5241ef2a4",
+      "at": "2026-11-05T08:11:05+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 15987,
+          "cost_usd": 0.1231155,
+          "prompt_tokens": 2142,
+          "total_tokens": 18129,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-05T08:12:37+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41992360919-4/bus.jsonl",
+      "sha": "a175e9b87e975739427bc8925bebfad96f4e0e32",
+      "at": "2026-11-05T08:12:37+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "error",
+        "totals": {
+          "completion_tokens": 24576,
+          "cost_usd": 0.187719,
+          "prompt_tokens": 2266,
+          "total_tokens": 26842,
+          "unknown_cost_calls": 0
+        },
+        "turns": 0,
+        "type": "stop",
+        "utc": "2026-11-05T08:14:45+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41993687526-2/bus.jsonl",
+      "sha": "df748a54590c4b0c5c10b93508eff935adb2e864",
+      "at": "2026-11-05T08:20:31+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 4,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 24576,
+          "cost_usd": 0.189786,
+          "prompt_tokens": 3644,
+          "total_tokens": 28220,
+          "unknown_cost_calls": 0
+        },
+        "turns": 1,
+        "type": "stop",
+        "utc": "2026-11-05T08:22:38+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41993687526-3/bus.jsonl",
+      "sha": "f022a57421f3abf29dc309ac4ae4d2203a4c8caf",
+      "at": "2026-11-05T08:22:38+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 14405,
+          "cost_usd": 0.115293,
+          "prompt_tokens": 2655,
+          "total_tokens": 17060,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-05T08:25:18+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-41993687526-4/bus.jsonl",
+      "sha": "091dcee5136b9b32fba654dc2121ab8ba4097605",
+      "at": "2026-11-05T08:25:18+00:00",
+      "mode": "live",
+      "cohort": "older",
+      "records": 7,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 3512,
+          "cost_usd": 0.030949,
+          "prompt_tokens": 1866,
+          "total_tokens": 5378,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-05T08:25:58+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-42151884314-1/bus.jsonl",
+      "sha": "ab2cf96b1d906d48e2c99d3cb882d1fad035bf78",
+      "at": "2026-11-06T02:41:16+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 6,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-06T02:41:16+00:00"
+      }
+    },
+    {
+      "path": "runs/z-desk-queue-42354612594-1/bus.jsonl",
+      "sha": "33db97884b6424991c50b44a0bf53339a42e2f34",
+      "at": "2026-11-07T08:14:26+00:00",
+      "mode": "demo",
+      "cohort": "older",
+      "records": 6,
+      "resultRecords": 0,
+      "statusCounts": {},
+      "stopAnswers": 0,
+      "lengthResults": 0,
+      "emptyResults": 0,
+      "turns": 0,
+      "turnFinishMissing": 0,
+      "stop": {
+        "reason": "completed",
+        "totals": {
+          "completion_tokens": 0,
+          "cost_usd": 0,
+          "prompt_tokens": 0,
+          "total_tokens": 0,
+          "unknown_cost_calls": 0
+        },
+        "turns": 2,
+        "type": "stop",
+        "utc": "2026-11-07T08:14:26+00:00"
+      }
+    }
+  ]
+}
