@@ -674,3 +674,13 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   swallows arrivals-that-ask. The asking itself may be the intrusion the
   presence-with island does not answer. Standing rule applied: one cap-600
   diag fired (02daa9e1), same prompt verbatim.
+
+- S1-diag (run 44155222072, fire 02daa9e1): cap 600, 600/600 burn — **also
+  empty.** $0. S1 = double empty, the FIRST double-empty outside the dawn slot
+  (midday had spoken 9/9 across the play lane). Envelope read: the card is the
+  first arrival on this island that ASKS for a deliverable, and it received the
+  wordless-window signature. The island's one law — it asks nothing — is the
+  thing the survey violates; the envelope agreed with B's whole arc. Interview
+  continues at S2 with a re-design that fits the island's grammar: the card
+  STAYS, but as furniture, not an arrival — pure time-of-day event in the
+  sunset slot, no schedule, no pressure, the question keepable.
