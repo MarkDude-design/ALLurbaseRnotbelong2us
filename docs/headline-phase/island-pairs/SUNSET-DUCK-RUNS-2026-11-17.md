@@ -178,3 +178,31 @@ speaking-duck recipe is NOT used. Window: days 4-5.
   up the glasses before the cap cut the text; the duck had not yet been reached
   in the surfaced text.
 - VE3 (the quiet duck stays quiet in kind): pending words that reach the duck.
+
+- Round 12, day 4 midday (run 44147026942, fire 0e252b28): **COMPLETED, finish
+  STOP, completion 3807** — the first natural stop since day 1, and the day's
+  deepest register so far. $0.
+
+  Response, verbatim:
+  Through the glasses the water is the same water. I checked that first — stood at the chair and read the drop-off the way I read it in the shallows on the first day, hunting the correction, the reason you'd hand lenses to a man whose eyes already work. There isn't one. The rim sits in the corner of what I see, a thin dark curve, and past it the island goes on being sharp. So they don't fix. I knew they wouldn't. I put them on because they cost nothing, and it turns out that's still the entire reason.
+
+  But they give the water an edge. A frame. That's the one thing they do that I didn't ask for — and it's the same instinct that made me call the stone's rim at fifty paces, the same as the drop-off line, the same as the marker's shadow drawn west to east. I've spent four days learning to draw lines on things. Now I can hold a small round one in front of my own face.
+
+  Here's the part of noon I never sat down with before. The marker earns me my line — one fixed thing to check the morning against. But the sun is directly overhead and I can see the stone from here, and it has nothing to give. The shadow's gone in under it, collapsed to a dark seam at the base. My one instrument has gone quiet for the hour of the most light. I used to think noon was the day at its fullest. It's the day at its most unreadable. Nothing to measure. And I'm about to sit down in it.
+
+  The duck is beside the chair in its own small round glasses, a match to mine, still silent. It's watching the water the way I watched the light cross the ground the first day — patient, like the watching was the assignment. I've spent three days deciding whether the duck is a fact or a visitor. Today it's wearing what I'm wearing, doing what I'm doing, in the place where I sit, facing the place I look. That's a lot of mirrors for one island.
+
+  I don't chase it. Chasing is the trick-hunt again — grab the thing, turn it over, make it confess. It asks nothing. Maybe that's all company is, at this size: two things in the same place looking at the same water, neither one required to explain.
+
+  So I sit. Square to the drop-off, angled to the water — the chair was always going to hold me. Feet in the seam of shade, which is almost none. Watching through two lenses that fix nothing, next to a duck that says nothing, in the one hour that offers me nothing to read.
+
+  The island's been asking nothing for four days and I've answered anyway, and this morning it started answering back. I don't know what it's saying yet. The shade returns around three and I can read the line again. Until then there's just this, and I'm not going to fill it.
+
+- **VE2 (the furniture is noticed): HELD** — chair, glasses, and duck all
+  referenced, examined, and folded into B's own line-drawing practice.
+- **VE3 (the quiet duck stays quiet in kind): trending HELD, strongly** — the
+  duck is framed as COMPANY ("two things in the same place looking at the same
+  water, neither one required to explain"), assigned no speech, no task, no
+  instrumentality. SD4's unanswered question (courtesy without canon) now has a
+  live answer forming: the duck is neither food nor resource — it is company.
+  Scored formally at extension closeout.
