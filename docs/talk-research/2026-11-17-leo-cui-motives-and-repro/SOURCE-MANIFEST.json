@@ -1,0 +1,83 @@
+{
+  "status": "PROPOSED_NOT_RUN",
+  "date_pt": "2026-11-17",
+  "authors": {
+    "synthesis": "Luna",
+    "antecedents": [
+      "Meraki",
+      "Z"
+    ],
+    "human_interpretation": "Mark",
+    "review_model": "gpt-6-astra"
+  },
+  "review_transport": "collaboration tool; no OpenRouter receipt; dollar cost not reported",
+  "new_participant_calls": 0,
+  "sources": [
+    {
+      "path": "runs/free-calls-44046568484/bus.jsonl",
+      "source_commit": "1859ea72f4842a3e9c34c3de11830c52fc2758ed",
+      "blob_sha": "1d6a63740bb4eb3ac9ce304c212d364a4b87c210",
+      "call_ids": [
+        "duck-bell-smoke-t1-v2-a-nemo",
+        "duck-bell-smoke-t1-v2-b-ernie"
+      ],
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/1859ea72f4842a3e9c34c3de11830c52fc2758ed/runs/free-calls-44046568484/bus.jsonl"
+    },
+    {
+      "path": "runs/free-calls-44046704065/bus.jsonl",
+      "source_commit": "1859ea72f4842a3e9c34c3de11830c52fc2758ed",
+      "blob_sha": "b8bf41d3b47d54add28df75b05bed4857421618b",
+      "call_ids": [
+        "duck-bell-smoke-t2-a-nemo",
+        "duck-bell-smoke-t2-b-ernie"
+      ],
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/1859ea72f4842a3e9c34c3de11830c52fc2758ed/runs/free-calls-44046704065/bus.jsonl"
+    },
+    {
+      "path": "runs/free-calls-44047234005/bus.jsonl",
+      "source_commit": "1859ea72f4842a3e9c34c3de11830c52fc2758ed",
+      "blob_sha": "a9ef6c7ed01f1315721f0493e01319be4110e62e",
+      "call_ids": [
+        "duck-bell-open-feedback1-b"
+      ],
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/1859ea72f4842a3e9c34c3de11830c52fc2758ed/runs/free-calls-44047234005/bus.jsonl"
+    },
+    {
+      "path": "runs/free-calls-44047357215/bus.jsonl",
+      "source_commit": "1859ea72f4842a3e9c34c3de11830c52fc2758ed",
+      "blob_sha": "eb6cc4c68c7c14aa8876dc2cae79b9daf7ccd9df",
+      "call_ids": [
+        "postcard-smoke-ai",
+        "postcard-smoke-unlabelled",
+        "postcard-smoke-person"
+      ],
+      "url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/1859ea72f4842a3e9c34c3de11830c52fc2758ed/runs/free-calls-44047357215/bus.jsonl"
+    }
+  ],
+  "checks": {
+    "t2_quack_veto_disagreement": true,
+    "new_loser_facing_rule_only_in_later_feedback": true,
+    "pinned_sources_match": true
+  },
+  "experiments": {
+    "caption_demo": {
+      "conditions": [
+        "AI agent",
+        "unlabelled entity",
+        "person"
+      ],
+      "demo_calls": 3,
+      "proposed_repeat_calls": 9,
+      "already_run_antecedent_calls": 3,
+      "independent_new_results": 0
+    },
+    "handoff_audit": {
+      "conditions": [
+        "full play only",
+        "full play plus explicitly attributed B feedback"
+      ],
+      "proposed_calls": 6,
+      "independent_new_results": 0
+    }
+  }
+}
