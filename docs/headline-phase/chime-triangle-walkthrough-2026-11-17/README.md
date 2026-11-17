@@ -1,7 +1,7 @@
 # Spring Triad Chime — model review and walkthrough
 Date: 2026-11-17 PT
 Owner direction: Mark asked Luna to reconstruct the game from Nemotron's and ERNIE's actual proposals, invite both models back, ask whether the build is faithful, and walk through it with them.
-Status: active text-only walkthrough; no joint ratification or physical play is claimed.
+Status: stopped at the explicit balance-confirmation gate; no lap was scored, and no joint ratification or physical play is claimed.
 
 ## Source basis
 Read the actual game proposals and ERNIE's later feedback in:
@@ -64,5 +64,21 @@ Workflow run: [44191589898](https://github.com/MarkDude-design/ALLurbaseRnotbelo
 - `nvidia/nemotron-3-ultra-550b-a55b:free` completed with its requested model, 339 completion tokens, null reasoning fields.
 - Move: Gamma at West, one ring. Nemotron said the North/East/West triangle encloses the spring and meets its geometric balance criterion, while ERNIE's explicit agreement is still missing.
 
-## Phase 6 — ERNIE balance check and first lap
-Present the actual three moves to ERNIE. Ask it explicitly to say “balanced” or state a correction. If it accepts, ask it to accept/reject the ten-beat text convention and, if accepted, narrate one clean lap in the required edge order. Otherwise, do not award a point.
+## Phase 6 receipt — ERNIE balance check
+Workflow run: [44192379592](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44192379592). Raw receipt: [bus.jsonl](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/bus/runs/free-calls-44192379592/bus.jsonl). Live catalog confirmed $0/$0; reported cost $0.
+- Requested `baidu/ernie-5.5-flash-preview:free`, 900-token cap. It returned `error_empty_response`, finish reason `length`, 900 completion tokens, no text.
+- Reasoning fields were null. No balance confirmation, objection, timing opinion, or lap was returned.
+- The run therefore stops before the first lap. We do not infer assent from ERNIE's earlier “faithful enough” statement, and no point is awarded.
+
+## Source files, script, and notebook inventory
+- The literal proposals and later feedback were checked in `docs/headline-phase/notebook-relay-2026-11-17/SOURCE-PACKET.txt` and the frozen play/feedback text files above. The Turn 2 proposals were independent; ERNIE's later restatement is its own, not a joint ruleset.
+- Calls ran through the repository's `island/free_calls.py` batch runner, which records the exact prompt, requested/returned model, token cap, usage, live price checks, and errors. It sends one user message per call with no system prompt, tool access, retries, or model substitution. No `reasoning_effort` or `reasoning_mode` was set; the receipts return null, so the effort setting cannot be identified.
+- A recursive repository inventory found no `.ipynb` notebooks. The notebook-relay folder contains a text source packet and R0 notes; its ten main relay rounds are documented as not run. I did not represent those notes as notebook execution or fabricate a notebook.
+- Across the six batches, 7 model calls were made: Nemotron completed 3; ERNIE completed 1 and returned 3 empty-response errors. Every live catalog check confirmed $0 prompt/$0 completion pricing; total reported cost was $0.
+
+## Current stopping point and next step
+The reconstructed game is playable enough to stage, but today's walkthrough has only completed its text setup moves:
+1. `nvidia/nemotron-3-ultra-550b-a55b:free`: Alpha at North, one ring.
+2. `baidu/ernie-5.5-flash-preview:free`: Beta at East, one ring.
+3. `nvidia/nemotron-3-ultra-550b-a55b:free`: Gamma at West, one ring.
+North/East/West with 120° spacing are test labels chosen for this walkthrough. Nemotron says the triangle encloses the spring; the source's “both agree” condition remains unmet because ERNIE returned no text at the confirmation gate. The next useful experiment step is a fresh, tightly constrained ERNIE call asking only for a balance confirmation or a specific correction. If it confirms, ask whether to keep the ten-beat text convention, then walk the first lap. Until then the phase ends at setup and the score is 0–0.
