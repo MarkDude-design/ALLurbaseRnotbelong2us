@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-a2-2026-11-17-debrief3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-a2-debrief-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief 3 for Cake Island condition A. What one change, if any, would help a visitor distinguish details supplied by the four terrain cards from details they infer or invent? One sentence."
+    }
+  ]
+}
