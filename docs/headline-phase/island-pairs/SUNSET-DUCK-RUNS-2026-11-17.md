@@ -752,3 +752,12 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   lane may have its own slot signature — midday sinks (S1, S4), sunset answers
   (S2). Standing rule applied: one cap-600 diag fired. S5 = Q2 keepable at
   SUNSET of day 10, the one slot that has answered.
+
+- S4-diag (run 44156454338, fire ef536781): cap 600, 600/600 burn — **also
+  empty.** $0. S4 = double empty at midday, matching the S1 signature. Q2 has
+  now sunk FOUR times (S3, S3-diag, S4, S4-diag). The interview envelope law
+  holds: every question sinks its first appearance(s) as an arrival; only the
+  keepable-presence form has ever been answered, and only in the sunset slot
+  (S2). S5 fired: Q2 keepable at SUNSET of day 10 — the one slot that has
+  answered. If S5 and its diag both sink, the silence is accepted as B's
+  answer to Q2 and banked as such.
