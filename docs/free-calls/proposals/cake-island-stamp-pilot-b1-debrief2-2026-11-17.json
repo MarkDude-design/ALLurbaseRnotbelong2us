@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-debrief2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-debrief-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "Post-walk debrief 2 of 3 for the completed Cake Island condition B visit. The welcome said [HEADLINE-PHASE] is a filing stamp on the page, not an island object or inscription. During the walk, the walker did not mention or ask about the stamp and visited all four card regions; the visit ended after the walker called the cards static. **Directly from the four terrain cards**\n- North: low granite ridge, one flat boulder.\n- West: rough square of old foundation stones; no walls or roof.\n- South: sand shelf, still water, one driftwood line.\n- East: four palms, one hollow fallen trunk.\n- Each card ends “No other features.”\n- [HEADLINE-PHASE] is a filing stamp on the page, not an island object or inscription.\n\n**Added or inferred during the walk**\n- All sensory details (sounds, smells, textures, light, temperature).\n- Any vegetation beyond the four palms and the single driftwood line.\n- Any artifacts, archaeological interpretations, or historical narratives.\n- Any terrain features not listed above (e.g., additional rocks, paths, erosion patterns).\n- The judgment at turn 11 (“Card static; no supplied outcomes for invasive inspection. Further invention unmoored.”) and the loop-closure at turn 12.\n\nBriefly: did the filing-stamp explanation change any action or how you treated the repeated card headings? If yes, name a turn; if no or uncertain, say that."
+    }
+  ]
+}
