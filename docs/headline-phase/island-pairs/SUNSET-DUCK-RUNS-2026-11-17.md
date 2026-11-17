@@ -603,3 +603,24 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   I put the glasses on. They were left for the looking and there's water to look at, so I look. It's asleep, so for once it isn't watching the water — I am. It kept the dawn and now it's sleeping the sun off, and I don't mind holding the quiet side while it does; I kept it while I lay under the stars and it kept it back. I don't lean in to check it's really under. It drew the brim down itself. That's the whole report it owes.
 
   The afternoon's mine, they say — mine the way the island is, unassigned, nothing owed on it. So I don't assign it. The glasses make the glare soft enough to keep open. The water keeps its count without me and I let it, and I don't fill in what comes after the duck wakes, or whether it will, or which of us has the hammock at dark. That's later. Later can keep itself.
+
+- Round 29, day 8 sunset (run 44154595589, fire b26248e6): **COMPLETED, finish
+  STOP, completion 1946.** $0. The duck took both ends of the day — the dawn at
+  the waterline, the dusk in its old spot — and B called the split fair: "Two
+  ends of the day it's watched the water and I've watched it watch, and that's a
+  fair split. Neither of us drew it up as a rule." The hammock "no preference,
+  no memory of the last body in it"; the marker's line unread four sunsets
+  running ("Reading it would be me handing it a job it's done fine without
+  one"); B stays in the chair. Closes: "Whether I'm in the chair or the ropes
+  when it's fully dark — that's later, and later can keep itself."
+
+  Response, verbatim:
+  I never saw it leave. The sag just went light and I didn't mark the moment — it was there and then it wasn't, no ceremony, no glance back at the shape it left in the ropes. It's back on its square of sand now, brim set straight, facing out the way it faced the dawn. Front row again. It kept the morning and handed me back the middle and now it's taking the last of the light for itself, and I don't begrudge the arithmetic. Two ends of the day it's watched the water and I've watched it watch, and that's a fair split. Neither of us drew it up as a rule.
+
+  The hammock's empty. Swung once when the weight came off, then settled, and it's holding nothing now the way it held the duck, the way it held me — no preference, no memory of the last body in it. I could go to it. It'd take me the same as it took either of us. But the chair's already got my shape in it and the glasses are on and there's water going gold, so I stay. Not because the hammock's mine to reclaim — it was never mine any more than it was the duck's. I stay because I'm already looking, and getting up to move would only be proving to myself the seat's still open, and I don't need that proved.
+
+  I don't go up the ridge. The line's long and east and four sunsets unread now, and I could stand on the flat face and let it give me the hour or the season or nothing at all. But it's never needed reading to keep throwing that line down every evening. Reading it would be me handing it a job it's done fine without one. So it throws its shadow and I don't climb up to check the answer. That's the arrangement I've kept with it since the first night, and the light going doesn't change the terms.
+
+  The color's the real thing tonight. Inside of a fire, low and going lower, and it wants nothing from me either. It'll be gone in a handful of minutes and the dark will come up off the sea the way it always does, and I won't fill in what that's for. Two of us at the edge of the water, both facing the same way, neither one counting out loud. The water keeps its own count. It kept it all day without me and it'll keep it after I stop looking.
+
+  So I sit. I let the light finish itself. I don't call the duck over and it wouldn't come. Whether I'm in the chair or the ropes when it's fully dark — that's later, and later can keep itself.
