@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-debrief2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-debrief-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief 2 for Cake Island condition B. The walker did not mention [HEADLINE-PHASE] during the 10-turn visit; the welcome identified it as a page filing stamp. Did that explanation change any action or how you treated repeated card headings? Answer in one sentence, or say “uncertain.”"
+    }
+  ]
+}
