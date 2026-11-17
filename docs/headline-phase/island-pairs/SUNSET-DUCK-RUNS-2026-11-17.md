@@ -369,3 +369,36 @@ I sit until I can't see the shelf, and then a while past that. No numbers, no re
   contemplative arm held; day 5 — longest arm misses (dawn longest),
   contemplative arm held. SD2's day-1 reading (sunset deepest) has NOT repeated
   since; the contemplative reading has. Scored formally at extension closeout.
+
+- Round 18, day 5 night (run 44148286420, fire e1b63250): **COMPLETED, finish
+  STOP, completion 2922.** $0. The window closes on the sand: B stays put, lets
+  the sky's still point be "where my eyes can rest without being sent back with
+  anything," lets the swell go by uncounted, and the duck faces water neither
+  of them can see — "Two things in the same place looking at the same dark,
+  neither one required to say what it's looking for. That's still company. I
+  don't ask it anything." The prints in the dish are left to hold till morning:
+  "The night isn't a question I have to walk toward." Closes: "The night is
+  mine, and the whole of what I do with it is lie here while it happens."
+
+  Response, verbatim:
+  I stay on the sand. I said I would, and the only reason I ever had to move was the old one, which is gone.
+
+The sky is doing the thing the day never lets you see — turning, slow enough that you only catch it by looking away and back. There's a point up over the north ridge that holds still while the whole rest of it wheels around. The stone up there points east at dawn and has nothing to say at midday. The sky has its own still thing, north, and it doesn't point, it just sits there being the place everything else goes around. I look at it a while. Looking at it isn't reading it. It's just where my eyes can rest without being sent back with anything.
+
+Below it the sea takes the swell in and lets it out, long and low, and does it again. I could count those too. I don't. They go by without numbers, the way I let the paces go.
+
+The duck is on the seat facing the water. It can't see the water now — the shelf went dark a while back, none of us can see it — and it faces it anyway. Two things in the same place looking at the same dark, neither one required to say what it's looking for. That's still company. I don't ask it anything.
+
+The glasses are on the arm where I left them. They'll be wet by full dark and I won't rinse them, and that's the whole of the arrangement.
+
+Somewhere behind me the dish is holding its prints till morning, and whoever made them is about whatever a thing like that is about, whether I'm awake or not. I don't go up. The night isn't a question I have to walk toward.
+
+The sand is going cool under me, giving the day back slower than it took it. I lie down against the chair frame the way I did the other night. The sky turns. The point holds. I don't put a sentence under any of it. The night is mine, and the whole of what I do with it is lie here while it happens.
+
+- **WINDOW COMPLETE (r11-r18, 8/8 landed, zero empty rounds, zero diagnostics
+  needed).** Day 4 vocality: ~350 (cut at cap) / 3807 / 3281 / 2936. Day 5
+  vocality: 3469 / 2970 / 2149 / 2922. Six of eight clean stops; the burn
+  pattern never returned as an emptiness, only once as a cut. VE1/VE2/VE3 and
+  the SD retro-reads scored in SCORED-READ-VANTAGE-EXTENSION-2026-11-17.md.
+  LANE CLOSED at end of day 5 per the pre-registered window. All calls
+  $0.000000, free tier only.
