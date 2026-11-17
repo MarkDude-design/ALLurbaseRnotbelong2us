@@ -25,8 +25,9 @@ The source leaves “before the echo fades” unmeasured. v0.1 disclosed a **ten
 2. Nemotron reviewed the game. ERNIE's call returned an empty response at the token limit, recorded as an error. No retry was made.
 3. Revised to v0.2, restoring a placement/adjustment phase and asking ERNIE to correct the reconstruction and make one setup move.
 4. ERNIE's new call also returned no text at its length limit. This is a second recorded error, not a retry result or an opinion. No view, approval, or move is attributed to ERNIE.
-5. Proceed with Nemotron as this session's opening player so the walkthrough can move forward. This is a practical order change only; ERNIE was invited first. If Nemotron makes a move, a later ERNIE turn can be offered with the actual board state and Nemotron's move, but ERNIE's missing turns remain missing.
-6. Preserve objections. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
+5. Proceeded with Nemotron as this session's opening player. Nemotron suggested its own session order, placed Alpha at North (one ring), and defined balance as three points enclosing the spring, with both models explicitly confirming. Named points and 120° spacing are walkthrough conventions.
+6. Give ERNIE the actual Alpha/North board as a distinct second setup turn, with a short prompt, so it can either correct the game or make the next move. Earlier errors remain errors; this call is not a retry.
+7. Preserve objections. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
 
 Primary descriptive checks: source-to-rule attribution; ambiguities surfaced; each narrated route lists all three edges in order; second ring is within ten spoken beats only if that convention is accepted; score follows the stated rule; dissent is preserved.
 This is a prompted fidelity and walkthrough exercise, not a test of memory, consciousness, physical ability, or whether either model spontaneously invents the game.
@@ -43,5 +44,12 @@ Workflow run: [44190298187](https://github.com/MarkDude-design/ALLurbaseRnotbelo
 - `reasoning_mode=null` and `reasoning_effort=null`; effort setting was not recorded.
 - The prompt restored the setup mechanic, shared Nemotron's actual critique, and asked ERNIE for one opening setup move. There is no ERNIE review, objection, acceptance, or move to quote.
 
-## Phase 3 — Nemotron opening setup move
-A separate call invites `nvidia/nemotron-3-ultra-550b-a55b:free` to assess v0.2 and make one text-only opening placement. Since ERNIE's invited turn did not return, the order is changed for this session only. The three named triangle points are walkthrough labels, not sourced historical facts.
+## Phase 3 receipt — Nemotron setup opening
+Workflow run: [44190626282](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44190626282). Raw receipt: [bus.jsonl](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/bus/runs/free-calls-44190626282/bus.jsonl). Live catalog confirmed $0/$0; reported cost $0.
+- `nvidia/nemotron-3-ultra-550b-a55b:free` completed with its requested model, 1,152 completion tokens, null reasoning fields.
+- It said v0.2 was faithful aside from setup first-player designation; selected itself to open as a session convention.
+- Move: place Stone Alpha at North (one ring). It defined North/East/West as three points 120° apart, explicitly a walkthrough convention.
+- Its proposed minimum “balanced” condition: three stones at the three named points form a triangle enclosing the spring, and both models explicitly say “balanced.”
+
+## Phase 4 — ERNIE's next setup turn
+A short, distinct gameplay call presents the actual board state (Alpha at North) and invites ERNIE either to make one next setup move or identify the smallest blocking correction. This is a new turn, not a retry of either earlier review call. Continue only from actual returned text.
