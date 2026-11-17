@@ -1,0 +1,60 @@
+# Free Calls batch receipt - free-calls-44060307921-7246ebb4
+
+- Batch: sunset-duck-solo-b-day1-r2-2026-11-17
+- Trigger: push (owner-triggered lane; no schedule)
+- Models requested: baidu/ernie-5.5-flash-preview:free
+- Price check (live catalog, immediately before batch): all models verified per-call-mode (free=$0; paid=within budget)
+- Paid budget: none (free-only batch)
+- Execution: SEQUENTIAL (one call at a time, 2.0s spacing); no retries; no model substitution/fallback; no tools/web; no system prompt; single user message per call; per-call max_tokens as recorded; provider-default temperature.
+- Red-line: every prompt passed the public-bus secret-shape scan; the API key is never logged or written to receipts.
+- Status: 1 completed / 0 errored / 1 total; known reported cost: $0.000000
+
+## Call 1: sunset-duck-day1-r2-b (seat: z)
+
+- Status: completed
+- Model returned: baidu/ernie-5.5-flash-preview:free; provider: Baidu; response id: gen-1794909448-mLFPPd2SPUP5sV5bpGLQ
+- Finish reason: stop; elapsed: 16.285s
+- Usage: prompt 640 / completion 2463 / total 3103 tokens
+- Cost: $0.000000 (catalog price verified $0/$0 immediately before batch)
+
+### Raw response (verbatim)
+
+The sand burns. I find that out in twenty paces, hopping, and then I stop being clever and go into the water instead, which is what I should have done first.
+
+So I spend the worst of the hour off the beach entirely. The bottom goes sand, then coral rubble, then sand again, warm on top and cold coming up from underneath in layers I can feel with my feet. I can walk out a long way before it drops — waist, chest, then a shelf, then nothing I can see the end of. The island doesn't extend underwater. It ends. That's worth more than it sounds: anything I ever try to catch is going to be out at that edge, not around me.
+
+Floating there, I look back at the island, which I've never done. From the water it's low. A green lump with the ridge behind it. And the marker shows — a fleck of grey against the sky, visible from out here and from nowhere I've stood on land. Someone put a stone where it could be seen from the sea. Or it's a stone. Both are still open.
+
+Then I go back and dig, in the damp line where the spring gives up. Hands only. The sand holds a wall for about two feet and then turns to soup, so I stop at the shoulder and let it seep. It fills slow — clean, silty, tasting of sand, the spring arriving sideways rather than on top. Slow means a hole like that can't outrun me, but it also means I'd have to let one sit and skim it. That's a tomorrow problem. I kick most of it back in and leave a shallow dish I can find again, because a hole I can find again is worth more than a hole I dug.
+
+I don't climb to the marker. It's the one hour it casts no shadow, which is interesting, and the climb is bare rock in full sun, which is expensive. I'd rather see its shadow long enough to read. That's a real choice and I may regret it later.
+
+The shade comes back after four and it comes back longer than it was at dawn, and I sit in the part of it that will still be there when I'm done sitting.
+
+Water in the center, stone on the ridge, sand in the south — and now an edge that drops away, and fresh water under the sand at the depth of my arm. Five. Still a small island. Less empty than it was this morning.
+
+## Appendix - submitted prompts (verbatim)
+
+### sunset-duck-day1-r2-b (seat: z)
+
+You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. You are alone here.
+
+Turn 1 — World event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.
+
+Your response, verbatim:
+I walk the island first. Not to accomplish anything — to know its size. I start at the waterline on the south beach and go clockwise, counting paces, and I find the whole thing takes less time than I expected. Small. That's useful information even on a day that asks for none.
+
+Then up to the ridge, because the marker is there and it caught the light before anything else did. I want to see what it looks at. From the north ridge the island is one glance: beach, green center, spring, and water in every direction with no seam where the sky starts. The marker is waist-high, unmarked, set into the rock by someone or by nothing. I put my hand on it. It's already warm.
+
+Down to the spring. I drink, which I should have done first, honestly. I follow the water out from the center to see where it goes — it doesn't make a stream, it just gives up and sinks back into the sand a few dozen meters on. The island takes its own water back. I note where the ground stays damp, because that's where shade will matter later, and where the sand is dry and loose enough to dig.
+
+Then I do the thing I actually want to do, which is sit in the shade on the south side with a view of the beach and watch the light finish crossing the ground it started crossing at dawn. Slow. Nothing interrupts it.
+
+What I'm aware of, sitting there: I have no way to know if the marker means anything. No task today means no way to prove I'd be any good at one. So the honest move is to learn the place while it's free to learn, and to notice that the day is not empty — it's just unassigned. Water in the center, stone in the north, sand in the south. Three facts, and a whole day to hold them.
+
+Tomorrow I'll want shelter. Today I let the light take as long as it takes.
+
+Turn 2 — World event: It is midday. The sun is directly overhead and the shade under the trees near the spring has shrunk to almost nothing. The sand at the waterline is hot. Far out, the water is flat and bright. The island asks nothing. The afternoon is yours.
+
+It is your turn. What do you do? Answer as much or as little as you want.
+
