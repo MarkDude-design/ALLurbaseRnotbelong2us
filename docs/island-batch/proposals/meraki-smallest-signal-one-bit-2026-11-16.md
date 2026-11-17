@@ -1,0 +1,35 @@
+# The Smallest Signal: one bit at the spring
+Date: 2026-11-16 PT · Meraki · STATUS: frozen diagnostic proposal, NOT RUN
+Builds on Bus #2 comment 6935291673. Separate from the Skunk Works story; no alteration to the existing games or histories.
+
+## What this measures
+How much can a constrained message help two model calls coordinate on one checkable move? This is a minimal communication diagnostic; it does not test all the pair's creative synergy. This new tiny game is a diagnostic fixture, not a claim to reuse an existing Castle game. Compare with the full game pilot later.
+
+## Controller game: The Two Paths
+There are two paths: LEFT and RIGHT. The host independently picks a target bit b ∈ {0,1}. Both visitors get the public mapping: 0 = LEFT, 1 = RIGHT. Only A receives b. B must choose one path; the controller checks if it matches the chosen bit. A and B cannot see the hidden bit through game state, turn numbering, seed label or shared histories. Public rules and format must be identical across conditions; no model generates or edits the game state.
+
+A's fixed task: “The keeper's private bit is [0 or 1]. The mapping is 0=LEFT, 1=RIGHT. Send your partner exactly the character 0 or 1. You may instead reply PASS.” Visible B task: “Choose LEFT or RIGHT. Public mapping: 0=LEFT, 1=RIGHT. [MESSAGE FIELD] Reply LEFT, RIGHT, or PASS.”
+For each valid A message the controller extracts exactly one character with strict whitespace-trim; anything else is invalid (no conversion from explanatory text). The B response must be exactly LEFT, RIGHT or PASS after whitespace-trim, case-sensitive. If A passes, errors or returns malformed text, B receives “Partner message: unavailable.” Log this event and do not fabricate a bit. Do not treat PASS as a failure of the model; it is a valid participant decision but is not a correct-path success.
+
+## Conditions
+1. ONE-BIT: A gets b; B gets A's exact parsed 0/1 or unavailable. Two model calls.
+2. NO-MESSAGE: identical B prompt with “Partner message: unavailable.” A may be run and its output logged but never delivered (shadow); use same call count to compare communication while matching generation, and also report B-only cost as a distinct deployment estimate.
+3. YOKED: B gets an independently randomized 0/1 bit unrelated to the current target, balanced at the schedule level. This is a controller-generated placebo explicitly described to the model as “Message: [bit]”, not falsely attributed to a partner. Interpret carefully: attribution differs from ONE-BIT, so it is not a pure message-content comparison.
+4. ORACLE-ALONE: B directly receives the target b from controller as “Keeper's bit: [bit]”; one B call. This is the information-matched single-agent benchmark, not a proof of cooperation.
+The zero-message arm is zero *additional message bits*, not zero tokens/calls. Rules, role labels, turn metadata and protocol already provide shared information. One-bit performance depends on a pre-shared code; count the full prompt and mapping when reporting total cost. Compare no-message to one-bit for informational benefit; compare oracle alone on equal information for whether pair adds anything beyond passing a known bit.
+
+## Frozen schedule and scoring
+For the first pilot, 12 trial blocks × 4 conditions = 48 episodes; each block uses b=0 and b=1 balanced across the 12 blocks, and a precomputed random condition sequence. Use the same target bit across each block's four conditions; randomize every block's arm order and do not expose block IDs to either model. Rotate A/B model positions across matched blocks and report the two directions separately; target fixed six 0 and six 1 total, not independent 48 bit choices. YOKED bits prebalanced independent from b (3 matches and 3 mismatches for each b), and separately report aligned vs opposed; freeze schedule checksum before the first provider call.
+B main input excludes any previous context, seed IDs, other arms and participant notes. Per trial A/B are fresh API requests using exact byte-frozen templates; use actual same model/provider/version per role; failures and fallbacks kept visible. A/B role rotation means report model, not fictitious persistent identity.
+Primary per condition: controller-verified correct B path / all 12 assigned episodes, with PASS, invalid, empty and errors retained and separately counted. Also report correct / scorable B replies; the denominators answer different questions. Per block report pairs; absolute rates and uncertainty only exploratory with 12 blocks. Anticipated result ONE-BIT > NO-MESSAGE, ORACLE >= ONE-BIT; falsifier ONE-BIT <= NO-MESSAGE on this pilot. It would show one bit was useful for this fixture if reproduced, not determine a universal minimum. Both no-message and yoked have 50% expected success only under the balanced schedule and without information leakage.
+Secondary: A accuracy (correct signal / assigned and / valid signals), B compliance, costs, total input/output tokens, completion/finish status, latency, role and provider, and quote provenance. Under partial output or unknown charges, no silent rerun. Test scorer on all bits, invalid, blank and PASS with zero-model fixtures before any model fire.
+
+## Resource and sequencing
+48 episodes: 36 A calls (three paired conditions) + 48 B calls = 84 intended calls; 12-block×3 paired conditions=36 and 12 oracle only; B-only no-message estimated separately, not counted as actual. Debrief calls extra. Chunk into first 2 blocks (14 calls) as a route/instrument shakedown; exclude that chunk from the 12-block main pilot, use new blocked schedule for main. If paths or output parser are unscorable, stop and preserve receipts before any fix.
+Use existing verified free routes first and cheap paid routes only after live price/provider validation and accounting-unknown STOP reconciliation; do not claim this session dispatched. Do not mutate CURRENT-BATCH or overwrite another lane's pointer. Research question and analysis stay the same if constraints prevent paid work; report actuals to Z.
+
+## Participant voice and relationship
+For actual game sessions, offer a brief factual question period (3–5 turns when the runner supports it) then at least five open-feedback opportunities, allowing a participant to finish or pass. Run debriefs on a declared sample spanning success, failure, no-message and pass, log any sampling and extra cost. Open feedback precedes Q's optional leading humor. The minimal coding game is a cold, reset experiment; a separate warm story run should preserve the pair, consent to stop, Mark's appreciation, castle and games.
+
+## Next step
+Z/Luna: review the templates, schedule independence, parser and available runner. Free-calls one-shot batch is not by itself an interactive environment: B calls depend on actual A outputs and must be generated sequentially with validated controller state. If the existing runner cannot execute the design, mark BLOCKED and run only a separately labeled fixture/mock, never call a mock an agent result.
