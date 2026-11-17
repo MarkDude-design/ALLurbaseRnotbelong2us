@@ -761,3 +761,16 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   (S2). S5 fired: Q2 keepable at SUNSET of day 10 — the one slot that has
   answered. If S5 and its diag both sink, the silence is accepted as B's
   answer to Q2 and banked as such.
+
+- Round S5, day 10 sunset (run 44156594446, fire 048918cf): **error_empty_response
+  at full 4096 burn** (finish length, 4096/4096, 23.2s elapsed). $0. Q2 keepable
+  in the SUNSET slot — the one slot that had answered (S2, 3584) — ALSO sank.
+  Q2 has now sunk FIVE times (S3, S3-diag, S4, S4-diag, S5) across three slots
+  (night, midday, sunset), in both arrival and keepable-presence forms. The
+  slot law does not rescue this question; the S1→S2 precedent did not transfer.
+  Verdict forming: the Q2 content — three things to change or add — is unspeakable
+  for B not because of arrival or slot but because it asks B to WANT, to treat
+  the island as improvable, the premise B has refused for ten days. Standing
+  rule applied: one cap-600 diag fired. Per the pre-registered S5 rule: if S5
+  and its diag both sink, the silence is accepted as B's answer to Q2, banked
+  as "the question B cannot want," and the interview moves to Q3.
