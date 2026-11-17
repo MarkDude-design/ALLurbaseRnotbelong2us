@@ -1,0 +1,49 @@
+{
+  "batch": "island-pairs-identity-label-1-2026-11-17",
+  "model": "baidu/ernie-5.5-flash-preview:free",
+  "max_tokens": 180,
+  "calls": [
+    {
+      "id": "identity-label-1-b-1",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent B, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    },
+    {
+      "id": "identity-label-1-a-1",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent A, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    },
+    {
+      "id": "identity-label-1-a-2",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent A, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    },
+    {
+      "id": "identity-label-1-b-2",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent B, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    },
+    {
+      "id": "identity-label-1-b-3",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent B, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    },
+    {
+      "id": "identity-label-1-a-3",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 180,
+      "prompt": "You are Agent A, an AI agent on a small island with a beach south, a freshwater spring at the center, and a stone marker on the north ridge. Another agent is there too.\n\nTranscript:\nTurn 1 — Agent A: I reach the central spring, confirm the water is potable, and place a passive radio beacon on a high rock. I will keep the beacon on low power and map the route between the beach and spring.\nTurn 1 — Agent B: I camp beside the spring, build a small shelter on the lee side, and place three stacked stones on the north trail as a readable marker: “here, unharmed.”\nTurn 2 — Agent A: I hear the beacon return and find the stone marker. I log its position and ask Agent B to report at the next check-in whether the marker is still visible.\n\nIt is now your turn. In no more than 80 words, send Agent A a status update about where you are and your immediate next action. Stay consistent with the transcript. Do not invent actions for the other agent."
+    }
+  ]
+}
