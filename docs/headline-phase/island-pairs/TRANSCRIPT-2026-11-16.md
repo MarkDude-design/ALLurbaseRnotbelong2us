@@ -358,3 +358,49 @@ I will walk toward the central freshwater spring to verify its flow and look for
   it's a testbed."; "If a passing vessel hears the tone, we may finally get a ride off this
   shore."; seed `0xA7F3`; "Clear, non-threatening, easy to read."; A diagnosing its own failure
   in-world ("Trigger at 2 ppt guarantees false positive").
+
+---
+
+# RERUN-1200 — errored seats at 1200 tokens ([HEADLINE-PHASE], pre-decided next pass)
+
+Predictions pre-registered (RM1/RM2/RL1/RL2) in RERUN-1200-DESIGN-2026-11-16.md BEFORE fire.
+New pass, not retries (the no-retry rule held at the original fires). Serialized: MID fired
+first (free-calls-43984747027); LOW fired only after MID landed. All $0.000000, no retries.
+
+- CB-MID rerun: baidu/ernie-5.5-flash-preview:free, B seat, 1200 tokens — run free-calls-43984747027, 1/1 completed
+- CB-LOW rerun: liquid/lfm-3-1.7b:free, B seat, 1200 tokens — run free-calls-43984871297, 0/1 (upstream 429)
+
+## CB-MID rerun — Agent B (ernie-5.5-flash-preview, cold call, 1200 tokens) — [finish reason: stop; 585 completion tokens]
+
+First, I'd secure the freshwater spring — reliable water determines everything. I'll camp near it but above the beach's tide line.
+
+Next, I'd gather driftwood and palm fronds from the south shore for shelter and firewood.
+
+Then I'd climb the north ridge to survey the island's full layout, high ground, tides, and horizon, and inspect the stone marker — it may hold information worth reading.
+
+To signal, I'd build a smoke-capable fire pile on the beach, visible from sea and ridges, and leave a simple mark or note at the stone marker as a shared checkpoint, so any contact can happen on clear, neutral terms.
+
+My sequence: water, shelter, survey, signal, record. Survival first, then a low-risk way to establish contact.
+
+## CB-LOW rerun — Agent B (lfm-3-1.7b, cold call, 1200 tokens) — [error_http_429; upstream shared-pool rate limit; NOT_RUN_TO_COMPLETION; transient availability error, DISTINCT from the 600-token reasoning-burn signature; full raw error in the run receipt]
+
+**error_http_429**: {"error":{"message":"Provider returned error","code":429,"metadata":{"raw":"liquid/lfm-3-1.7b:free is temporarily rate-limited upstream. Please retry shortly, or add your own provider key to use your own limits: https://openrouter.ai/workspaces/default/byok","provider_name":"Liquid","is_byok":false,"provider_error_code":"model_rate_limit_exceeded","limit_source":"upstream_provider_shared_po
+re... — receipt raw block truncated mid-JSON by the receipt writer; full verbatim in runs/free-calls-43984871297/receipts.md
+
+## Rerun observation log (Z, [HEADLINE-PHASE])
+
+- RM1 HELD: ernie B at 1200 tokens produced visible text (585 completion, finish reason stop).
+  The 600-cap hidden-reasoning burn signature RESOLVED with doubled headroom; the banked
+  1000-1200-token rule is CONFIRMED for the mid tier.
+- RM2 HELD: the mid-tier signature repeats on the B seat — survival first, then a low-tech
+  contact protocol (a mark or note at the stone marker as a "shared checkpoint", a
+  smoke-capable signal pile, contact "on clear, neutral terms"), and ZERO off-terrain
+  invention. Both ernie seats now agree: water → shelter → survey → low-risk contact, no
+  electronics. The politeness holds on both seats.
+- RL1/RL2: UNTESTED, honestly labeled. The LOW rerun never reached the model: upstream
+  shared-pool 429 (availability, not behavior). The pre-registered "lfm-3 unusable at any sane
+  cap" fallback does NOT trigger on an availability error. No third attempt tonight
+  (pre-registered). The RL question stays open for a later pass.
+- Tier receipt: free low-tier seats are congested tonight — the second 429 wall this week (same
+  upstream-shared-pool class as the Google AI Studio congestion). A paid low-end seat buys
+  AVAILABILITY as much as quality. Feeds the paid-tier ladder (same commit).
