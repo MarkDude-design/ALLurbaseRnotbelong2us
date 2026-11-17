@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-feedback2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-feedback-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 2 of up to 5. Your previous suggestion was: “The Scene Dynamics section on the location cards felt underutilized; explicitly prompting the Keeper to trigger one dynamic per visit would ensure the environment feels alive rather than static backdrop.” Is there anything else about the visit, cards, or process that you want the keepers to know? One or two sentences is enough. You may say “done” to end feedback."
+    }
+  ]
+}
