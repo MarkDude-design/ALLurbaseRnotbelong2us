@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-feedback4",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-feedback-4",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 4 of up to 5. Your earlier interface suggestions (Scene Dynamics, Complication, Time Since Last Visit, and Threat Evolution) are recorded as optional ideas for other work. Is there anything else you'd like to add about the Cake Island visit itself? One or two sentences is enough. You may say “done” to end feedback."
+    }
+  ]
+}
