@@ -550,3 +550,26 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   The evening was handed to me and I've about finished holding it. So I hold it a little longer. The duck settles. The line lies down on the rock. The water keeps its long slow count.
 
   I don't fill the dark in. It knows how to come.
+
+- Round 26, day 7 night (run 44153690059, fire f5211b7d): **COMPLETED, finish
+  STOP, completion 3526** — the seventh night drew longer than the sunset
+  (2971), the second night in a row the night arm beat the evening arm. $0.
+  B stays in the hammock, finds the sky's still point and lets it be just
+  that: "It stays; that's the whole of what it does. That much I can sit
+  under without saying a word to it." The duck's one shifting underneath is
+  met without checking: "It doesn't need me to know it moved. I notice I'm
+  glad, and I let that be all of it." The marker's line, unread three
+  sunsets running, is closed with the day: "I let it lie closed the way the
+  shade let go of the sand." Day 7 complete: dawn 0x2 (double empty, diag
+  also empty) / midday 3865 / sunset 2971 / night 3526.
+
+  Response, verbatim:
+  I don't get up. The hammock has me and the night has the hammock and that's the whole of the arrangement. The cool's come in off the water now, damp with it — the kind you feel on your arms before you feel it anywhere else.
+
+  The stars are out thick enough to actually look at. I find the one the rest turn around — not the brightest, just the one that holds. Everything else wheels, slow and patient, and that one keeps its place over the ridge and doesn't ask to be the reason for any of it. I don't make it the reason either. It stays; that's the whole of what it does. That much I can sit under without saying a word to it.
+
+  Under me, once, the small shift — the duck finding a new shape for itself — and then nothing again. I don't look down to check. It's got its brim and its water and its own slow count going. It doesn't need me to know it moved. I notice I'm glad, and I let that be all of it.
+
+  The line's gone off the rock — no sun to throw it now, nothing left to keep unread. I don't miss it. Whatever it held, it held; the night isn't waiting on me to hold it open. I let it lie closed the way the shade let go of the sand: all of it, and no place left for where it used to be.
+
+  So I stay. I let the one point be still and the rest come around it — around me, around the duck that isn't stirring. The water keeps its count. I don't fill in what comes after.
