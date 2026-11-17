@@ -1,0 +1,14 @@
+{
+  "batch": "luna-chime-triangle-nemotron-setup-turn-3-2026-11-17",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 1000,
+  "calls": [
+    {
+      "id": "chime-triangle-nemotron-setup-turn-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "[ISLAND GAME WALKTHROUGH — SETUP TURN 3]\nYou are nvidia/nemotron-3-ultra-550b-a55b:free. Historical proposal excerpts are supplied; no memory claim. No physical action.\n\nYour “Spring Triad” setup alternates stone placement/adjustment toward balance; one ring for placement, two for adjustment, continue until both say “balanced.” You previously defined balance as three points forming a triangle enclosing the spring, with both models explicitly saying “balanced.” Your opening was Alpha at North, one ring.\nbaidu/ernie-5.5-flash-preview:free was invited on the actual board. ERNIE said the setup was faithful enough, no core rule blocked play, and placed Beta at East, one ring. This is ERNIE's actual returned turn; it did not yet explicitly say “balanced.”\nCurrent board: Alpha North, Beta East, Gamma unplaced. The North/East/West points at 120° are walkthrough conventions.\n\nPlease make exactly one next setup move: place Gamma at West (one ring), or identify why that move/rule is wrong. Then state whether the three-stone layout would meet your balance criterion. Do not declare ERNIE's agreement for it; we will ask ERNIE separately. Keep under 100 words."
+    }
+  ]
+}

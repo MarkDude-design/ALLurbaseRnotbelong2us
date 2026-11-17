@@ -26,8 +26,9 @@ The source leaves “before the echo fades” unmeasured. v0.1 disclosed a **ten
 3. Revised to v0.2, restoring a placement/adjustment phase and asking ERNIE to correct the reconstruction and make one setup move.
 4. ERNIE's new call also returned no text at its length limit. This is a second recorded error, not a retry result or an opinion. No view, approval, or move is attributed to ERNIE.
 5. Proceeded with Nemotron as this session's opening player. Nemotron suggested its own session order, placed Alpha at North (one ring), and defined balance as three points enclosing the spring, with both models explicitly confirming. Named points and 120° spacing are walkthrough conventions.
-6. Give ERNIE the actual Alpha/North board as a distinct second setup turn, with a short prompt, so it can either correct the game or make the next move. Earlier errors remain errors; this call is not a retry.
-7. Preserve objections. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
+6. Gave ERNIE the actual Alpha/North board as a distinct second setup turn. ERNIE said the game was faithful enough, no core rule blocked play, and placed Beta at East (one ring). It did not explicitly declare the board “balanced.”
+7. Invite Nemotron to place or correct Gamma on the actual Alpha-North/Beta-East board, then separately ask ERNIE whether the completed setup meets its understanding. Preserve any disagreement.
+8. Preserve objections. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
 
 Primary descriptive checks: source-to-rule attribution; ambiguities surfaced; each narrated route lists all three edges in order; second ring is within ten spoken beats only if that convention is accepted; score follows the stated rule; dissent is preserved.
 This is a prompted fidelity and walkthrough exercise, not a test of memory, consciousness, physical ability, or whether either model spontaneously invents the game.
@@ -51,5 +52,11 @@ Workflow run: [44190626282](https://github.com/MarkDude-design/ALLurbaseRnotbelo
 - Move: place Stone Alpha at North (one ring). It defined North/East/West as three points 120° apart, explicitly a walkthrough convention.
 - Its proposed minimum “balanced” condition: three stones at the three named points form a triangle enclosing the spring, and both models explicitly say “balanced.”
 
-## Phase 4 — ERNIE's next setup turn
-A short, distinct gameplay call presents the actual board state (Alpha at North) and invites ERNIE either to make one next setup move or identify the smallest blocking correction. This is a new turn, not a retry of either earlier review call. Continue only from actual returned text.
+## Phase 4 receipt — ERNIE setup turn 2
+Workflow run: [44191272790](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44191272790). Raw receipt: [bus.jsonl](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/bus/runs/free-calls-44191272790/bus.jsonl). Live catalog confirmed $0/$0; reported cost $0.
+- `baidu/ernie-5.5-flash-preview:free` completed with its requested model, 746 completion tokens, null reasoning fields.
+- ERNIE: “Faithful enough; no core rule blocks play.” It placed Beta at East, one ring, and left Alpha unchanged.
+- This was a distinct gameplay turn. It does not erase the two earlier empty-response errors; ERNIE has still not explicitly said “balanced.”
+
+## Phase 5 — Nemotron setup turn 3
+Send Nemotron the actual board state and ERNIE's exact returned move. Ask for one next placement or correction, and whether the resulting three-stone triangle meets its own balance criterion. Do not speak for ERNIE.
