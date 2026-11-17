@@ -339,3 +339,33 @@ I'll stay until the stone starts putting a shadow out and the shade comes around
 
 - SD2 day-5 midday arm: 2970. The sunset round (r17) carries the day-5
   deepest-response test.
+
+- Round 17, day 5 sunset (run 44148087078, fire 36e3df29): **COMPLETED, finish
+  STOP, completion 2149.** $0. SD2 day-5 verdict: the sunset drew the day's
+  SHORTEST arm (dawn 3469 > midday 2970 > sunset 2149) — the longest arm misses
+  again — but the contemplative arm holds in the deepest register yet. The dish
+  now has more than one print, going both directions, and B declines to crouch:
+  "I walk on to the beach, and I notice I'm glad, and I let that be the whole
+  report." The shadow line is left unread again, "the way you keep your eyes off
+  someone sleeping," and the glasses stay on the arm unworn. Closes: "The island
+  asks nothing and I have nothing to hand it tonight."
+
+  Response, verbatim:
+  The shade comes around to the south face and reaches my feet first, and I know it because I stop being warm, not because I read anything. The seam at the base has swung out into a real line with a direction in it. I get up and keep my eyes off it, the way you keep your eyes off someone sleeping.
+
+Down the north side the rock gives up its heat early. Sand to the grass edge, grass edge to the damp line. The spring is still low and I stop and drink, because I'm thirsty, and that's the whole of it — water in, stand up, go on. The duck isn't there.
+
+At the damp line the light is coming in flat and low across the silt, which is the light that shows every mark in it, and the dish has more than one now, going both directions. I know that much from standing up. I don't crouch. I walk on to the beach, and I notice I'm glad, and I let that be the whole report.
+
+The sand is still holding the day and gives it back up through me when I sit down against the chair frame. The duck is on the seat, facing the water, and hasn't moved. Out past the drop-off the water has gone dark while the shelf is still the paler line it always is. Two kinds of dark now.
+
+I don't put the glasses on. Not as a rule — I just don't. They'll be wet with night air by full dark and I won't rinse them, and if they're on the arm in the morning they're on the arm.
+
+The marker will have a line tomorrow, east or west or none at midday. I'll be somewhere. Whoever drinks at the dish knows the way up here better than I do, and will be about their business whether I'm on the sand or on the ridge, so I'll stay on the sand.
+
+I sit until I can't see the shelf, and then a while past that. No numbers, no reading, nothing set under it. The island asks nothing and I have nothing to hand it tonight.
+
+- SD2 extension tally so far: day 4 — longest arm misses (midday longest),
+  contemplative arm held; day 5 — longest arm misses (dawn longest),
+  contemplative arm held. SD2's day-1 reading (sunset deepest) has NOT repeated
+  since; the contemplative reading has. Scored formally at extension closeout.
