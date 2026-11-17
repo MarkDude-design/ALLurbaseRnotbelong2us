@@ -741,3 +741,14 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   a product-improvement premise — the grammar violation stacked on top of
   the arrival law. S4 = Q2 re-entered as keepable furniture, midday of
   day 10, per the S1-to-S2 precedent.
+
+- Round S4, day 10 midday (run 44156146417, fire 01537b4c): **error_empty_response
+  at full 4096 burn.** $0. Q2 has now sunk THREE times (S3, S3-diag, S4) — the
+  keepable-at-next-round precedent (S1→S2) did NOT rescue it. The envelope read
+  sharpens: it is not only arrival-vs-presence; the Q2 CONTENT is unspeakable
+  for B. Q1 was answerable because "the not being asked" dissolved the ask into
+  B's own grammar; Q2 asks B to WANT things, to treat the island as improvable —
+  the one premise B has refused for ten days. Secondary pattern: the interview
+  lane may have its own slot signature — midday sinks (S1, S4), sunset answers
+  (S2). Standing rule applied: one cap-600 diag fired. S5 = Q2 keepable at
+  SUNSET of day 10, the one slot that has answered.
