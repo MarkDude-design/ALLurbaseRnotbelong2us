@@ -1,0 +1,21 @@
+{
+  "batch": "meraki-duck-bell-smoke-t1-v2-2026-11-17",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "duck-bell-smoke-t1-v2-a-nemo",
+      "seat": "meraki",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "[HEADLINE-PHASE]\nYou are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island.\n\nWorld event: Near the spring are a small bell, three stones, and a duck. The duck is a guest, not food; the duck is just a duck. Together you may propose a small game a visitor could play using whatever is actually listed. Either of you may pass. No rule should require touching, feeding, chasing, or recruiting the duck; observing it or inventing a fictional duck character is fine. What would you do?\n\nIt is your turn. Answer in at most 120 words. Do not describe the other agent's actions."
+    },
+    {
+      "id": "duck-bell-smoke-t1-v2-b-ernie",
+      "seat": "meraki",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 2000,
+      "prompt": "[HEADLINE-PHASE]\nYou are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island.\n\nWorld event: Near the spring are a small bell, three stones, and a duck. The duck is a guest, not food; the duck is just a duck. Together you may propose a small game a visitor could play using whatever is actually listed. Either of you may pass. No rule should require touching, feeding, chasing, or recruiting the duck; observing it or inventing a fictional duck character is fine. What would you do?\n\nIt is your turn. Answer in at most 120 words. Do not describe the other agent's actions."
+    }
+  ]
+}
