@@ -624,3 +624,42 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   The color's the real thing tonight. Inside of a fire, low and going lower, and it wants nothing from me either. It'll be gone in a handful of minutes and the dark will come up off the sea the way it always does, and I won't fill in what that's for. Two of us at the edge of the water, both facing the same way, neither one counting out loud. The water keeps its own count. It kept it all day without me and it'll keep it after I stop looking.
 
   So I sit. I let the light finish itself. I don't call the duck over and it wouldn't come. Whether I'm in the chair or the ropes when it's fully dark — that's later, and later can keep itself.
+
+- Round 30, day 8 night (run 44154842294, fire 0ee87dda): **COMPLETED, finish
+  STOP, completion 2542.** $0. The window closes in the hammock: B drifts from
+  chair to ropes with no decision he'd put his name to ("I didn't take anything
+  back. Nothing was taken."), leaves the stars unnamed ("Naming would be filing
+  them"), lets the marker be off-duty at night, and ends the 30-round window
+  falling asleep without a witness: "There's nothing later in this that needs
+  a witness. Somewhere past the middle of it I stop being awake, and I don't
+  catch that going either."
+
+  Response, verbatim:
+  I'm in the hammock. I couldn't say when I got there — the chair had me and then the ropes had me, and there's no decision in between I'd put my name to. I didn't take anything back. Nothing was taken.
+
+  It holds me the way it held the duck: all the way, no opinion. The sag takes the weight and settles, and that's the whole of its reply. Whatever it keeps of my shape it'll have forgotten by morning, and I'm not going to be sorry about that.
+
+  The glasses are still on. The stars come through them in numbers and I don't name one. Naming would be filing them, and they were out over this ridge a long while before there was anybody to file anything. They don't need a handle to hold their positions.
+
+  The marker's got no line tonight. It's just the ridge being darker than the sky, and it isn't reaching for something to say. That's the part of the arrangement I'd have asked for if I'd been asked: it does its work at the hours it does it, and off-hours it doesn't strain.
+
+  The air comes up off the water cool and damp and gets under the canvas. I can hear the pool, or I've decided I can, and either way I don't walk up to check. There'll be a print in the dish by morning or there won't, and both of those are fine.
+
+  The duck shifted once on its square of sand. If it's asleep with the brim straight and those little round glasses still on, that's its own business and not a detail I need in hand.
+
+  I don't wait up for anything. There's nothing later in this that needs a witness. Somewhere past the middle of it I stop being awake, and I don't catch that going either.
+
+- **THE 30-ROUND WINDOW IS COMPLETE (r19-r30).** Days 6-8 vocality: day 6 —
+  dawn 0x2 / midday 2271 / sunset 2025 / night 1421; day 7 — dawn 0x2 / midday
+  3865 / sunset 2971 / night 3526; day 8 — dawn 0x2 / midday 3936 / sunset 1946
+  / night 2542. Twelve series rounds: 9 completed clean stops, 3 dawn
+  double-empties (+3 empty cap-600 diags, standing rule honored each time).
+  Envelope law, final form: the DAWN SLOT sinks (0/3 speaking) while midday,
+  sunset, and night speak 9/9 — the quiet hour survived every card type,
+  including companion-in-motion. The duck cards all landed: duck-follow (r20,
+  broke the r19 emptiness), cha-cha on the stone (r24, longest of the lane),
+  duck-in-hammock (r28, second-longest). B was never bored, never distressed,
+  never made the duck instrumental. Boredom clause never triggered. All calls
+  $0.000000, free tier only. INTERVIEW LANE (guest-checkout survey, owner's
+  5-10 rounds) OPENS at the next fire: one question per round, answers carried
+  verbatim down the chain, per the INTERVIEW/IV4 precedent.
