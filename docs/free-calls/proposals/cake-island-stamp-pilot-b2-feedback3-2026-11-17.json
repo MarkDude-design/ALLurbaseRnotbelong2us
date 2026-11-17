@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-feedback3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-feedback-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 3 of up to 5. You mentioned a “Crumble Path” card and vanilla-scented ink; those details were not among the four supplied Cake Island cards. Is there any other note about the visit, or are you done? Keep it to one sentence."
+    }
+  ]
+}
