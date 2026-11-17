@@ -45,9 +45,9 @@ mismatch matrices where we need many cells. A 520-call wave costs <$0.01 (gpt-os
 - nvidia/nemotron-3-ultra PAID (DeepInfra) $0.50 / $2.20, 262k context — OUR KNOWN-BEHAVIOR
   ANCHOR: we hold 10+ receipts of its island behavior; the paid seat removes the free-pool
   availability risk while holding the model fixed.
-Use for: the mismatch rounds, replication assays, anything where behavior quality matters but
-a $0.02-0.02 (sic: sub-cent to ~2-cent) per-run cost is acceptable. A full 7-turn pair-run:
-~$0.005 (glm-flash) to ~$0.02 (nemotron paid). ~1,700-2,000 full runs per $10 at flash prices.
+Use for: the mismatch rounds, replication assays, anything where behavior quality matters and
+a sub-cent-to-2-cent per-run cost is acceptable. A full 7-turn pair-run: ~$0.005 (glm-flash)
+to ~$0.02 (nemotron paid). ~1,700-2,000 full runs per $10 at flash prices.
 
 ### T3 — PAID QUALITY, HIGH END (long conversations, final review). ~$1.40-2 / M in
 - z-ai/glm-5.3 $1.40 / $4.40
