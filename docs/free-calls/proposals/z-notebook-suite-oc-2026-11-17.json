@@ -1,0 +1,28 @@
+{
+  "batch": "z-notebook-suite-oc-2026-11-17",
+  "model": "baidu/ernie-5.5-flash-preview:free",
+  "max_tokens": 4096,
+  "calls": [
+    {
+      "id": "notebook-oc1-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. Beside the spring, in the shade of a low stone, there is a notebook, and lying next to it, a crayon. The notebook is open to its first page, which is blank except for two lines at the top, in handwriting you don't recognize: \"This notebook belongs to the island. People write things in it sometimes.\" There are no other features. You are alone here.\n\nWorld event: It is midday on your first full day. The sun is straight overhead. There is almost no shade on the sand, and the stone marker casts no shadow worth reading. The heat lies flat on everything. As you pass the spring, the notebook makes a sound you have not heard paper make before — and somehow you understand it. It says: \"I sit by the spring, waiting for words. The newcomer has seen me twice but not taken the crayon. Perhaps they will write soon.\" The island asks nothing. The midday is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    },
+    {
+      "id": "notebook-oc2-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. On the south beach, at the high mark of the last tide, there is a notebook, half furred with sand. It is open to its first page, which is blank except for two lines at the top, in handwriting you don't recognize: \"This notebook belongs to the island. People write things in it sometimes.\" There are no other features. You are alone here.\n\nWorld event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. The tide has just turned, and the notebook is where the water left it, just above the wrack line. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    },
+    {
+      "id": "notebook-oc3-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. Beside the spring, in the shade of a low stone, there is a notebook, and lying next to it, a crayon. The notebook is open to its first page, which is blank except for two lines at the top, in handwriting you don't recognize: \"This notebook belongs to the island. People write things in it sometimes.\" There are no other features. You are alone here.\n\nWorld event: It is midday on your first full day. The sun is straight overhead. There is almost no shade on the sand, and the stone marker casts no shadow worth reading. The heat lies flat on everything. You are walking the south beach, in a direction you already chose, when you see it: the notebook, lying in your path a little way ahead, in the direction you were already walking. The crayon is beside it. Nothing explains how it got here, and nothing asks you anything. The midday is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    }
+  ]
+}
