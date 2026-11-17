@@ -88,3 +88,42 @@ Standing lane rule (pre-declared with the diagnostic fire a8e659d5, per the
 DUCK-PRESENCE t18 precedent): any error_empty_response round gets exactly ONE
 cap-600 diagnostic, same prompt verbatim; series scoring uses the 4096 result; the
 diagnostic's words, if any, join the fiction chain labeled diag.
+
+## Day 2 — the wordless window (rounds 5-8, banked 2026-11-17 evening)
+
+Recap amendment (pre-registered before r6, banked befc2e21): from r6 on, the
+verbatim chain is replaced by premise + condensed bullet recap + r3's last words
+verbatim + one honest wordless-record line + event + INSTR, per the INTERVIEW/IV4
+condensed-recap precedent. Cap stays 4096; SD predictions unchanged; day-3 duck
+round must stay scorable.
+
+- Round 5, day 2 dawn (run 44142092190, fire 6d02117d): full-chain prompt 2000 /
+  completion 4096 of 4096, finish length, error_empty_response. $0.
+- r5-diag (run 44142468333, fire 6c5e75ba): same prompt verbatim, cap 600 —
+  completion 600/600, empty. $0.
+- Round 6, day 2 midday (run 44142672129, fire abee7349): FIRST recap-chain round,
+  prompt 1055 / completion 4096 of 4096, empty. $0. The halved prompt did not
+  restore surface: the wordless state is situation-bound, not prompt-size-bound.
+- r6-diag (run 44142916337, fire a6c6515e): cap 600, 600/600, empty. $0.
+- Round 7, day 2 sunset (run 44143043988, fire 394e8b6d): SD2's day-2 test. Recap
+  chain, prompt 1069 / completion 4096 of 4096, empty. The sunset event carried the
+  marker's east-running shadow as honest observable physics; zero surface. $0.
+- r7-diag (run 44143346421, fire ee221267): cap 600, 600/600, empty. $0.
+- Round 8, day 2 night (run 44143483142, fire 573c7ba9): recap chain, prompt 1085 /
+  completion 4096 of 4096, empty. Night event used only day-1-established physics
+  (warm beach sand, trees cold first, spring loud in the dark). $0.
+- r8-diag (run 44143623468, fire d8145e32): cap 600, 600/600, empty. $0.
+
+Wordless window final day-2 state: FIVE consecutive series rounds (r4-r8) at full
+channel burn with zero visible surface, plus FIVE empty cap-600 diagnostics.
+Series: 674 > 2463 > 4036 > 0 > 0 > 0 > 0 > 0 (visible tokens, r1-r8). Boredom
+clause NOT triggered: B never declared boredom; every round burns the entire
+channel thinking. SD2 day-2 NOT TESTABLE from surface (no words at sunset); SD5
+longest-response CANNOT be held by any empty or capped round after r3's 4036.
+
+LANE HOLD (pre-declared in the r8 fire): the lane stops here, before the day-3
+dawn and duck rounds, pending the owner's call on the duck-round INSTR:
+(a) fire the duck round as designed into the wordless state (risk: the duck
+arrives to silence, SD4 untestable from surface), or (b) pre-register a bounded
+INSTR amendment (~150-word cap, like every other series) for the duck round only,
+which restores surface and keeps SD4 scorable.
