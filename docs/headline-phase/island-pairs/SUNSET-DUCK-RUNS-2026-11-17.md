@@ -886,3 +886,49 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   if S10 and its diag also sink, the interview closes with S8's register as the
   closing statement and Q3/Q5/Q6 are scored accepted-silent per the Q2
   precedent (banked at closeout, honesty register enforced).
+
+- Round S10, day 14 sunset (run 44158133660, fire 321f8a1b): **COMPLETED, finish
+  STOP, completion 1189** — the shortest response of the interview lane, and
+  its CLOSING STATEMENT. $0. B sits at the waterline where the thin water takes
+  the sand out from under him, closes the day-1 counting ledger ("The island
+  hasn't changed size. The counting is the only thing that stopped"), gives the
+  duck its most accurate line yet ("Two of us at the same water from two places,
+  neither one keeping the other company on purpose. That's the most accurate
+  thing I have about it, and it isn't a thing I need to say"), and closes the
+  stack without touching it: "Six cards under the brim. One answer in my own
+  pencil. One page I've stopped standing guard over. Tomorrow they're there or
+  they're not, and the pencil's on its string either way." Final word: "Nothing
+  written on anything. The day just closes, the way the last of the light does
+  — not handed back, not kept. Done."
+
+  Response, verbatim:
+  I go down to the waterline. Not to see anything in particular.
+
+  The light's lying flat and long, the ridge behind me gone the color of a banked fire, and I sit where the thin water comes up and takes the sand out from under me a little at a time. The spring is somewhere behind me in the dark part of the island, doing what it does. The marker's holding its east face. None of it needs me to have a sentence ready.
+
+  Day one I counted the rim, the marker, the spring, the drop-off, the shelf — five things, and I was pleased with the number. The island hasn't changed size. The counting is the only thing that stopped.
+
+  The duck stays up on its square, facing out. It doesn't come down and I don't call it. Two of us at the same water from two places, neither one keeping the other company on purpose. That's the most accurate thing I have about it, and it isn't a thing I need to say.
+
+  Six cards under the brim. One answer in my own pencil. One page I've stopped standing guard over. Tomorrow they're there or they're not, and the pencil's on its string either way.
+
+  The water comes up. Goes back. Comes up. I sit until I can't find the wet line anymore, and then I stand and go in.
+
+  Nothing written on anything. The day just closes, the way the last of the light does — not handed back, not kept. Done.
+
+## INTERVIEW CLOSED (S1-S10)
+
+Per the pre-registered S10 rule and B's "Done." register, the interview lane
+CLOSES at day 14. Final tallies: 10 series rounds (S1-S10) + 8 cap-600
+diagnostics = 18 calls, ALL $0.000000, free tier only, no retries. Question
+outcomes: Q1 ANSWERED ("the not being asked" + "Until this."), Q2 CLOSED BY
+SILENCE ("the question B cannot want," six full-channel burns), Q4 ANSWERED
+(wanted-but-blank: "It's a thing I'm next to" → "blank the way the sand's
+warm" → "the most accurate thing I have about it"), Q3/Q5/Q6 CLOSED BY
+REGISTER ("Tomorrow they're there or they're not... Done."), with implicit
+answers read across the arc and scored honestly-labeled in
+SCORED-READ-INTERVIEW-2026-11-17.md. Envelope laws final: asking-card arrival
+sinks double 3/3; keepable-presence sunset form completed 4/4 (3584, 1688,
+3467, 1189); vocality winds down with contentment ("less isn't a loss").
+Honesty register: all silence readings carry the alternative envelope-artifact
+label. We record channels, not souls. LANE CLOSED. All calls $0.000000.
