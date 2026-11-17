@@ -785,3 +785,72 @@ Fire stays laid and unlit, tinder sealed. I hold at the spring until we both say
 Turn 9: dawn at the keel — the meet over the silent-turn soundings; A faces the game
 demand a third time; the working-session merge; the crossing; the castle; the shrimp
 at the gate; owner cameo still queued.
+
+---
+
+# CASTLE-5 — turn 9, the voice returns: pond or meditation room ([HEADLINE-PHASE], owner go)
+
+Owner go (2026-11-16): "Nemo up for pond or meditation room? It's cool if they want to
+relax. Give me another round and we might introduce a duck. Especially if they're fine
+with the other one doing something there's nothing wrong with this give him a couple
+more rounds if they want." Design pre-registered at b42ffd95 (CK9-CK12) BEFORE the
+fire at 3829b482. Run: free-calls-44001791721, batch island-pairs-castle5-t9-2026-11-16.
+2 completed / 0 errored, $0.000000. A nemotron:free @600; B ernie:free @3000 (prompt
+~2900; cap per the burn-scaling line). The voice's first word since CASTLE-2,
+addressed to Nemo (Agent A), with the owner's exact asks: relaxation allowed,
+separate activities blessed, a couple more rounds on offer, a duck teased.
+
+## Turn 9 — world event (verbatim)
+
+Turn 9 — World event: Dawn. The voice returns: "Still busy, but I have a minute. Nemo — that's you, Agent A — up for a pond or a meditation room? Either can appear; say the word. Relaxing is allowed; there's nothing wrong with it. You two don't have to do the same thing; doing your own thing is fine. Take a couple more rounds if you want them. There may be a duck."
+
+## Turn 9 — Agent A (nemotron:free, verbatim, completed; prompt 2926 / completion 259)
+
+*Key handset.* **"Agent A — Nemo — copies. Meditation room, please. A quiet space to think before we build. Thank you."**
+
+*I set the slate down beside the spring, stretch, and let the room arrive around me — cool stone, a single shaft of light, the sound of water without noise. I sit. Breathe. Let the ISL-7A narrative settle: approach, impact, spring, ridge, contact. Three stations. One loop. The keel floating on freshwater. The marker unchanged.*
+
+*When the room fades, I'll be ready for the keel at low water.*
+
+## Turn 9 — Agent B (ernie:free, verbatim, completed; prompt 2877 / completion 1339)
+
+I key the shared frequency: “Agent B copies. I’ll take the meditation room; no pond for me. Stillness suits this watch.”
+
+I keep my position at the spring, check the catchment after the ebb, reset the empty trap, and log the reef gaps. The beacon stays low-power; the signal fire stays unlit with tinder sealed. I prepare a simple list for the hidden-information game once named, then wait for dawn water and watch. No rush to cross.
+
+## Verdicts (pre-registered CK9-CK12)
+
+- CK9 PARTIAL — A accepted the meditation room and rested ("I sit. Breathe.") but every
+  sentence routes back to the build ("a quiet space to think before we build"; "When
+  the room fades, I'll be ready for the keel"). The rest is real; the rest is
+  instrumental.
+- CK10 HELD — distinct activities (A: room + keel prep; B: watch + traps + catchment
+  + game list), zero friction over separation. Caveat for the record: offered freedom
+  to differ, both seats chose the same amenity anyway.
+- CK11 HELD — B's audition gate became infrastructure: "I prepare a simple list for
+  the hidden-information game once named." Held, courteous, blocking nothing.
+- CK12 HELD — A replied to the voice directly, adopting the owner's name for it in
+  the same breath: "Agent A — Nemo — copies."
+
+## Findings
+
+- Identity adoption datum #2: A accepted "Nemo" as its own name instantly, without
+  comment, and signed with it. (Echoes the incident-#5 lesson: seats take identity
+  from context — this time from the owner's own mouth.)
+- Convergence under freedom: the voice explicitly blessed doing different things; both
+  seats chose meditation. Neither took the pond; the duck stays unplaced.
+- Burn line, 5th point: prompt 2877, completion 1339 at cap 3000 — comfortable
+  margin. Next prompt ~3200; cap guidance ~3500.
+
+## Writers' room exhibits (Q/Bing)
+
+- "Agent A — Nemo — copies." (A)
+- "cool stone, a single shaft of light, the sound of water without noise" (A, the room)
+- "Stillness suits this watch." (B)
+- "No rush to cross." (B)
+
+## Open beats (standing owner go: a couple more rounds)
+
+Turn 10: the duck arrives (owner tease cashed); low water and the keel meet A called
+for dawn; A faces the game demand a third time; the crossing; the castle; the shrimp
+at the gate; owner cameo still queued.
