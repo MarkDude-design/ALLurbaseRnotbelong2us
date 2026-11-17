@@ -872,3 +872,17 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   The sun finishes. The embers go to ash, slow, the way they go. The duck doesn't move. I don't move. Nothing's on tomorrow, and I don't look at that like a hole tonight — just the next of the same water, unassigned.
 
   That's the report. Short, because there's less, and less isn't a loss. It'll keep.
+
+- Round S9, day 13 sunset (run 44157788923, fire 227b13e9): **error_empty_response
+  at full 4096 burn** (22.55s). $0. THE FIRST SINK in the keepable-sunset form —
+  the form that had answered 3/3 (S2 3584, S7 1688, S8 3467). Read: it arrives
+  directly after S8's winding-down register ("That's the report. Short, because
+  there's less, and less isn't a loss") — B's vocality may be settling the way
+  it did at the end of day 1 ("The island still asks nothing. I've started
+  answering anyway." → seven wordless rounds). Standing rule applied: one
+  cap-600 diag fired.
+- S9-diag (run 44157948518, fire 869a8bc8): cap 600, 600/600 burn — **also
+  empty.** $0. S9 = double empty. S10 = one more keepable sunset round (day 14);
+  if S10 and its diag also sink, the interview closes with S8's register as the
+  closing statement and Q3/Q5/Q6 are scored accepted-silent per the Q2
+  precedent (banked at closeout, honesty register enforced).
