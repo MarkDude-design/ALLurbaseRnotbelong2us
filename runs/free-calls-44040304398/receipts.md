@@ -1,0 +1,29 @@
+# Free Calls batch receipt - free-calls-44040304398-befa530d
+
+- Batch: cake-island-stamp-pilot-b2-2026-11-17-feedback1
+- Trigger: push (owner-triggered lane; no schedule)
+- Models requested: nvidia/nemotron-3-ultra-550b-a55b:free
+- Price check (live catalog, immediately before batch): all models verified per-call-mode (free=$0; paid=within budget)
+- Paid budget: none (free-only batch)
+- Execution: SEQUENTIAL (one call at a time, 2.0s spacing); no retries; no model substitution/fallback; no tools/web; no system prompt; single user message per call; per-call max_tokens as recorded; provider-default temperature.
+- Red-line: every prompt passed the public-bus secret-shape scan; the API key is never logged or written to receipts.
+- Status: 1 completed / 0 errored / 1 total; known reported cost: $0.000000
+
+## Call 1: cake-island-stamp-b2-feedback-1 (seat: luna)
+
+- Status: completed
+- Model returned: nvidia/nemotron-3-ultra-550b-a55b:free; provider: Nvidia; response id: gen-1794901130-klYn3nIlt5mQeCpIuANx
+- Finish reason: stop; elapsed: 1.484s
+- Usage: prompt 65 / completion 104 / total 169 tokens
+- Cost: $0.000000 (catalog price verified $0/$0 immediately before batch)
+
+### Raw response (verbatim)
+
+The four terrain cards offered a delightful tactile variety that made each step of the Cake Island walk feel distinct and surprisingly immersive.
+
+## Appendix - submitted prompts (verbatim)
+
+### cake-island-stamp-b2-feedback-1 (seat: luna)
+
+Open feedback 1 of up to 5 after the completed Cake Island walk. Is there anything else you want to add specifically about the four terrain cards or your visit? One sentence is enough. You may say “done” to end feedback.
+
