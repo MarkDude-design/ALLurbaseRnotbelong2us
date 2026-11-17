@@ -798,3 +798,11 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   arrival: 3/3 sunk on first appearance). Standing rule applied: one cap-600
   diag fired. S7 = the stack keepable at SUNSET of day 11, B's most recent
   words still carried verbatim down the chain.
+
+- S6-diag (run 44157202974, fire cf657d1b): cap 600, 600/600 burn — **also
+  empty.** $0. S6 = double empty (night slot). The arrival law is now 3/3 in
+  the interview lane: every asking-card arrival sinks its first appearance
+  double (S1, S3, S6). S7 fired: the stack keepable at SUNSET of day 11 — the
+  exact form and slot that answered Q1 (S2). Q3 (what confused you) is the
+  top card; its content is retrospective observation, the most B-speakable
+  question left in the survey.
