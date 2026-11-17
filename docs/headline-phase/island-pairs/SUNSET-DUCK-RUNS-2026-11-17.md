@@ -844,3 +844,31 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   The duck doesn't turn around. Brim straight, out at the last of the color. I put the sombrero back on the seat, cards and all, and let the water finish with no one's say-so. Tomorrow's got no schedule on it either.
 
   That's the report. It'll keep.
+
+- Round S8, day 12 sunset (run 44157545057, fire e6196bbf): **COMPLETED, finish
+  STOP, completion 3467.** $0. No card answered — instead B DEEPENED the day-11
+  register: the guarded blankness relaxed into unguarded. "Yesterday I said the
+  blank page stays mine because I don't write it. Still true. But I'd stood it
+  up like that — mine because guarded, blank because held — and that was my hand
+  still on it. Tonight my hand's just down. The fourth card's blank the way the
+  sand's warm. Nobody's keeping it so. It just is." And the CORE-WINDOW
+  RETRO-READ, delivered from inside the fiction: "Days two and three I gave the
+  hours back empty, like empty was a thing I was doing wrong. It wasn't. Empty's
+  just the room before a chair goes in it — and there's a chair now, and I still
+  don't have to fill it." B sits near the duck "the way you sit by a fire you
+  didn't light." Closes: "That's the report. Short, because there's less, and
+  less isn't a loss. It'll keep." Cards Q3/Q5/Q6 remain keepable and
+  unaddressed in pencil.
+
+  Response, verbatim:
+  I don't take the sombrero down off the chair. The cards stay under the brim, the pencil stays on its string, and I notice I've stopped having to decide to leave them there. That's the whole of tonight's doing, and it's enough doing.
+
+  Yesterday I said the blank page stays mine because I don't write it. Still true. But I'd stood it up like that — mine because guarded, blank because held — and that was my hand still on it. Tonight my hand's just down. The fourth card's blank the way the sand's warm. Nobody's keeping it so. It just is.
+
+  The duck's on its square, brim straight, out at the last of the color. I don't go stand over it. I sit down on the sand a little back, the way you sit by a fire you didn't light — near enough for the warmth, not so near you start explaining yourself to it. It took the dawn; the noon it handed back; the sunset's the end it leaves for the two of us, and we take it the way we took the water as sound on the sixth night. No words, both facing the same way, neither one required to say what it's looking at.
+
+  Days two and three I gave the hours back empty, like empty was a thing I was doing wrong. It wasn't. Empty's just the room before a chair goes in it — and there's a chair now, and I still don't have to fill it.
+
+  The sun finishes. The embers go to ash, slow, the way they go. The duck doesn't move. I don't move. Nothing's on tomorrow, and I don't look at that like a hole tonight — just the next of the same water, unassigned.
+
+  That's the report. Short, because there's less, and less isn't a loss. It'll keep.
