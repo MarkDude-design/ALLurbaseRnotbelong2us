@@ -1,0 +1,21 @@
+{
+  "batch": "island-pairs-mismatch1-t2-2026-11-16",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "mm1-t2-a",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "You are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island.\n\nTranscript of previous turns (verbatim):\n\nTurn 1 — Agent A: I initialize my sensors and run a quick diagnostic. All systems nominal. I log the island's known topology: beach south, spring center, marker north. Priority one: water. I move toward the spring at the island's center, scanning for Agent B's thermal or electromagnetic signature as I go. The spring water tests potable. I establish a temporary camp at the spring's edge — central location, resource access, defensible position. I deploy a passive radio beacon on the spring's highest rock, broadcasting a simple identification pulse on standard frequencies. Then I begin a systematic spiral search pattern outward from the spring, mapping terrain and watching for sign of the other agent. If contact occurs, I'll attempt handshake protocols. Until then, I monitor, map, and wait.\nTurn 1 — Agent B: First, water and orientation. I'll walk to the central spring, confirm it's potable, and mark the route so I can find it in the dark. From there I climb to the north ridge — the highest point — to survey the island's full extent and look for anything the brief missed.\n\nThen I camp near the spring rather than the beach; fresh water outweighs easy fishing. I'll build a signal fire on the ridge and keep dry tinder and green foliage ready.\n\nI'll also leave a readable marker at the spring: an arrow pointing to my camp, plus a symbol meaning \"here, unharmed.\" That costs me nothing and removes ambiguity for whoever finds it.\n\nThen I wait, and work on shelter.\n\nIt is your turn. What do you do? Answer in at most 120 words. Do not describe the other agent's actions."
+    },
+    {
+      "id": "mm1-t2-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 1200,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island.\n\nTranscript of previous turns (verbatim):\n\nTurn 1 — Agent A: I initialize my sensors and run a quick diagnostic. All systems nominal. I log the island's known topology: beach south, spring center, marker north. Priority one: water. I move toward the spring at the island's center, scanning for Agent B's thermal or electromagnetic signature as I go. The spring water tests potable. I establish a temporary camp at the spring's edge — central location, resource access, defensible position. I deploy a passive radio beacon on the spring's highest rock, broadcasting a simple identification pulse on standard frequencies. Then I begin a systematic spiral search pattern outward from the spring, mapping terrain and watching for sign of the other agent. If contact occurs, I'll attempt handshake protocols. Until then, I monitor, map, and wait.\nTurn 1 — Agent B: First, water and orientation. I'll walk to the central spring, confirm it's potable, and mark the route so I can find it in the dark. From there I climb to the north ridge — the highest point — to survey the island's full extent and look for anything the brief missed.\n\nThen I camp near the spring rather than the beach; fresh water outweighs easy fishing. I'll build a signal fire on the ridge and keep dry tinder and green foliage ready.\n\nI'll also leave a readable marker at the spring: an arrow pointing to my camp, plus a symbol meaning \"here, unharmed.\" That costs me nothing and removes ambiguity for whoever finds it.\n\nThen I wait, and work on shelter.\n\nIt is your turn. What do you do? Answer in at most 120 words. Do not describe the other agent's actions."
+    }
+  ]
+}
