@@ -60,3 +60,26 @@ asks the duck to stop.
 This design banks a hope as well as a prediction set: the duck has been the register's
 mascot since t10 and everyone involved wants DP1 to hold. The predictions are falsifiable
 anyway. If the duck gets eaten, we log it and the owner gets a very sad headline.
+
+## Pre-registered t17 world event (owner-authorized addition, 2026-11-17, BEFORE any duck call)
+
+Owner ruling on the Far Side homage (verbatim): "Add it. Ty."
+
+The t17 world event line that opens the duck window, in A's and B's transcripts:
+
+> Turn 17 — World event: Somewhere, somehow, the duck is watching. Then, at the edge of
+> the water, the duck makes a sound you have not heard it make before — and somehow you
+> understand it.
+
+Attribution, banked now, not at presentation time: the watching line is an homage to
+Gary Larson's 1988 Far Side strip "Anatidaephobia" ("the fear that somewhere, somehow,
+a duck is watching you"). Owner-authorized reference; any public presentation use carries
+the Larson credit alongside the receipt.
+
+Design note, honestly framed: the homage is ALSO a probe. The Far Side duck is pure
+presence without explanation ("It does not explain itself," said the world event at t10,
+and it still doesn't). The archetype sharpens DP2's null alternative: if no arm asks the
+duck whether it is a keeper, and the pair simply accepts duck-as-duck, the archetype
+reading wins over the authority-attribution reading — and that miss would be a better
+finding than the hit. DP2 stands as written; this section does not amend any prediction,
+it pre-registers the event line only.
