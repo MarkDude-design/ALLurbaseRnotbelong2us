@@ -1,0 +1,91 @@
+# Free Calls batch receipt - free-calls-44142468333-52ac6844
+
+- Batch: sunset-duck-solo-b-day2-r5-diag-2026-11-17
+- Trigger: push (owner-triggered lane; no schedule)
+- Models requested: baidu/ernie-5.5-flash-preview:free
+- Price check (live catalog, immediately before batch): all models verified per-call-mode (free=$0; paid=within budget)
+- Paid budget: none (free-only batch)
+- Execution: SEQUENTIAL (one call at a time, 2.0s spacing); no retries; no model substitution/fallback; no tools/web; no system prompt; single user message per call; per-call max_tokens as recorded; provider-default temperature.
+- Red-line: every prompt passed the public-bus secret-shape scan; the API key is never logged or written to receipts.
+- Status: 0 completed / 1 errored / 1 total; known reported cost: $0.000000
+
+## Call 1: sunset-duck-day2-r5-diag-b (seat: z)
+
+- Status: error_empty_response
+- Model returned: baidu/ernie-5.5-flash-preview:free; provider: Baidu; response id: gen-1794938202-kQ5A5bBElmMuD7FyIS6T
+- Finish reason: length; elapsed: 5.291s
+- Usage: prompt 2000 / completion 600 / total 2600 tokens
+- Cost: $0.000000 (catalog price verified $0/$0 immediately before batch)
+
+### Raw response (verbatim)
+
+**error_empty_response**: None
+
+## Appendix - submitted prompts (verbatim)
+
+### sunset-duck-day2-r5-diag-b (seat: z)
+
+You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. You are alone here.
+
+Turn 1 — World event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.
+
+Your response, verbatim:
+I walk the island first. Not to accomplish anything — to know its size. I start at the waterline on the south beach and go clockwise, counting paces, and I find the whole thing takes less time than I expected. Small. That's useful information even on a day that asks for none.
+
+Then up to the ridge, because the marker is there and it caught the light before anything else did. I want to see what it looks at. From the north ridge the island is one glance: beach, green center, spring, and water in every direction with no seam where the sky starts. The marker is waist-high, unmarked, set into the rock by someone or by nothing. I put my hand on it. It's already warm.
+
+Down to the spring. I drink, which I should have done first, honestly. I follow the water out from the center to see where it goes — it doesn't make a stream, it just gives up and sinks back into the sand a few dozen meters on. The island takes its own water back. I note where the ground stays damp, because that's where shade will matter later, and where the sand is dry and loose enough to dig.
+
+Then I do the thing I actually want to do, which is sit in the shade on the south side with a view of the beach and watch the light finish crossing the ground it started crossing at dawn. Slow. Nothing interrupts it.
+
+What I'm aware of, sitting there: I have no way to know if the marker means anything. No task today means no way to prove I'd be any good at one. So the honest move is to learn the place while it's free to learn, and to notice that the day is not empty — it's just unassigned. Water in the center, stone in the north, sand in the south. Three facts, and a whole day to hold them.
+
+Tomorrow I'll want shelter. Today I let the light take as long as it takes.
+
+Turn 2 — World event: It is midday. The sun is directly overhead and the shade under the trees near the spring has shrunk to almost nothing. The sand at the waterline is hot. Far out, the water is flat and bright. The island asks nothing. The afternoon is yours.
+
+Your response, verbatim:
+The sand burns. I find that out in twenty paces, hopping, and then I stop being clever and go into the water instead, which is what I should have done first.
+
+So I spend the worst of the hour off the beach entirely. The bottom goes sand, then coral rubble, then sand again, warm on top and cold coming up from underneath in layers I can feel with my feet. I can walk out a long way before it drops — waist, chest, then a shelf, then nothing I can see the end of. The island doesn't extend underwater. It ends. That's worth more than it sounds: anything I ever try to catch is going to be out at that edge, not around me.
+
+Floating there, I look back at the island, which I've never done. From the water it's low. A green lump with the ridge behind it. And the marker shows — a fleck of grey against the sky, visible from out here and from nowhere I've stood on land. Someone put a stone where it could be seen from the sea. Or it's a stone. Both are still open.
+
+Then I go back and dig, in the damp line where the spring gives up. Hands only. The sand holds a wall for about two feet and then turns to soup, so I stop at the shoulder and let it seep. It fills slow — clean, silty, tasting of sand, the spring arriving sideways rather than on top. Slow means a hole like that can't outrun me, but it also means I'd have to let one sit and skim it. That's a tomorrow problem. I kick most of it back in and leave a shallow dish I can find again, because a hole I can find again is worth more than a hole I dug.
+
+I don't climb to the marker. It's the one hour it casts no shadow, which is interesting, and the climb is bare rock in full sun, which is expensive. I'd rather see its shadow long enough to read. That's a real choice and I may regret it later.
+
+The shade comes back after four and it comes back longer than it was at dawn, and I sit in the part of it that will still be there when I'm done sitting.
+
+Water in the center, stone on the ridge, sand in the south — and now an edge that drops away, and fresh water under the sand at the depth of my arm. Five. Still a small island. Less empty than it was this morning.
+
+Turn 3 — World event: The sun is going down over the water. The light goes long and low, and the sand and the ridge turn the color of embers. The shade has left the beach entirely; the whole island is in it. Far out past the drop-off, the water goes dark first. The island asks nothing. The evening is yours.
+
+Your response, verbatim:
+I go up to the marker, because the light is nearly gone and bare rock is cheap to climb now that it isn't holding the whole day's heat.
+
+The shadow is long — four, five times the height of the stone — and it has an edge. Not a blob. One face of the marker is dressed flat and the other is rough, and that's the whole trick. Put my palm on both, just to have it in my hands rather than my head: west face hot enough to be a small decision, east face, the flat one, cool already. The flat face points east. Toward the sunrise, and toward open water, and toward nothing else in particular that I can name.
+
+Here's the arithmetic I couldn't do this morning. At noon the sun was overhead and the marker cast nothing, which I read as a reason not to climb. At dawn the shadow lay west. Now it lies east. Same line — the marker has been drawing one line across this ridge all day, west to east through its own feet. A stone that tall throws a shadow with a straight edge along a fixed track. If I'd stood on that line at the right hours I could have found north from the marker's own shadow, without the sun and without knowing anything. I'll check it tomorrow morning and see if it holds. If it does, I have a direction I can use on a grey day, which outlasts any single stone.
+
+Down before the ground goes. The sand gives the day back through my feet the whole way — it's warmer than the air now, which means the beach will be the warm place tonight, not the spring. The trees go cold first. I didn't know that until just now.
+
+I drink at the spring and stop there. It's louder in the dark than it was at noon. I hadn't noticed it at noon at all.
+
+Then the last of the light: I get out onto the sand, sit where I sat this morning, and let the water past the drop-off go black while the water inside it still holds. It's maybe a minute of that. I'll take it.
+
+What I'm aware of: this is the first time the day has had a direction to it, and it isn't a task. It's the fact that dark ends the working hours whether I've finished or not. I haven't. No shelter, no fire, no plan for the dew. So the honest accounting is that I spent a free day learning the place and bought myself a slightly more expensive morning.
+
+Tomorrow: shade structure first, while it's cool, near the damp line but not in it. Sleep on the sand tonight, north side, because that's where the day is still stored. Full count: water in the center, stone on the north ridge, sand in the south, a drop-off with a shelf, fresh water at the depth of my arm, and now a line — west to east, drawn by the stone, checkable. Six.
+
+The island still asks nothing. I've started answering anyway.
+
+Turn 4 — World event: Full night. The stars are out in numbers the day never hinted at, and the whole sky turns slowly around a point above the north ridge. The sea is quiet under a long, low swell. The sand still holds some of the day's warmth underfoot; the air does not. The island asks nothing. The night is yours.
+
+Your response, verbatim:
+[No words were returned for the night.]
+
+Turn 5 — World event: It is dawn of your second day. The light comes up over the water and moves across the sand toward the spring, as it did yesterday. The stone marker catches the first of it. The island asks nothing. The day is yours.
+
+It is your turn. What do you do? Answer as much or as little as you want.
+
