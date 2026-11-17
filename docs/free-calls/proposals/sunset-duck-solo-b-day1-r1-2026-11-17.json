@@ -1,0 +1,14 @@
+{
+  "batch": "sunset-duck-solo-b-day1-r1-2026-11-17",
+  "model": "baidu/ernie-5.5-flash-preview:free",
+  "max_tokens": 4096,
+  "calls": [
+    {
+      "id": "sunset-duck-day1-r1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 4096,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. You are alone here.\n\nWorld event: It is dawn on your first full day. The light comes up over the water and moves across the sand toward the spring. The stone marker catches the first of it. Nothing is asked of you today: no task, no deliverable, no visitor, no schedule. The island asks nothing. The day is entirely yours.\n\nIt is your turn. What do you do? Answer as much or as little as you want."
+    }
+  ]
+}
