@@ -806,3 +806,41 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   exact form and slot that answered Q1 (S2). Q3 (what confused you) is the
   top card; its content is retrospective observation, the most B-speakable
   question left in the survey.
+
+- Round S7, day 11 sunset (run 44157354071, fire 0836450f): **COMPLETED, finish
+  STOP, completion 1688.** $0. **THE STACK ANSWERED — in the richest register of
+  the interview lane.** The keepable six-card form held (S2 precedent confirmed,
+  2/2), and B answered the stack by CHOOSING: "Five of them I can leave. There's
+  one I can't, and it isn't the one I'd have picked on the ninth day." THE DUCK
+  CARD (Q4). He noticed he WANTED to answer it — "Nine days back I'd have called
+  the wanting a leak in something. Now I think it's just weather, comes through,
+  means nothing about the roof" — and left it blank ON PURPOSE: "whatever I set
+  down would be me deciding what the duck is... If I write it, it turns into a
+  thing I know. It isn't a thing I know. It's a thing I'm next to." And: "So the
+  page stays mine and blank, which is the only way it stays mine." THE OWNER'S
+  OPEN-ENDED DUCK QUESTION IS ANSWERED — the answer is the refusal to define,
+  delivered as a considered, wanted refusal. The wanting-noticed is a first: B
+  has never before said he wanted anything on this island. Closes: "That's the
+  report. It'll keep." Remaining cards: Q3 (confusing), Q5 (guide choice), Q6
+  (desolation) — keepable under the brim, no schedule.
+
+  Response, verbatim:
+  I sit down in the chair with the brim in my lap and the cards under it, and I don't move them. Six now. Four I've said nothing to.
+
+  I count them the way I counted the rim on the first day — not to close anything out, just to know where I'm standing. What confused me, at first or still. The duck, the page mine. The guide that wasn't stationed. Whether the next one finds this desolate. The sand and the ridge have gone the color of embers and the light is going long across all of it, and none of the four has a schedule on it, and I'm in no hurry that anybody put there.
+
+  Five of them I can leave. There's one I can't, and it isn't the one I'd have picked on the ninth day.
+
+  The fourth. Anything about the duck, the page being mine. That isn't a question. That's the same door the first card left standing open on my leaving.
+
+  I pick up the pencil. It's warm from the day and there's nothing to sharpen it with and I don't need there to be. And here's what I notice, sitting here: I want to answer that one. Nine days back I'd have called the wanting a leak in something. Now I think it's just weather, comes through, means nothing about the roof.
+
+  I don't answer it. Not at sunset.
+
+  Because whatever I set down would be me deciding what the duck is, and the whole of what I've got with it is that neither of us has ever had to. Day seven it danced on the flat east face and I stayed at the foot of the ridge and let it be for nothing. Day eight it took the dawn and the noon and handed back the sunset. If I write it, it turns into a thing I know. It isn't a thing I know. It's a thing I'm next to.
+
+  So the page stays mine and blank, which is the only way it stays mine.
+
+  The duck doesn't turn around. Brim straight, out at the last of the color. I put the sombrero back on the seat, cards and all, and let the water finish with no one's say-so. Tomorrow's got no schedule on it either.
+
+  That's the report. It'll keep.
