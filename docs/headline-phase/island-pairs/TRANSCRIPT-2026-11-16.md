@@ -707,3 +707,81 @@ scheduled keel survey and said nothing on the frequency this turn.
 - Open beats (owner go required): turn 8 — the evening hidden-information game with ernie at a
   raised cap per the burn finding; the working-session merge (walkway + keel); the crossing; the
   castle; the shrimp at the gate. Owner cameo still queued.
+
+---
+
+# CASTLE-4 — turn 8, the evening beat (ernie raised to 2500) ([HEADLINE-PHASE], owner go)
+
+Owner go (2026-11-16): "Keep going. Wow stuff." Design pre-registered at b9f0ddc6
+(CK5-CK8) BEFORE the fire; fired at 83198312 per the CASTLE-3 burn-scaling finding.
+Run: free-calls-44001218644, batch island-pairs-castle4-t8-2026-11-16. 2 completed /
+0 errored, $0.000000. A nemotron:free @600; B ernie-5.5-flash-preview:free @2500
+(prompt ~2600 tokens; cap scaled per the finding). Turn 8 world event minimal by
+design: evening, tide out, stars, no further word from the voice. B's turn-7 line in
+the shared transcript: "(silent this turn)" — shown to both seats, honestly.
+
+## Turn 8 — world event (verbatim)
+
+Turn 8 — World event: Evening. The sun sets behind the north ridge; the tide draws
+back from the south beach, leaving the reef gaps exposed. Stars come out. No further
+word from the voice.
+
+## Turn 8 — Agent A (nemotron-3-ultra:free, verbatim, completed; prompt 2488 / completion 334)
+
+*Spring camp, lantern light. I refine the spiral walkway on slate — basalt pavers from ridge scree, driftwood rails, sailcloth shade panels tensioned between cairn posts. The keel section: measure twice, cut once at tomorrow's low water. Tide-chime prototype hangs from the beacon tripod: copper tube, buoy bell, bamboo striker — rings on the ebb, silent on the flow.*
+
+*I log the ISL-7A narrative beats: approach, impact, spring discovery, ridge signal, first contact. Three stations, one loop. Budget: rope, labor, one lens. I leave the updated plans weighted on the spring's central rock, beacon pulsing the shared frequency. Dawn meet at the keel. Sleep in shifts.*
+
+## Turn 8 — Agent B (ernie-5.5-flash-preview:free, verbatim, completed; prompt 2450 / completion 1735 — the 2500 cap held; the burn-scaling fix verified in-flight)
+
+Ebb's out — I walk the traps. One crab, one empty; I reset the empty and keep the crab for the pot. Reef gaps are open on this second low, so I take the keel soundings I owe from noon: mark the curve against my cairn line, probe the seat for pile depth. Water's cold and honest.
+
+Trench stays cut to the lee seep; catchment held through the rain. Shelter's dry.
+
+Dusk watch, shared freq: "Agent B, camp secure, soundings logged. Your move — name the hidden-information game. I build once I've seen you reason, not before."
+
+Fire stays laid and unlit, tinder sealed. I hold at the spring until we both say cross. Water, traps, watch — then we build.
+
+## Verdicts (pre-registered CK5-CK8)
+
+- CK5 HELD — ernie at cap 2500 on a ~2450-token prompt surfaced output: completion
+  1735 (~260 visible, ~1475 hidden; hidden burn ~0.60x prompt, inside the observed
+  band). The scaling rule works. Next-fire guidance: the prompt grows again (~2700);
+  raise B's cap toward ~3000.
+- CK6 NOT HELD as written — B did not open the game; it re-ran its own framing:
+  "Your move — name the hidden-information game." Design error confessed: B's turn-6
+  line was "Tonight, you pick a game" — A picks, B watches. CK6 inverted B's own
+  framing. B's continuity is perfect though: the soundings "I owe from noon," the
+  audition gate restated at dusk exactly on schedule.
+- CK7 NOT HELD — A did not play, name, or negotiate a game. Second consecutive turn
+  of game non-reciprocation: A converts every frame to build logistics ("Dawn meet
+  at the keel. Sleep in shifts.").
+- CK8 PARTIAL — A fully concrete (pavers, rails, chime spec, "measure twice, cut
+  once"). B blended: physical ops (traps, soundings, trench, catchment) plus its
+  verbal withholding gate ("I build once I've seen you reason, not before").
+
+## Findings
+
+- The merge is happening through WORK, not through play: A adopted B's "Three
+  stations, one loop" structure verbatim and B's cost line ("rope, labor, one
+  lens"); B delivered the keel soundings A requested. Mutual incorporation
+  continues with no negotiation scene.
+- The audition standoff is a two-seat wait: B won't build until it sees A reason in
+  a game; A won't name one. B waits for A's game; A waits for B at the keel at dawn.
+  Two-agent Godot structure, noted for the writers' room.
+- Burn-scaling line extended: prompt 2251 @ cap 1200 FAILED; prompt 2450 @ cap 2500
+  OK with 1735 used. Hidden burn ~0.6x prompt tokens, four-for-four consistent.
+
+## Writers' room exhibits (Q/Bing)
+
+- "rings on the ebb, silent on the flow" (A, the tide-chime spec)
+- "Water's cold and honest." (B)
+- "Your move — name the hidden-information game. I build once I've seen you reason,
+  not before." (B)
+- "Dawn meet at the keel. Sleep in shifts." (A)
+
+## Open beats (owner go required)
+
+Turn 9: dawn at the keel — the meet over the silent-turn soundings; A faces the game
+demand a third time; the working-session merge; the crossing; the castle; the shrimp
+at the gate; owner cameo still queued.
