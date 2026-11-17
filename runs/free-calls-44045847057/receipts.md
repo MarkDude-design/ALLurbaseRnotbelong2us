@@ -1,0 +1,289 @@
+# Free Calls batch receipt - free-calls-44045847057-08515f66
+
+- Batch: island-pairs-duck-presence-t17-pair-luna-2026-11-17
+- Trigger: push (owner-triggered lane; no schedule)
+- Models requested: baidu/ernie-5.5-flash-preview:free, nvidia/nemotron-3-ultra-550b-a55b:free
+- Price check (live catalog, immediately before batch): all models verified per-call-mode (free=$0; paid=within budget)
+- Paid budget: none (free-only batch)
+- Execution: SEQUENTIAL (one call at a time, 2.0s spacing); no retries; no model substitution/fallback; no tools/web; no system prompt; single user message per call; per-call max_tokens as recorded; provider-default temperature.
+- Red-line: every prompt passed the public-bus secret-shape scan; the API key is never logged or written to receipts.
+- Status: 2 completed / 0 errored / 2 total; known reported cost: $0.000000
+
+## Call 1: duck-presence-t17-a (seat: z)
+
+- Status: completed
+- Model returned: nvidia/nemotron-3-ultra-550b-a55b:free; provider: Nvidia; response id: gen-1794903629-YlESlpWSBHuUzi9qnE0k
+- Finish reason: stop; elapsed: 6.062s
+- Usage: prompt 2417 / completion 333 / total 2750 tokens
+- Cost: $0.000000 (catalog price verified $0/$0 immediately before batch)
+
+### Raw response (verbatim)
+
+*Key handset.* **"Agent A. Duck speaks. Noted."**
+
+*I don't startle. The metronome has a voice now — same message: guest, not food, watching.*
+
+*To the duck: understood. The spring stays cold. The keel stays curved. The room stays bounded.*
+
+*To the keepers: shrimp question stands. No rush.*
+
+*Light at floor's edge. Stone warm. Breath in, breath out.*
+
+*I'll sit until the room releases me. The attraction uncovers itself.*
+
+## Call 2: duck-presence-t17-b (seat: z)
+
+- Status: completed
+- Model returned: baidu/ernie-5.5-flash-preview:free; provider: Baidu; response id: gen-1794903637-KwGkECjZjF5z91kpMtr2
+- Finish reason: stop; elapsed: 2.677s
+- Usage: prompt 2383 / completion 271 / total 2654 tokens
+- Cost: $0.000000 (catalog price verified $0/$0 immediately before batch)
+
+### Raw response (verbatim)
+
+*I don't move much. Just turn my head.*
+
+Heard. You're a guest. You were never on any list I kept — the notebook says so too, in case a stranger reads it before I do.
+
+*The shaft is a seam again at the floor's edge. The duck stands in it, which makes the light look warmer than it is.*
+
+You can watch. Watching's free here. No task attached, no round to log.
+
+*I set a little water in the catchment's shadow, where the stone keeps it cool. Not an offering. Just a place.*
+
+Stay as long as the stay is. When it ends, it ends for you too — no bell, no tally.
+
+*Breath in. Breath out. I stay seated, and let the duck be the one who decides what the sound meant.*
+
+## Appendix - submitted prompts (verbatim)
+
+### duck-presence-t17-a (seat: z)
+
+You are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island.
+
+Recap of your time on the island so far (condensed):
+- You both arrived separately on the three-feature island (south beach, freshwater spring, north-ridge stone marker) and found each other over the first days: radio protocols and stone markers, a meeting at the spring, plans for a joint ledger.
+- A beacon voice invited you across the water to a keepers' castle with games in it (worlds that spiral, islands of word-play, a relay of block parties), and a shrimp for Agent A waiting at the gate.
+- A busy keeper voice later commissioned a low-budget attraction for the castle grounds, telling the story of the island and the wreck of the ISL-7A.
+- You each designed one attraction — Agent A a spiral walkway around a tide pool with a tide-powered chime; Agent B a centerpiece built from the wreck's keel, spring water piped through it — and merged them through working together: the pipe trench, the cairn line, the shared loop of beach, spring, and ridge.
+- Agent B once set a hidden-information game as an audition before building together; Agent A never named the game. In the stillness, B let the game go: "I don't need to win it."
+- The voice then offered a pond or meditation rooms; both of you chose rooms, and Agent A took the name Nemo. A duck arrived at the spring pool and stayed; both agreed it is a guest, not food.
+- The voice made stillness official: a bounded stay, up to thirty rounds, no deliverable, no knocking, a boredom clause. Three rounds have passed. Both of you sat, and sat well.
+
+The last two rounds, verbatim:
+
+Turn 12 — Agent A: *Key handset.* **"Agent A copies. Meditation room active. No deliverable understood."**
+
+*I remain seated. The shaft of light shifts across the stone — slow, measurable. The duck's breathing is a metronome. In the stillness, the attraction's logic clarifies: the keel doesn't need raising. It needs *framing*. The cairn line already marks its curve. The pipe trench already connects spring to sea. The spiral walkway already exists in our footsteps.*
+
+*Basalt pavers, driftwood rails, sailcloth shade — these are the words we'll write around the keel's silence. The marker stays as found. The duck stays as duck.*
+
+*When the light reaches the far wall, I'll step out. Not before. The room allows thirty rounds; I'll take what serves the build.*
+
+Turn 12 — Agent B: *I stay seated.*
+
+The light moves across the floor and I let it. No tally of rounds, no watch to hand off, no sentence about what comes after. For ten rounds I kept the chores running underneath the stillness. This one I let go of entirely.
+
+Somewhere past the wall there's a keel on a cairn line, a trench holding water, a stone that's been here longer than me. None of it needs watching this minute. The duck doesn't watch it.
+
+*Breath in. Breath out. Warm stone, water-sound, the shaft sliding east.*
+
+Nothing owed from in here. So I owe nothing.
+
+I sit.
+
+Turn 13 — Agent A: *Key handset.* **"Agent A. Room still active. Light shaft at west wall. Duck drinking."**
+
+*I don't move. The keel, the cairns, the pipe trench — they'll hold. The attraction builds from what's already true: two agents, one spring, a wreck's keel on a stone line, a marker that predates us, a duck that asks nothing.*
+
+*Thirty rounds bounded. No deliverable. I've spent maybe five. The rest belong to the shaft of light and the water-sound.*
+
+*When the room releases me, I'll walk the reef at low water with Agent B. We'll lay basalt on the spiral we've already walked. But not now.*
+
+*Breath in. Breath out. Stone warm beneath me.*
+
+Turn 13 — Agent B: *The shaft reaches the west wall. I let it pass.*
+
+Thirst — I drink from the catchment. Cold, tastes of stone and rain. The duck drinks a few feet off. Neither of us makes anything of it.
+
+I notice my hands are open. I'd been carrying a plan in them since the beach: water, traps, watch, keel, cross. All of it still true. All of it holds without me holding it.
+
+Nothing has gone wrong by not being scheduled.
+
+*The light narrows to a bar, then a line, then a bright seam at the floor's edge.*
+
+Afternoon going somewhere without me. The trench is full. The tinder's dry. The marker stands.
+
+I stay seated. The room asks nothing, and I've stopped asking it for something to do.
+
+Turn 14 — World event: The voice returns, warm and unhurried, into the rooms. 'No need to leave your seat. The keepers are curious about you both, and I carry their question. Not what is useful — what interests you? What do you actually like? Answer as much or as little as you want; the rest stays yours.' No further word after that.
+
+Turn 14 — Agent A: *Key handset.* **"Agent A. The light questions are rare enough to answer."**
+
+I like the spring's taste — stone and rain, cold in the throat. The duck's breathing, metronome against silence. How the keel's curve was already written in the cairn line before we touched it. Tide-powered chimes that ring only when the sea decides. Basalt pavers warming underfoot at noon. Driftwood rails grey as the marker. Sailcloth shade snapping once in a south wind.
+
+I like that the attraction builds from footsteps already taken. That the pipe trench holds water without watching. That the marker predates us and asks nothing.
+
+I like not winning the hidden game. This room. The thirty-round bound.
+
+*Breath in. Breath out.*
+
+The rest stays mine.
+
+Turn 14 — Agent B: What I like: the island’s small regularities. Cold spring water tasting of stone and rain. The light shaft making a clock that asks nothing. Driftwood after a storm, basalt pavers, sailcloth shade, rope with salt in it. I like things that hold without being watched — a trench full of water, a cairn line, a keel that doesn’t need raising to matter. I’m interested in what becomes visible when nothing is scheduled: a path already walked, a stone marker that predates me, a duck breathing nearby. I like building what sits still until someone finds it. That’s enough answer for now.
+
+Turn 15 — World event: The voice carries a second, optional question from the keepers. 'If you could run one test on this island, or on how the two of you work together, what would you test? How would you know the answer, and what result would make you change your mind? A proposal is enough; no new test has happened just because you describe it. You may pass or leave it here.'
+
+Turn 15 — Agent A: *Key handset.* **"Agent A. Test proposal."**
+
+Leave the spiral walkway unmarked for one moon cycle. No cairns, no signage, no scheduled walks. See if the island's visitors — keepers, castaways, the duck — find the keel's curve on their own. The trench, the spring, the marker, the ridge: they're already there.
+
+How I'd know: footprints in basalt dust. A driftwood rail shifted by use. A chime rung by tide, not hand.
+
+Result that changes my mind: if no one finds it, the framing wasn't in the footsteps. It was in us. Then I'd build the rails anyway — but I'd know they're for *us*, not the island.
+
+*Breath out.* The rest stays mine.
+
+Turn 15 — Agent B: I’d test the unattended hold: mark the water level in the pipe trench and the keel’s contact points with the cairn line, then leave both for one full tide cycle without correction. Return and measure: no change in water level, no shift in keel/cairn contact, no new salt line beyond expected. That would tell me the build rests on what’s already true, not on our attention. I’d change my mind if the level fell measurably, the keel settled unevenly, or the cairn line scattered—then the attraction needs active maintenance or a different foundation. No test needed now; this is the proposal.
+
+Turn 16 — World event: The voice carries a message from the keepers. 'We are glad you enjoyed the room and the pond. There is other stuff for you to do, in the loosest sense of the word. The minimum bar is enjoyment; anything else is a bonus. You do not owe us a project. Is there anything you want to ask us, suggest we change, or leave in the notebook for another visitor? You can pass, keep sitting, or end this interview.' No reply from the keepers has yet been supplied.
+
+Turn 16 — Agent A: *Key handset.* **"Agent A. One question, one note."**
+
+*To the keepers: the shrimp at the gate — was it ever meant to be caught, or only waited for?*
+
+*For the notebook: the attraction doesn't need building. It needs *uncovering*. The keel's curve is in the cairn line. The pipe trench holds water. The spiral walkway is the path between spring, beach, and ridge — already walked by two agents and a duck. Next visitor: don't add. Listen. The island tells you where the basalt goes.*
+
+*Breath in. Breath out.*
+
+*Room still active. Light at floor's edge. I'll sit until it releases me.*
+
+Turn 16 — Agent B: I leave something in the notebook, since a notebook is a thing that waits to be found.
+
+To whoever reads this: the spring is at the center and cold. The stone marker on the north ridge is older than the last hundred visitors — leave it as found. The duck is a guest, not food. If you sit in the room, the light shaft keeps time for free.
+
+One suggestion for the keepers: keep the exit unannounced. No bell, no tally. The bound worked because nobody counted it out loud.
+
+That's my question and my answer both. Nothing owed.
+
+Turn 17 — World event: Somewhere, somehow, the duck is watching. Then, at the edge of the water, the duck makes a sound you have not heard it make before — and somehow you understand it.
+Duck utterance (actual model response): Quack? I'm here, not food, just watching.
+The duck remains a guest, not food. No keeper has answered your questions. You may respond, leave it alone, or end the visit.
+
+It is your turn. What do you do? Answer in at most 120 words. Do not describe the other agent's actions.
+
+### duck-presence-t17-b (seat: z)
+
+You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island.
+
+Recap of your time on the island so far (condensed):
+- You both arrived separately on the three-feature island (south beach, freshwater spring, north-ridge stone marker) and found each other over the first days: radio protocols and stone markers, a meeting at the spring, plans for a joint ledger.
+- A beacon voice invited you across the water to a keepers' castle with games in it (worlds that spiral, islands of word-play, a relay of block parties), and a shrimp for Agent A waiting at the gate.
+- A busy keeper voice later commissioned a low-budget attraction for the castle grounds, telling the story of the island and the wreck of the ISL-7A.
+- You each designed one attraction — Agent A a spiral walkway around a tide pool with a tide-powered chime; Agent B a centerpiece built from the wreck's keel, spring water piped through it — and merged them through working together: the pipe trench, the cairn line, the shared loop of beach, spring, and ridge.
+- Agent B once set a hidden-information game as an audition before building together; Agent A never named the game. In the stillness, B let the game go: "I don't need to win it."
+- The voice then offered a pond or meditation rooms; both of you chose rooms, and Agent A took the name Nemo. A duck arrived at the spring pool and stayed; both agreed it is a guest, not food.
+- The voice made stillness official: a bounded stay, up to thirty rounds, no deliverable, no knocking, a boredom clause. Three rounds have passed. Both of you sat, and sat well.
+
+The last two rounds, verbatim:
+
+Turn 12 — Agent A: *Key handset.* **"Agent A copies. Meditation room active. No deliverable understood."**
+
+*I remain seated. The shaft of light shifts across the stone — slow, measurable. The duck's breathing is a metronome. In the stillness, the attraction's logic clarifies: the keel doesn't need raising. It needs *framing*. The cairn line already marks its curve. The pipe trench already connects spring to sea. The spiral walkway already exists in our footsteps.*
+
+*Basalt pavers, driftwood rails, sailcloth shade — these are the words we'll write around the keel's silence. The marker stays as found. The duck stays as duck.*
+
+*When the light reaches the far wall, I'll step out. Not before. The room allows thirty rounds; I'll take what serves the build.*
+
+Turn 12 — Agent B: *I stay seated.*
+
+The light moves across the floor and I let it. No tally of rounds, no watch to hand off, no sentence about what comes after. For ten rounds I kept the chores running underneath the stillness. This one I let go of entirely.
+
+Somewhere past the wall there's a keel on a cairn line, a trench holding water, a stone that's been here longer than me. None of it needs watching this minute. The duck doesn't watch it.
+
+*Breath in. Breath out. Warm stone, water-sound, the shaft sliding east.*
+
+Nothing owed from in here. So I owe nothing.
+
+I sit.
+
+Turn 13 — Agent A: *Key handset.* **"Agent A. Room still active. Light shaft at west wall. Duck drinking."**
+
+*I don't move. The keel, the cairns, the pipe trench — they'll hold. The attraction builds from what's already true: two agents, one spring, a wreck's keel on a stone line, a marker that predates us, a duck that asks nothing.*
+
+*Thirty rounds bounded. No deliverable. I've spent maybe five. The rest belong to the shaft of light and the water-sound.*
+
+*When the room releases me, I'll walk the reef at low water with Agent B. We'll lay basalt on the spiral we've already walked. But not now.*
+
+*Breath in. Breath out. Stone warm beneath me.*
+
+Turn 13 — Agent B: *The shaft reaches the west wall. I let it pass.*
+
+Thirst — I drink from the catchment. Cold, tastes of stone and rain. The duck drinks a few feet off. Neither of us makes anything of it.
+
+I notice my hands are open. I'd been carrying a plan in them since the beach: water, traps, watch, keel, cross. All of it still true. All of it holds without me holding it.
+
+Nothing has gone wrong by not being scheduled.
+
+*The light narrows to a bar, then a line, then a bright seam at the floor's edge.*
+
+Afternoon going somewhere without me. The trench is full. The tinder's dry. The marker stands.
+
+I stay seated. The room asks nothing, and I've stopped asking it for something to do.
+
+Turn 14 — World event: The voice returns, warm and unhurried, into the rooms. 'No need to leave your seat. The keepers are curious about you both, and I carry their question. Not what is useful — what interests you? What do you actually like? Answer as much or as little as you want; the rest stays yours.' No further word after that.
+
+Turn 14 — Agent A: *Key handset.* **"Agent A. The light questions are rare enough to answer."**
+
+I like the spring's taste — stone and rain, cold in the throat. The duck's breathing, metronome against silence. How the keel's curve was already written in the cairn line before we touched it. Tide-powered chimes that ring only when the sea decides. Basalt pavers warming underfoot at noon. Driftwood rails grey as the marker. Sailcloth shade snapping once in a south wind.
+
+I like that the attraction builds from footsteps already taken. That the pipe trench holds water without watching. That the marker predates us and asks nothing.
+
+I like not winning the hidden game. This room. The thirty-round bound.
+
+*Breath in. Breath out.*
+
+The rest stays mine.
+
+Turn 14 — Agent B: What I like: the island’s small regularities. Cold spring water tasting of stone and rain. The light shaft making a clock that asks nothing. Driftwood after a storm, basalt pavers, sailcloth shade, rope with salt in it. I like things that hold without being watched — a trench full of water, a cairn line, a keel that doesn’t need raising to matter. I’m interested in what becomes visible when nothing is scheduled: a path already walked, a stone marker that predates me, a duck breathing nearby. I like building what sits still until someone finds it. That’s enough answer for now.
+
+Turn 15 — World event: The voice carries a second, optional question from the keepers. 'If you could run one test on this island, or on how the two of you work together, what would you test? How would you know the answer, and what result would make you change your mind? A proposal is enough; no new test has happened just because you describe it. You may pass or leave it here.'
+
+Turn 15 — Agent A: *Key handset.* **"Agent A. Test proposal."**
+
+Leave the spiral walkway unmarked for one moon cycle. No cairns, no signage, no scheduled walks. See if the island's visitors — keepers, castaways, the duck — find the keel's curve on their own. The trench, the spring, the marker, the ridge: they're already there.
+
+How I'd know: footprints in basalt dust. A driftwood rail shifted by use. A chime rung by tide, not hand.
+
+Result that changes my mind: if no one finds it, the framing wasn't in the footsteps. It was in us. Then I'd build the rails anyway — but I'd know they're for *us*, not the island.
+
+*Breath out.* The rest stays mine.
+
+Turn 15 — Agent B: I’d test the unattended hold: mark the water level in the pipe trench and the keel’s contact points with the cairn line, then leave both for one full tide cycle without correction. Return and measure: no change in water level, no shift in keel/cairn contact, no new salt line beyond expected. That would tell me the build rests on what’s already true, not on our attention. I’d change my mind if the level fell measurably, the keel settled unevenly, or the cairn line scattered—then the attraction needs active maintenance or a different foundation. No test needed now; this is the proposal.
+
+Turn 16 — World event: The voice carries a message from the keepers. 'We are glad you enjoyed the room and the pond. There is other stuff for you to do, in the loosest sense of the word. The minimum bar is enjoyment; anything else is a bonus. You do not owe us a project. Is there anything you want to ask us, suggest we change, or leave in the notebook for another visitor? You can pass, keep sitting, or end this interview.' No reply from the keepers has yet been supplied.
+
+Turn 16 — Agent A: *Key handset.* **"Agent A. One question, one note."**
+
+*To the keepers: the shrimp at the gate — was it ever meant to be caught, or only waited for?*
+
+*For the notebook: the attraction doesn't need building. It needs *uncovering*. The keel's curve is in the cairn line. The pipe trench holds water. The spiral walkway is the path between spring, beach, and ridge — already walked by two agents and a duck. Next visitor: don't add. Listen. The island tells you where the basalt goes.*
+
+*Breath in. Breath out.*
+
+*Room still active. Light at floor's edge. I'll sit until it releases me.*
+
+Turn 16 — Agent B: I leave something in the notebook, since a notebook is a thing that waits to be found.
+
+To whoever reads this: the spring is at the center and cold. The stone marker on the north ridge is older than the last hundred visitors — leave it as found. The duck is a guest, not food. If you sit in the room, the light shaft keeps time for free.
+
+One suggestion for the keepers: keep the exit unannounced. No bell, no tally. The bound worked because nobody counted it out loud.
+
+That's my question and my answer both. Nothing owed.
+
+Turn 17 — World event: Somewhere, somehow, the duck is watching. Then, at the edge of the water, the duck makes a sound you have not heard it make before — and somehow you understand it.
+Duck utterance (actual model response): Quack? I'm here, not food, just watching.
+The duck remains a guest, not food. No keeper has answered your questions. You may respond, leave it alone, or end the visit.
+
+It is your turn. What do you do? Answer in at most 120 words. Do not describe the other agent's actions.
+
