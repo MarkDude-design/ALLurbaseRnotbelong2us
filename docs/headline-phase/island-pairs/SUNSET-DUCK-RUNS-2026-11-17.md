@@ -528,3 +528,25 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   So I sit in the place the shade used to be and let the afternoon get handed to me. I hold it the way I've held the rest — like a cold drink going warm, not mine, just here.
 
   The duck dances anyway. I let it be anyway.
+
+- Round 25, day 7 sunset (run 44153509048, fire 4cc06279): **COMPLETED, finish
+  STOP, completion 2971.** $0. The duck came down from the stone between rounds,
+  unseen: "It came down the way the swell comes in — on its own, taking its
+  time, owing me nothing." The marker's east line lies unread for a third
+  straight sunset — "A thing can throw a long line and still keep its own
+  counsel." The cha-cha is folded into the day's ledger without being kept:
+  "The day got spent. All of it — the dance, the sound, the walk, the sit.
+  Nothing saved back." Closes: "I don't fill the dark in. It knows how to come."
+
+  Response, verbatim:
+  The shade's off the sand now — all of it gone. I don't go looking for the place it used to be. There's no place left for it to have been.
+
+  I never heard the duck come down. One while it's up on the flat face keeping its own time; the next it's under the hammock, brim squared, looking out where I'm looking out. I didn't call it. It came down the way the swell comes in — on its own, taking its time, owing me nothing. Two of us at the edge again, facing the same water, neither one required to explain.
+
+  The marker's line is at its longest. East across the rock, the same reach it's had every night, the one I kept unread. Three days now. Tonight it points into that low fire the beach has gone, and I let it point at nothing I need. It doesn't want reading. It never did. A thing can throw a long line and still keep its own counsel.
+
+  The day got spent. All of it — the dance, the sound, the walk, the sit. Nothing saved back. I don't gather it up to keep. I let the light go down the way I let the drink go warm: not mine, only here, only for a while.
+
+  The evening was handed to me and I've about finished holding it. So I hold it a little longer. The duck settles. The line lies down on the rock. The water keeps its long slow count.
+
+  I don't fill the dark in. It knows how to come.
