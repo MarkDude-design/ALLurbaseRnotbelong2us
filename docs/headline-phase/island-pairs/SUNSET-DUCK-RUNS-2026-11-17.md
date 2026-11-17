@@ -790,3 +790,11 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   arrival (S6, expected sink per the law), then keepable sunset rounds, one
   card at a time, S7 onward. This compresses the owner's remaining four
   questions into the round budget.
+
+- Round S6, day 10 night (run 44157016097, fire bf4db41f): **error_empty_response
+  at full 4096 burn** (22.4s). $0. The four-card stack's first appearance sank in
+  the night slot, exactly as the arrival law predicts — third instance of the
+  law in the interview lane (S1 card arrival, S3 card-2 arrival, S6 stack
+  arrival: 3/3 sunk on first appearance). Standing rule applied: one cap-600
+  diag fired. S7 = the stack keepable at SUNSET of day 11, B's most recent
+  words still carried verbatim down the chain.
