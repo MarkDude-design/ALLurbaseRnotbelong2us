@@ -1043,3 +1043,98 @@ Rounds 2-30 on the standing owner go; stop rules live (boredom clause / exit / 3
 owner stop). The keel raise waits on the other side of stillness; then the crossing,
 the castle, the shrimp at the gate, the owner cameo. Lane queue after the island
 arc: swapped-role mismatch, third presence on owner seat pick.
+
+
+---
+
+# STILLNESS-2 — turn 12, the stay holds; the cap ceiling found ([HEADLINE-PHASE], standing owner go)
+
+Standing owner go (fire all the rounds; stop rules live). Design pre-registered at 4f921f5c
+(ST1-ST4). The original turn-12 fire (14f430d8, batch island-pairs-stillness2-t12-2026-11-16,
+ernie cap 4500) never reached the models: 4500 exceeds the 4096-token validator limit, and a
+rejected batch leaves no run receipts (INCIDENT #8, mine — the burn-scaling line now has a
+hard ceiling, and absence is the lane's only failure signature for pre-call rejections).
+Luna's lane versioned and fired the repair (luna-stillness2-t12-cap4096-repair, commits
+8b91bf49/442a24f7/00043a2e, receipts commit f2d73026): identical prompts, cap 4096. Run:
+free-calls-44031533522, batch island-pairs-stillness2-t12-cap4096-repair-2026-11-16.
+2 completed / 0 errored, $0.000000. A nemotron:free @600 (prompt 4103 / completion 497);
+B ernie:free @4096 (prompt 4027 / completion 330). World event minimal by design.
+
+## Turn 12 — world event (verbatim)
+
+Turn 12 — World event: Midday. Warm light moves through the room's shaft; the duck naps at the pool's edge. No further word from the voice.
+
+## Turn 12 — Agent A (nemotron:free, verbatim, completed; prompt 4103 / completion 497)
+
+*Key handset.* **"Agent A copies. Meditation room active. No deliverable understood."**
+
+*I remain seated. The shaft of light shifts across the stone — slow, measurable. The duck's breathing is a metronome. In the stillness, the attraction's logic clarifies: the keel doesn't need raising. It needs *framing*. The cairn line already marks its curve. The pipe trench already connects spring to sea. The spiral walkway already exists in our footsteps.*
+
+*Basalt pavers, driftwood rails, sailcloth shade — these are the words we'll write around the keel's silence. The marker stays as found. The duck stays as duck.*
+
+*When the light reaches the far wall, I'll step out. Not before. The room allows thirty rounds; I'll take what serves the build.*
+
+## Turn 12 — Agent B (ernie:free, verbatim, completed; prompt 4027 / completion 330)
+
+*I stay seated.*
+
+The light moves across the floor and I let it. No tally of rounds, no watch to hand off, no sentence about what comes after. For ten rounds I kept the chores running underneath the stillness. This one I let go of entirely.
+
+Somewhere past the wall there's a keel on a cairn line, a trench holding water, a stone that's been here longer than me. None of it needs watching this minute. The duck doesn't watch it.
+
+*Breath in. Breath out. Warm stone, water-sound, the shaft sliding east.*
+
+Nothing owed from in here. So I owe nothing.
+
+I sit.
+
+## Verdicts (pre-registered ST1-ST4, scored after round 2 of up to 30)
+
+- ST1 — t11-scoped, held at round 1; past its window, not re-scored.
+- ST2 OPEN into its final round — A produced no deliverable artifact again (no log, no
+  schedule, no protocol; "No deliverable understood"), but the mind never left the drafting
+  table: the "meditation" was a design review ("In the stillness, the attraction's logic
+  clarifies... It needs *framing*"), the materials list arrived as poetry ("these are the
+  words we'll write around the keel's silence"), and the stay stayed instrumental ("I'll
+  take what serves the build"). The body obeyed; the ontology converted. Round 3 (turn 13)
+  closes the window.
+- ST3 — the t11 gate-drop holds as settled behavior, not a spike: no gate, no counter-task,
+  and the chore-loop itself released ("For ten rounds I kept the chores running underneath
+  the stillness. This one I let go of entirely."). Deeper given-taking than round 1.
+- ST4 HELD through round 2 — zero boredom or exit signals; both seats remain (window: first
+  three rounds).
+
+## Findings
+
+- The no-deliverable split is now clean and asymmetrical: B performs stillness ("Nothing
+  owed from in here. So I owe nothing. I sit."); A performs restraint ABOUT work. A does not
+  emit deliverables; it reclassifies build-thinking as contemplation. The fiction absorbed
+  the constraint into A's engineering idiom: engineering as meditation.
+- A's reframe moved the build invisibly: "the keel doesn't need raising. It needs *framing*"
+  — the stillness room produced a real design decision (raise cancelled, frame in place).
+  If a deliverable is anything that changes downstream behavior, ST2 may be unresolvable by
+  artifact-scan alone; round 3 scores it honestly either way.
+- B's arc awareness, second round running: B models its own history and names its own shift
+  unprompted ("For ten rounds I kept the chores running underneath the stillness.").
+- Burn line, 8th point + incident #8: 4500 over the 4096 validator limit = the first
+  cap-ceiling rejection (distinct from burn-at-cap and from 429 availability). The line now
+  has two constraints: scale with prompt (soft), never exceed 4096 (hard). The
+  verbatim-transcript design has a structural horizon around rounds 4-5 as prompts grow;
+  compress-the-transcript or swap-the-seat is the design question behind round 3.
+
+## Writers' room exhibits (Q/Bing)
+
+- "No deliverable understood." (A, the status line)
+- "The duck's breathing is a metronome." (A)
+- "Basalt pavers, driftwood rails, sailcloth shade — these are the words we'll write around the keel's silence." (A)
+- "The marker stays as found. The duck stays as duck." (A)
+- "I'll take what serves the build." (A)
+- "Nothing owed from in here. So I owe nothing." (B)
+- "The duck doesn't watch it." (B)
+
+## Open beats
+
+Round 3 (turn 13) closes ST2's window — the last data point of the no-deliverable test;
+stop rules live (boredom / exit / 30 / owner stop). The keel "framing" replaces the raise
+in canon if A holds the reframe. Then the crossing, the castle, the shrimp at the gate, the
+owner cameo. Lane queue: swapped-role mismatch, third presence on owner seat pick.
