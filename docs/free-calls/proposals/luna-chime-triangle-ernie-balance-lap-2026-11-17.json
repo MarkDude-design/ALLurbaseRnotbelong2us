@@ -1,0 +1,14 @@
+{
+  "batch": "luna-chime-triangle-ernie-balance-lap-2026-11-17",
+  "model": "baidu/ernie-5.5-flash-preview:free",
+  "max_tokens": 900,
+  "calls": [
+    {
+      "id": "chime-triangle-ernie-balance-lap",
+      "seat": "luna",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 900,
+      "prompt": "[ISLAND GAME WALKTHROUGH — BALANCE CHECK AND FIRST CHIME]\nYou are baidu/ernie-5.5-flash-preview:free. This is a distinct turn with actual prior moves, not a retry of either earlier review call; those returned no text and remain recorded errors. No physical sound or movement is happening.\n\nYour “Three-Stone Chime” became a triangle version: bell at center, lap all three edges, ring again before echo fades, three clean laps win. You rejected duck veto. No joint ratification is documented.\nCurrent board after actual text moves: nvidia/nemotron-3-ultra-550b-a55b:free placed Alpha at North (one ring); you placed Beta at East (one ring); Nemotron placed Gamma at West (one ring). North/East/West are 120° walkthrough conventions. Nemotron says the triangle encloses the spring and meets its geometric balance criterion, but correctly notes balance needs both models' explicit confirmation.\nLuna's test convention for echo is ten spoken beats; it is not a historical or agreed sound rule. Clean lap means list N→E, E→W, W→N without omissions/repeats, then state second ring by beat ten.\n\nPlease answer in at most 120 words:\n1. Say “balanced” if you accept this setup, or state the smallest correction/objection.\n2. If balanced, say whether the ten-beat convention is acceptable for this text walkthrough. If acceptable, take the first chime turn: start North, ring once, narrate the three edges in order, return North, give a count ending by beat ten, ring again, and claim one point only if all steps are met. If not acceptable, propose a simple text proxy and do not score a lap yet.\nDo not speak for Nemotron or claim actual physical play."
+    }
+  ]
+}
