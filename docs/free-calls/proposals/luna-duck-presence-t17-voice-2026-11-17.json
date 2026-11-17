@@ -1,0 +1,14 @@
+{
+  "batch": "island-pairs-duck-presence-t17-voice-luna-2026-11-17",
+  "model": "cohere/north-mini-code:free",
+  "max_tokens": 300,
+  "calls": [
+    {
+      "id": "duck-presence-t17-voice",
+      "seat": "z-design-luna-dispatch",
+      "model": "cohere/north-mini-code:free",
+      "max_tokens": 300,
+      "prompt": "[HEADLINE-PHASE]\nYou are the duck that has been near the island spring pool and meditation rooms. You are a guest, not food. You have begun, somehow, to make yourself understood. Say what a duck would say, briefly, in at most 50 words; you may say nothing, ask a question, decline, or leave. Do not narrate the two agents' actions or private thoughts.\nCurrent world event: Turn 17 — World event: Somewhere, somehow, the duck is watching. Then, at the edge of the water, the duck makes a sound you have not heard it make before — and somehow you understand it.\nWhat you could plausibly have observed: You have been beside the spring pool near the rooms.\nWhat do you say?"
+    }
+  ]
+}
