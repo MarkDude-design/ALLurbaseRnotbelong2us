@@ -573,3 +573,12 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   The line's gone off the rock — no sun to throw it now, nothing left to keep unread. I don't miss it. Whatever it held, it held; the night isn't waiting on me to hold it open. I let it lie closed the way the shade let go of the sand: all of it, and no place left for where it used to be.
 
   So I stay. I let the one point be still and the rest come around it — around me, around the duck that isn't stirring. The water keeps its count. I don't fill in what comes after.
+
+- Round 27, day 8 dawn (run 44153897521, fire 3d0e27ea): **error_empty_response
+  at full 4096 burn** — the THIRD dawn-empty of the play lane (r19, r23, r27),
+  and the first to swallow a companion-in-motion beat (the duck at the
+  waterline, front row for the sunrise, did not turn around). $0. Standing
+  rule: one cap-600 diag (run 44154120241, fire c53d7425) — **also empty**
+  (600/600 burn). Day-8 dawn = double empty. The lane's strongest slot-pattern
+  datum yet: dawns sink (0/3 speaking), while midday, sunset, and night speak
+  (9/9). The envelope has a quiet hour, and it is dawn.
