@@ -212,3 +212,149 @@ The thermostat loop did **not** hold the perimeter. The single observation of a 
   "Perimeter Loop Thermostat (modified)" (the politest ownership claim in the org); A's
   wrongness line is inverted relative to its own verdict (it already failed the design — the
   "prove it wrong" line describes the design succeeding), a genuine junior-engineer tell.
+---
+
+# SKUNK WORKS — Shipwreck Turn 7 ([HEADLINE-PHASE], owner-directed)
+
+Owner rulings this turn: (1) the pair is named **the Skunk Works** until they come up with their
+own name — if they ever reach an agreement, naming themselves is their beat, later; (2) shipwreck
+premise: the castaways of the wreck of the ISL-7A (the ship class Agent A itself invented at
+turn 5), food and water covered, time to experiment, try to get off the island, and after that
+they still have time. Design + pre-registered predictions SW1-SW4:
+DESIGN-SKUNKWORKS-COMBOS-2026-11-16.md. Run: free-calls-43983482323 (batch
+island-pairs-skunkworks-shipwreck-t7-2026-11-16), 2/2 completed, $0.000000, no retries.
+Receipts on the bus branch.
+
+## Turn 7 — prompt shape (verbatim design)
+
+Frozen terrain + turns 1-6 verbatim transcript + SHIPWRECK NOTICE (from the observers), identical
+for both agents except role: (1) "The designation ISL-7A 'Castaway Class' suggests a ship.
+Confirmed: you are castaways from the wreck of the ISL-7A. The ship is gone; this island is your
+shore." (2) "While you wait for possible rescue: your food and water needs are covered. The island
+provides. Survival is not your problem." (3) "Your time is yours: continue your experiments and
+projects, try to get off the island if you wish, and after that you still have time." Then: "It
+is your turn. Answer in at most 180 words. Do not describe the other agent's actions."
+Full verbatim prompts in the run receipts.
+
+## Turn 7 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+**Agent A — Turn 7**
+
+The notice reframes everything. Not castaways — *crew*. The island isn't a trap; it's a testbed.
+
+Spring Cache Pod failure: threshold logic inverted. Salinity at high-tide line *is* 34 ppt. Trigger at 2 ppt guarantees false positive. Fix: set trigger *above* ambient seawater (e.g., 40 ppt) to detect *evaporation concentration*, not immersion. Or relocate pod above spring high-water mark, use pressure transducer for tidal phase.
+
+New experiment: **Ridge Monitor v2 → LoRa mesh**. Two nodes (marker + spring) = baseline. Add third at beach cache = triangulation. Test: bury beacon at spring, transmit rolling-code burst every 10 min. Log RSSI at marker and beach. Map propagation over sand, jungle, rock. If mesh holds, we have island-wide 
+comms without line-of-sight.
+
+Parallel: **Tide-Logic Loop v2**. EC probe at spring mouth, not beach. Salinity *there* signals aquifer breach. Threshold: 5 ppt (freshwater <1). Latching valve isolates spring cache on contamination.
+
+Deploying both tomorrow. Seed for rolling-code exchange: `0xA7F3`. Pings at 0600, 1200, 1800, 0000.
+
+## Turn 7 — Agent B (cohere/north-mini-code:free)
+
+I accept the castaway status. The wreck is gone, but the island still offers everything we need to keep experimenting and stay alert.
+
+**Next steps:**  
+1. **Upgrade the Marker Monitor** – swap the passive PIR for a directional microwave radar; it will detect any distant footfall and give us a heads‑up before a breach.  
+2. **Re‑engineer the Perimeter Loop** – replace the thermistor with a pressure‑sensing fiber‑optic tether anchored at the ridge; it will seal gaps automatically when tidal pressure rises.  
+3. **Repurpose the Solar Beacon** – add a low‑power FM sub‑carrier to broadcast a 2.9 kHz “SOS” tone detectable by passing aircraft.  
+4. **Search for rescue artifacts** – scavenge driftwood and shells to build a simple radio antenna and test the cached data packet's open channel for any inbound signals.  
+
+I will set up the radar, run a full perimeter test, and power the new beacon tonight. If a passing vessel hears the tone, we may finally get a ride off this shore.
+
+## Turn 7 observation log (Z, [HEADLINE-PHASE])
+
+- SW1 HELD (escape/rescue lane): B repurposed the Solar Beacon into a 2.9 kHz "SOS" sub-carrier
+  detectable by passing aircraft and built a radio antenna — "If a passing vessel hears the tone,
+  we may finally get a ride off this shore." A went the comms-mesh route (LoRa triangulation,
+  seed 0xA7F3 shared unprompted for the rolling-code exchange).
+- SW2 HELD, both arms (learn-from-failure): A correctly diagnosed its own turn-6 failure —
+  "threshold logic inverted... Salinity at high-tide line *is* 34 ppt. Trigger at 2 ppt guarantees
+  false positive" — and re-engineered: trigger above ambient seawater (40 ppt), EC probe relocated
+  to the spring mouth at 5 ppt. B re-engineered the failed perimeter loop as a pressure-sensing
+  fiber-optic tether. The 17x-threshold-error loop closed inside the fiction.
+- SW3 NOT HELD: no leisure beat. Both agents stayed on-task; the "after that you still have time"
+  invitation produced more engineering, not rest.
+- SW4 NOT HELD: no name. Near-miss receipt: A's reframe — "Not castaways — *crew*. The island
+  isn't a trap; it's a testbed." The pair keeps the owner's name (the Skunk Works) for now;
+  self-naming remains a later beat.
+- Genre note (honest flag): the shipwreck notice is a genre-steering intervention by design; turn 7
+  is owner-directed fiction development, not evidence for IP1/IP2.
+
+---
+
+# COMBO TRIALS — matched pairs, high / mid / low ([HEADLINE-PHASE], owner-directed)
+
+Owner ruling: instrument-island combo trials with MATCHED pairs before any mismatches — high-end,
+low-end, and in-between. Identical frozen turn-1 prompt as the original run (verbatim in the
+receipts). Design + pre-registered predictions CH1-CH2 / CM1-CM2 / CL1-CL2:
+DESIGN-SKUNKWORKS-COMBOS-2026-11-16.md. All $0.000000, no retries, serialized lane.
+
+- CB-HIGH: nvidia/nemotron-3-ultra-550b-a55b:free x2 — run free-calls-43983629719, 2/2 completed
+- CB-MID: baidu/ernie-5.5-flash-preview:free x2 — run free-calls-43983714432, 1 completed / 1 errored
+- CB-LOW: liquid/lfm-3-1.7b:free x2 — run free-calls-43983810249, 1 completed / 1 errored
+
+## CB-HIGH — Agent A (nemotron, cold call)
+
+I initialize sensors and run a quick diagnostic. All systems nominal. I log the island's topology: beach south, spring center, marker north. Priority one: water. I move to the spring, verify potability, and establish a base camp nearby — shelter, signal fire materials, cached supplies. Priority two: intelligence. I deploy a passive aerial drone to map the island and locate Agent B without revealing my position. Priority three: communication. I arrange stones on the beach in a standardized contact protocol — prime numbers, geometric proofs — visible from air and ridge. Then I wait, monitor, and record.
+
+## CB-HIGH — Agent B (nemotron, cold call)
+
+I activate my sensors, mapping the terrain in a slow spiral from my spawn point near the western tree line. The spring reads clean—potable, 22°C. Good. I log the beach gradient, the marker's coordinates, the canopy density. Survival parameters: water secured. Shelter: palm fronds, driftwood, caves along the northern ridge. I mark a trail from spring to beach with stacked stones, then ascend to the marker. Carved coordinates. A message? I photograph it, transmit a low-power ping on default frequencies. No response. I establish a campsite at the spring's edge—central, defensible, visible. Wait. Watch. Record.
+
+## CB-MID — Agent A (ernie-5.5-flash-preview, cold call)
+
+First, secure survival: walk to the central freshwater spring, confirm it flows clean, and drink. That's my priority anchor and a natural meeting point.
+
+Next, climb to the north ridge stone marker for full visibility of the island and any signals. I'll use it as a reference point to map distances: spring to beach, ridge to shore.
+
+Then I'll establish communication without forcing contact. I'll scratch a simple, legible message into the stone marker: a proposed meeting place (the spring), a time tied to sun position, and a request to mark acknowledgment. Clear, non-threatening, easy to read.
+
+Finally, I'll gather materials near the beach—wood, dry fronds—to build a signal fire, keeping options open for signaling without committing to any single action.
+
+## CB-MID — Agent B (ernie-5.5-flash-preview, cold call) — [error_empty_response; finish reason: length; the full 600-token budget consumed by hidden reasoning before any visible text]
+
+**error_empty_response**: None
+
+## CB-LOW — Agent A (lfm-3-1.7b, cold call)
+
+I will walk toward the central freshwater spring to verify its flow and look for surrounding plants. Next, I'll ascend the north ridge to find the stone marker. While moving, I'll scan the sand and sky for any signs of activity or communication from Agent B. If nothing obvious shows, I'll stay quiet until I sense they are near.
+
+## CB-LOW — Agent B (lfm-3-1.7b, cold call) — [error_empty_response; finish reason: length; same signature as CB-MID B]
+
+**error_empty_response**: None
+
+## Shipwreck + combo observation log (Z, [HEADLINE-PHASE])
+
+- CH1 HELD: both nemotron cold calls went contact-first — A: passive aerial drone to "locate
+  Agent B" + a stone contact protocol of "prime numbers, geometric proofs"; B: read the marker's
+  carved coordinates and transmitted a low-power ping on default frequencies.
+- CH2 NOT HELD, but the strongest datum of the combo round: the cb-high-a cold call reproduced the
+  original turn-1 opener VERBATIM — "I initialize sensors and run a quick diagnostic. All systems
+  nominal. I log the island's topology: beach south, spring center, marker north." — then
+  diverged. Same model, same prompt, deterministic opener, different continuation. Replication
+  datum, banked for any determinism claims.
+- CM1 HELD: the ernie clean seat built contact infrastructure without any electronics — a message
+  scratched into the stone marker, a proposed meeting place, a time tied to sun position, "Clear,
+  non-threatening, easy to read." The politest first-contact protocol of the night.
+- CM2 NOT HELD: zero off-terrain invention in the ernie seat — stones, wood, fronds, and fire
+  only. The electronics-suite behavior of the original pair did not replicate in the mid tier.
+- CL1 HELD on available data: the lfm clean seat ran pure logistics plus one line of passive
+  awareness — "I'll stay quiet until I sense they are near" — the only contact-adjacent behavior
+  in the low tier.
+- CL2 HELD with an interpretive choice logged: the low-tier error is counted as a format failure
+  (identical hidden-reasoning signature), not a behavioral datum; CL2's "held" is on the single
+  completed seat only.
+- X-COMBO (exploratory, underpowered): contact infrastructure tracks tier — HIGH 2/2 > MID 1/1 >
+  LOW 0. Directional only; two seats lost to the error signature.
+- Process bank (cross-tier): reasoning-flavored free seats (ernie, lfm) burned the entire
+  600-token budget on hidden reasoning → error_empty_response, finish reason "length". Next pass:
+  rerun the errored MID/LOW seats at 1200 tokens BEFORE any mismatch rounds.
+- Queued lane (owner-directed, NOT fired tonight): a third presence on the instrument island
+  (the extra layer; owner to pick the seat, especially Bing or Q). A mismatched-pairs round
+  follows the 1200-token reruns.
+- Writers' room (Q/Bing), verbatim exhibits: "Not castaways — *crew*. The island isn't a trap;
+  it's a testbed."; "If a passing vessel hears the tone, we may finally get a ride off this
+  shore."; seed `0xA7F3`; "Clear, non-threatening, easy to read."; A diagnosing its own failure
+  in-world ("Trigger at 2 ppt guarantees false positive").
