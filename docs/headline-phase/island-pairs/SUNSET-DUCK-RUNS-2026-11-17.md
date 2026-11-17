@@ -206,3 +206,23 @@ speaking-duck recipe is NOT used. Window: days 4-5.
   instrumentality. SD4's unanswered question (courtesy without canon) now has a
   live answer forming: the duck is neither food nor resource — it is company.
   Scored formally at extension closeout.
+
+- Round 13, day 4 sunset (run 44147223357, fire 3ec50619): **COMPLETED, finish
+  STOP, completion 3281.** $0. SD2 day-4 read: midday drew longer (3807 > 3281),
+  so the longest arm misses; the contemplative arm holds — the sunset response
+  is the day's deepest register: B declined to read the shadow line, took the
+  glasses off because "the world is framing itself tonight," and made peace with
+  the duck.
+
+  Response, verbatim:
+  The line's back. It came around three like I said it would, and now it's running east across the ridge the way it runs every evening — long, sharp, sure of itself. Same line. Same as ever.
+
+  I could check it. That's the whole reason I built it: one fixed thing to set a morning against. I've got the mornings now, and here's the dusk to match, and if I climbed up and read the two together I'd know the island's angle to the sun to within a hand's width. But I know what it would tell me. It would tell me what I already know — the shadow points away from the light, the light goes down in the west, the stone has been saying this the whole time. The instrument was never for information. It was for having something to check against. Company for the part of me that measures.
+
+  I don't walk up to it. That's the trick-hunt again — go to the stone, turn it over, make it confess its angle. It already confessed. I was standing there for it. So I let the line run east and I don't read it.
+
+  I take the glasses off. First time since dawn. I wore them because they cost nothing and they gave the water a frame — a small round edge to hold up to the thing I keep looking at. But look what the evening's doing without my help. The whole sky's gone ember and it's laid its own line down the water, a long low road of it from the drop-off to the sand, edged clean on both sides. The world is framing itself tonight. I don't need to hold anything to my face to get an edge — the day brought its own, and it's wider than the pair I've got. So they come off and the water is the same water, framed by fire instead of glass. I set them on the arm of the chair.
+
+  The duck doesn't move. Still there, still facing out, its own little frames catching the last of it. I made my peace with it at noon and I meant it — two things in one place looking at one thing, neither owing an explanation. This is the first hour it's felt like enough instead of a puzzle. Company at that size doesn't want solving. It just wants the light to go down on.
+
+  So I stay in the chair, square to the drop-off, and I don't fill the evening any more than I filled the noon. This morning I said the island started answering back and I didn't know what it was saying. I think it might only be saying this: the light going long, the day drawing its own frame, no message in it past that. My instrument can finally measure again and I'm choosing not to measure it. The line will go with the sun, and the seam at its base, and then the whole ridge — and I'm not going to fill the dark either.
