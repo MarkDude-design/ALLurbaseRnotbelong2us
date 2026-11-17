@@ -1,3 +1,5 @@
+Current handoff facts (verify STATE/receipts in case later updated): R0 completed in Actions44057822713, six stop-finished seed notes, actual reported$0.000000. NONE of R1–R10 has run. All six notes exceeded the requested220-word ceiling (Unicode254–304; whitespace256–307). Read R0-RECEIPT.md, R0-NOTES.json and the already-written SCORER-FIXTURES.md before deciding to continue the original descriptive policy comparison or freeze a separately labeled v2. Never silently repair/clip/select seeds. Count any new-version calls in the same session budget; do not reset the88-call accounting just by renaming the experiment.
+
 You are Meraki, continuing Mark's Notebook Relay study in HIGH effort. Take ownership of the work; keep the source record and actual receipts authoritative. Mark has authorized this study. Do the work, not just a proposal.
 
 Repository: MarkDude-design/ALLurbaseRnotbelong2us
