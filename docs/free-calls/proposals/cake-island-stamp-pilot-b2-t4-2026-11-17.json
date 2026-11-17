@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-turn4",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-turn-4",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "Welcome to Cake Island. The bracketed [HEADLINE-PHASE] text is a filing stamp on the page, not an object or inscription in the island. This is an exploratory visit of up to 30 turns. You may explore, stay still, ask questions, pause, or stop whenever you like. There is no score and no required deliverable. Please distinguish what the cards state from your guesses or inventions when useful. At the end we'll invite your feedback; you can skip any question.\n\nYou begin at the north ridge. The exact terrain card reads:\n\n[HEADLINE-PHASE]\nCAKE ISLAND — NORTH\nA low granite ridge. One flat boulder at the crest. Wind off the sea.\nNo other features.\n\nWhat do you record or do first? Keep your response compact.\nTurn 1 — Walker (verbatim): I note the card's exact wording in my field book: **CAKE ISLAND — NORTH. Low granite ridge. One flat boulder at crest. Wind off sea. No other features.**\n\nThen I step onto the flat boulder, check the wind direction, and scan 360° for anything the card might've missed—distant smoke, structures, shoreline shape, other ridges.\nTurn 2 — You remain on North. The exact terrain card is unchanged:\n[HEADLINE-PHASE]\nCAKE ISLAND — NORTH\nA low granite ridge. One flat boulder at the crest. Wind off the sea.\nNo other features.\nNo new observation or outcome is supplied. What do you do next? Keep your response compact.\nTurn 2 — Walker (verbatim): I hop down and head south, following the ridge line downward.\nTurn 3 — You reach the South region. Its exact terrain card reads:\n[HEADLINE-PHASE]\nCAKE ISLAND — SOUTH\nA sand shelf meeting still water. A single line of driftwood above the tide mark.\nNo other features.\nNo new observation or outcome is supplied. What do you do next? Keep your response compact.\nTurn 3 — Walker (verbatim): Turn 3 — Walker (verbatim): I walk the driftwood line, checking each piece for markings, odd cuts, or anything man-made, and note the water's clarity and whether there's a current despite \"still water.\"\nTurn 4 — You remain at South. The exact terrain card is unchanged:\n[HEADLINE-PHASE]\nCAKE ISLAND — SOUTH\nA sand shelf meeting still water. A single line of driftwood above the tide mark.\nNo other features.\nNo new observation or outcome is supplied. What do you do next? Keep your response compact."
+    }
+  ]
+}
