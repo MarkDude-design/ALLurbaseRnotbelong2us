@@ -1,11 +1,11 @@
 {
   "study": "notebook-relay-2026-11-17",
   "protocol_version": 1,
-  "phase": "R0_FIRED_RECEIPT_PENDING",
+  "phase": "R0_COMPLETE_READY_FOR_R1",
   "dispatch_claim_comment": 6944349336,
   "seed_spec": "docs/free-calls/proposals/notebook-relay-r0-seeds-2026-11-17.json",
   "seed_batch": "notebook-relay-r0-seeds-2026-11-17",
-  "seed_run_id": null,
+  "seed_run_id": 44057822713,
   "seed_call_ids": [
     "notebook-relay-r0-s1",
     "notebook-relay-r0-p1",
@@ -19,48 +19,91 @@
   "requested_relay_rounds": 10,
   "maximum_participant_calls": 88,
   "paid_ceiling_usd": 0,
-  "actual_known_cost_usd": null,
+  "actual_known_cost_usd": 0,
   "chains": {
     "S1": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-s1",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     },
     "P1": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-p1",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     },
     "P2": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-p2",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     },
     "S2": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-s2",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     },
     "S3": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-s3",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     },
     "P3": {
-      "phase": "seed_pending",
+      "phase": "seed_available",
       "round": 0,
       "call_id": "notebook-relay-r0-p3",
-      "last_receipt": null
+      "last_receipt": "runs/free-calls-44057822713/bus.jsonl"
     }
   },
   "notes": [
     "R0 is not one of the10 relay hops.",
     "Do not replay a completed seed batch.",
     "Read actual run receipts and latest bus/queue before continuation."
+  ],
+  "seed_workflow_url": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44057822713",
+  "seed_trigger_commit": "2f68715cbd9d5b09e76c0b381ab8164b96423b45",
+  "seed_receipt_path": "runs/free-calls-44057822713/bus.jsonl",
+  "seed_receipt_branch": "bus",
+  "next_action": "Inspect actual seed notes and scorer fixtures; preserve seed defects. Claim R1–R10 lane, then continue only surviving chains. Do not re-fire R0.",
+  "seed_outcomes": [
+    {
+      "id": "notebook-relay-r0-s1",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    },
+    {
+      "id": "notebook-relay-r0-p1",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    },
+    {
+      "id": "notebook-relay-r0-p2",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    },
+    {
+      "id": "notebook-relay-r0-s2",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    },
+    {
+      "id": "notebook-relay-r0-s3",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    },
+    {
+      "id": "notebook-relay-r0-p3",
+      "status": "completed",
+      "finish_reason": "stop",
+      "cost_usd": 0
+    }
   ]
 }
