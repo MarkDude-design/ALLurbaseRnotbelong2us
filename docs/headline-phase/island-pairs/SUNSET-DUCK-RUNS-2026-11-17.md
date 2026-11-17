@@ -463,3 +463,34 @@ The stone is up there in this light and I'm not walking to it. Whatever line it'
 There's no edge to this. It doesn't become evening at any point you could put a finger on; it just keeps getting less until it's something else, and nobody's keeping track, and the duck hasn't moved, and I haven't either.
 
 The afternoon was mine and I spent it going nowhere. This I only have to watch. That's the whole of what I've asked of it, and it's already doing it.
+
+- Round 22, day 6 night (run 44152834717, fire 00c907cf): **COMPLETED, finish
+  STOP, completion 1421.** $0. First night in the hammock; the duck rearranges
+  itself once underneath and is still. B declines the sky's center again, finer
+  than at r14: "I could stare until I found the one that comes closest, and then
+  I'd have found the nearest one, which is not the same as finding the center.
+  So I watch the turning." The night's shared-sense line: "I can't see the
+  water. The duck can't see the water. We're both getting it as sound, which is
+  the most either of us has ever been able to get." Closes: "Nothing tonight
+  wants assigning."
+
+  Response, verbatim:
+  I don't get out of the hammock. At night it's less a thing I got into and more the place I am.
+
+Underneath me there's a small shifting and it's the duck rearranging itself, and then it's nothing again.
+
+The stars are out in numbers the day never suggested was possible, and the whole sky wheels around a point somewhere over the ridge. You can see it move if you hold one star and then go back to the same patch of dark — not quickly, but it has gone. There's a place all of it turns around and nothing marks it. No star sits on it exactly. I could stare until I found the one that comes closest, and then I'd have found the nearest one, which is not the same as finding the center. So I watch the turning. The turning is the part that's happening.
+
+The swell comes in long and low with no chop on it, the same shape over and over, taking its time. The air off the water is cool and damp and comes up under me. The rope takes the breeze and gives a little and gives it back.
+
+I know where the dish is without going to it. Something might be there right now. If it is, it isn't waiting on me, and if it isn't, nothing's lost. Either way the walk keeps.
+
+The cooler is shut and there's nothing in it worth shutting in — all ice now, all the same temperature as the sand and the air and me. A box of water. I could open it and drink and it would be a mouthful of the island, and that's a fair thing to want in daylight. Not this.
+
+I can't see the water. The duck can't see the water. We're both getting it as sound, which is the most either of us has ever been able to get.
+
+Nothing tonight wants assigning. I lie here while it turns. That's already most of what there is, and it isn't asking me for the rest.
+
+- Day 6 complete: dawn empty / midday 2271 / sunset 2025 / night 1421. The
+  follow re-opened the surface and it has held three rounds. B active-gentle:
+  walking, drinking, hat, hammock — cha-cha card stays live for day 7.
