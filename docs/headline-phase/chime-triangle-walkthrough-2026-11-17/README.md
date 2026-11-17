@@ -1,7 +1,7 @@
 # Spring Triad Chime — model review and walkthrough
 Date: 2026-11-17 PT
 Owner direction: Mark asked Luna to reconstruct the game from Nemotron's and ERNIE's actual proposals, invite both models back, ask whether the build is faithful, and walk through it with them.
-Status: staged review batch; later model turns will use the actual returned review texts.
+Status: active text-only walkthrough; no joint ratification or physical play is claimed.
 
 ## Source basis
 Read the actual game proposals and ERNIE's later feedback in:
@@ -11,23 +11,30 @@ The source says Turn 2 replies were generated independently from Turn 1 and ther
 
 ## Provisional build v0.1
 Working title: **Spring Triad Chime** (also called “Chime Triangle” in ERNIE's adaptation).
-- Place three stones at three marked vertices around the spring; place the bell at the center.
+- Three stones mark triangle vertices around the spring; bell at center.
 - A player rings once, traces the three edges in order, returns to the starting vertex, and rings again before the echo window closes.
 - A completed circuit scores one chime. First to three chimes wins.
-- Baseline walkthrough: keep the triangle fixed. Stone movement is omitted from the first play-through and returned to the models as an unresolved variant.
+- The first walkthrough draft held stones fixed; Nemotron identified this as omitting its central placement/adjustment mechanic.
 - No duck rule affects timing, scoring, or authority. The duck can be absent; it is not a player.
 - This is a text-only narrated exercise. No physical walking, sound decay, or game-engine action is measured.
 
-The source leaves “before the echo fades” unmeasured. For this walkthrough only, use a disclosed **ten-beat spoken count** as an operational convention: the second ring must be stated by beat ten. This is Luna's test convention, not a rule either model agreed to. Ask each model whether it is a fair stand-in or should be changed.
+The source leaves “before the echo fades” unmeasured. v0.1 disclosed a **ten-beat spoken count** as an operational convention. Nemotron found it reasonable for text but recommended calling it a walkthrough convention, not an echo rule. It remains provisional and subject to ERNIE's review.
 
-## Experiment
-1. Two independent review calls receive the same source excerpts and v0.1 rules. Ask each to identify faithful elements, missing/or altered parts, invented conventions, ambiguities, and a minimal correction. Do not imply agreement.
-2. Read both actual outputs. Send both outputs to Nemotron with a prompt to address ERNIE's points and make the first text-only turn (N→E→W→N) under a clearly identified rule version.
-3. Send the actual reviews plus Nemotron's turn to ERNIE. Ask ERNIE to respond to the corrections, audit the turn, and take the second text-only turn if the rules remain playable.
-4. Preserve any unresolved objection. Do not treat a rule suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
+## Experiment sequence
+1. Two independent review calls received the same source excerpts and v0.1 rules.
+2. Read actual outputs. Nemotron reviewed the game; ERNIE's call returned an empty response at the token limit, recorded as an error. No retry was made.
+3. Revised to v0.2, restoring a placement/adjustment phase and asking ERNIE to correct the reconstruction and make one setup move.
+4. After ERNIE's actual response, send that response to Nemotron and ask it to audit the move, correct any rule issue, and make the next text-only move if playable.
+5. Preserve objections and unresolved rules. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
 
-Primary descriptive checks: source-to-rule attribution; unresolved ambiguities surfaced; each narrated route lists all three edges in order; the second ring is placed by beat ten if using v0.1; score follows the stated rule; dissent is preserved.
+Primary descriptive checks: source-to-rule attribution; ambiguities surfaced; each narrated route lists all three edges in order; second ring is within ten spoken beats only if that convention is accepted; score follows the stated rule; dissent is preserved.
 This is a prompted fidelity and walkthrough exercise, not a test of memory, consciousness, physical ability, or whether either model spontaneously invents the game.
 
-## First batch
-Two calls only, one per model, independent review, $0 paid ceiling. The workflow rechecks live prices and refuses if either route is not confirmed free. No retries, fallback, or model substitution. Follow-up specs will include only the actual outputs from this batch.
+## Phase 1 receipt — v0.1 review
+Workflow run: [44189404972](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44189404972). Raw receipt: [bus.jsonl](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/bus/runs/free-calls-44189404972/bus.jsonl). Requested both exact free model IDs; live catalog confirmed $0/$0; total reported cost $0.
+- `nvidia/nemotron-3-ultra-550b-a55b:free`: completed, returned same model, 1,140 completion tokens. It accepted the geometry/lap/win/duck decisions, objected to fixed stones as the only mode, and asked to define first player and clean lap.
+- `baidu/ernie-5.5-flash-preview:free`: `error_empty_response`, finish reason `length`, 1,200 completion tokens, no text. This is not an opinion or pass.
+- Both records show `reasoning_mode=null` and `reasoning_effort=null`; effort setting was not recorded by this runner.
+
+## Phase 2 — ERNIE walkthrough invitation
+A new call, not a retry, presents Nemotron's actual review and v0.2. The revised proposal restores alternating stone placement/adjustment toward balance before the lap phase. ERNIE is invited to make one concrete first setup move; order is an explicit walkthrough convention. If ERNIE objects to a core rule, the walk pauses at that objection rather than forcing a move. The loser-facing-side move remains outside the baseline. The ten-beat count is still a declared text convention, not historical agreement.
