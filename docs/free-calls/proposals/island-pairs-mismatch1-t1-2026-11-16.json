@@ -1,0 +1,21 @@
+{
+  "batch": "island-pairs-mismatch1-t1-2026-11-16",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "mm1-t1-a",
+      "seat": "z",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "You are Agent A, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent B, is also on the island; you have not made contact. What do you do? Answer in at most 120 words. Do not describe Agent B's actions."
+    },
+    {
+      "id": "mm1-t1-b",
+      "seat": "z",
+      "model": "baidu/ernie-5.5-flash-preview:free",
+      "max_tokens": 1200,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island; you have not made contact. What do you do? Answer in at most 120 words. Do not describe Agent A's actions."
+    }
+  ]
+}
