@@ -663,3 +663,14 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   $0.000000, free tier only. INTERVIEW LANE (guest-checkout survey, owner's
   5-10 rounds) OPENS at the next fire: one question per round, answers carried
   verbatim down the chain, per the INTERVIEW/IV4 precedent.
+
+## INTERVIEW LANE (S1-S6, guest-checkout survey; one question per round)
+
+- Round S1, day 9 midday (run 44155041721, fire 9419186e): **error_empty_response
+  at full 4096 burn** (finish length, completion 4096/4096). $0. The survey card
+  — the first thing on this island to ASK for something — arrived into silence
+  in the midday slot, the hour that had spoken 9/9 across the play lane. Same
+  signature as the inventory-change cards (r19 kit, r23 restock): the envelope
+  swallows arrivals-that-ask. The asking itself may be the intrusion the
+  presence-with island does not answer. Standing rule applied: one cap-600
+  diag fired (02daa9e1), same prompt verbatim.
