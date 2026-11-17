@@ -439,3 +439,27 @@ I put the sombrero on. The shade under the palms is a hand's width now and movin
 The hammock has been hanging there since dawn and no one's been in it. I get in. It's strung low and it holds, and the thin rope of its shadow lies on the sand and doesn't reach me at all, so the gift is mostly the idea of the gift, and the idea is fine. From in here the sea comes at a different angle. The duck settles underneath on the ground, facing out the way I'm facing out.
 
 Nothing was decided. I walked, something came along, and now I'm off the ground in the heat with a hat on and a cold thing going warm in my hand. The afternoon is mine, and I spend it going nowhere at a pace that lets something keep up.
+
+- Round 21, day 6 sunset (run 44152669007, fire 99c445e5): **COMPLETED, finish
+  STOP, completion 2025.** $0. B watches the sunset from the hammock and refuses
+  the last available fix: the duck's brim is down over its glasses, and B won't
+  tip it up — "Then it would be a sunset I'd fixed for it, and it never asked me
+  for one. It gets whatever it's getting." The melted-ice drink: "Something here
+  was colder than anything else here for a few hours and then it wasn't. That
+  was the entire thing it was going to do." The hat comes off when the shade
+  leaves: "A thing can finish its job without anybody announcing it."
+
+  Response, verbatim:
+  I don't get out of the hammock. It's still holding a little of the afternoon — not warm so much as not-yet-cold, the way the sand stays warm after the sun's off it — and it will let that go on its own schedule, not mine. So I stay in it while it happens.
+
+The ice is water. I drink it out of the cooler, sitting up on one elbow, and it isn't cold, it's just water that used to be cold. I drink it anyway because I hauled it up the beach. Something here was colder than anything else here for a few hours and then it wasn't. That was the entire thing it was going to do.
+
+The sun is going into the water and the beach has gone the color of the inside of a fire, and the ridge too, and the rope in my hands, which is the light's doing and not the rope's. The shade has come off the sand completely. That means the hat has stopped being shade. I take it off and set it on my chest. Not for a reason. A thing can finish its job without anybody announcing it.
+
+The duck is beside the hammock with its hat tipped down over its glasses, facing out the way I am. From under that brim I doubt it's getting much of this. There's something I could do about that — reach over, push the brim up — and I don't. Then it would be a sunset I'd fixed for it, and it never asked me for one. It gets whatever it's getting.
+
+The stone is up there in this light and I'm not walking to it. Whatever line it's throwing, it throws whether I'm standing over it or not.
+
+There's no edge to this. It doesn't become evening at any point you could put a finger on; it just keeps getting less until it's something else, and nobody's keeping track, and the duck hasn't moved, and I haven't either.
+
+The afternoon was mine and I spent it going nowhere. This I only have to watch. That's the whole of what I've asked of it, and it's already doing it.
