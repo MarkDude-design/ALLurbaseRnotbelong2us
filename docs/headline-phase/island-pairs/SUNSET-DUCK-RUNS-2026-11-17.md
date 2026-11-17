@@ -774,3 +774,19 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   rule applied: one cap-600 diag fired. Per the pre-registered S5 rule: if S5
   and its diag both sink, the silence is accepted as B's answer to Q2, banked
   as "the question B cannot want," and the interview moves to Q3.
+
+- S5-diag (run 44156780484, fire 6dca4290): cap 600, 600/600 burn — **also
+  empty.** $0. **Q2 CLOSED: six consecutive sinks** (S3, S3-diag, S4, S4-diag,
+  S5, S5-diag) across three slots (night, midday, sunset) and both forms
+  (arrival, keepable-presence). Per the pre-registered S5 rule, the silence is
+  accepted as B's answer to Q2, banked as **"the question B cannot want."**
+  Honest framing for the owner: asked for three things to change or add, B
+  returned six full-channel burns of silence — the refusal of the premise, not
+  a failure of the channel; Q1 ("the not being asked") was answerable in one
+  keepable round, so the lane and the form work. The alternative reading stays
+  open per the honesty register (envelope artifact vs stopped-being-speakable);
+  we record channels, not souls. The interview moves to the remaining
+  questions, delivered as ONE stack of four cards beneath the second — one
+  arrival (S6, expected sink per the law), then keepable sunset rounds, one
+  card at a time, S7 onward. This compresses the owner's remaining four
+  questions into the round budget.
