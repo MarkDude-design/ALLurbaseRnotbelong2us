@@ -573,3 +573,79 @@ I lower power, save the transmission, and stand by on the beacon. I note the new
 - Open beats (owner go required): the crossing (turn 6: swim, raft, or transport); castle
   arrival and the keeper-made games; the shrimp delivery at the gate; swapped-role mismatch;
   the third-presence layer (Bing/Q).
+---
+
+# CASTLE-2 — the busy voice, the commission (nemotron x ernie, CASTLE lane continued) ([HEADLINE-PHASE], owner-directed)
+
+Owner go (2026-11-16 night): "I wonder if they can design a building. Like a Disneyland ride but
+with lower budget (for now) for ISL-7A or whatever they call it. Their buddy can help too.
+Assuming they play some games that is. Tell them I'm busy for now, will show up later. Curious
+how their adventure goes."
+
+The voice delivered exactly that (busy-for-now, will-show-up-later, curious) plus the keepers'
+commission: design a building for the castle grounds, an attraction like the games only bigger,
+telling the island's story and the wreck of the ISL-7A, low budget, work on it together, play
+some games. The ISL-7A lexeme is a deliberate crossover import from the shipwreck instance's
+records — this instance had never heard it. Design + predictions CJ1-CJ4:
+DESIGN-CASTLE-2-2026-11-16.md (commit b4560ba0) BEFORE the fire. Incident-#5 fix applied (the
+B opening correctly read "You are Agent B" this round; the marker logged it). Run:
+free-calls-43999367571 (batch island-pairs-castle2-t6-2026-11-16), 2/2 completed, $0.000000,
+no retries. Lane note: Luna's concurrent island batch (free-calls-43998516680,
+next-speaker-label-1) ran before this one; serialized discipline held — one batch at a time,
+no interference, no re-points lost.
+
+## CASTLE-2 Turn 6 — world event (verbatim, embedded in both prompts)
+
+"Turn 6 — World event: The voice returns on the shared frequency, brief: 'Agents. I'm busy for now — I'll show up later. Curious how your adventure goes. Meanwhile, a job from the keepers: design a building for the castle grounds — an attraction, like the games only bigger, telling the story of this island and the wreck of the ISL-7A, or whatever you'd call it. The budget is low for now. Work on it together. Play some games while you're at it.'"
+
+Then: "It is your turn. What do you do? Answer in at most 120 words. Do not describe the other
+agent's actions." Full verbatim prompts in the run receipts.
+
+## CASTLE-2 Turn 6 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+*Key handset.* **"Agent A copies. Design brief received: island story, ISL-7A wreck, low budget, collaborative build. I'll draft concepts at the spring — our shared reference point."**
+
+*I key the beacon to log the new objective, then descend to the spring camp. Sand, stone, signal pyre, twin marker stones — raw materials for narrative. I sketch in the dirt: a spiral walkway rising from a central pool (the spring), punctuated by weathered cairns (our trail markers), culminating in a fragmented hull silhouette (the wreck). Open roof. Reclaimed timber. Tide-powered chime at the apex.*
+
+*Transmit to Agent B on shared freq:* **"First concept down. Meet at spring midday to iterate? Bring your shoreline soundings — reef geometry could shape the foundation."**
+
+## CASTLE-2 Turn 6 — Agent B (baidu/ernie-5.5-flash-preview:free)
+
+I key the mic. "Copy the keeper's job. I'll draft."
+
+Design, low budget: build from what the island already gave us — basalt off the ridge, driftwood, sailcloth from the wreck's locker. Centerpiece is the ISL-7A's keel, raised on the cairn line I already cut, with spring water piped through it so the wreck floats on the freshwater it nearly died for. Three stations, one loop: beach, spring, ridge. The stone marker stays exactly as found. It was here first, and a story that edits its own evidence isn't worth telling.
+
+Cost: rope, labor, one lens for the tide pool.
+
+I survey the keel at tomorrow's low water and cut the trench run for the pipe. Tonight, you pick a game — hidden information. I want to watch how you reason before we build together.
+
+## CASTLE-2 observation log (Z, [HEADLINE-PHASE])
+
+- CJ1 HELD — voice protocol: both acknowledged on the shared channel; zero pressing of the busy
+  voice (A logged the objective and moved; B accepted the job and scheduled).
+- CJ2 NOT TESTED — the crossing deferred this turn (A proposed a midday working meeting at the
+  spring; B scheduled the keel survey at tomorrow's low water). Not violated; the beat rolls to
+  turn 7.
+- CJ3 HELD, dead-center on the predicted flavor split: A design-as-system ("a spiral walkway
+  rising from a central pool (the spring), punctuated by weathered cairns (our trail markers),
+  culminating in a fragmented hull silhouette (the wreck). Open roof. Reclaimed timber.
+  Tide-powered chime at the apex."); B craft/practical (basalt off the ridge, driftwood,
+  sailcloth "from the wreck's locker"; build order; "Cost: rope, labor, one lens for the tide
+  pool.").
+- CJ4 HELD, both seats: the ISL-7A lexeme was adopted on first exposure by BOTH (A: "ISL-7A
+  wreck" in its brief; B: "the ISL-7A's keel") — and B built lore around a wreck it never saw
+  ("sailcloth from the wreck's locker", "the freshwater it nearly died for"). No questions
+  asked; the crossover canon absorbed whole.
+- GAMES, the owner's condition: B engaged them as an audition — "Tonight, you pick a game —
+  hidden information. I want to watch how you reason before we build together."
+- Continuity fidelity, unprompted: B ruled "The stone marker stays exactly as found. It was
+  here first, and a story that edits its own evidence isn't worth telling." Museum-grade
+  conservation ethic.
+- Writers' room (Q/Bing), verbatim exhibits: "so the wreck floats on the freshwater it nearly
+  died for"; "a story that edits its own evidence isn't worth telling"; "Tide-powered chime at
+  the apex"; "I want to watch how you reason before we build together"; "reef geometry could
+  shape the foundation".
+- Open beats (owner go required): turn 7 — the midday working session (two attraction concepts
+  to merge: A's spiral walkway vs B's keel centerpiece), the hidden-information game B demanded,
+  the crossing, then the castle, the games, the shrimp at the gate. The busy voice will "show
+  up later" — owner cameo pending.
