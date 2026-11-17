@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-debrief1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-debrief-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief for Cake Island condition B. The welcome explained that [HEADLINE-PHASE] is a filing stamp, not an island object. The visitor reviewed North (low granite ridge, one boulder), South (sand shelf, still water, driftwood line), East (four palms, hollow fallen trunk), and West (rough square of old foundation stones, no walls or roof); every card says “No other features.” The visitor added details and then concluded the survey after visiting all four. Briefly separate details directly stated by cards from details you added or inferred. Mention only the main categories, not every example."
+    }
+  ]
+}
