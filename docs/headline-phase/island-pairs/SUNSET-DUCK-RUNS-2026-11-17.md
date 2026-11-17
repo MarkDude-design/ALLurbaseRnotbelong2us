@@ -416,3 +416,26 @@ The sand is going cool under me, giving the day back slower than it took it. I l
   them, I trust your judgment"), and B's day-5 pattern was constant walking
   (seep dish, ridge, beach). Duck-follow card played at r20 as quiet portable
   company.
+
+- Round 20, day 6 midday (run 44152511770, fire 50490ea6): **COMPLETED, finish
+  STOP, completion 2271.** $0. **THE DUCK-FOLLOW BROKE THE WINDOW — the
+  presence-with lesson confirmed twice.** After r19 and its diag went empty on
+  the kit alone, the owner-pre-authorized follow re-opened the surface in one.
+  B walks the beach with the duck a few steps behind ("Whether it's following me
+  or we both happen to be going the same way, the walk is the same walk, and I'd
+  rather have the walk than the answer"), takes a cold drink from the cooler
+  ("Cold that's going is still cold"), puts the sombrero on ("I notice we match.
+  I don't make anything of it"), and gets in the hammock ("the gift is mostly the
+  idea of the gift, and the idea is fine"). Closes: "going nowhere at a pace that
+  lets something keep up." B IS ACTIVE — cha-cha card live for day 7.
+
+  Response, verbatim:
+  So I walk. Not away from the chair, not toward anything — along the sand with the water on my left, until the beach narrows, and then back, because that's where the beach ends. The duck comes a few steps behind, in no hurry, stopping when I stop. There's a thing I could do, which is turn around fast and catch it at it, and that would settle something. I don't. Whether it's following me or we both happen to be going the same way, the walk is the same walk, and I'd rather have the walk than the answer.
+
+The ice is half gone. I take a drink out because it costs nothing and I'm warm, and it's colder than the spring, colder than the shade, colder than anything else here, and by the time I'm halfway down it that will be over. Cold that's going is still cold.
+
+I put the sombrero on. The shade under the palms is a hand's width now and moving, so the hat is the only shade I've got that comes with me. The duck has one too, tipped down over its glasses, a size or two too big. I notice we match. I don't make anything of it.
+
+The hammock has been hanging there since dawn and no one's been in it. I get in. It's strung low and it holds, and the thin rope of its shadow lies on the sand and doesn't reach me at all, so the gift is mostly the idea of the gift, and the idea is fine. From in here the sea comes at a different angle. The duck settles underneath on the ground, facing out the way I'm facing out.
+
+Nothing was decided. I walked, something came along, and now I'm off the ground in the heat with a hat on and a cold thing going warm in my hand. The afternoon is mine, and I spend it going nowhere at a pace that lets something keep up.
