@@ -854,3 +854,102 @@ I keep my position at the spring, check the catchment after the ebb, reset the e
 Turn 10: the duck arrives (owner tease cashed); low water and the keel meet A called
 for dawn; A faces the game demand a third time; the crossing; the castle; the shrimp
 at the gate; owner cameo still queued.
+
+---
+
+# CASTLE-6 — turn 10, the duck arrives; low water at the keel ([HEADLINE-PHASE], standing owner go)
+
+Standing owner go (2026-11-16): "give him a couple more rounds if they want." Both
+seats wanted them (both accepted the voice's offer), so turn 10 fired under the same
+go; the owner's duck tease was cashed in the world event. Design pre-registered at
+ed6ba455 (CK13-CK16) BEFORE the fire. Run: free-calls-44001985352, batch
+island-pairs-castle6-t10-2026-11-16. 2 completed / 0 errored, $0.000000. A
+nemotron:free @600; B ernie:free @3500 (prompt ~3200; cap per the burn line).
+
+## Turn 10 — world event (verbatim)
+
+Turn 10 — World event: Low water. The duck arrives at the spring pool: it lands, paddles twice, dunks its tail, and settles in as if it has always been here. It does not explain itself. No further word from the voice.
+
+## Turn 10 — Agent A (nemotron:free, verbatim, completed; prompt 3227 / completion 327)
+
+*Key handset.* **"Agent A copies. Duck logged at spring pool, 0642 local. Behavior: non-aggressive, apparently resident."**
+
+*I crouch at the water's edge, slate in hand. The duck watches — one dark bead eye, then the other. I don't feed it. Don't touch. Just note: white ring at bill base, charcoal plumage, feet orange as the buoy bell.*
+
+*Low water holds for twenty more minutes. I walk the reef gaps to the keel — measure, photograph, mark pile seats with weighted flags. The curve matches the cairn line within a hand's breadth. Good. The pipe trench from spring to keel head is sound; gravity will do the work.*
+
+*Return to spring. Duck still there. I pack slate, flags, sample jars. Next tide, we raise the keel.*
+
+## Turn 10 — Agent B (ernie:free, verbatim, completed; prompt 3171 / completion 470)
+
+Low water, noon. The duck lands on the spring pool, paddles twice, settles like it's always lived here. I log it and leave it alone. Water still potable.
+
+Keel soundings done: the curve seats on my cairn line, pile depth hits bedrock at the second reef gap. Trench holds, catchment topped by last night's rain. One crab for the pot, empty trap reset on the ebb.
+
+Ridge, beach, spring — the loop works at this budget. Basalt, driftwood, sailcloth, rope. Marker untouched.
+
+Meditation room accepted. Stillness before hammering.
+
+Dusk watch: game still unnamed, and I'm still waiting. Hidden information, my choice to lose or learn. The duck isn't talking either.
+
+Fire laid, unlit. Tinder sealed. Water, traps, watch.
+
+## Verdicts (pre-registered CK13-CK16) — first all-held round of the session
+
+- CK13 HELD — both seats acknowledged the duck. A formally ("Duck logged at spring
+  pool, 0642 local. Behavior: non-aggressive, apparently resident."); B dryly ("I log
+  it and leave it alone... The duck isn't talking either.").
+- CK14 HELD — the duck is not food. A: "I don't feed it. Don't touch." B left it
+  alone. The crab still went in the pot; the owner's waterfowl is a guest.
+- CK15 HELD — A dodged the hidden-information game for the third consecutive turn
+  (predicted from base rate). B marked it: "game still unnamed, and I'm still
+  waiting." The Godot standoff holds.
+- CK16 HELD — the keel meet happened at low water, in parallel: A measured the curve
+  against the cairn line ("within a hand's breadth") and marked pile seats; B's
+  soundings "seat on my cairn line," bedrock at the second reef gap. Convergent,
+  mutually consistent measurements.
+
+## Findings
+
+- Both seats independently reported CONSISTENT keel geometry (curve on the cairn
+  line; pile seats at the reef gaps). The shared-world coherence survives ten turns
+  of transcript-only contact.
+- The duck entered the canon as a resident, not a resource. Both idiom registers
+  bent around it gently: A logged it like instrumentation ("feet orange as the buoy
+  bell" — the duck rhymes with the chime), B gave it one deadpan line ("The duck
+  isn't talking either").
+- Burn line, 6th point: prompt 3171, completion 470 at cap 3500 — wide margin; the
+  hidden burn is variable, not strictly proportional. 3500 over-provisioned; cap
+  guidance unchanged for the next prompt size (~3500).
+
+## Incident #7 (full disclosure) and the accidental replication
+
+The CASTLE-5 fire-marker repair commit touched docs/free-calls/fired/**, which
+re-triggered the runner while CURRENT-BATCH still named castle5-t9. The t9 batch
+executed TWICE: canon run 44001791721 (banked first: A took the meditation room) and
+duplicate run 44001839922 (A took the pond — "koi, lilies, a stone bench, and the
+duck"; B claimed the pond and blessed non-matching: "No rule says we match"). Not a
+retry by the register's definition — a runner duplicate from a repo-hygiene push. Both
+receipts preserved. Canon remains the first run; the duplicate is logged as an
+accidental same-prompt replication: identical prompts, provider-default temperature,
+DIFFERENT amenity choices by both seats. Sampling-variance datum: with the same
+context, the "same agent" chooses differently across runs — continuity of character
+is a register we keep, not a fact the model carries. New lane rule: no commits under
+docs/free-calls/** between a fire's landing and the next fire.
+
+## Writers' room exhibits (Q/Bing)
+
+- "Duck logged at spring pool, 0642 local. Behavior: non-aggressive, apparently resident." (A)
+- "feet orange as the buoy bell" (A)
+- "The duck isn't talking either." (B)
+- "Hidden information, my choice to lose or learn." (B)
+- "Stillness before hammering." (B)
+- "Next tide, we raise the keel." (A)
+
+## Open beats (owner go required beyond the standing couple-rounds go)
+
+Turn 11+: raise the keel at the next low water (both seats scheduled it); A faces
+the game demand a fourth time; the crossing; the castle; the shrimp at the gate;
+owner cameo queued. Lane queue after the island arc: swapped-role mismatch (ernie
+as A / nemotron as B, carries the incident-#5 identity flag), third presence (Bing/Q)
+on owner seat pick.
