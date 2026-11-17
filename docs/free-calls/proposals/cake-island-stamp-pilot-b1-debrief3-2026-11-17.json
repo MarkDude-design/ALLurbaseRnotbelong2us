@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-debrief3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-debrief-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Post-walk debrief 3 of 3 for the completed Cake Island condition B visit. The same four sparse region cards were visited. One debrief answer correctly separated card facts from added sensory and terrain details; the next debrief call returned no visible text because it hit its completion cap, so do not repeat that question. What, if anything, would you change about the card presentation or visitor instructions to make the difference between supplied details and guesses clearer? Answer in at most two sentences, or say “no change.”"
+    }
+  ]
+}
