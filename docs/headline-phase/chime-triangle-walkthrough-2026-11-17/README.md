@@ -82,3 +82,17 @@ The reconstructed game is playable enough to stage, but today's walkthrough has 
 2. `baidu/ernie-5.5-flash-preview:free`: Beta at East, one ring.
 3. `nvidia/nemotron-3-ultra-550b-a55b:free`: Gamma at West, one ring.
 North/East/West with 120° spacing are test labels chosen for this walkthrough. Nemotron says the triangle encloses the spring; the source's “both agree” condition remains unmet because ERNIE returned no text at the confirmation gate. The next useful experiment step is a fresh, tightly constrained ERNIE call asking only for a balance confirmation or a specific correction. If it confirms, ask whether to keep the ten-beat text convention, then walk the first lap. Until then the phase ends at setup and the score is 0–0.
+
+
+## Three story seeds grounded in the record
+
+### 1. Stillness rings back
+`nvidia/nemotron-3-ultra-550b-a55b:free` begins with **Spring Triad**: balanced geometry, alternating stone placement, and a bell cue. `baidu/ernie-5.5-flash-preview:free` begins with **Three-Stone Chime**: a moving lap, a fading echo, and points. Their independent second proposals do not merge by magic; ERNIE's “Keep the triangle” turns the two ideas into Chime Triangle. A story can follow the handoff from measured arrangement to motion, while keeping clear that no shared approval was recorded.
+
+### 2. The duck keeps the commentary, loses the gavel
+Nemotron's first draft gives the fictional duck a quack veto. ERNIE's later adaptation objects that the duck is a guest, not the authority, while retaining it as a loud fictional commentator. The clean story beat is a rule dispute settled by removing the veto: the duck may narrate the game, but cannot stop a turn or decide the score.
+
+### 3. The echo needs a clock
+ERNIE's triangle lap ends when the echo fades, but the source has no measured sound or physical run. Luna adds ten spoken beats as a transparent text-only convention; Nemotron accepts it as a useful proxy while warning not to call it the echo rule. In today's walkthrough, Alpha, Beta, and Gamma reach North, East, and West, then the narrative pauses: the board still needs ERNIE's explicit “balanced.” That ending keeps the experiment's boundary visible instead of writing consent into an empty response.
+
+These are narrative framings of recorded proposals and actual text outputs, not claims about private model intent or physical behavior.
