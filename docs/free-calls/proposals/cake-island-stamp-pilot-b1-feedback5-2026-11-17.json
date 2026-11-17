@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-feedback5",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-feedback-5",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 300,
+      "prompt": "Final open-feedback invitation 5 of 5 for Cake Island. Is there one last thing about the four sparse island cards or this visit that you want to tell the keepers? Or say “done.” Keep it to one sentence."
+    }
+  ]
+}
