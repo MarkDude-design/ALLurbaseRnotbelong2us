@@ -730,3 +730,15 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   Down on its square of sand the duck hasn't moved, brim straight, watching the last of the color come off the water. I don't call it over. I tuck the pencil back on its string and the card back under the brim where I found it, and I let the sun finish with no one's say-so — not the host's, not mine.
 
   That's the report. It'll keep.
+
+- Round S3, day 9 night (run 44155685064, fire 993bd627): **error_empty_response
+  at full 4096 burn** (finish length, completion 4096/4096). $0. The second card
+  (question 2: three suggestions) sank in the night slot, which had spoken 4/4
+  across the play lane. Envelope pattern sharpening: S1 (new card, Q1, midday)
+  sank, S2 (Q1 keepable, sunset) answered; S3 (new card, Q2, night) sank — a NEW
+  question sinks its first appearance in ANY slot; the same question, keepable,
+  at the next round gets answered. Arrival-vs-presence, again. Secondary read:
+  Q2 asks B to WANT things — to treat the island as improvable — the deepest
+  violation of B's grammar in the whole survey. Standing rule applied: one
+  cap-600 diag fired. S4 plan: Q2 re-entered as keepable furniture, midday of
+  day 10.
