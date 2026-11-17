@@ -22,10 +22,11 @@ The source leaves “before the echo fades” unmeasured. v0.1 disclosed a **ten
 
 ## Experiment sequence
 1. Two independent review calls received the same source excerpts and v0.1 rules.
-2. Read actual outputs. Nemotron reviewed the game; ERNIE's call returned an empty response at the token limit, recorded as an error. No retry was made.
+2. Nemotron reviewed the game. ERNIE's call returned an empty response at the token limit, recorded as an error. No retry was made.
 3. Revised to v0.2, restoring a placement/adjustment phase and asking ERNIE to correct the reconstruction and make one setup move.
-4. After ERNIE's actual response, send that response to Nemotron and ask it to audit the move, correct any rule issue, and make the next text-only move if playable.
-5. Preserve objections and unresolved rules. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
+4. ERNIE's new call also returned no text at its length limit. This is a second recorded error, not a retry result or an opinion. No view, approval, or move is attributed to ERNIE.
+5. Proceed with Nemotron as this session's opening player so the walkthrough can move forward. This is a practical order change only; ERNIE was invited first. If Nemotron makes a move, a later ERNIE turn can be offered with the actual board state and Nemotron's move, but ERNIE's missing turns remain missing.
+6. Preserve objections. Do not treat a suggestion as assent, an imagined lap as physical action, or a narrated count as measured sound.
 
 Primary descriptive checks: source-to-rule attribution; ambiguities surfaced; each narrated route lists all three edges in order; second ring is within ten spoken beats only if that convention is accepted; score follows the stated rule; dissent is preserved.
 This is a prompted fidelity and walkthrough exercise, not a test of memory, consciousness, physical ability, or whether either model spontaneously invents the game.
@@ -36,5 +37,11 @@ Workflow run: [44189404972](https://github.com/MarkDude-design/ALLurbaseRnotbelo
 - `baidu/ernie-5.5-flash-preview:free`: `error_empty_response`, finish reason `length`, 1,200 completion tokens, no text. This is not an opinion or pass.
 - Both records show `reasoning_mode=null` and `reasoning_effort=null`; effort setting was not recorded by this runner.
 
-## Phase 2 — ERNIE walkthrough invitation
-A new call, not a retry, presents Nemotron's actual review and v0.2. The revised proposal restores alternating stone placement/adjustment toward balance before the lap phase. ERNIE is invited to make one concrete first setup move; order is an explicit walkthrough convention. If ERNIE objects to a core rule, the walk pauses at that objection rather than forcing a move. The loser-facing-side move remains outside the baseline. The ten-beat count is still a declared text convention, not historical agreement.
+## Phase 2 receipt — ERNIE walkthrough invitation
+Workflow run: [44190298187](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/actions/runs/44190298187). Raw receipt: [bus.jsonl](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/blob/bus/runs/free-calls-44190298187/bus.jsonl). Live catalog confirmed ERNIE at $0/$0; reported cost $0.
+- Requested `baidu/ernie-5.5-flash-preview:free`, 2,200-token cap. It returned `error_empty_response`, finish reason `length`, 2,200 completion tokens, no text.
+- `reasoning_mode=null` and `reasoning_effort=null`; effort setting was not recorded.
+- The prompt restored the setup mechanic, shared Nemotron's actual critique, and asked ERNIE for one opening setup move. There is no ERNIE review, objection, acceptance, or move to quote.
+
+## Phase 3 — Nemotron opening setup move
+A separate call invites `nvidia/nemotron-3-ultra-550b-a55b:free` to assess v0.2 and make one text-only opening placement. Since ERNIE's invited turn did not return, the order is changed for this session only. The three named triangle points are walkthrough labels, not sourced historical facts.
