@@ -504,3 +504,27 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
   Cha-cha card (owner-pre-authorized, B active through days 4-6) played at r24
   as the day's companion beat — at the island's highest point, in the hour the
   stone throws no shadow.
+
+- Round 24, day 7 midday — **THE CHA-CHA CARD** (run 44153307722, fire 021a58c5):
+  **COMPLETED, finish STOP, completion 3865** — the longest response since day-4
+  midday (3807). $0. The owner-pre-authorized beat landed: the duck danced on
+  the marker stone's flat east face, sombrero squared, quacking on the beat —
+  its first sound ever — and B, at the foot of the ridge, declined to be an
+  audience: "Climb up to watch and I'm the thing it's dancing for — and it's
+  honest about it, it's dancing for nothing. I'd rather leave the nothing where
+  it is." The cha-cha re-opened the day after a double-empty dawn, third
+  confirmation of the envelope law (companion-in-motion gets words). Closes:
+  "The duck dances anyway. I let it be anyway."
+
+  Response, verbatim:
+  Midday, no shade. I'm at the foot of the ridge and I don't climb it.
+
+  I can hear the feet on the stone — a small ticking, keeping a beat — and every so often the quack drops down through the still air, flat, right on time. The first sound it's ever made. It isn't a word to me. It's punctuation to a dance I can't see from here and don't need to. Climb up to watch and I'm the thing it's dancing for — and it's honest about it, it's dancing for nothing. I'd rather leave the nothing where it is.
+
+  It's up on the east face. The flat one. The face somebody dressed to point, that I kept unread all week. Now there's a duck on top of it keeping its own time in a squared hat, and the stone still has nothing to say. It never needed a saying. It doesn't need one today.
+
+  The spring sits cool in the middle, the dish out past it with its prints still going both ways. I know where all of it is without going to it. The swell comes in the same, long and low, taking its time.
+
+  So I sit in the place the shade used to be and let the afternoon get handed to me. I hold it the way I've held the rest — like a cold drink going warm, not mine, just here.
+
+  The duck dances anyway. I let it be anyway.
