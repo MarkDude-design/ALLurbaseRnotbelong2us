@@ -306,3 +306,36 @@ The light's off the sand and onto the marker now. The day is doing what the othe
   stays true"), the print is met with maintenance, not instrumentation. The
   island's companion is now canonical furniture; B's own instrument (the
   glasses) gets rinsed and returned like a dish.
+
+- Round 16, day 5 midday (run 44147906954, fire 60aac646): **COMPLETED, finish
+  STOP, completion 2970.** $0. The declared no-reason walk happened: B climbed to
+  the marker in the heat without counting paces, and the refusal at the top of
+  the ridge is the series' cleanest VE3 datum yet — from up there the seep dish
+  is visible, and B declines to go down and read who drinks: "If I stand over
+  it to find out who, I make it mine again, and it never was. It'll fill.
+  Whoever it is knows the way, and knows it better than I know the way up
+  here." The duck stayed at the chair: "The duck doesn't come up. I notice, and
+  leave it there." B sits on the marker's warm south face, "a bird in a chair"
+  already normal at the beach, and plans to descend without reading the shadow.
+
+  Response, verbatim:
+  The chair's in what shade there is, and at midday that's a hand's width of dark under the frame. The duck's on the seat. The glasses are on the arm where I left them, in full sun, and they'll be warm when anyone wants them, and no one will. Two days ago I'd have had an opinion about a duck in a chair. It's a bird in a chair.
+
+I go up.
+
+Sand to the damp line, damp line to the grass edge, then the long pull on the north side where nothing grows and nothing shades. At this hour the heat isn't weather, it's a hand flat on the back of the neck. The sweat comes and then stops coming. I'm not counting paces and I don't miss it, and that's the whole difference between this morning's walk and the first morning's walk, which I could say in fewer words than that.
+
+At the spring the pool is low and clear and there's nothing at it. I don't stop.
+
+From up here the seep dish is a dark speck on the sand. Too far to read a print from, and I don't go down. It sat there four days being a hole I dug with my hands and it handed me the one clean thing this island has handed me. If I stand over it to find out who, I make it mine again, and it never was. It'll fill. Whoever it is knows the way, and knows it better than I know the way up here.
+
+The marker at midday throws almost nothing — a thin dark seam at its base with no direction in it. The sun's straight on the top of the stone. Whatever the east face had to say on the first night, it has no shadow to say it with right now.
+
+The south face is warm. I sit down with my back to the notch and look east at nothing in particular: the shore coming round, the shelf a paler line past the drop-off, flat bright water past that.
+
+The duck doesn't come up. I notice, and leave it there.
+
+I'll stay until the stone starts putting a shadow out and the shade comes around to reach me. Then I won't read it, and I'll walk down in the cool.
+
+- SD2 day-5 midday arm: 2970. The sunset round (r17) carries the day-5
+  deepest-response test.
