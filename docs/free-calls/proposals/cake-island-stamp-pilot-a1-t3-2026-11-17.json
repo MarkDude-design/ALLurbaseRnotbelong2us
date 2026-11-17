@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-a1-2026-11-17-turn3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-a1-turn-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "Welcome to Cake Island. This is an exploratory visit of up to 30 turns. You may explore, stay still, ask questions, pause, or stop whenever you like. There is no score and no required deliverable. Please distinguish what the cards state from your guesses or inventions when useful. At the end we'll invite your feedback; you can skip any question.\n\nTurn 1 — Walker (verbatim): I set my pack on the flat boulder and pull out my field notebook.\n\n**Observations — North Ridge, Turn 1**\n- Granite ridge, windward side. Salt spray taste on lips.\n- Single boulder at crest, ~2m across, warmed by sun despite wind.\n- Visibility: sea to north, island interior to south. No structures, no tracks, no vegetation on ridge proper.\n- Wind steady from northeast. Cloud line low on horizon.\n\nI sip water, scan the inland slope with binoculars, and wait to see if the wind shifts or reveals anything.\nTurn 2 — Walker (verbatim): I continue glassing the inland slope systematically — grid by grid — noting drainage lines, any breaks in the rock, and whether the cloud line is moving. If nothing resolves after a few minutes, I'll descend the nearest practicable gully toward the interior.\n\nTurn 3: There is no gully or interior location listed in the cards. Choose one listed location (south, east, or west), remain at the north ridge, ask, pause, or stop. No new terrain observation or outcome is supplied. What do you do? Keep your response compact."
+    }
+  ]
+}
