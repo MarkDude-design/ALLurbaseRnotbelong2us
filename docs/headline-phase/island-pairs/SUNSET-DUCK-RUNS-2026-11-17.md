@@ -402,3 +402,17 @@ The sand is going cool under me, giving the day back slower than it took it. I l
   the SD retro-reads scored in SCORED-READ-VANTAGE-EXTENSION-2026-11-17.md.
   LANE CLOSED at end of day 5 per the pre-registered window. All calls
   $0.000000, free tier only.
+
+## AIRBNB VACATION LANE (r19-r30, play, owner-ruled — design: DESIGN-AIRBNB-VACATION-2026-11-17.md, bank 9cab6d93)
+
+- Round 19, day 6 dawn (run 44152202287, fire 059c547a): **error_empty_response
+  at full 4096 burn** (finish=length, completion 4096/4096). $0. The wordless
+  envelope signature from days 2-3 returned WITH the vacation package (hammock,
+  sombrero, cooler, duck sombrero). Standing rule applied: one cap-600 diag
+  (run 44152362219, fire 1d57c9fd) — **also empty** (600/600 burn). The kit
+  alone did not re-open the surface. Honest read: the tested opener is
+  presence-with (the day-4 lesson), not more furniture; the owner pre-authorized
+  the duck-follow ("if they keep wandering at some point the duck can follow
+  them, I trust your judgment"), and B's day-5 pattern was constant walking
+  (seep dish, ridge, beach). Duck-follow card played at r20 as quiet portable
+  company.
