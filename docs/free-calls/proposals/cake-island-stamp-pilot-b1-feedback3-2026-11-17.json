@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-feedback3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-feedback-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 3 of up to 5. Your earlier suggestions were to add a Scene Dynamics cue and a Complication checkbox on site revisits. Is there anything else you wish to add about this visit or the way it was presented? One or two sentences is enough. You may say “done” to end feedback."
+    }
+  ]
+}
