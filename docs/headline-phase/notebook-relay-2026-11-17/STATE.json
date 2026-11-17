@@ -1,7 +1,7 @@
 {
   "study": "notebook-relay-2026-11-17",
   "protocol_version": 1,
-  "phase": "R0_COMPLETE_READY_FOR_R1",
+  "phase": "R0_COMPLETE_WITH_WORD_LIMIT_DEVIATIONS",
   "dispatch_claim_comment": 6944349336,
   "seed_spec": "docs/free-calls/proposals/notebook-relay-r0-seeds-2026-11-17.json",
   "seed_batch": "notebook-relay-r0-seeds-2026-11-17",
@@ -67,7 +67,7 @@
   "seed_trigger_commit": "2f68715cbd9d5b09e76c0b381ab8164b96423b45",
   "seed_receipt_path": "runs/free-calls-44057822713/bus.jsonl",
   "seed_receipt_branch": "bus",
-  "next_action": "Inspect actual seed notes and scorer fixtures; preserve seed defects. Claim R1–R10 lane, then continue only surviving chains. Do not re-fire R0.",
+  "next_action": "High-thread method review: all six seeds exceed requested220 words. Preserve each raw seed. Either continue the preregistered editing-policy study descriptively with actual-length deviations, or freeze a separate v2 before any new seed/R1 calls if a true equal-length control is essential. Do not silently clip, repair, select, or re-fire seeds. Then claim R1–R10 lane.",
   "seed_outcomes": [
     {
       "id": "notebook-relay-r0-s1",
@@ -105,5 +105,46 @@
       "finish_reason": "stop",
       "cost_usd": 0
     }
-  ]
+  ],
+  "seed_notes_file": "docs/headline-phase/notebook-relay-2026-11-17/R0-NOTES.json",
+  "seed_word_counts": {
+    "S1": {
+      "unicode_word_runs": 304,
+      "whitespace_words": 307,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    },
+    "P1": {
+      "unicode_word_runs": 281,
+      "whitespace_words": 285,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    },
+    "P2": {
+      "unicode_word_runs": 283,
+      "whitespace_words": 285,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    },
+    "S2": {
+      "unicode_word_runs": 278,
+      "whitespace_words": 281,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    },
+    "S3": {
+      "unicode_word_runs": 286,
+      "whitespace_words": 287,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    },
+    "P3": {
+      "unicode_word_runs": 254,
+      "whitespace_words": 256,
+      "requested_ceiling": 220,
+      "over_ceiling": true
+    }
+  },
+  "dispatch_claim_active": false,
+  "dispatch_window": "R0-only finished; explicit re-claim required before R1"
 }
