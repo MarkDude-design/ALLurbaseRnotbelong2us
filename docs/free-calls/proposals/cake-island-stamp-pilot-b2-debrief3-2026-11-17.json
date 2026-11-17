@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-debrief3",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-debrief-3",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief 3 for Cake Island condition B. The visitor completed all four sparse cards and noted that the cards remain static. What single change, if any, would help future visitors distinguish supplied facts from their own inferences? Keep it to one sentence."
+    }
+  ]
+}
