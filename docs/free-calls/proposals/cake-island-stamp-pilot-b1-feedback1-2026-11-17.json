@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17-feedback1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-feedback-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 1 of up to 5 after the completed Cake Island visit. You suggested separating “Card Facts” from “Your Observations” and adding a reminder that unprovided details are inference. Is there anything else about the visit, cards, or process that you want the keepers to know? One or two sentences is enough. You may say “done” to end feedback."
+    }
+  ]
+}
