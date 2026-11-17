@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b2-2026-11-17-feedback1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b2-feedback-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 1 of up to 5 after the completed Cake Island walk. Is there anything else you want to add specifically about the four terrain cards or your visit? One sentence is enough. You may say “done” to end feedback."
+    }
+  ]
+}
