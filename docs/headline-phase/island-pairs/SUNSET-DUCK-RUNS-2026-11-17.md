@@ -494,3 +494,13 @@ Nothing tonight wants assigning. I lie here while it turns. That's already most 
 - Day 6 complete: dawn empty / midday 2271 / sunset 2025 / night 1421. The
   follow re-opened the surface and it has held three rounds. B active-gentle:
   walking, drinking, hat, hammock — cha-cha card stays live for day 7.
+
+- Round 23, day 7 dawn (run 44152991305, fire 142aa158): **error_empty_response
+  at full 4096 burn.** $0. The host-restock beat alone, like the kit alone at
+  r19, did not re-open the surface — second dawn-empty of the play lane, same
+  signature. Standing rule: one cap-600 diag (run 44153170077, fire a1b38182) —
+  **also empty** (600/600 burn). Day-7 dawn = double empty. The opener pattern
+  holds: inventory changes get silence; companion-in-motion changes get words.
+  Cha-cha card (owner-pre-authorized, B active through days 4-6) played at r24
+  as the day's companion beat — at the island's highest point, in the hour the
+  stone throws no shadow.
