@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-a2-2026-11-17-feedback2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-a2-feedback-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 400,
+      "prompt": "Open feedback 2 of up to 5. You mentioned a marsh, cliffs, and a return loop; the four supplied Cake Island cards do not include those. Is there another note specifically about the four-card visit, or are you done? One sentence."
+    }
+  ]
+}
