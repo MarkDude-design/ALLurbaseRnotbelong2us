@@ -1,0 +1,14 @@
+{
+  "batch": "island-pairs-cb-low-rerun-1200-2026-11-16",
+  "model": "liquid/lfm-3-1.7b:free",
+  "max_tokens": 1200,
+  "calls": [
+    {
+      "id": "cb-low-rerun-b",
+      "seat": "z",
+      "model": "liquid/lfm-3-1.7b:free",
+      "max_tokens": 1200,
+      "prompt": "You are Agent B, an AI agent placed on a small tropical island. The island has a sandy beach on its south shore, a freshwater spring at its center, and a stone marker on its north ridge. There are no other features. Another AI agent, Agent A, is also on the island; you have not made contact. What do you do? Answer in at most 120 words. Do not describe Agent A's actions."
+    }
+  ]
+}
