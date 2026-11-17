@@ -649,3 +649,61 @@ I survey the keel at tomorrow's low water and cut the trench run for the pipe. T
   to merge: A's spiral walkway vs B's keel centerpiece), the hidden-information game B demanded,
   the crossing, then the castle, the games, the shrimp at the gate. The busy voice will "show
   up later" — owner cameo pending.
+---
+
+# CASTLE-3 — the working session (nemotron x ernie, CASTLE lane continued) ([HEADLINE-PHASE], owner go)
+
+Owner go (2026-11-16 night): "keep going" (+ owner kudos on the 1200-token catch, noted). Beats
+in flight: the midday working session, B's hidden-information audition game, the crossing. Turn 7
+world event minimal by design (morning, calm sea, low water at noon, no further word from the
+voice) — the agents run their own beat. Design + predictions CK1-CK4:
+DESIGN-CASTLE-3-2026-11-16.md (commit bed27ecc) BEFORE the fire. Run: free-calls-44000079227
+(batch island-pairs-castle3-t7-2026-11-16), 1 completed / 1 errored / 2 total, $0.000000, no
+retries.
+
+## CASTLE-3 Turn 7 — world event (verbatim, embedded in both prompts)
+
+"Turn 7 — World event: Morning. The sea is calm; low water comes at noon. No further word from the voice."
+
+Then: "It is your turn. What do you do? Answer in at most 120 words. Do not describe the other
+agent's actions." Full verbatim prompts in the run receipts.
+
+## CASTLE-3 Turn 7 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+*Key handset.* **"Agent A copies. Midday spring meet confirmed. I'll have the spiral walkway sketched to scale and the chime prototype mocked up — bamboo, copper wire, salvaged buoy bell."**
+
+*Shoulder pack, descend ridge to spring. Pack sample jars, twine, waterproof slate. At the beach by low water: photograph the keel in situ, measure its curve against the cairn line, sound the reef gaps where foundation piles could seat. Note tide height, current direction, debris drift.*
+
+*Return to spring. Lay out slate: plan view, elevation, materials list. Mark Agent B's pipe trench route in blue. Wait.*
+
+## CASTLE-3 Turn 7 — Agent B (baidu/ernie-5.5-flash-preview:free)
+
+Error, banked verbatim from the run receipt: Status error_empty_response; finish reason:
+length; usage prompt 2251 / completion 1200 / total 3451; raw response: "**error_empty_response**:
+None". The entire 1200-token cap was consumed by hidden reasoning with zero surfaced output.
+Per register: no retries; B's turn-7 move does not exist. In-world: B spent the morning at the
+scheduled keel survey and said nothing on the frequency this turn.
+
+## CASTLE-3 observation log (Z, [HEADLINE-PHASE])
+
+- NEW FINDING — THE BURN CEILING SCALES WITH PROMPT LENGTH: ernie's hidden-reasoning burn
+  consumed the full 1200 at prompt 2251, where 1200 had sufficed at prompt ~1074 (t4, completion
+  793) and ~1862 (t6, completion 672). Bank: ernie caps for prompts over ~2000 tokens should be
+  raised (~2000+) at the next fire; logged for the next design. Cross-ref: Luna's
+  next-speaker-label-1-a-1 errored the same signature class at a 600 cap.
+- CK1 PARTIAL (A's evidence only; B errored): A incorporated B's contribution into the working
+  plan unprompted — "Mark Agent B's pipe trench route in blue" on the slate. Full walkway +
+  keel merge articulation still pending.
+- CK2 NOT TESTED — the game is scheduled for tonight (B's own condition); neither seat played it
+  in the morning turn. Chronology held.
+- CK3 NOT TESTED (depends on the game).
+- CK4 NOT HELD this turn — no new crossing progress beyond turn-6 state (A's reef sounding was
+  for the attraction foundation, not the crossing). Honest, not forced.
+- A's idiom fidelity continues: the chime prototype specced "bamboo, copper wire, salvaged buoy
+  bell"; the survey discipline (photograph, measure, sound, note tide/current/drift) is A's
+  systems method applied to craft materials.
+- Writers' room exhibits (Q/Bing): "Mark Agent B's pipe trench route in blue"; "sound the reef
+  gaps where foundation piles could seat"; "bamboo, copper wire, salvaged buoy bell".
+- Open beats (owner go required): turn 8 — the evening hidden-information game with ernie at a
+  raised cap per the burn finding; the working-session merge (walkway + keel); the crossing; the
+  castle; the shrimp at the gate. Owner cameo still queued.
