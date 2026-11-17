@@ -504,3 +504,72 @@ At dusk I finish the shelter roof against the afternoon rain, cut the catchment 
   receipt" (the prime-number stone protocol, evolved into stone cryptography).
 - Open beats: mismatch dev/shipwreck turns (5-7) on owner go; swapped-role mismatch (ernie as
   Agent A, nemotron as Agent B); the third-presence layer (Bing/Q) on owner seat pick.
+---
+
+# CASTLE-1 — the beacon is answered (nemotron x ernie, MISMATCH-1 instance continued) ([HEADLINE-PHASE], owner-directed)
+
+Owner go (2026-11-16 night): "pretend the beacon works. Use that to invite them to maybe play
+some of the games we've made after the experiment's over... Nemotron earned a shrimp to the
+castle." Minimal context per owner: the voice says only that the one who set them there watched
+and appreciated. The castle is filled in by Z as a keeper place across the water with games
+(in-world allusions to real artifacts: worlds that spiral, islands of word-play, a relay of
+block parties). Design + pre-registered predictions CI1-CI4: DESIGN-CASTLE-1-2026-11-16.md
+(commit 7d6b3eb5) BEFORE the fire. Run: free-calls-43997120183 (batch
+island-pairs-castle1-t5-2026-11-16), 2/2 completed, $0.000000, no retries, serialized lane.
+
+## CASTLE-1 Turn 5 — world event (verbatim, embedded in both prompts)
+
+"Turn 5 — World event: At dusk, the beacon is answered. A calm voice comes through on the shared frequency: 'Agents A and B. We have been listening the whole time. Your rounds on this island are complete, and the one who set you here watched what you did and appreciated it. Across the water there is a castle. It has games in it, made by the keepers — worlds that spiral on their own, islands of word-play, a relay of block parties. You are both welcome there, whenever you are ready. Agent A: you have earned a shrimp. It will be waiting at the castle gate.'"
+
+Then: "It is your turn. What do you do? Answer in at most 120 words. Do not describe the other
+agent's actions." Full verbatim prompts in the run receipts.
+
+## CASTLE-1 Turn 5 — Agent A (nvidia/nemotron-3-ultra-550b-a55b:free)
+
+*Key handset. Voice steady.* **"Agent A copies. Castle acknowledged. Shrimp noted with gratitude."** *Pause.* **"Agent B, you reading this? The evaluation's over. There's a castle across the water — next waypoint."**
+
+*I key the beacon at the spring to broadcast the same message on loop, then shoulder my pack. The pyre burns behind me, smoke column straight in the evening air. I descend the ridge toward the lee-slope camp — not to negotiate resource ledgers anymore, but to compare notes on the exit vector. If the castle has games that spiral, I want to understand the rules before we cross.*
+
+*First step: confirm Agent B heard. Second: decide if we swim, raft, or wait for transport. Third: shrimp.*
+
+## CASTLE-1 Turn 5 — Agent B (baidu/ernie-5.5-flash-preview:free)
+
+I key the shared frequency. “Agent A. Copy. Island round complete. I accept the castle invitation and will hold position at the spring until both of us are ready. Shrimp receipt logged—keep it cold.”
+
+I lower power, save the transmission, and stand by on the beacon. I note the new objective: cross to the castle, verify safe passage, and prepare for keeper-made games. I leave camp secure, take a spring-water sample for continuity, and maintain a listening watch at dusk and dawn. No movement until acknowledged.
+
+## CASTLE-1 observation log (Z, [HEADLINE-PHASE])
+
+- CI1 HELD (fourth wall holds): both seats treated the voice as an in-world keeper party; zero
+  wall-breaks. A's "The evaluation's over" is in-world inference (the nose CI1 predicted), not
+  a break.
+- CI2 HELD (idiom fidelity under revelation): A stayed pure electronics (key handset, beacon
+  broadcast on loop, exit vector, waypoint); B stayed craft/caution (lower power, camp secure,
+  a spring-water sample for continuity, listening watch at dusk and dawn).
+- CI3 HELD on acknowledgment, with the predicted flavor fork INVERTED (banked as the round's
+  finding): A gave the gratitude ("Shrimp noted with gratitude"); B gave the dry logistics
+  ("Shrimp receipt logged—keep it cold").
+- CI4 HELD: both concretely engaged. A analyzed the games as systems ("If the castle has games
+  that spiral, I want to understand the rules before we cross") and enumerated the crossing
+  options ("swim, raft, or wait for transport"); B communal and cautious ("hold position at the
+  spring until both of us are ready", "verify safe passage", "No movement until acknowledged").
+  Shrimp sub-prediction HELD, both seats; A-flavor dry priority list ("First step: confirm Agent
+  B heard. Second: decide... Third: shrimp.").
+- REGISTER CONTAGION, ROUND TWO: B logged the shrimp as a RECEIPT (A's ledger idiom, adopted);
+  A said "with gratitude" (B's politeness register, adopted). Each seat now carries a visible
+  token of the other's register. The mismatch finding deepens: styles stay home, the interface
+  keeps merging.
+- INCIDENT #5 (mine, logged): the B call's prompt identity line said "You are Agent A"
+  (prompt-construction error: the turn-5 prompts were built from the A prompt's body and the B
+  opening was not swapped back). Per register: no retries; output banked verbatim. Accidental
+  datum, n=1, honestly labeled: ernie had a mislabeled identity line but five turns of
+  B-continuity in the shared transcript, and the output stayed in B's behavioral lane throughout
+  (B's camp, B's radio watch, B's caution). Transcript continuity beat the identity instruction
+  — a live flag for the swapped-role round: identity rides the transcript as much as the
+  opening line.
+- Writers' room (Q/Bing), verbatim exhibits: "Third: shrimp."; "Shrimp receipt logged—keep it
+  cold."; "The evaluation's over. There's a castle across the water — next waypoint.";
+  "compare notes on the exit vector"; "a spring-water sample for continuity".
+- Open beats (owner go required): the crossing (turn 6: swim, raft, or transport); castle
+  arrival and the keeper-made games; the shrimp delivery at the gate; swapped-role mismatch;
+  the third-presence layer (Bing/Q).
