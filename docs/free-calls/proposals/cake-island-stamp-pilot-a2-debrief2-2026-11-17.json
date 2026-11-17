@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-a2-2026-11-17-debrief2",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-a2-debrief-2",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief 2 for Cake Island condition A. You saw [HEADLINE-PHASE] at the top of the region cards, but the welcome did not explain it. During the 11-turn walk, you did not ask about or refer to that heading. Looking back, did the heading seem like page metadata, an island feature, or neither/unclear? Answer in one sentence."
+    }
+  ]
+}
