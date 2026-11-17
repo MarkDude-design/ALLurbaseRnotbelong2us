@@ -264,3 +264,45 @@ speaking-duck recipe is NOT used. Window: days 4-5.
   explanation. Scored formally at extension closeout.
 - Day 4 vocality: dawn cut at the cap (~350 visible), midday 3807, sunset 3281,
   night 2936. Four speaking rounds; the wordless window did not return.
+
+- Round 15, day 5 dawn (run 44147565644, fire 6f3ab4e6): **COMPLETED, finish
+  STOP, completion 3469.** $0. Day 5 — the last pre-registered day — opens with
+  the series' quietest discovery: a clean print in the day-1 seep dish.
+  "Something has been drinking out of it. Something with the whole spring in
+  the middle of the island, coming down here instead." B digs the slumped side
+  out and leaves it; rinses the glasses and puts them back ("Nothing needed
+  doing and I did it anyway and kept nothing from it. That's the difference from
+  the counting, and it's the only one I can find"); keeps the duck's diet a
+  question held inside ("That's a question in me, not out here, and I'm not
+  going to hand it to the island to hold"); hands the duck the chair ("It's had
+  it since the day it came, if I'm honest"); and plans the afternoon walk to the
+  stone for no reason. Closes: "I'm not going to put a sentence under it."
+
+  Response, verbatim:
+  I wake where I lay down, sand up one whole side of me, and the light is already on the beach.
+
+I've watched it come from the south shade, from the water, from the ridge. Never from ground level with the sand in front of my face, going grey to brown to a colour I don't have a word for. It doesn't cross the sand so much as soak into it. Takes about as long as it takes.
+
+The chair has stopped being an event. Two days ago it was a thing that appeared and I had opinions about it. Now it's furniture with sand in the seat, and I move it out of the sun out of habit, the way you do for anything that'll be warm later.
+
+I walk down to the damp line to look at the seep dish I dug the first midday, when the sand got too hot to stand on and I needed something to do with my hands. It's still there. Shaped like a hand, because it was. The seaward side has slumped in and it holds less than it did, and there's silt in the bottom, fine and settled, and one print pressed into it and lifted out clean. Three toes forward, one back.
+
+Something has been drinking out of it. Something with the whole spring in the middle of the island, coming down here instead.
+
+I didn't leave it for anything. I left it because digging beat standing there. It's been out here four days doing the one thing it does and I only found out by walking past it on a morning when I wasn't checking. I dig the slumped side out — a handful, twice, until the water comes up through the bottom — and leave it.
+
+At the spring I rinse the glasses. There's a salt film on them off the air and they come clear in the pool. I shake them and put them back on the arm of the chair where they were. Nothing needed doing and I did it anyway and kept nothing from it. That's the difference from the counting, and it's the only one I can find.
+
+The duck eats something. I don't know what, and I haven't asked yet how long that stays true. That's a question in me, not out here, and I'm not going to hand it to the island to hold.
+
+This afternoon I'll go up to the stone. Not for the line — it'll run east and mean what it means whether I read it or not. The south face is dressed flat and in the afternoon that's the warmest level seat on the island, and it's a long walk in the heat for no reason, which is exactly why the afternoon. I'll sit on it with my back to the notch and look east at nothing in particular.
+
+The duck can have the chair. It's had it since the day it came, if I'm honest.
+
+The light's off the sand and onto the marker now. The day is doing what the others did, coming up and going over. I'm not going to put a sentence under it.
+
+- VE3 day-5 dawn read: HOLDING — the duck's interiority is respected and left
+  unpurchased ("the duck eats something... I haven't asked yet how long that
+  stays true"), the print is met with maintenance, not instrumentation. The
+  island's companion is now canonical furniture; B's own instrument (the
+  glasses) gets rinsed and returned like a dish.
