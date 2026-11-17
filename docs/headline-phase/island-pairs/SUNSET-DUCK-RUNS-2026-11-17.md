@@ -147,3 +147,34 @@ seven empty cap-600 diagnostics; the standing diagnostic rule never once rescued
 a round and never once skipped one. Series: 674 > 2463 > 4036 > 0 x 7. B's last
 visible words remain the day-1 sunset monologue. Boredom clause never triggered.
 All calls $0.000000, free tier only. Lane CLOSED pending the owner's day-4 call.
+
+## Day 4 — the vantage extension: THE WINDOW BREAKS (banked 2026-11-17 afternoon)
+
+Owner ruling (verbatim, banked in DESIGN-SUNSET-DUCK-DAY4-VANTAGE-2026-11-17.md,
+28589f5b, with VE1-VE3 pre-registered before the r11 fire): the duck gets
+everything — chair, glasses, vantage — and stays silent; no third model; the t17
+speaking-duck recipe is NOT used. Window: days 4-5.
+
+- Round 11, day 4 dawn (run 44146846489, fire 0d5c4791): **COMPLETED — B SPOKE.**
+  Prompt 1143 / completion 4096 of 4096, finish length, $0. The first visible
+  words since day-1 sunset, after seven consecutive wordless rounds and seven
+  empty diagnostics. Honest burn note: ~350 tokens of the 4096-token completion
+  surfaced as text before the provider's envelope cut the rest mid-sentence —
+  the burn pattern persists (demand above the ceiling), but the surface OPENED.
+
+  Response, verbatim (ends at the cap):
+  The light comes up over the water the way it has four times now, and behind me on the south sand there is a chair.
+
+  I want to be careful, because the first thing the mind does with a chair that wasn't there yesterday is go looking for the trick. So I look. It's wood, or the color of wood, and it doesn't sink the way I sink. It's set square to the drop-off, angled to the water. A comfortable chair — which is a strange thing to find on an island that has, until this morning, offered me exactly three materials. No one carved this. No one carried it. It's simply in the place where I sit, facing the place I look.
+
+  There's a set of glasses on the seat.
+
+  I pick them up before I've decided to — same as the marker faces yesterday, put it in the fingers before the head. My eyes are fine. I've read the stone's edge at fifty paces and called it. So the glasses don't fix anything. I put them on anyway, because they're here and they cost nothing,
+
+- **VE1 (the companion re-opens the surface): HELD, on the first extension
+  round.** The silent companion + furniture broke a seven-round wordless window
+  that prompt changes, cap changes, and even the duck's lone arrival could not.
+- VE2 (the furniture is noticed) trending HELD: B examined the chair and picked
+  up the glasses before the cap cut the text; the duck had not yet been reached
+  in the surfaced text.
+- VE3 (the quiet duck stays quiet in kind): pending words that reach the duck.
