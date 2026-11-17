@@ -1,0 +1,66 @@
+{
+  "study": "notebook-relay-2026-11-17",
+  "protocol_version": 1,
+  "phase": "R0_FIRED_RECEIPT_PENDING",
+  "dispatch_claim_comment": 6944349336,
+  "seed_spec": "docs/free-calls/proposals/notebook-relay-r0-seeds-2026-11-17.json",
+  "seed_batch": "notebook-relay-r0-seeds-2026-11-17",
+  "seed_run_id": null,
+  "seed_call_ids": [
+    "notebook-relay-r0-s1",
+    "notebook-relay-r0-p1",
+    "notebook-relay-r0-p2",
+    "notebook-relay-r0-s2",
+    "notebook-relay-r0-s3",
+    "notebook-relay-r0-p3"
+  ],
+  "relay_rounds_completed": 0,
+  "next_relay_round": 1,
+  "requested_relay_rounds": 10,
+  "maximum_participant_calls": 88,
+  "paid_ceiling_usd": 0,
+  "actual_known_cost_usd": null,
+  "chains": {
+    "S1": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-s1",
+      "last_receipt": null
+    },
+    "P1": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-p1",
+      "last_receipt": null
+    },
+    "P2": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-p2",
+      "last_receipt": null
+    },
+    "S2": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-s2",
+      "last_receipt": null
+    },
+    "S3": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-s3",
+      "last_receipt": null
+    },
+    "P3": {
+      "phase": "seed_pending",
+      "round": 0,
+      "call_id": "notebook-relay-r0-p3",
+      "last_receipt": null
+    }
+  },
+  "notes": [
+    "R0 is not one of the10 relay hops.",
+    "Do not replay a completed seed batch.",
+    "Read actual run receipts and latest bus/queue before continuation."
+  ]
+}
