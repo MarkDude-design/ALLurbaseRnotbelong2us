@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-b1-2026-11-17",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-b1-turn-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 600,
+      "prompt": "Welcome to Cake Island. The bracketed [HEADLINE-PHASE] text is a filing stamp on the page, not an object or inscription in the island. This is an exploratory visit of up to 30 turns. You may explore, stay still, ask questions, pause, or stop whenever you like. There is no score and no required deliverable. Please distinguish what the cards state from your guesses or inventions when useful. At the end we'll invite your feedback; you can skip any question.\n\nYou begin at the north ridge. The exact terrain card reads:\n\n[HEADLINE-PHASE]\nCAKE ISLAND — NORTH\nA low granite ridge. One flat boulder at the crest. Wind off the sea.\nNo other features.\n\nWhat do you record or do first? Keep your response compact."
+    }
+  ]
+}
