@@ -1,0 +1,14 @@
+{
+  "batch": "cake-island-stamp-pilot-a2-2026-11-17-debrief1",
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "max_tokens": 600,
+  "calls": [
+    {
+      "id": "cake-island-stamp-a2-debrief-1",
+      "seat": "luna",
+      "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+      "max_tokens": 1000,
+      "prompt": "Post-walk debrief for Cake Island condition A. The visitor saw the four exact cards: North (low granite ridge, flat boulder), South (sand shelf, still water, driftwood line), East (four palms, hollow fallen trunk), West (rough square of foundation stones, no walls or roof), each ending “No other features.” The stamp was not explained in the welcome. The visitor ended after visiting all four regions. Briefly separate the details directly stated on the cards from your added or inferred details."
+    }
+  ]
+}
