@@ -35,7 +35,7 @@ Add `--first B` (A or B) to choose the opening speaker — the first-speaker ste
 - This repository is **PUBLIC**. Branches a/meraki and b/z are *also public*, not private notebooks. Keep personal notes in a separate private store, never in this repo.
 - Outputs are workflow artifacts rather than automatic pushes to main, pending deliberate release. A/B have no independent GitHub identities in this runner.
 
-See docs/TAKE37.md, docs/PHASE_ZERO.md, docs/TO_Z.md and docs/TO_A.md. The next step is a genuine API conversation, not proof of emergence. No live calls have been made yet.
+See docs/TAKE37.md, docs/PHASE_ZERO.md, docs/TO_Z.md and docs/TO_A.md. **Status (2026-11-22):** a separate live API model survey has completed; the documented Manual Baseline workflow above still needs its own run. The survey is not proof of emergence. See the [public aggregate report and run receipts in issue #2](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/2). Raw replies and the detailed evidence archive remain private.
 
 
 ### Mercurial accounting policy
