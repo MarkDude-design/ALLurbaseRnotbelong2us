@@ -1,0 +1,13 @@
+{
+  "go_utc": "2026-11-22T19:33:58Z",
+  "deadline_utc": "2026-11-22T21:03:58Z",
+  "updated_at": "2026-11-22T19:46:45.334Z",
+  "state": "finished",
+  "sent": 77,
+  "responses": 10,
+  "attempted_models": 11,
+  "on_time_reply_models": 3,
+  "errors": 67,
+  "paid_sent": 0,
+  "note": "No raw responses in public files. Paid lane held: no verified pre-GO balance receipt."
+}
