@@ -1,0 +1,16 @@
+{
+  "go_utc": "2026-11-22T19:33:58Z",
+  "deadline_utc": "2026-11-22T21:03:58Z",
+  "updated_at": "2026-11-22T20:20:26.653Z",
+  "state": "finished",
+  "sent": 11,
+  "attempted_models": 11,
+  "on_time_complete_reply_models": 7,
+  "visible_reply_count": 8,
+  "reserved_max_total_usd": "2.248531968",
+  "reported_actual_subtotal_usd": "0.002116507",
+  "missing_cost_receipts": 2,
+  "note": "Only previously UNSENT core pairs. Full published context/output limit reserved; original 450-token request unchanged. No retries or fallback.",
+  "prior_paid_reservations_including_excess_usd": "0.7513715468",
+  "combined_max_reserved_usd": "2.9999035148"
+}
