@@ -1,0 +1,44 @@
+name: Meraki — sealed glitch-token blast 2026-11-22
+on:
+  push:
+    branches: ['meraki/glitch-blast-20261122-193358']
+    paths: ['glitch-blast-20261122/GO']
+permissions:
+  contents: write
+concurrency:
+  group: meraki-glitch-blast-20261122-193358
+  cancel-in-progress: false
+jobs:
+  blast:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 80
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install encryption dependency
+        run: python -m pip install cryptography==46.0.3 --quiet
+      - name: Execute owner-authorized free roster, sealed replies only
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python glitch-blast-20261122/runner.py
+      - name: Preserve encrypted receipts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sealed-glitch-${{ github.run_id }}
+          path: sealed-glitch-results/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Commit encrypted receipts and aggregate counts only
+        if: always()
+        run: |
+          set -e
+          if [ ! -f sealed-glitch-results/receipt.encrypted.json ]; then exit 0; fi
+          git config user.name 'Meraki experiment runner'
+          git config user.email 'actions@users.noreply.github.com'
+          git add sealed-glitch-results/receipt.encrypted.json sealed-glitch-results/summary.json
+          git commit -m 'Meraki: sealed glitch blast receipts; no raw public replies'
+          git push origin HEAD:meraki/glitch-blast-20261122-193358
