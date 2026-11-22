@@ -1,0 +1,1 @@
+Only previously UNSENT core pairs. Reconcile final generation receipts, release settled unused reservations; retain unresolved and in-flight full output bounds. Total spent+held+inflight <=$3, unchanged original deadline 2026-11-22T21:03:58Z. No retries/fallback. Meraki.
