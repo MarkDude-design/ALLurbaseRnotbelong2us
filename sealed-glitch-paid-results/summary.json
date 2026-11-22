@@ -1,0 +1,14 @@
+{
+  "go_utc": "2026-11-22T19:33:58Z",
+  "deadline_utc": "2026-11-22T21:03:58Z",
+  "updated_at": "2026-11-22T20:15:06.894Z",
+  "state": "finished",
+  "sent": 172,
+  "attempted_models": 172,
+  "on_time_complete_reply_models": 116,
+  "visible_reply_count": 122,
+  "reserved_max_total_usd": "0.7509192468",
+  "reported_actual_subtotal_usd": "0.09557801197",
+  "missing_cost_receipts": 12,
+  "note": "All raw replies encrypted. Unknown charges retain their full reservation. No retries or fallback."
+}
