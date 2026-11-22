@@ -1,0 +1,24 @@
+{
+  "go_utc": "2026-11-22T19:33:58Z",
+  "deadline_utc": "2026-11-22T21:03:58Z",
+  "updated_at": "2026-11-22T20:40:17.076Z",
+  "state": "finished",
+  "sent": 229,
+  "attempted_models": 170,
+  "on_time_complete_reply_models": 114,
+  "visible_reply_count": 162,
+  "reported_actual_subtotal_usd": "0.06252941316",
+  "missing_cost_receipts": 21,
+  "note": "Final receipt reconciliation releases only settled unused reservations. Unknown and in-flight charges retain full published-output bounds. Original deadline and $3 total cap unchanged.",
+  "budget_state": {
+    "type": "budget_state",
+    "settled_actual_usd": "0.16317678213",
+    "unresolved_held_usd": "2.8263579984",
+    "inflight_reserved_usd": "0E-10",
+    "total_liability_usd": "2.98953478053",
+    "ceiling_usd": "3",
+    "utc": "2026-11-22T20:40:16.596Z",
+    "recorded_at": "2026-11-22T20:40:16.596Z"
+  },
+  "cumulative_reservations_usd": "46.7876205632"
+}
