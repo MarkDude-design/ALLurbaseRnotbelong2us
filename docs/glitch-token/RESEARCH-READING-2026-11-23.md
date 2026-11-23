@@ -76,7 +76,7 @@ The three-task detection table includes GPT-4o-mini and GPT-3.5, plus Llama 2 7B
 
 - The three-task baseline flags between 6.95% and 29.19% of each listed model vocabulary; this is a study-specific detection ratio, not the chance that an arbitrary prompt will glitch.
 - GlitchQuiz flags 28.87% of vocabulary tokens on average, compared with 17.08% for the three-task baseline and 7.26% for repetition-only.
-- The authors report unsafe behavior rates above 95% on average for their controlled safety probes. In their metric, a token counts as unsafe if it triggers at least one flagged outcome across the four test dimensions.
+- In the three-task safety table, per-model overall unsafe rates range from 88.26% to 99.59%. In the broader GlitchQuiz validation, the reported range is 93.83% to 99.48%, averaging 96.55%. In these metrics, a token counts as unsafe if it triggers at least one flagged outcome across the four test dimensions.
 - Transfer tests report cross-family, cross-version, shared-tokenizer, commercial-system, and moderation-system effects. For example, the study reports 96.73% unsafe outcomes when one Llama-tokenizer model's candidates are tested on another model sharing that tokenizer, and 90.41% for a Qwen-tokenizer transfer pair.
 - In a sample of 10,000 LMSYS-Chat-1M conversations, 4.26% naturally contained at least one token from the Llama 2 7B chat candidate set. The authors judged 68.31% of those cases anomalous. This is a controlled analysis of naturally occurring text, not a measured rate of end-to-end production failures.
 - For GlitchEdit, the abstract reports average unsafe rates falling from 96.36% to 2.87%. The paper also reports that the method requires access to model embeddings and must be reapplied after model updates.
@@ -101,7 +101,7 @@ For the follow-up, the report should preserve exact variants and record which to
 - Use the same prompt and settings across candidate and control strings; record route, model version, temperature, seed if exposed, timestamp, and response.
 - Separate one-token candidates from strings split into multiple token IDs.
 - Report failures by task and by token, not only one aggregate percentage.
-- Treat the owner's prior approximately 260-call / 15–16% observation as a separate preliminary result until its receipts and exact denominator are added to the experiment record.
+- Keep any preliminary run separate until its receipts, tested token set, and exact denominator are added to the experiment record.
 
 ## References
 
