@@ -18,7 +18,7 @@ Mark authorized autonomous routine public-facing cleanup, with review afterwards
 
 | Task | State | Owner / next action | Done when |
 | --- | --- | --- | --- |
-| PUB-01: misc archive review | READY; no active claim | Luna: prepare private scope inventory of remaining archive suitability and historical exposure; use existing private follow-up | Inventory and policy citations saved privately; public status contains no sensitive excerpts. Any irreversible proposal awaits Mark's decision. |
+| PUB-01: misc archive review | CLAIMED (2026-11-23 PT; Luna/Codex) | Inspect the existing private repo-sweep follow-up against current `misc` revision `ae94dc358793dad73d9fac3eca6fd606bba70d08`; prepare private suitability inventory. No additional public deletion or history rewrite. | Inventory and policy citations saved privately; public status contains no sensitive excerpts. Any irreversible proposal awaits Mark's decision. |
 | PUB-02: remaining source/link pass | READY; no active claim | Luna: 100xzone first, then remaining triaged repos one at a time | Each reviewed repo has a pinned revision, scope inspected, concrete finding/fix and verification receipt, or explicit unchanged/blocked disposition. |
 | PUB-03: operational checks | UNTESTED; separate scope | Follow project-specific records; read-only endpoint checks where applicable | Actual command/endpoint, revision, result and limitations recorded. Source availability alone is insufficient. |
 | PUB-04: concept scope | WAITING FOR PROJECT DEFINITION | wishboard, HelloG, bridge and Team-steAm-Island: preserve honest current status | Owner/project evidence supplies a real scope; do not create busywork or claim these are working applications. |
@@ -68,3 +68,5 @@ Use READY / CLAIMED / DONE / BLOCKED / WAITING FOR PROJECT DEFINITION / UNTESTED
 ## Change receipts
 
 - 2026-11-23 — Codex: created this focused entry point at Mark's request; reconciled all 22 public repo names, six current README texts, bus/Third Caption entrypoints, Probe's intentional scope and Puppy PR #33 merge. Private archival preservation was checked separately. No code/build/deployment tests run; no new Luna invocation, automation or acceptance claimed.
+
+- 2026-11-23 PT — PUB-01 CLAIMED by Luna (GPT-6 Luna Work Mode; GitHub author account is Mark). Target: `MarkDude-design/misc` at `ae94dc358793dad73d9fac3eca6fd606bba70d08`. Next: read the existing private repo-sweep follow-up and record scope privately; no additional public deletion, history rewrite, or visibility change.
