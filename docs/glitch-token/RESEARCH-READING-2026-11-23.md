@@ -2,7 +2,7 @@
 Updated: 2026-11-23
 Status: literature inventory and study review; no new model calls run here.
 
-This note gathers public research for the owner's glitch-token work. It distinguishes historical token examples, model-specific empirical findings, and the owner's planned context/namespace experiment. The experiment itself and the separate 260-call result are not included in this research note.
+This note gathers public research for the owner's glitch-token work. It distinguishes historical token examples, model-specific empirical findings, and the owner's planned context/namespace experiment. The planned experiment is not run in this research note.
 
 ## Working definition
 
@@ -22,7 +22,7 @@ For any replication, preserve the exact input bytes and distinguish these cases:
 
 Jessica Rumbelow and Matthew Watkins, “SolidGoldMagikarp (plus, prompt generation)” and the follow-up “SolidGoldMagikarp III: Glitch token archaeology,” LessWrong, 2023.
 
-The work documented the classic SolidGoldMagikarp family and other GPT-2 vocabulary entries. The leading space can be part of the token, so the two inputs “ space plus SolidGoldMagikarp” and “SolidGoldMagikarp” should be treated as distinct stimuli. A later catalog compared candidate GPT-2 token frequencies against OpenWebText and reported that most of the tested low-frequency candidates behaved glitch-like on GPT-2.
+The work documented the classic SolidGoldMagikarp family and other GPT-2 vocabulary entries. The leading U+0020 space can be part of the token, so [U+0020]SolidGoldMagikarp and SolidGoldMagikarp should be treated as distinct stimuli. A later catalog compared candidate GPT-2 token frequencies against OpenWebText and reported that most of the tested low-frequency candidates behaved glitch-like on GPT-2.
 
 Examples in the historical GPT-2 catalog include SolidGoldMagikarp, TheNitromeFan, davidjl, RandomRedditorWithNo, and PsyNetMessage. These are historical candidate seeds, not confirmed behaviors for current hosted models.
 
@@ -101,7 +101,7 @@ For the follow-up, the report should preserve exact variants and record which to
 - Use the same prompt and settings across candidate and control strings; record route, model version, temperature, seed if exposed, timestamp, and response.
 - Separate one-token candidates from strings split into multiple token IDs.
 - Report failures by task and by token, not only one aggregate percentage.
-- Keep any preliminary run separate until its receipts, tested token set, and exact denominator are added to the experiment record.
+- For each later test, preserve receipts, tested token set, and exact denominator in the experiment record.
 
 ## References
 
