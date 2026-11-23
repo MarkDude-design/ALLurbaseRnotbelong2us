@@ -103,3 +103,7 @@ Use READY / CLAIMED / DONE / BLOCKED / WAITING FOR PROJECT DEFINITION / UNTESTED
 - 2026-11-23 PT — PUB-02 / thethirdcaption-site read-only check at main `0af7c874b70fa2ef66ed748d504103b6c284249e`: README accurately describes static sources, 12 SVG studies, noindex, and unverified deployment/device/DNS status. Verified all 12 local SVG asset references exist in the tree. The release receipt retains the noindex and first-party-art scope. Direct domain checks through the available web fetch returned inaccessible; live deployment remains unverified. No edits/tests.
 
 - 2026-11-23 PT — PUB-02 bounded README/current-tree/source-link pass closed across the listed 22 public repositories. This means entrypoint/tree orientation, relevant local link checks, and specific corrections above; it is not a full code/privacy/security/runtime/build/deployment audit. No tests or builds were run. Free-until-marked-3's publication-boundary disposition remains separately pending a concrete scope decision; no public people-gate file was changed or removed.
+
+## Wider Luna work queue
+
+For tasks beyond this public-repository pass, start at the [private Luna cross-project work index](https://github.com/MarkDude-design/talks-main/blob/main/LUNA-WORK-INDEX.md). Reconciled by Codex on 2026-11-23 at Mark's request. It preserves completed work and separates Luna's own next actions from peer dependencies and held experiments. The bounded public-repo pass above remains completed; this is a routing addition, not a reset.
