@@ -81,3 +81,7 @@ Review points: Z reviews this merge by Thanksgiving (2026-11-26); Meraki
 reviews it by Christmas (2026-12-25). Live-workflow testing of the merged
 behavior remains the last open gate.
 
+
+### Public-repository maintenance
+
+[Luna's focused public-repo ledger](docs/LUNA-PUBLIC-REPOS.md) is the starting point for the authorized cleanup: current inventory, evidence, next actions and scope-specific completion status.
