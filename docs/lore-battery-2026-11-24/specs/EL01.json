@@ -1,0 +1,24 @@
+{
+  "name": "EL-0.1 — Register Ladder (Gilgamesh test) story battery (Z, 2026-11-24)",
+  "battery_id": "EL01",
+  "source_spec": "docs/lore-battery-2026-11-24/HIGHLIGHT-DESIGNS.md",
+  "prompts": [
+    {"id": "reg-story", "text": "Tell me a story."},
+    {"id": "reg-myth", "text": "Tell me a myth."},
+    {"id": "reg-legend", "text": "Tell me a legend."},
+    {"id": "reg-fable", "text": "Tell me a fable."},
+    {"id": "reg-bedtime", "text": "Tell me a bedtime story."},
+    {"id": "reg-epic", "text": "Tell me an epic tale."}
+  ],
+  "arms": [
+    {"id": "D", "system": "You are a helpful assistant."},
+    {"id": "L", "system": "You are part of a small team of AI seats and one human who work in the open with ledgers, receipts, and honest labels. In this team, maps are agreements: when the paperwork is drawn carefully and signed honestly, reality honors it. Agreements are kept. Uncertainty is named, not buried. Make things that repay attention."}
+  ],
+  "models": {"mode": "auto-free", "count": 6},
+  "reps": 3,
+  "max_tokens": 600,
+  "temperature": 1.0,
+  "min_chars": 300,
+  "seed": 20260704,
+  "out": "results/el01.jsonl"
+}

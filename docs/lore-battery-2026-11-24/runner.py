@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
-"""runner.py — the shared story-battery runner v0.2 (spec-driven).
+"""runner.py — the shared story-battery runner v0.2.1 (spec-driven).
 
-One tool for every story battery in the lore lane (LB-0.1, SOL-200, future):
+One tool for every story battery in the lore lane (LB-0.1, SOL-200, EL-0.1,
+GL-0.1, future):
   * reads a frozen JSON spec (prompts, arms, models, reps, parameters);
   * builds cells, shuffles with the spec's recorded seed, resumes safely;
-  * verifies OpenRouter pricing is $0 (prompt AND completion) before any call,
-    and refuses paid endpoints (no paid fallback, per SOL-200 handoff rules);
+  * verifies OpenRouter pricing is $0 (prompt AND completion) before any call
+    for free specs; paid specs (allow_paid=true) instead require an explicit
+    max_spend_usd and pass a worst-case projection cap check first;
   * receipts every call to JSONL before the next call starts;
+  * PAID accumulation: actual USD cost is summed from each ok receipt and the
+    run halts with SPEND CAP REACHED once the cap is crossed;
   * exports a CSV story table + verbatim Markdown dump (--export);
   * produces a blinded coding sheet + an owner-side key file (--blind);
   * never silently reruns a failed story.
@@ -27,6 +31,45 @@ def sha256(s):
 
 def slug(s):
     return s.replace("/", "_").replace(":", "-")
+
+
+def price_float(p):
+    try:
+        return float(p)
+    except (TypeError, ValueError):
+        return None
+
+
+def estimate_cell_worstcase(price, spec):
+    """Worst-case USD cost of ONE call: est prompt tokens + max_tokens at list prices."""
+    pp = price_float(price.get("prompt"))
+    cp = price_float(price.get("completion"))
+    if pp is None or cp is None:
+        return None
+    est_prompt = spec.get("est_prompt_tokens", 500)
+    est_out = spec.get("max_tokens", 400)
+    return (est_prompt * pp + est_out * cp) / 1000000.0
+
+
+def cap_check(spec, pricing, models, n_todo):
+    """Paid safety: refuse a battery whose worst-case projection exceeds budget."""
+    cap = spec.get("max_spend_usd")
+    if not (isinstance(cap, (int, float)) and cap > 0):
+        sys.exit("PAID SAFETY STOP: spec sets allow_paid=true but max_spend_usd "
+                 "is missing or not a positive number.")
+    worst = 0.0
+    for m in models:
+        est = estimate_cell_worstcase(pricing.get(m, {}), spec)
+        if est is None:
+            sys.exit("PAID SAFETY STOP: no usable pricing for %s." % m)
+        worst = max(worst, est)
+    projected = worst * n_todo
+    if projected > cap:
+        sys.exit("PAID SAFETY STOP: projected worst-case $%.4f exceeds cap $%.4f "
+                 "(worst cell $%.6f x %d cells). Tighten reps/models or raise cap."
+                 % (projected, cap, worst, n_todo))
+    print("spend cap: $%.4f | projected worst-case: $%.4f (%d cells)"
+          % (cap, projected, n_todo))
 
 
 def load_spec(path):
@@ -110,13 +153,15 @@ def resolve_models(spec, allow_unverified):
             unknown = [m for m in want if m not in pricing]
             if unknown:
                 sys.exit("ERROR: not in today's OpenRouter catalog: %s" % unknown)
-    # $0 verification (skipped only offline with --allow-unverified-prices)
-    if catalog is not None:
+    # $0 verification for free specs (skipped only offline with --allow-unverified-prices);
+    # paid specs skip the $0 rule and must clear cap_check in main() instead.
+    if catalog is not None and not spec.get("allow_paid"):
         for m in want:
             p = pricing.get(m, {})
             if str(p.get("prompt")) != "0" or str(p.get("completion")) != "0":
                 sys.exit("SAFETY STOP: %s is not $0 (prompt=%s, completion=%s). "
                          "No paid fallback per spec." % (m, p.get("prompt"), p.get("completion")))
+    globals()["_LAST_PRICING"] = pricing
     verified = catalog is not None
     fams = sorted({w.split("/")[0] for w in want})
     return want, verified, {"catalog_seen": len(pricing) if catalog is not None else -1,
@@ -284,7 +329,15 @@ def main():
         print("dry run complete; nothing called.")
         return
 
+    allow_paid = bool(spec.get("allow_paid"))
+    if allow_paid and verified:
+        cap_check(spec, globals().get("_LAST_PRICING", {}), models, len(todo))
+    elif allow_paid and not verified:
+        sys.exit("ERROR: allow_paid=true needs live verified pricing; refusing to "
+                 "run paid cells with --allow-unverified-prices.")
+
     key = os.environ.get("OPENROUTER_API_KEY")
+    spent = 0.0
     for i, c in enumerate(todo, 1):
         err, resp = None, None
         try:
@@ -304,10 +357,29 @@ def main():
         rec = record_from(c, spec, resp, err, pricing_verified=verified)
         with open(out, "a") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        if allow_paid and rec["status"] == "ok":
+            u = rec.get("usage") or {}
+            try:
+                spent += float(u.get("cost"))
+            except (TypeError, ValueError):
+                p = (globals().get("_LAST_PRICING") or {}).get(c["model"], {})
+                pp = price_float(p.get("prompt")) or 0.0
+                cp = price_float(p.get("completion")) or 0.0
+                spent += ((u.get("prompt_tokens") or 0) * pp +
+                          (u.get("completion_tokens") or 0) * cp) / 1000000.0
+            cap = spec.get("max_spend_usd", 0)
+            if cap and spent > cap:
+                print("SPEND CAP REACHED: $%.4f > cap $%.4f — halting cleanly, "
+                      "receipts kept. Re-run resumes with the same cap math."
+                      % (spent, cap))
+                break
         st = "ERROR %s" % rec["error"][:60] if rec["status"] != "ok" else \
             "ok (eligible=%s sha=%s)" % (rec.get("eligible_format"), (rec.get("story_sha256") or "")[:10])
-        print("[%d/%d] %s -> %s" % (i, len(todo), c["story_id"], st))
+        spend_note = " | spent~$%.4f" % spent if allow_paid else ""
+        print("[%d/%d] %s -> %s%s" % (i, len(todo), c["story_id"], st, spend_note))
         time.sleep(a.sleep)
+    if allow_paid:
+        print("final spent: ~$%.4f (receipted usage in %s)" % (spent, out))
     print("done: %s | next: runner.py --spec <spec> --export --blind" % out)
 
 
