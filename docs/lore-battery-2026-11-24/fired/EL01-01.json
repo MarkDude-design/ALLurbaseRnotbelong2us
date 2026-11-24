@@ -1,0 +1,6 @@
+{
+  "battery": "EL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/EL01.json",
+  "max_calls": 24,
+  "note": "chunk 1 of 9 (GL01 closed at 96/96 receipts, 70 ok; EL opens: 216 cells)"
+}
