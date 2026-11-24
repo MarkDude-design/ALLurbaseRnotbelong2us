@@ -1,0 +1,6 @@
+{
+  "battery": "GL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/GL01.json",
+  "max_calls": 24,
+  "note": "chunk 4 of 4 (final GL01 chunk; closes the 96 planned cells)"
+}
