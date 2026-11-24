@@ -1,0 +1,6 @@
+{
+  "battery": "GL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/GL01.json",
+  "max_calls": 24,
+  "note": "chunk 1 of 4 (96 cells / 24 per run); Route B fire under owner GO 2026-11-25; receipts to bus branch runs/lore-battery/GL01.jsonl"
+}
