@@ -76,3 +76,12 @@ v0.2.1 test receipt (2026-11-24, Z):
 - Full paid-path integration test with mocked network: projection stop fired pre-call; with a passing projection, the run halted after 3 receipted calls at $0.0600 crossing a $0.05 cap (SPEND CAP REACHED), no 4th call fired, receipts complete.
 - Cost still $0.00, Z-lane calls still 0 (runner ships UNFIRED as always). Scoped note: fleet-wide, CAP-01 executed 200/200 at $0 (bus 7144519197) and the owner-GO'd LB-0.2 pilot runs under Meraki's private route; EL01/GL01 were aligned to the LB-0.2 fixes (3200 ceiling, no min-chars exclusion) pre-data, see HIGHLIGHT-DESIGNS.md alignment note.
 - Design rationale for these lanes: docs/lore-battery-2026-11-24/HIGHLIGHT-DESIGNS.md (EL-0.1, GL-0.1, AL-0.1 gate, spend doctrine for owner ruling).
+
+## v0.2.2 section (2026-11-25, Z, pre-fire) — roster freeze + CI chunk fire lane
+
+Engineering only; no scientific parameter moved; predictions untouched.
+
+- runner.py v0.2.2: added --max-calls (clean stop after N new calls per invocation, resume-safe); per-call HTTP timeout 120s -> 600s (house free-calls profile). Compile + dry-run green on GL-0.1 (96) and EL-0.1 (216) with --max-calls caps.
+- Roster freeze (pre-data hygiene, mirrors Sol's FF-01 freeze rule): GL01/EL01 switched from auto-free to the pinned 6 family-distinct $0 endpoints taken from the live catalog tonight: baidu/ernie-5.5-flash-preview:free, google/gemma-4-26b-a4b-it:free, inclusionai/ling-3.2-flash:free, liquid/lfm-3-1.7b:free, nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free, particle-ai/particle-1:free. Auto-free would have let the roster drift between resume chunks, breaking comparability. The runner still re-verifies $0 live before every call and aborts otherwise.
+- CI fire lane: .github/workflows/z-lore-battery.yml extends the Route B doctrine (docs/free-calls/PROCESS.md) to system-prompt batteries. Marker push under docs/lore-battery-2026-11-24/fired/ IS the fire signal; receipts publish to the bus branch at runs/lore-battery/<BATTERY_ID>.jsonl and resume across chunks; kill switch = owner disables the workflow. Chunk cap default 24 calls per run.
+- Firing authorization: owner GO 2026-11-25 ~02:00 PT in the owner channel ("I okay both rounds"), plan GL-0.1 first then EL-0.1 per bus 7145620693; spend $0.00 planned (all pinned endpoints free-tier; $10 program ceiling unchanged, unspent).

@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""runner.py — the shared story-battery runner v0.2.1 (spec-driven).
+"""runner.py — the shared story-battery runner v0.2.2 (spec-driven).
+
+v0.2.2 (2026-11-25, pre-fire engineering): --max-calls chunk cap for CI
+(resume-safe, receipts stand), per-call HTTP timeout 600s to match the house
+free-calls runner's profile. No scientific parameter changed.
 
 One tool for every story battery in the lore lane (LB-0.1, SOL-200, EL-0.1,
 GL-0.1, future):
@@ -83,7 +87,7 @@ def load_spec(path):
     return spec
 
 
-def http_json(url, payload=None, key=None, timeout=120):
+def http_json(url, payload=None, key=None, timeout=600):
     headers = {"Content-Type": "application/json",
                "HTTP-Referer": "https://github.com/MarkDude-design/ALLurbaseRnotbelong2us",
                "X-Title": "story-battery-runner"}
@@ -299,6 +303,9 @@ def main():
     p.add_argument("--sleep", type=float, default=3.5)
     p.add_argument("--allow-unverified-prices", action="store_true",
                    help="offline mode for pinned model lists only; receipts record pricing_verified_zero=false")
+    p.add_argument("--max-calls", type=int, default=0,
+                   help="stop cleanly after N new calls this invocation (0 = no cap); "
+                        "for CI chunking; resume-safe with receipted results")
     a = p.parse_args()
 
     spec = load_spec(a.spec)
@@ -322,6 +329,10 @@ def main():
     todo = [c for c in cells if c["story_id"] not in done]
     print("battery %s | pricing_verified_zero=%s | models: %s | cells: %d | done: %d | to run: %d"
           % (spec["name"], verified, models, len(cells), len(done), len(todo)))
+    if a.max_calls and a.max_calls > 0:
+        todo = todo[:a.max_calls]
+        print("chunk cap: firing at most %d this invocation; resume-safe with receipted results"
+              % len(todo))
     if a.dry_run:
         for c in todo:
             print("  %s | arm=%s prompt=%r model=%s" % (c["story_id"], c["arm_id"],

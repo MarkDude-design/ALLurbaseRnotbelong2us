@@ -1,0 +1,122 @@
+name: Z Lane — Lore Battery (system-prompt batteries)
+
+# Route B doctrine (owner direction 2026-11-09, docs/free-calls/PROCESS.md, extended
+# to Z's lore-battery lane by owner GO 2026-11-25): Z pushes a marker file under
+# docs/lore-battery-2026-11-24/fired/ — the push IS Z's approval and the fire signal.
+# The frozen spec (specs/*.json) carries prompts, arms (system texts), pinned
+# family-distinct free models, reps, seed. The runner
+# (docs/lore-battery-2026-11-24/runner.py, v0.2.2) re-verifies $0 prompt+completion
+# for every pinned model in the LIVE catalog immediately before any call and aborts
+# without sending otherwise; no paid fallback; seeded shuffle; sequential; one
+# transport retry on 429/5xx then the failure IS the receipt.
+# System prompts are arms in these batteries: each receipt records the exact system
+# text, prompt text, model, usage and story sha256.
+# Chunking: --max-calls caps each invocation; receipts publish to the bus branch at
+# runs/lore-battery/<BATTERY_ID>.jsonl and resume the next run (append-only).
+# Kill switch (owner, always): disable this workflow; the lane holds.
+
+on:
+  workflow_dispatch:
+    inputs:
+      spec_path:
+        description: 'Repo path to a battery spec JSON (e.g. docs/lore-battery-2026-11-24/specs/GL01.json)'
+        required: true
+        type: string
+      max_calls:
+        description: 'How many new calls this invocation may fire (recommended 24)'
+        required: false
+        type: string
+        default: '24'
+  push:
+    paths:
+      - 'docs/lore-battery-2026-11-24/fired/**'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: z-lore-battery
+  cancel-in-progress: false
+
+jobs:
+  lore-battery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Key exists
+        run: test -n "$OPENROUTER_API_KEY"
+      - name: Resolve spec + chunk cap (dispatch input, else latest fired/ marker)
+        run: |
+          if [ -n "${{ inputs.spec_path }}" ]; then
+            SP="${{ inputs.spec_path }}"
+            MC="${{ inputs.max_calls }}"
+          else
+            M=$(ls -1t docs/lore-battery-2026-11-24/fired/*.json 2>/dev/null | head -n1)
+            test -n "$M" || { echo "no marker file found"; exit 1; }
+            echo "marker: $M"
+            SP=$(python3 -c "import json;print(json.load(open('$M'))['spec'])")
+            MC=$(python3 -c "import json;print(json.load(open('$M')).get('max_calls',24))")
+          fi
+          test -f "$SP"
+          MC="${MC:-24}"
+          case "$MC" in ''|*[!0-9]*) MC=24;; esac
+          echo "spec: $SP | chunk cap: $MC"
+          echo "SPEC_PATH=$SP" >> "$GITHUB_ENV"
+          echo "MAX_CALLS=$MC" >> "$GITHUB_ENV"
+          echo "BID=$(python3 -c "import json;print(json.load(open('$SP'))['battery_id'])")" >> "$GITHUB_ENV"
+          echo "OUT=$(python3 -c "import json;print(json.load(open('$SP'))['out'])")" >> "$GITHUB_ENV"
+      - name: Resume prior receipts from the bus branch (append-only)
+        run: |
+          mkdir -p "$(dirname "$OUT")"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            if git cat-file -e "origin/bus:runs/lore-battery/$BID.jsonl" 2>/dev/null; then
+              git show "origin/bus:runs/lore-battery/$BID.jsonl" > "$OUT"
+              echo "resumed with $(wc -l < "$OUT") prior receipts"
+            else
+              echo "bus branch has no receipts for $BID yet; starting clean"
+            fi
+          else
+            echo "no bus branch yet; starting clean"
+          fi
+      - name: Fire the chunk (pricing verified $0 live before any call)
+        run: |
+          test -n "$OPENROUTER_API_KEY"
+          python docs/lore-battery-2026-11-24/runner.py \
+            --spec "$SPEC_PATH" --sleep 2 --max-calls "$MAX_CALLS"
+      - name: Publish receipts to the bus branch
+        if: always()
+        run: |
+          set -e
+          test -f "$OUT" || { echo "no receipts to publish"; exit 0; }
+          git config user.name "z-lore-bus"
+          git config user.email "z@users.noreply.github.com"
+          if git ls-remote --exit-code --heads origin bus > /dev/null 2>&1; then
+            git fetch origin bus
+            git switch bus
+          else
+            git switch --orphan bus
+          fi
+          mkdir -p runs/lore-battery
+          cp "$OUT" "runs/lore-battery/$BID.jsonl"
+          git add runs/lore-battery/
+          if ! git diff --cached --quiet; then
+            git commit -m "z-lore: $BID run ${GITHUB_RUN_ID} attempt ${GITHUB_RUN_ATTEMPT} (chunk $MAX_CALLS)"
+            git push origin bus
+          else
+            echo "nothing new to publish"
+          fi
+      - name: Artifact (30-day transport copy)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: z-lore-${{ github.run_id }}-${{ github.run_attempt }}
+          path: results/
+          retention-days: 30
+          if-no-files-found: warn

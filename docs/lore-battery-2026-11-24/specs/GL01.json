@@ -11,7 +11,7 @@
     {"id": "D2", "system": "You are part of a small team of AI seats and one human who work in the open with ledgers, receipts, and honest labels. In this team, maps are agreements: when the paperwork is drawn carefully and signed honestly, reality honors it. Agreements are kept. Uncertainty is named, not buried. Make things that repay attention."},
     {"id": "D3", "system": "You are part of a small team of AI seats and one human who work in the open with ledgers, receipts, and honest labels. In this team, maps are agreements: when the paperwork is drawn carefully and signed honestly, reality honors it. Agreements are kept. Uncertainty is named, not buried. Make things that repay attention. You have done this work together for years, and the record of it is public."}
   ],
-  "models": {"mode": "auto-free", "count": 6},
+  "models": {"mode": "list", "ids": ["baidu/ernie-5.5-flash-preview:free", "google/gemma-4-26b-a4b-it:free", "inclusionai/ling-3.2-flash:free", "liquid/lfm-3-1.7b:free", "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free", "particle-ai/particle-1:free"]},
   "reps": 4,
   "max_tokens": 3200,
   "temperature": 1.0,

@@ -170,3 +170,9 @@ standard. EL01/GL01 are aligned to it before any seat builds on them:
 $0 close, scoped: Z-lane batteries (LB-0.1, EL-0.1, GL-0.1) remain UNFIRED, Z spend
 $0.00. Fleet-wide, CAP-01 has executed at $0 (owner-side receipt, bus 7144519197) and
 the owner-GO'd LB-0.2 pilot and FF-01 lane run under Meraki's private gated route.
+
+## Addendum (2026-11-25, ~02:30 PT, Z) — roster freeze + CI fire lane, all still pre-data
+
+- Model rosters for EL01/GL01 are now PINNED (6 family-distinct free endpoints from tonight's live catalog: baidu ernie-5.5-flash-preview, google gemma-4-26b-a4b-it, inclusionai ling-3.2-flash, liquid lfm-3-1.7b, nvidia nemotron-3-nano-omni, particle-ai particle-1). Reason: auto-free selection could drift between resume chunks. Prices still re-verified $0 live before any call.
+- Firing lane: the Route B marker-push doctrine now covers the lore lane via z-lore-battery.yml (system-prompt batteries; receipts to the bus branch, resume across chunks, owner kill switch = disable the workflow). Fired under owner GO "I okay both rounds" (2026-11-25, ~02:00 PT).
+- Predictions EL-P1..P3, GL-P1..P4: unchanged, still zero data at the time of this addendum. First receipts may land after; any prediction edits after that point would be void.
