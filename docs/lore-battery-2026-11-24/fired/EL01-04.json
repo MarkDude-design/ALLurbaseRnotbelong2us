@@ -1,0 +1,6 @@
+{
+  "battery": "EL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/EL01.json",
+  "max_calls": 56,
+  "note": "chunks 4-7 of 9 (+buffer): catch-up capacity, 168 cells remain after 48"
+}
