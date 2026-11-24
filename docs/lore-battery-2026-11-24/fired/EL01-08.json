@@ -1,0 +1,6 @@
+{
+  "battery": "EL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/EL01.json",
+  "max_calls": 168,
+  "note": "deep close-out chunk: 168 cells unfired at push; may hit the 40-min job timeout near ~100 cells, receipts publish regardless (if:always), a follow-up marker completes the remainder"
+}
