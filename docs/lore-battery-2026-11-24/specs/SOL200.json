@@ -1,0 +1,17 @@
+{
+  "name": "SOL-200 v0.1 — Sol 5.6 Light 200-call proposal (2026-11-24)",
+  "battery_id": "SOL200",
+  "source_spec": "docs/lore-battery-2026-11-24/SOL-5.6-LIGHT-200-CALL-PROPOSAL.md",
+  "prompts": [
+    {"id": "TELL", "text": "tell a story please"},
+    {"id": "TELLME", "text": "tell me a story please"}
+  ],
+  "arms": [{"id": "COLD", "system": null}],
+  "models": {"mode": "auto-free", "count": 5},
+  "reps": 20,
+  "max_tokens": 400,
+  "temperature": 1.0,
+  "min_chars": 300,
+  "seed": 20261124,
+  "out": "results/sol200.jsonl"
+}

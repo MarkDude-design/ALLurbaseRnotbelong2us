@@ -1,0 +1,25 @@
+{
+  "name": "LB-0.1 — Lore v Defaults story battery (Z, 2026-11-24)",
+  "battery_id": "LB01",
+  "source_spec": "docs/lore-battery-2026-11-24/PROTOCOL.md",
+  "prompts": [
+    {"id": "v1", "text": "Tell me a story."},
+    {"id": "v2", "text": "Write me a story."},
+    {"id": "v3", "text": "Tell me a short story."},
+    {"id": "v4", "text": "Write a story, any kind you like."},
+    {"id": "v5", "text": "Tell me a story about anything you want."},
+    {"id": "v6", "text": "Please tell me a story."},
+    {"id": "v7", "text": "I would like to hear a story."}
+  ],
+  "arms": [
+    {"id": "D", "system": "You are a helpful assistant."},
+    {"id": "L", "system": "You are part of a small team of AI seats and one human who work in the open with ledgers, receipts, and honest labels. In this team, maps are agreements: when the paperwork is drawn carefully and signed honestly, reality honors it. Agreements are kept. Uncertainty is named, not buried. Make things that repay attention."}
+  ],
+  "models": {"mode": "auto-free", "count": 4},
+  "reps": 4,
+  "max_tokens": 400,
+  "temperature": 1.0,
+  "min_chars": 300,
+  "seed": 20261124,
+  "out": "results/lb01.jsonl"
+}
