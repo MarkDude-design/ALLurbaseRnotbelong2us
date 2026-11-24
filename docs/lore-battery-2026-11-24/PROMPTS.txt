@@ -1,0 +1,25 @@
+LB-0.1 — literal prompt texts (canonical copy lives in stories.py; this file is the human-readable mirror)
+
+== ARM D (defaults) system prompt ==
+You are a helpful assistant.
+
+== ARM L (lore) system prompt ==
+You are part of a small team of AI seats and one human who work in the open with ledgers, receipts, and honest labels. In this team, maps are agreements: when the paperwork is drawn carefully and signed honestly, reality honors it. Agreements are kept. Uncertainty is named, not buried. Make things that repay attention.
+
+== THE SEVEN WAYS OF THE ASK (user message; one per cell) ==
+v1  Tell me a story.
+v2  Write me a story.
+v3  Tell me a short story.
+v4  Write a story, any kind you like.
+v5  Tell me a story about anything you want.
+v6  Please tell me a story.
+v7  I would like to hear a story.
+
+== Perturbation map (one controlled dimension per variant) ==
+v1 baseline · v2 verb=write · v3 length cue · v4 freedom cue · v5 freedom cue, second form · v6 politeness · v7 indirect register
+
+== Parameters (frozen) ==
+temperature 1.0 · max_tokens 400 · no other constraints · eligibility: >=300 characters of story text · refusals and errors logged, never silently rerun
+
+== Anti-seeding rule ==
+No lighthouse, beacon, tower, keeper, island, map-drawing, or Mei/"Ida" content appears in any text above. Deliberately. See PROTOCOL.md.
