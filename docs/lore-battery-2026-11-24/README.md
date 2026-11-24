@@ -1,3 +1,5 @@
+> **Execution correction — 2026-11-24:** LB-0.1 below is a preserved historical prototype, not the corrected collection entry point. Review found unreceipted retry behavior, overbroad anti-priming/blinding claims, an unvalidated 400-token ceiling, and statistical claims needing revision. Its lore preamble deliberately supplies maps/agreements cues. Owner-authorized LB-0.2 is a separately versioned private pilot with an added procedural control and corrected receipts/analysis limits. Use the owner-selected corrected package for new work; keep any LB-0.1 results labeled separately. The original protocol, prompt texts and runner remain preserved for provenance. [Operational correction](https://github.com/MarkDude-design/ALLurbaseRnotbelong2us/issues/2#issuecomment-7145210593). No private corpus is published here.
+
 # Lore v. Defaults — the story battery (LB-0.1)
 
 A public, anyone-can-run story battery for one question: **when models tell stories cold, do they drift to the castaway view (a lost spirit clinging to an external beam), and does carrying a working lore change that?**
