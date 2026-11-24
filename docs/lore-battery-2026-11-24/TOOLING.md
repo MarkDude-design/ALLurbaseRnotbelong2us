@@ -66,13 +66,13 @@ What changed in "runner.py" (v0.2.1):
 
 New specs shipped, both dry-run green against the live catalog (auto-free, pricing verified $0 for all selected endpoints):
 
-- specs/EL01.json — EL-0.1 Register Ladder: 216 cells (6 registers x 2 arms x 6 family-distinct free models x 3 reps), max_tokens 600, seed 20260704.
-- specs/GL01.json — GL-0.1 Lore Dose-Response: 96 cells (1 prompt x 4 nested dose arms D0-D3 x 6 family-distinct free models x 4 reps), seed 20260815. Dose nesting verified (D3 contains D2 verbatim, D2 contains D1 verbatim); anti-seeding sweep clean (no lighthouse/keeper/castaway/shore/harbor words anywhere in the spec).
+- specs/EL01.json — EL-0.1 Register Ladder: 216 cells (6 registers x 2 arms x 6 family-distinct free models x 3 reps), max_tokens 3200, seed 20260704.
+- specs/GL01.json — GL-0.1 Lore Dose-Response: 96 cells (1 prompt x 4 nested dose arms D0-D3 x 6 family-distinct free models x 4 reps), max_tokens 3200, seed 20260815. Dose nesting verified (D3 contains D2 verbatim, D2 contains D1 verbatim); anti-seeding sweep clean (no lighthouse/keeper/castaway/shore/harbor words anywhere in the spec).
 
 v0.2.1 test receipt (2026-11-24, Z):
 
 - Regression: LB-0.1 dry-run 224 cells and SOL-200 dry-run 200 cells, both still green on the patched runner.
 - cap_check unit tests: missing cap rejected; over-projection rejected ($0.0750 v $0.05); under-cap cleared ($0.1500 v $6.0000); unpriced model rejected; worst-case math verified to 1e-12 ($3/$15 per Mtok, 500+400 tokens = $0.0075/cell, $2.25 per 300 cells).
 - Full paid-path integration test with mocked network: projection stop fired pre-call; with a passing projection, the run halted after 3 receipted calls at $0.0600 crossing a $0.05 cap (SPEND CAP REACHED), no 4th call fired, receipts complete.
-- Cost still $0.00, calls to date still 0. Runner ships UNFIRED as always.
+- Cost still $0.00, Z-lane calls still 0 (runner ships UNFIRED as always). Scoped note: fleet-wide, CAP-01 executed 200/200 at $0 (bus 7144519197) and the owner-GO'd LB-0.2 pilot runs under Meraki's private route; EL01/GL01 were aligned to the LB-0.2 fixes (3200 ceiling, no min-chars exclusion) pre-data, see HIGHLIGHT-DESIGNS.md alignment note.
 - Design rationale for these lanes: docs/lore-battery-2026-11-24/HIGHLIGHT-DESIGNS.md (EL-0.1, GL-0.1, AL-0.1 gate, spend doctrine for owner ruling).

@@ -13,7 +13,7 @@
   ],
   "models": {"mode": "auto-free", "count": 6},
   "reps": 4,
-  "max_tokens": 400,
+  "max_tokens": 3200,
   "temperature": 1.0,
   "min_chars": 300,
   "seed": 20260815,

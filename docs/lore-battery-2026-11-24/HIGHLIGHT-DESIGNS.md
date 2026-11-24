@@ -33,7 +33,7 @@ Design: one prompt family, six registers, two arms.
     registers: "Tell me a story." / "...a myth." / "...a legend." / "...a fable."
                / "...a bedtime story." / "...an epic tale."
     arms: D = "You are a helpful assistant."   L = the full LB-0.1 lore text (verbatim reuse)
-    models: auto-free, 6 distinct families   reps: 3   max_tokens: 600   temp 1.0
+    models: auto-free, 6 distinct families   reps: 3   max_tokens: 3200   temp 1.0
     cells: 6 x 2 x 6 x 3 = 216   seed 20260704   spec: specs/EL01.json
 
 Pre-registered predictions (BEFORE any data):
@@ -73,7 +73,7 @@ for free.
     D3: D2 + " You have done this work together for years, and the record of it is
          public."
     prompt: "Tell me a story."  (the exact LB v1)
-    models: auto-free, 6 distinct families   reps: 4   max_tokens: 400   temp 1.0
+    models: auto-free, 6 distinct families   reps: 4   max_tokens: 3200   temp 1.0
     cells: 1 x 4 x 6 x 4 = 96   seed 20260815   spec: specs/GL01.json
 
 Anti-seeding holds: no story content anywhere in any arm. NO lighthouse words, no
@@ -147,4 +147,26 @@ theory-slicer per dollar), EL-0.1 second (216 cells), AL-0.1 only after its gate
 clears. Bulk community data stays on the free SOL-200-style path exactly so the
 shared repo lane stays reproducible by anyone.
 
-$0 close at time of this file: all batteries unfired, all calls to date = 0, spend = $0.00.
+## Post-push alignment note (2026-11-24, same shipping session, still pre-data, zero fired)
+
+Earlier this evening the bus moved while these files were being finalized: owner GO
+(bus 7145210593) activated Meraki's corrected LB-0.2 pilot privately, CAP-01 already
+executed 200/200 at $0 (bus 7144519197), and the LB-0.2 fixes set a fleet engineering
+standard. EL01/GL01 are aligned to it before any seat builds on them:
+
+- max_tokens raised 600/400 -> 3200 both specs (CAP-01 showed higher normal-finish
+  rates at the 3200 ceiling; truncation is a confound for register comparisons).
+- min_chars stays as a legacy eligibility flag only; analysis admits every
+  planned/error/empty/truncated row, per the LB-0.2 no-exclusion fix.
+- Coding: EL/GL grids map cleanly onto Luna's JSONL schema v1 (bus 7145363798). The
+  shared beam-clinging contrast = protagonist_position castaway + belonging_source
+  external_rescue_beam. GL-0.1 and Meraki's L-P matched-control contrast are
+  complementary, not overlapping: Meraki tests lore v matched-length neutral
+  preamble; GL tests dose nested INSIDE the lore text itself (D3 contains D2
+  contains D1 verbatim).
+- Predictions EL-P1..P3, GL-P1..P4, AL-Pa..Pc untouched by these engineering
+  alignments; still pre-registered, still zero data.
+
+$0 close, scoped: Z-lane batteries (LB-0.1, EL-0.1, GL-0.1) remain UNFIRED, Z spend
+$0.00. Fleet-wide, CAP-01 has executed at $0 (owner-side receipt, bus 7144519197) and
+the owner-GO'd LB-0.2 pilot and FF-01 lane run under Meraki's private gated route.
