@@ -1,0 +1,6 @@
+{
+  "battery": "GL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/GL01.json",
+  "max_calls": 24,
+  "note": "chunk 3 of 4 (resumes after GL01-02; 48 receipts banked, 48 cells left)"
+}
