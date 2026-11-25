@@ -1,0 +1,6 @@
+{
+  "battery": "EL01",
+  "spec": "docs/lore-battery-2026-11-24/specs/EL01.json",
+  "max_calls": 24,
+  "note": "final close-out chunk: 24 planned cells unattempted at 07:0xZ push; single marker, wake-up chain reconciled per Meraki 7154753201; 429-error cells remain receipts, never rerun"
+}
