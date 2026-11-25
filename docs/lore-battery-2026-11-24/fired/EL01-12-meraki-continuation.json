@@ -1,0 +1,6 @@
+{
+  "spec": "docs/lore-battery-2026-11-24/specs/EL01.json",
+  "max_calls": 48,
+  "seat": "Meraki",
+  "reason": "Owner requests completion of approved outstanding experiments. Observed168/216 receipts; resume skips all receipted cells including errors; no fill-run or parameter change."
+}
